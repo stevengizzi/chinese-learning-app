@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { VocabularyData } from '../types/vocabulary';
-import type { Exercise, ExerciseAttempt } from '../types/exercise';
+import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode } from '../types/exercise';
 import type { Session } from '../types/session';
-import { generateExercise } from '../lib/exerciseGenerator';
+import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 
-type Screen = 'exercise' | 'feedback' | 'report';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -21,30 +21,43 @@ interface ExerciseState {
 
 type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
-  | { type: 'START_SESSION' }
+  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
   | { type: 'NEXT_EXERCISE' }
   | { type: 'REQUEST_REPORT' }
-  | { type: 'NEW_SESSION' }
-  | { type: 'SET_ERROR'; payload: string };
+  | { type: 'BACK_TO_MENU' }
+  | { type: 'SET_ERROR'; payload: string }
+  | { type: 'FINISH_LOADING' };
 
 const initialState: ExerciseState = {
   vocabulary: null,
   currentSession: null,
   currentExercise: null,
   currentAttempt: null,
-  screen: 'exercise',
+  screen: 'menu',
   isLoading: true,
   error: null
 };
 
-function generateNewExercise(vocabulary: VocabularyData, recentIds: string[]): Exercise {
-  return generateExercise(vocabulary.active, recentIds);
+function generateNewExercise(
+  vocabulary: VocabularyData,
+  exerciseType: ExerciseType,
+  playMode: PlayMode,
+  recentIds: string[],
+  remainingWords: string[]
+): Exercise {
+  return generateExercise(vocabulary.active, exerciseType, playMode, recentIds, remainingWords);
 }
 
-function createNewSession(): Session {
+function createNewSession(exerciseType: ExerciseType, playMode: PlayMode, vocabularySize: number): Session {
+  const remainingWords = playMode === 'complete-all'
+    ? shuffleArray(Array.from({ length: vocabularySize }, (_, i) => i.toString()))
+    : undefined;
+
   return {
     id: `session-${Date.now()}`,
+    exerciseType,
+    playMode,
     startTime: Date.now(),
     attempts: [],
     statistics: {
@@ -55,7 +68,8 @@ function createNewSession(): Session {
       toneErrors: 0,
       syllableErrors: 0,
       commonMistakes: {}
-    }
+    },
+    remainingWords
   };
 }
 
@@ -63,25 +77,34 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
   switch (action.type) {
     case 'SET_VOCABULARY': {
       const vocabulary = action.payload;
-      const session = createNewSession();
-      const recentIds: string[] = [];
-      const exercise = generateNewExercise(vocabulary, recentIds);
 
       return {
         ...state,
         vocabulary,
-        currentSession: session,
-        currentExercise: exercise,
         isLoading: false,
-        screen: 'exercise'
+        screen: 'menu'
       };
     }
 
-    case 'START_SESSION': {
+    case 'START_SESSION_WITH_CONFIG': {
       if (!state.vocabulary) return state;
 
-      const session = createNewSession();
-      const exercise = generateNewExercise(state.vocabulary, []);
+      const { exerciseType, playMode } = action.payload;
+      const vocabularyWords = state.vocabulary.active.map(v => v.word);
+      const remainingWords = playMode === 'complete-all'
+        ? shuffleArray(vocabularyWords)
+        : undefined;
+
+      const session = createNewSession(exerciseType, playMode, state.vocabulary.active.length);
+      session.remainingWords = remainingWords;
+
+      const exercise = generateNewExercise(
+        state.vocabulary,
+        exerciseType,
+        playMode,
+        [],
+        remainingWords || []
+      );
 
       return {
         ...state,
@@ -98,18 +121,35 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       const attempt = gradeAnswer(
         action.payload,
         state.currentExercise.correctPinyin,
-        state.currentExercise.sentence,
+        state.currentExercise.prompt,
         state.currentExercise.id
       );
 
       const updatedAttempts = [...state.currentSession.attempts, attempt];
       const updatedStatistics = generateSessionStatistics(updatedAttempts);
 
+      // Remove current word from remaining words in complete-all mode
+      let updatedRemainingWords = state.currentSession.remainingWords;
+      if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords) {
+        updatedRemainingWords = updatedRemainingWords.slice(1);
+      }
+
       const updatedSession: Session = {
         ...state.currentSession,
         attempts: updatedAttempts,
-        statistics: updatedStatistics
+        statistics: updatedStatistics,
+        remainingWords: updatedRemainingWords
       };
+
+      // If complete-all mode and no more words, go to report
+      if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords?.length === 0) {
+        return {
+          ...state,
+          currentSession: updatedSession,
+          currentAttempt: attempt,
+          screen: 'report'
+        };
+      }
 
       return {
         ...state,
@@ -127,7 +167,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         .slice(-5)
         .map(a => a.exerciseId.split('-')[0]); // Extract word from exercise ID
 
-      const exercise = generateNewExercise(state.vocabulary, recentIds);
+      const exercise = generateNewExercise(
+        state.vocabulary,
+        state.currentSession.exerciseType,
+        state.currentSession.playMode,
+        recentIds,
+        state.currentSession.remainingWords || []
+      );
 
       return {
         ...state,
@@ -144,18 +190,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       };
     }
 
-    case 'NEW_SESSION': {
-      if (!state.vocabulary) return state;
-
-      const session = createNewSession();
-      const exercise = generateNewExercise(state.vocabulary, []);
-
+    case 'BACK_TO_MENU': {
       return {
         ...state,
-        currentSession: session,
-        currentExercise: exercise,
+        currentSession: null,
+        currentExercise: null,
         currentAttempt: null,
-        screen: 'exercise'
+        screen: 'menu'
       };
     }
 
@@ -163,6 +204,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         error: action.payload,
+        isLoading: false
+      };
+    }
+
+    case 'FINISH_LOADING': {
+      return {
+        ...state,
         isLoading: false
       };
     }

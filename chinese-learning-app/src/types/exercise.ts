@@ -1,10 +1,14 @@
 import type { VocabularyEntry } from './vocabulary';
 
+export type ExerciseType = 'character-to-pinyin' | 'meaning-to-pinyin';
+export type PlayMode = 'endless' | 'complete-all';
+
 export interface Exercise {
   id: string;
-  sentence: string;           // Chinese characters
+  type: ExerciseType;
+  prompt: string;             // What to show (character or meaning)
   correctPinyin: string;      // Correct tone-number pinyin
-  words: VocabularyEntry[];   // Words used in sentence
+  words: VocabularyEntry[];   // Words used in exercise
 }
 
 export interface ErrorDetail {

@@ -29,24 +29,37 @@ export function ExerciseScreen() {
     dispatch({ type: 'REQUEST_REPORT' });
   };
 
+  const handleBackToMenu = () => {
+    dispatch({ type: 'BACK_TO_MENU' });
+  };
+
   const exerciseNumber = state.currentSession?.attempts.length || 0;
+  const remainingWords = state.currentSession?.remainingWords?.length || 0;
+  const isCompleteAllMode = state.currentSession?.playMode === 'complete-all';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="w-full max-w-4xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="flex justify-between items-center mb-8">
             <h2 className="text-gray-500 text-sm font-medium">
               Exercise {exerciseNumber + 1}
+              {isCompleteAllMode && ` • ${remainingWords} remaining`}
             </h2>
+            <button
+              onClick={handleBackToMenu}
+              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+            >
+              ← Back to Menu
+            </button>
           </div>
 
-          {/* Character Display */}
+          {/* Prompt Display */}
           <div className="mb-8">
             <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-12 text-center">
-              <div className="text-6xl md:text-7xl font-normal text-gray-900">
-                {state.currentExercise?.sentence}
+              <div className="text-[100px] md:text-[150px] leading-tight font-normal text-gray-900 break-words">
+                {state.currentExercise?.prompt}
               </div>
             </div>
           </div>
@@ -76,7 +89,7 @@ export function ExerciseScreen() {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button
                 type="submit"
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!answer.trim()}
               >
                 Submit Answer
@@ -91,16 +104,13 @@ export function ExerciseScreen() {
             </div>
           </form>
 
-          {/* Vocabulary Info */}
-          {state.vocabulary && (
+          {/* Exercise Type Info */}
+          {state.currentSession && (
             <div className="mt-8 pt-6 border-t border-gray-200">
               <p className="text-center text-sm text-gray-500">
-                Active vocabulary: {state.vocabulary.active.length} words
-                {state.vocabulary.metadata.lastUpdated && (
-                  <span className="ml-2">
-                    • Updated: {state.vocabulary.metadata.lastUpdated}
-                  </span>
-                )}
+                Mode: {state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' : 'Meaning → Pinyin'}
+                {' • '}
+                {state.currentSession.playMode === 'endless' ? 'Endless Practice' : 'Complete All'}
               </p>
             </div>
           )}

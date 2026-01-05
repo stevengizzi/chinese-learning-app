@@ -8,6 +8,10 @@ export function FeedbackScreen() {
     dispatch({ type: 'NEXT_EXERCISE' });
   };
 
+  const handleBackToMenu = () => {
+    dispatch({ type: 'BACK_TO_MENU' });
+  };
+
   useKeyboardShortcuts({
     onEnter: handleNext
   });
@@ -24,15 +28,25 @@ export function FeedbackScreen() {
   const paddedUser = userAnswer.padEnd(maxLength);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="w-full max-w-4xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          {/* Back Button */}
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleBackToMenu}
+              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+            >
+              ← Back to Menu
+            </button>
+          </div>
+
           {/* Score Badge */}
           <div className="text-center mb-8">
             {isCorrect ? (
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-6 py-3 rounded-full text-lg font-semibold">
                 <span className="text-2xl">✅</span>
-                <span>Perfect! {score.correct} / {score.total} correct</span>
+                <span> Perfect! {score.correct} / {score.total} correct</span>
               </div>
             ) : (
               <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-6 py-3 rounded-full text-lg font-semibold">
@@ -48,7 +62,7 @@ export function FeedbackScreen() {
             <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 font-mono text-lg">
               <div className="mb-2">
                 <span className={`${isCorrect ? 'text-green-700' : 'text-gray-700'} font-medium`}>
-                  Correct:
+                  Correct Answer: 
                 </span>
                 <span className={`ml-4 ${isCorrect ? 'text-green-700' : 'text-gray-900'}`}>
                   {paddedCorrect}
@@ -56,7 +70,7 @@ export function FeedbackScreen() {
               </div>
               <div>
                 <span className={`${isCorrect ? 'text-green-700' : 'text-red-700'} font-medium`}>
-                  Yours:
+                  Your Response : 
                 </span>
                 <span className={`ml-7 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
                   {paddedUser}

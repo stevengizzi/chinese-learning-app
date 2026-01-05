@@ -4,8 +4,8 @@ import { generateSuggestions } from '../lib/reportGenerator';
 export function ReportScreen() {
   const { state, dispatch } = useExercise();
 
-  const handleNewSession = () => {
-    dispatch({ type: 'NEW_SESSION' });
+  const handleBackToMenu = () => {
+    dispatch({ type: 'BACK_TO_MENU' });
   };
 
   const handleContinue = () => {
@@ -37,9 +37,19 @@ export function ReportScreen() {
   const hasExercises = statistics.totalExercises > 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-3xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+      <div className="w-full max-w-4xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          {/* Back Button */}
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleBackToMenu}
+              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+            >
+              ← Back to Menu
+            </button>
+          </div>
+
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
@@ -153,26 +163,26 @@ export function ReportScreen() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <button
-              onClick={handleNewSession}
+              onClick={handleBackToMenu}
               className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
             >
-              Start New Session
+              Back to Main Menu
             </button>
+            {hasExercises && state.currentSession?.playMode === 'endless' && (
+              <button
+                onClick={handleContinue}
+                className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+              >
+                Continue Session
+              </button>
+            )}
             {hasExercises && (
-              <>
-                <button
-                  onClick={handleContinue}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
-                >
-                  Continue Session
-                </button>
-                <button
-                  onClick={handleExportData}
-                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
-                >
-                  Export Data
-                </button>
-              </>
+              <button
+                onClick={handleExportData}
+                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+              >
+                Export Data
+              </button>
             )}
           </div>
         </div>

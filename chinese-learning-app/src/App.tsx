@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ExerciseProvider, useExercise } from './contexts/ExerciseContext';
 import { WelcomeScreen } from './components/WelcomeScreen';
+import { MainMenu } from './components/MainMenu';
 import { ExerciseScreen } from './components/ExerciseScreen';
 import { FeedbackScreen } from './components/FeedbackScreen';
 import { ReportScreen } from './components/ReportScreen';
@@ -18,7 +19,11 @@ function AppContent() {
         dispatch({ type: 'SET_VOCABULARY', payload: vocabulary });
       } catch (error) {
         console.error('Failed to load saved vocabulary:', error);
+        dispatch({ type: 'SET_ERROR', payload: 'Failed to load saved vocabulary' });
       }
+    } else {
+      // No saved vocabulary, stop loading
+      dispatch({ type: 'FINISH_LOADING' });
     }
   }, [dispatch]);
 
@@ -39,16 +44,19 @@ function AppContent() {
   // Render screen based on current state
   return (
     <>
+      {state.screen === 'menu' && <MainMenu />}
       {state.screen === 'exercise' && <ExerciseScreen />}
       {state.screen === 'feedback' && <FeedbackScreen />}
       {state.screen === 'report' && <ReportScreen />}
 
-      {/* Floating vocabulary update button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <div className="bg-white rounded-xl shadow-lg p-3">
-          <VocabularyUploader />
+      {/* Floating vocabulary update button - show only on menu and report screens */}
+      {(state.screen === 'menu' || state.screen === 'report') && (
+        <div className="fixed bottom-6 right-6 z-50">
+          <div className="bg-white rounded-xl shadow-lg p-3">
+            <VocabularyUploader />
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
