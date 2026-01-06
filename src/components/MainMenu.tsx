@@ -35,8 +35,13 @@ export function MainMenu() {
     },
     {
       mode: 'complete-all',
-      name: 'Complete All    ',
+      name: 'Complete All',
       description: 'Each word once, then session ends'
+    },
+    {
+      mode: 'drill',
+      name: 'Drill Mode',
+      description: 'Repeat each word until answered correctly'
     }
   ];
 

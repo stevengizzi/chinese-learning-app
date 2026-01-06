@@ -57,15 +57,15 @@ export function ExerciseScreen() {
 
           {/* Prompt Display */}
           <div className="mb-8">
-            <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-12 text-center">
-              <div className="text-[100px] md:text-[150px] leading-tight font-normal text-gray-900 break-words">
+            <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-12 text-center mx-5">
+              <div className="text-[80px] md:text-[120px] leading-tight font-normal text-gray-900 break-words">
                 {state.currentExercise?.prompt}
               </div>
             </div>
           </div>
 
           {/* Instruction */}
-          <div className="mb-6">
+          <div className="mb-6 mx-5">
             <p className="text-gray-700 text-lg">
               👉 Type the tone-number pinyin:
             </p>
@@ -73,20 +73,22 @@ export function ExerciseScreen() {
 
           {/* Input Form */}
           <form onSubmit={handleSubmit}>
-            <input
-              ref={inputRef}
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all font-mono"
-              placeholder="e.g., wo3 ming2 bai2"
-              autoComplete="off"
-              spellCheck="false"
-              autoCorrect="off"
-            />
+            <div className="flex justify-center mx-5">
+              <input
+                ref={inputRef}
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                className="w-1/2 px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all font-mono"
+                placeholder="e.g., wo3 ming2 bai2"
+                autoComplete="off"
+                spellCheck="false"
+                autoCorrect="off"
+              />
+            </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 mx-5">
               <button
                 type="submit"
                 className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg disabled:opacity-50 disabled:cursor-not-allowed"

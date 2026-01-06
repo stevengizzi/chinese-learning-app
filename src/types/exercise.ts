@@ -1,7 +1,7 @@
 import type { VocabularyEntry } from './vocabulary';
 
 export type ExerciseType = 'character-to-pinyin' | 'meaning-to-pinyin';
-export type PlayMode = 'endless' | 'complete-all';
+export type PlayMode = 'endless' | 'complete-all' | 'drill';
 
 export interface Exercise {
   id: string;

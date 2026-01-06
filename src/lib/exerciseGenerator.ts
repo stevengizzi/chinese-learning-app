@@ -14,7 +14,7 @@ export function generateExercise(
 
   let selectedEntry: VocabularyEntry;
 
-  if (playMode === 'complete-all' && remainingWords.length > 0) {
+  if ((playMode === 'complete-all' || playMode === 'drill') && remainingWords.length > 0) {
     // Pick from remaining words
     const wordToUse = remainingWords[0];
     const entry = vocabulary.find(v => v.word === wordToUse);

@@ -91,7 +91,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const { exerciseType, playMode } = action.payload;
       const vocabularyWords = state.vocabulary.active.map(v => v.word);
-      const remainingWords = playMode === 'complete-all'
+      const remainingWords = (playMode === 'complete-all' || playMode === 'drill')
         ? shuffleArray(vocabularyWords)
         : undefined;
 
@@ -128,10 +128,26 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       const updatedAttempts = [...state.currentSession.attempts, attempt];
       const updatedStatistics = generateSessionStatistics(updatedAttempts);
 
-      // Remove current word from remaining words in complete-all mode
+      // Handle remaining words based on play mode
       let updatedRemainingWords = state.currentSession.remainingWords;
+      const currentWord = state.currentExercise.words[0].word;
+
       if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords) {
+        // Remove current word (always move forward)
         updatedRemainingWords = updatedRemainingWords.slice(1);
+      } else if (state.currentSession.playMode === 'drill' && updatedRemainingWords) {
+        // Remove current word first
+        updatedRemainingWords = updatedRemainingWords.slice(1);
+
+        // If answer was incorrect, shuffle it back into the remaining words
+        if (attempt.score.correct !== attempt.score.total) {
+          const insertPosition = Math.floor(Math.random() * (updatedRemainingWords.length + 1));
+          updatedRemainingWords = [
+            ...updatedRemainingWords.slice(0, insertPosition),
+            currentWord,
+            ...updatedRemainingWords.slice(insertPosition)
+          ];
+        }
       }
 
       const updatedSession: Session = {
@@ -141,8 +157,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         remainingWords: updatedRemainingWords
       };
 
-      // If complete-all mode and no more words, go to report
-      if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords?.length === 0) {
+      // If complete-all or drill mode and no more words, go to report
+      if ((state.currentSession.playMode === 'complete-all' || state.currentSession.playMode === 'drill') && updatedRemainingWords?.length === 0) {
         return {
           ...state,
           currentSession: updatedSession,
