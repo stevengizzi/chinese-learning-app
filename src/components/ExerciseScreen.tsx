@@ -39,10 +39,16 @@ export function ExerciseScreen() {
   const isDrillMode = state.currentSession?.playMode === 'drill';
   const showRemainingCount = isCompleteAllMode || isDrillMode;
 
-  // Helper function to check if prompt contains Chinese characters
+  // Helper function to check if prompt is primarily Chinese characters
+  // (not just containing Chinese, but being primarily Chinese)
   const isChinesePrompt = (prompt: string | undefined): boolean => {
     if (!prompt) return false;
-    // Check if prompt contains any Chinese characters (Unicode range for CJK)
+    // If prompt contains parentheses with Chinese inside (e.g., "líng (零)"), it's pinyin disambiguation
+    // In this case, don't use large font
+    if (/\([^\)]*[\u4e00-\u9fff][^\)]*\)/.test(prompt)) {
+      return false;
+    }
+    // Check if prompt contains Chinese characters (Unicode range for CJK)
     return /[\u4e00-\u9fff]/.test(prompt);
   };
 

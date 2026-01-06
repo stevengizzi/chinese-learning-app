@@ -87,7 +87,7 @@ notes:
 | 气     | qi4              | air, steam, qi (vital energy)                                                   |
 | 前天   | qian2 tian1      | the day before yesterday                                                        |
 | 一块儿 | yi1 kuai4 r      | one piece, together, one (dollar or unit of money)                               |
-| 绍     | shao3            | connection (used in compound words)                                             |
+| 绍     | shao4            | connection (used in compound words)                                             |
 | 星     | xing1            | star, satellite                                                                 |
 | 开     | kai1             | to open, to turn on, to operate (a vehicle)                                     |
 | 累     | lei4             | tired                                                                           |
@@ -122,3 +122,25 @@ notes:
 | 本     | ben3             | root, origin                                                                    |
 | 女人   | nü3 ren          | woman, women                                                                    |
 | 对     | dui4             | correct, towards, match                                                         |
+| 哪儿 | na3 er | where? |
+| 外语 | wai4 yu3 | foreign language |
+| 动 | dong4 | to move |
+| 风 | feng1 | wind |
+| 好听 | hao3 ting1 | pleasant to hear |
+| 下次 | xia4 ci4 | next time |
+| 店 | dian4 | shop, store |
+| 白 | bai2 | white |
+| 喜 | xi3 | happy, delighted |
+| 现 | xian4 | to appear, present, now, existing, current |
+| 送 | song4 | to deliver, to send, to give (as a present) |
+| 别人 | bie2 ren | other people |
+| 小学生 | xiao3 xue2 sheng1 | (primary school) student |
+| 系 | xi4 | to tie (rope, a tie, etc), to wear (a seatbelt) |
+| 牛奶 | niu2 nai3 | (cow) milk |
+| 六 | liu4 | six |
+| 条 | tiao2 | item, strip, classifier for long thin things |
+| 小孩儿 | xiao3 hai2 r | child |
+| 有名 | you3 ming2 | famous, well-known |
+| 名字 | ming2 zi | name |
+| 电话 | dian4 hua4 | telephone |
+| 工 | gong1 | work |

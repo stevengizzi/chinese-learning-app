@@ -73,6 +73,15 @@ export function generateExercise(
     }
   }
 
+  // Check if we need to disambiguate English meanings
+  // If the prompt is a meaning and there are multiple entries with the same meaning, add the character
+  if (prompt === selectedEntry.meaning) {
+    const entriesWithSameMeaning = vocabulary.filter(v => v.meaning === selectedEntry.meaning);
+    if (entriesWithSameMeaning.length > 1) {
+      prompt = `${selectedEntry.meaning} (${selectedEntry.word})`;
+    }
+  }
+
   const exerciseId = `${selectedEntry.word}-${Date.now()}`;
 
   // Determine correct answer based on exercise type
