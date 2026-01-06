@@ -15,8 +15,10 @@ export function WelcomeScreen() {
             </p>
           </div>
 
-          {/* Instructions */}
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8">
+          {/* Centered Content Container */}
+          <div className="flex flex-col items-center">
+            {/* Instructions */}
+            <div className="w-1/2 bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">How it works:</h2>
             <ol className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
@@ -36,12 +38,12 @@ export function WelcomeScreen() {
                 <span>Track your progress with detailed session reports</span>
               </li>
             </ol>
-          </div>
+            </div>
 
-          {/* Features */}
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Features:</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Features */}
+            <div className="w-1/2 mb-8">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">Features:</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
                 <span className="text-2xl">✅</span>
                 <div>
@@ -70,20 +72,21 @@ export function WelcomeScreen() {
                   <div className="text-sm text-gray-600">Detailed performance analysis</div>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
 
-          {/* Upload Button */}
-          <div className="mb-6">
-            <VocabularyUploader />
-          </div>
+            {/* Upload Button */}
+            <div className="w-1/4 mb-6">
+              <VocabularyUploader />
+            </div>
 
-          {/* Format Info */}
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
-            <p className="text-sm text-gray-600 text-center">
-              <span className="font-semibold">Note:</span> Your vocabulary file should be a Markdown file
-              with an "Active Vocabulary" section containing a table with columns: Word, Pinyin, Meaning
-            </p>
+            {/* Format Info */}
+            <div className="w-1/2 bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <p className="text-sm text-gray-600 text-center">
+                <span className="font-semibold">Note:</span> Your vocabulary file should be a Markdown file
+                with an "Active Vocabulary" section containing a table with columns: Word, Pinyin, Meaning
+              </p>
+            </div>
           </div>
         </div>
       </div>

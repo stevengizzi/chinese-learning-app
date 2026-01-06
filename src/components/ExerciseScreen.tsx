@@ -43,22 +43,24 @@ export function ExerciseScreen() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-gray-500 text-sm font-medium">
-              Exercise {exerciseNumber + 1}
-              {showRemainingCount && ` • ${remainingWords} remaining`}
-            </h2>
-            <button
-              onClick={handleBackToMenu}
-              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
-            >
-              ← Back to Menu
-            </button>
-          </div>
+          {/* Centered Content Container */}
+          <div className="flex flex-col items-center">
+            {/* Header */}
+            <div className="w-1/2 flex justify-between items-center mb-8">
+              <h2 className="text-gray-500 text-sm font-medium">
+                Exercise {exerciseNumber + 1}
+                {showRemainingCount && ` • ${remainingWords} remaining`}
+              </h2>
+              <button
+                onClick={handleBackToMenu}
+                className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+              >
+                ← Back to Menu
+              </button>
+            </div>
 
-          {/* Prompt Display */}
-          <div className="mb-8 flex justify-center">
+            {/* Prompt Display */}
+            <div className="mb-8 flex justify-center">
             <div className="w-1/2 bg-gray-50 border-2 border-gray-200 rounded-xl p-12 text-center">
               <div className="text-[80px] md:text-[120px] leading-tight font-normal text-gray-900 break-words">
                 {state.currentExercise?.prompt}
@@ -108,18 +110,19 @@ export function ExerciseScreen() {
                 </button>
               </div>
             </div>
-          </form>
+            </form>
 
-          {/* Exercise Type Info */}
-          {state.currentSession && (
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-center text-sm text-gray-500">
-                Mode: {state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' : 'Meaning → Pinyin'}
-                {' • '}
-                {state.currentSession.playMode === 'endless' ? 'Endless Practice' : 'Complete All'}
-              </p>
-            </div>
-          )}
+            {/* Exercise Type Info */}
+            {state.currentSession && (
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <p className="text-center text-sm text-gray-500">
+                  Mode: {state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' : 'Meaning → Pinyin'}
+                  {' • '}
+                  {state.currentSession.playMode === 'endless' ? 'Endless Practice' : state.currentSession.playMode === 'complete-all' ? 'Complete All' : 'Drill Mode'}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
