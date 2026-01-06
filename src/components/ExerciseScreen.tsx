@@ -48,6 +48,10 @@ export function ExerciseScreen() {
 
   const prompt = state.currentExercise?.prompt;
   const useLargeFont = isChinesePrompt(prompt);
+  const isEnglishExercise = state.currentSession?.exerciseType?.endsWith('-english');
+  const instructionText = isEnglishExercise
+    ? '👉 Type the English meaning:'
+    : '👉 Type the tone-number pinyin:';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
@@ -81,7 +85,7 @@ export function ExerciseScreen() {
           {/* Instruction */}
           <div className="mb-6 flex justify-center">
             <p className="text-gray-700 dark:text-gray-300 text-lg text-center">
-              👉 Type the tone-number pinyin:
+              {instructionText}
             </p>
           </div>
 
@@ -126,7 +130,14 @@ export function ExerciseScreen() {
           {state.currentSession && (
             <div className="mt-8 pt-6">
               <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-                Mode: {state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' : state.currentSession.exerciseType === 'english-to-pinyin' ? 'English → Pinyin' : 'Shuffled (Characters & English) → Pinyin'}
+                Mode: {
+                  state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' :
+                  state.currentSession.exerciseType === 'english-to-pinyin' ? 'English → Pinyin' :
+                  state.currentSession.exerciseType === 'shuffled' ? 'Shuffled (Characters & English) → Pinyin' :
+                  state.currentSession.exerciseType === 'character-to-english' ? 'Character → English' :
+                  state.currentSession.exerciseType === 'pinyin-to-english' ? 'Pinyin → English' :
+                  'Shuffled (Characters & Pinyin) → English'
+                }
                 {' • '}
                 {state.currentSession.playMode === 'endless' ? 'Endless Practice' : state.currentSession.playMode === 'complete-all' ? 'Complete All' : 'Drill Mode'}
               </p>

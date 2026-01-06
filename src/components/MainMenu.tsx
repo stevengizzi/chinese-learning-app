@@ -34,6 +34,24 @@ export function MainMenu() {
       title: 'Shuffled (Characters & English) → Pinyin',
       description: 'Random mix of Chinese characters and English meanings',
       icon: '🔀'
+    },
+    {
+      type: 'character-to-english' as ExerciseType,
+      title: 'Character → English',
+      description: 'View Chinese characters and type their English meanings',
+      icon: '字'
+    },
+    {
+      type: 'pinyin-to-english' as ExerciseType,
+      title: 'Pinyin → English',
+      description: 'View pinyin and type their English meanings',
+      icon: '🔤'
+    },
+    {
+      type: 'shuffled-to-english' as ExerciseType,
+      title: 'Shuffled (Characters & Pinyin) → English',
+      description: 'Random mix of Chinese characters and pinyin',
+      icon: '🔀'
     }
   ];
 

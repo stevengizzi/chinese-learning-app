@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 
 export function ViewVocabulary() {
   const { state, dispatch } = useExercise();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleBackToMenu = () => {
     dispatch({ type: 'BACK_TO_MENU' });
@@ -15,6 +17,18 @@ export function ViewVocabulary() {
   const sortedVocabulary = [...state.vocabulary.active].sort((a, b) =>
     a.pinyin.localeCompare(b.pinyin)
   );
+
+  // Filter vocabulary based on search query
+  const filteredVocabulary = sortedVocabulary.filter((entry) => {
+    if (!searchQuery) return true;
+
+    const query = searchQuery.toLowerCase();
+    const word = entry.word.toLowerCase();
+    const pinyin = entry.pinyin.toLowerCase();
+    const meaning = entry.meaning.toLowerCase();
+
+    return word.includes(query) || pinyin.includes(query) || meaning.includes(query);
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
@@ -33,11 +47,28 @@ export function ViewVocabulary() {
             </div>
           </div>
 
+          {/* Search Field */}
+          <div className="mb-6 flex justify-center">
+            <div className="w-1/2">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by character, pinyin, or meaning..."
+                className="w-full px-4 py-3 text-lg border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all"
+                autoComplete="off"
+                spellCheck="false"
+              />
+            </div>
+          </div>
+
           {/* Vocabulary count */}
           <div className="mb-6 flex justify-center">
             <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
               <p className="text-center text-sm text-blue-800 dark:text-blue-200">
-                <span className="font-semibold">Total words:</span> {sortedVocabulary.length}
+                <span className="font-semibold">
+                  {searchQuery ? `Showing ${filteredVocabulary.length} of ${sortedVocabulary.length} words` : `Total words: ${sortedVocabulary.length}`}
+                </span>
               </p>
             </div>
           </div>
@@ -53,16 +84,24 @@ export function ViewVocabulary() {
                 </tr>
               </thead>
               <tbody>
-                {sortedVocabulary.map((entry, index) => (
-                  <tr
-                    key={index}
-                    className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
-                  >
-                    <td className="p-4 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
-                    <td className="p-4 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
-                    <td className="p-4 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                {filteredVocabulary.length > 0 ? (
+                  filteredVocabulary.map((entry, index) => (
+                    <tr
+                      key={index}
+                      className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    >
+                      <td className="p-4 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
+                      <td className="p-4 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
+                      <td className="p-4 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={3} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                      No matching vocabulary found
+                    </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>

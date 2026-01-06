@@ -5,6 +5,7 @@ import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode } from '../types
 import type { Session } from '../types/session';
 import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
+import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary';
@@ -92,12 +93,16 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const { exerciseType, playMode } = action.payload;
 
-      // For shuffled mode, create entries for both word and meaning
+      // Create remaining words list based on exercise type
       let remainingWords: string[] | undefined;
       if (playMode === 'complete-all' || playMode === 'drill') {
         if (exerciseType === 'shuffled') {
           // Create array with both word and meaning for each vocabulary entry
           const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
+          remainingWords = shuffleArray(allEntries);
+        } else if (exerciseType === 'shuffled-to-english') {
+          // Create array with both word and pinyin for each vocabulary entry
+          const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.pinyin]);
           remainingWords = shuffleArray(allEntries);
         } else {
           // For other modes, just use words
@@ -128,12 +133,21 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'SUBMIT_ANSWER': {
       if (!state.currentExercise || !state.currentSession) return state;
 
-      const attempt = gradeAnswer(
-        action.payload,
-        state.currentExercise.correctPinyin,
-        state.currentExercise.prompt,
-        state.currentExercise.id
-      );
+      // Use appropriate grader based on exercise type
+      const isEnglishExercise = state.currentExercise.type.endsWith('-english');
+      const attempt = isEnglishExercise
+        ? gradeEnglishAnswer(
+            action.payload,
+            state.currentExercise.correctMeaning || '',
+            state.currentExercise.prompt,
+            state.currentExercise.id
+          )
+        : gradeAnswer(
+            action.payload,
+            state.currentExercise.correctPinyin || '',
+            state.currentExercise.prompt,
+            state.currentExercise.id
+          );
 
       const updatedAttempts = [...state.currentSession.attempts, attempt];
       const updatedStatistics = generateSessionStatistics(updatedAttempts);

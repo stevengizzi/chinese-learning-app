@@ -13,19 +13,18 @@ export function generateExercise(
   }
 
   let selectedEntry: VocabularyEntry;
-
   let prompt: string;
 
   if ((playMode === 'complete-all' || playMode === 'drill') && remainingWords.length > 0) {
-    // Pick from remaining words (could be word or meaning for shuffled mode)
+    // Pick from remaining words (could be word, meaning, or pinyin)
     const promptToUse = remainingWords[0];
-    // Try to find by word first, then by meaning
-    const entry = vocabulary.find(v => v.word === promptToUse || v.meaning === promptToUse);
+    // Try to find by word first, then by meaning, then by pinyin
+    const entry = vocabulary.find(v => v.word === promptToUse || v.meaning === promptToUse || v.pinyin === promptToUse);
     if (!entry) {
       throw new Error('Entry not found in vocabulary');
     }
     selectedEntry = entry;
-    // For shuffled mode in complete-all/drill, use the exact prompt from remainingWords
+    // For shuffled modes in complete-all/drill, use the exact prompt from remainingWords
     prompt = promptToUse;
   } else {
     // Random selection (endless mode)
@@ -44,23 +43,33 @@ export function generateExercise(
     } while (recentExerciseIds.includes(selectedEntry.word) && vocabulary.length > 1);
 
     // Determine prompt based on exercise type for endless mode
-    if (exerciseType === 'character-to-pinyin') {
+    if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
       prompt = selectedEntry.word;
     } else if (exerciseType === 'english-to-pinyin') {
       prompt = selectedEntry.meaning;
-    } else {
-      // shuffled mode: randomly choose between character or meaning
+    } else if (exerciseType === 'pinyin-to-english') {
+      prompt = selectedEntry.pinyin;
+    } else if (exerciseType === 'shuffled') {
+      // shuffled (to pinyin): randomly choose between character or meaning
       prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
+    } else {
+      // shuffled-to-english: randomly choose between character or pinyin
+      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.pinyin;
     }
   }
 
   const exerciseId = `${selectedEntry.word}-${Date.now()}`;
 
+  // Determine correct answer based on exercise type
+  const isPinyinExercise = exerciseType.endsWith('-pinyin') || exerciseType === 'shuffled';
+  const isEnglishExercise = exerciseType.endsWith('-english');
+
   return {
     id: exerciseId,
     type: exerciseType,
     prompt,
-    correctPinyin: selectedEntry.pinyin,
+    correctPinyin: isPinyinExercise ? selectedEntry.pinyin : undefined,
+    correctMeaning: isEnglishExercise ? selectedEntry.meaning : undefined,
     words: [selectedEntry]
   };
 }

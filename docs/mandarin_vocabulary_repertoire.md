@@ -101,7 +101,7 @@ notes:
 | 中学   | zhong1 xue2      | middle school                                                                   |
 | 前     | qian2            | front, ahead, former                                                            |
 | 九     | jiu3             | nine                                                                            |
-| 正在   | zheng4 zai4      | just at (that time), right in (that place), right in the mdidle of (doing sth)  |
+| 正在   | zheng4 zai4      | just at (that time), right in (that place), right in the middle of (doing sth)  |
 | 放假   | fang4 jia4       | to have a holiday or vacation                                                   |
 | 歌     | ge1              | song                                                                            |
 | 试     | shi4             | to try, to test                                                                 |
