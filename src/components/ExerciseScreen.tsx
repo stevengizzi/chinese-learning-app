@@ -126,7 +126,7 @@ export function ExerciseScreen() {
           {state.currentSession && (
             <div className="mt-8 pt-6">
               <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-                Mode: {state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' : state.currentSession.exerciseType === 'english-to-pinyin' ? 'English → Pinyin' : 'Shuffled (Characters & English)'}
+                Mode: {state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' : state.currentSession.exerciseType === 'english-to-pinyin' ? 'English → Pinyin' : 'Shuffled (Characters & English) → Pinyin'}
                 {' • '}
                 {state.currentSession.playMode === 'endless' ? 'Endless Practice' : state.currentSession.playMode === 'complete-all' ? 'Complete All' : 'Drill Mode'}
               </p>

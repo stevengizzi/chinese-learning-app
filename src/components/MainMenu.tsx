@@ -31,7 +31,7 @@ export function MainMenu() {
     },
     {
       type: 'shuffled' as ExerciseType,
-      title: 'Shuffled (Characters & English)',
+      title: 'Shuffled (Characters & English) → Pinyin',
       description: 'Random mix of Chinese characters and English meanings',
       icon: '🔀'
     }
