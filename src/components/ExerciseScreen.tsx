@@ -62,7 +62,7 @@ export function ExerciseScreen() {
           {/* Prompt Display */}
           <div className="mb-8 flex justify-center">
             <div className="w-1/2 bg-gray-50 border-2 border-gray-200 rounded-xl p-12 text-center">
-              <div className="text-[80px] md:text-[120px] leading-tight font-normal text-gray-900 break-words">
+              <div className={`${state.currentSession?.exerciseType === 'meaning-to-pinyin' ? 'text-[40px] md:text-[60px]' : 'text-[80px] md:text-[120px]'} leading-tight font-normal text-gray-900 break-words`}>
                 {state.currentExercise?.prompt}
               </div>
             </div>
@@ -96,7 +96,7 @@ export function ExerciseScreen() {
               <div className="flex flex-col sm:flex-row gap-4 w-1/4">
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg disabled:opacity-50 disabled:cursor-not-allowed my-1"
                   disabled={!answer.trim()}
                 >
                   Submit Answer
@@ -104,7 +104,7 @@ export function ExerciseScreen() {
                 <button
                   type="button"
                   onClick={handleRequestReport}
-                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
                 >
                   View Report
                 </button>

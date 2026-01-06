@@ -103,7 +103,7 @@ export function MainMenu() {
                       <button
                         key={playMode.mode}
                         onClick={() => handleStartExercise(exercise.type, playMode.mode)}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-sm"
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-sm my-1"
                       >
                         {playMode.name}
                       </button>
@@ -117,13 +117,14 @@ export function MainMenu() {
             {/* Play Mode Info */}
             <div className="w-1/2 bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Play Modes</h3>
-              <div className="space-y-2">
+              <div className="space-y-2 pl-3">
                 {playModes.map((playMode) => (
-                  <div key={playMode.mode} className="flex items-start gap-3">
+                  <div key={playMode.mode} className="flex items-start gap-2">
                     <span className="text-blue-600 font-bold mt-1">•</span>
                     <div>
-                      <span className="font-semibold text-gray-900">{playMode.name}:</span>
-                      <span className="text-gray-600 ml-2">{playMode.description}</span>
+                      <span className="font-bold text-gray-900">{playMode.name}</span>
+                      <span className="text-gray-900">: </span>
+                      <span className="text-gray-600">{playMode.description}</span>
                     </div>
                   </div>
                 ))}

@@ -63,59 +63,59 @@ export function ReportScreen() {
             {hasExercises ? (
               <>
                 {/* Key Metrics */}
-                <div className="w-1/2 grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold text-blue-700">
-                    {statistics.totalExercises}
-                  </div>
-                  <div className="text-sm text-blue-600 font-medium mt-1">
-                    Exercises Completed
-                  </div>
-                </div>
-                <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold text-green-700">
-                    {statistics.averageAccuracy}%
-                  </div>
-                  <div className="text-sm text-green-600 font-medium mt-1">
-                    Average Accuracy
-                  </div>
-                </div>
-                <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold text-purple-700">
-                    {statistics.totalCharacters}
-                  </div>
-                  <div className="text-sm text-purple-600 font-medium mt-1">
-                    Characters Tested
-                  </div>
-                </div>
-              </div>
-
-              {/* Error Breakdown */}
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">Error Breakdown:</h2>
-                <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                      <span className="text-gray-700 font-medium">Tone Errors:</span>
-                      <span className="text-2xl font-bold text-red-600">
-                        {statistics.toneErrors}
-                      </span>
+                <div className="w-1/2 grid grid-cols-3 gap-3 mb-8">
+                  <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
+                    <div className="text-sm text-blue-600 font-medium mb-2">
+                      Exercises Completed
                     </div>
-                    <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                      <span className="text-gray-700 font-medium">Syllable Errors:</span>
-                      <span className="text-2xl font-bold text-orange-600">
-                        {statistics.syllableErrors}
-                      </span>
+                    <div className="text-xl font-bold text-blue-700">
+                      {statistics.totalExercises}
+                    </div>
+                  </div>
+                  <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
+                    <div className="text-sm text-green-600 font-medium mb-2">
+                      Average Accuracy
+                    </div>
+                    <div className="text-xl font-bold text-green-700">
+                      {statistics.averageAccuracy}%
+                    </div>
+                  </div>
+                  <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-6 text-center">
+                    <div className="text-sm text-purple-600 font-medium mb-2">
+                      Characters Tested
+                    </div>
+                    <div className="text-xl font-bold text-purple-700">
+                      {statistics.totalCharacters}
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Common Mistakes */}
-              {sortedMistakes.length > 0 && (
-                <div className="mb-8">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Common Mistakes:</h2>
-                  <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6">
+                {/* Error Breakdown */}
+                <div className="w-1/2 mb-8">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Error Breakdown</h2>
+                  <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                        <span className="text-gray-700 font-medium">Tone Errors</span>
+                        <span className="text-2xl font-bold text-red-600">
+                          {statistics.toneErrors}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                        <span className="text-gray-700 font-medium">Syllable Errors</span>
+                        <span className="text-2xl font-bold text-orange-600">
+                          {statistics.syllableErrors}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Common Mistakes */}
+                {sortedMistakes.length > 0 && (
+                  <div className="w-1/2 mb-8">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Common Mistakes</h2>
+                    <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6">
                     <ul className="space-y-2">
                       {sortedMistakes.map(([mistake, count], index) => (
                         <li key={index} className="flex items-start gap-3">
@@ -129,27 +129,27 @@ export function ReportScreen() {
                         </li>
                       ))}
                     </ul>
+                    </div>
+                  </div>
+                )}
+
+                {/* Suggestions */}
+                <div className="w-1/2 mb-12">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <span>💡</span>
+                    <span>Suggestions</span>
+                  </h2>
+                  <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6">
+                    <ul className="space-y-3">
+                      {suggestions.map((suggestion, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-indigo-600 mt-1">•</span>
+                          <span className="text-gray-800">{suggestion}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              )}
-
-              {/* Suggestions */}
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <span>💡</span>
-                  <span>Suggestions:</span>
-                </h2>
-                <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6">
-                  <ul className="space-y-3">
-                    {suggestions.map((suggestion, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <span className="text-indigo-600 mt-1">•</span>
-                        <span className="text-gray-800">{suggestion}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
             </>
           ) : (
             <div className="text-center py-12">
@@ -163,17 +163,17 @@ export function ReportScreen() {
             )}
 
             {/* Action Buttons */}
-            <div className="w-1/4 flex flex-col sm:flex-row gap-4">
+            <div className="w-1/4 flex flex-col sm:flex-row gap-4 my-2">
               <button
                 onClick={handleBackToMenu}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
               >
                 Back to Main Menu
               </button>
               {hasExercises && state.currentSession?.playMode === 'endless' && (
                 <button
                   onClick={handleContinue}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
                 >
                   Continue Session
                 </button>
@@ -181,7 +181,7 @@ export function ReportScreen() {
               {hasExercises && (
                 <button
                   onClick={handleExportData}
-                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
                 >
                   Export Data
                 </button>

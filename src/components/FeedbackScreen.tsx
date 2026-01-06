@@ -136,7 +136,7 @@ export function FeedbackScreen() {
             <div className="w-1/4">
               <button
                 onClick={handleNext}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
               >
                 Next Exercise
               </button>
