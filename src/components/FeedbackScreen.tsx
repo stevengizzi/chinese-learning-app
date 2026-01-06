@@ -47,7 +47,7 @@ export function FeedbackScreen() {
             {isCorrect ? (
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-6 py-3 rounded-full text-lg font-semibold">
                 <span className="text-2xl">✅</span>
-                <span> Perfect! {score.correct} / {score.total} correct</span>
+                <span>Perfect! {score.correct} / {score.total} correct</span>
               </div>
             ) : (
               <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-6 py-3 rounded-full text-lg font-semibold">

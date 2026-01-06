@@ -5,7 +5,8 @@ export function parseVocabularyMarkdown(content: string): VocabularyData {
   const active: VocabularyEntry[] = [];
 
   let version = '0.1';
-  let lastUpdated = new Date().toISOString().split('T')[0];
+  // Always set lastUpdated to the current date
+  const lastUpdated = new Date().toISOString().split('T')[0];
 
   // Extract metadata from frontmatter
   let inFrontmatter = false;
@@ -20,9 +21,8 @@ export function parseVocabularyMarkdown(content: string): VocabularyData {
     if (inFrontmatter) {
       if (line.startsWith('version:')) {
         version = line.split(':')[1].trim();
-      } else if (line.startsWith('last_updated:')) {
-        lastUpdated = line.split(':')[1].trim();
       }
+      // Ignore last_updated from file, always use current date
     }
   }
 
