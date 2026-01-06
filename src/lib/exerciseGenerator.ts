@@ -58,6 +58,15 @@ export function generateExercise(
     }
   }
 
+  // Check if we need to disambiguate pinyin
+  // If the prompt is pinyin and there are multiple entries with the same pinyin, add the character
+  if (prompt === selectedEntry.pinyin) {
+    const entriesWithSamePinyin = vocabulary.filter(v => v.pinyin === selectedEntry.pinyin);
+    if (entriesWithSamePinyin.length > 1) {
+      prompt = `${selectedEntry.pinyin} (${selectedEntry.word})`;
+    }
+  }
+
   const exerciseId = `${selectedEntry.word}-${Date.now()}`;
 
   // Determine correct answer based on exercise type

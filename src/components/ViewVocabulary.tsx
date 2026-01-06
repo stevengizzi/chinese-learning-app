@@ -22,10 +22,27 @@ export function ViewVocabulary() {
   const filteredVocabulary = sortedVocabulary.filter((entry) => {
     if (!searchQuery) return true;
 
-    const query = searchQuery.toLowerCase();
+    let query = searchQuery.toLowerCase();
     const word = entry.word.toLowerCase();
     const pinyin = entry.pinyin.toLowerCase();
     const meaning = entry.meaning.toLowerCase();
+
+    // Check for prefix-based filtering
+    if (query.startsWith('hz:')) {
+      // Character-only search
+      const searchTerm = query.slice(3);
+      return word.startsWith(searchTerm);
+    } else if (query.startsWith('py:')) {
+      // Pinyin-only search
+      const searchTerm = query.slice(3);
+      return pinyin.startsWith(searchTerm) ||
+             new RegExp(`[\\s,]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+    } else if (query.startsWith('en:')) {
+      // Meaning-only search
+      const searchTerm = query.slice(3);
+      return meaning.startsWith(searchTerm) ||
+             new RegExp(`[\\s,]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+    }
 
     // Match only if query appears at the start of a word
     // For Chinese characters, match at start of string
@@ -59,6 +76,9 @@ export function ViewVocabulary() {
           {/* Search Field */}
           <div className="mb-6 flex justify-center">
             <div className="w-1/2">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 text-center">
+                Prefix search with <span className="font-mono font-semibold">hz:</span> (characters), <span className="font-mono font-semibold">py:</span> (pinyin), or <span className="font-mono font-semibold">en:</span> (meaning)
+              </p>
               <input
                 type="text"
                 value={searchQuery}
