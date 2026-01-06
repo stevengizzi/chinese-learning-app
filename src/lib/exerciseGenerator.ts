@@ -14,16 +14,21 @@ export function generateExercise(
 
   let selectedEntry: VocabularyEntry;
 
+  let prompt: string;
+
   if ((playMode === 'complete-all' || playMode === 'drill') && remainingWords.length > 0) {
-    // Pick from remaining words
-    const wordToUse = remainingWords[0];
-    const entry = vocabulary.find(v => v.word === wordToUse);
+    // Pick from remaining words (could be word or meaning for shuffled mode)
+    const promptToUse = remainingWords[0];
+    // Try to find by word first, then by meaning
+    const entry = vocabulary.find(v => v.word === promptToUse || v.meaning === promptToUse);
     if (!entry) {
-      throw new Error('Word not found in vocabulary');
+      throw new Error('Entry not found in vocabulary');
     }
     selectedEntry = entry;
+    // For shuffled mode in complete-all/drill, use the exact prompt from remainingWords
+    prompt = promptToUse;
   } else {
-    // Random selection (endless mode or first pick in complete-all)
+    // Random selection (endless mode)
     let attempts = 0;
     const maxAttempts = 50;
 
@@ -37,20 +42,19 @@ export function generateExercise(
         break;
       }
     } while (recentExerciseIds.includes(selectedEntry.word) && vocabulary.length > 1);
+
+    // Determine prompt based on exercise type for endless mode
+    if (exerciseType === 'character-to-pinyin') {
+      prompt = selectedEntry.word;
+    } else if (exerciseType === 'english-to-pinyin') {
+      prompt = selectedEntry.meaning;
+    } else {
+      // shuffled mode: randomly choose between character or meaning
+      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
+    }
   }
 
   const exerciseId = `${selectedEntry.word}-${Date.now()}`;
-
-  // Determine prompt based on exercise type
-  let prompt: string;
-  if (exerciseType === 'character-to-pinyin') {
-    prompt = selectedEntry.word;
-  } else if (exerciseType === 'english-to-pinyin') {
-    prompt = selectedEntry.meaning;
-  } else {
-    // shuffled mode: randomly choose between character or meaning
-    prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
-  }
 
   return {
     id: exerciseId,

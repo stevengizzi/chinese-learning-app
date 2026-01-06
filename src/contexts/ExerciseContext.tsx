@@ -91,10 +91,19 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       if (!state.vocabulary) return state;
 
       const { exerciseType, playMode } = action.payload;
-      const vocabularyWords = state.vocabulary.active.map(v => v.word);
-      const remainingWords = (playMode === 'complete-all' || playMode === 'drill')
-        ? shuffleArray(vocabularyWords)
-        : undefined;
+
+      // For shuffled mode, create entries for both word and meaning
+      let remainingWords: string[] | undefined;
+      if (playMode === 'complete-all' || playMode === 'drill') {
+        if (exerciseType === 'shuffled') {
+          // Create array with both word and meaning for each vocabulary entry
+          const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
+          remainingWords = shuffleArray(allEntries);
+        } else {
+          // For other modes, just use words
+          remainingWords = shuffleArray(state.vocabulary.active.map(v => v.word));
+        }
+      }
 
       const session = createNewSession(exerciseType, playMode, state.vocabulary.active.length);
       session.remainingWords = remainingWords;

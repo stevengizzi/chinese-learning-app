@@ -85,6 +85,16 @@ export function MainMenu() {
               </div>
             )}
 
+            {/* View Vocabulary Button */}
+            <div className="mb-4 w-1/4">
+              <button
+                onClick={handleViewVocabulary}
+                className="w-full bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 my-1"
+              >
+                📋 View Active Vocabulary
+              </button>
+            </div>
+
             {/* Update Vocabulary Button */}
             <div className="mb-8 w-1/4">
               <VocabularyUploader />
@@ -125,7 +135,7 @@ export function MainMenu() {
           </div>
 
             {/* Play Mode Info */}
-            <div className="w-1/2 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 mb-8">
+            <div className="w-1/2 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Play Modes</h3>
               <div className="space-y-2 pl-3">
                 {playModes.map((playMode) => (
@@ -139,16 +149,6 @@ export function MainMenu() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* View Vocabulary Button */}
-            <div className="w-1/4">
-              <button
-                onClick={handleViewVocabulary}
-                className="w-full bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 my-1"
-              >
-                📋 View Active Vocabulary
-              </button>
             </div>
           </div>
         </div>
