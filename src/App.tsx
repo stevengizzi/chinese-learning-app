@@ -39,28 +39,31 @@ function AppContent() {
     );
   }
 
-  // Show welcome screen if no vocabulary loaded
-  if (!state.vocabulary) {
-    return <WelcomeScreen />;
-  }
-
   // Render screen based on current state
   return (
     <>
       <ThemeToggle />
-      {state.screen === 'menu' && <MainMenu />}
-      {state.screen === 'exercise' && <ExerciseScreen />}
-      {state.screen === 'feedback' && <FeedbackScreen />}
-      {state.screen === 'report' && <ReportScreen />}
-      {state.screen === 'view-vocabulary' && <ViewVocabulary />}
 
-      {/* Floating vocabulary update button - show only on menu and report screens */}
-      {(state.screen === 'menu' || state.screen === 'report') && (
-        <div className="fixed bottom-6 right-6 z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3">
-            <VocabularyUploader />
-          </div>
-        </div>
+      {/* Show welcome screen if no vocabulary loaded */}
+      {!state.vocabulary ? (
+        <WelcomeScreen />
+      ) : (
+        <>
+          {state.screen === 'menu' && <MainMenu />}
+          {state.screen === 'exercise' && <ExerciseScreen />}
+          {state.screen === 'feedback' && <FeedbackScreen />}
+          {state.screen === 'report' && <ReportScreen />}
+          {state.screen === 'view-vocabulary' && <ViewVocabulary />}
+
+          {/* Floating vocabulary update button - show only on menu and report screens */}
+          {(state.screen === 'menu' || state.screen === 'report') && (
+            <div className="fixed bottom-6 right-6 z-50">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3">
+                <VocabularyUploader />
+              </div>
+            </div>
+          )}
+        </>
       )}
     </>
   );
