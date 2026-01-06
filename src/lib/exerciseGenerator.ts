@@ -1,5 +1,6 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
+import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
 
 export function generateExercise(
   vocabulary: VocabularyEntry[],
@@ -58,12 +59,17 @@ export function generateExercise(
     }
   }
 
-  // Check if we need to disambiguate pinyin
+  // Check if we need to disambiguate pinyin and convert to tone marks
   // If the prompt is pinyin and there are multiple entries with the same pinyin, add the character
   if (prompt === selectedEntry.pinyin) {
+    // Convert numbered pinyin to tone marks
+    const pinyinWithTones = convertPinyinStringToToneMarks(selectedEntry.pinyin);
+
     const entriesWithSamePinyin = vocabulary.filter(v => v.pinyin === selectedEntry.pinyin);
     if (entriesWithSamePinyin.length > 1) {
-      prompt = `${selectedEntry.pinyin} (${selectedEntry.word})`;
+      prompt = `${pinyinWithTones} (${selectedEntry.word})`;
+    } else {
+      prompt = pinyinWithTones;
     }
   }
 

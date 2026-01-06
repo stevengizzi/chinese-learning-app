@@ -40,7 +40,7 @@ notes:
 | 考    | kao3              | to verify, to test, to take an exam                                             |
 | 考试  | kao3 shi4         | test, exam                                                                      |
 | 课    | ke4               | class, lesson                                                                   |
-| 两    | liang3            | two, 2, both                                                                    |
+| 两    | liang3            | two, both                                                                       |
 | 零    | ling2             | zero                                                                            |
 | 明白  | ming2 bai2        | to be clear, to understand                                                      |
 | 哪里  | na3 li3           | where?                                                                          |
@@ -115,7 +115,7 @@ notes:
 | 桌子   | zhuo1 zi         | table, desk                                                                     |
 | 没     | mei2             | (negative prefix for verbs), have not, not                                      |
 | 读书   | du2 shu1         | to read a book                                                                  |
-| 叫     | jiao4            | to shout, to be called, to make (sb do sth)                                     |
+| 叫     | jiao4            | to shout, to be called, to make (somebody do sth)                               |
 | 晚饭   | wan3 fan4        | dinner                                                                          |
 | 火车   | huo3 che1        | train                                                                           |
 | 事     | shi4             | matter, thing, affair                                                           |
