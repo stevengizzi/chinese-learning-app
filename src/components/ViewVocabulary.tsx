@@ -27,7 +27,16 @@ export function ViewVocabulary() {
     const pinyin = entry.pinyin.toLowerCase();
     const meaning = entry.meaning.toLowerCase();
 
-    return word.includes(query) || pinyin.includes(query) || meaning.includes(query);
+    // Match only if query appears at the start of a word
+    // For Chinese characters, match at start of string
+    // For pinyin and meaning, match at start of string or after word boundary (space, comma)
+    const wordMatch = word.startsWith(query);
+    const pinyinMatch = pinyin.startsWith(query) ||
+                       new RegExp(`[\\s,]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+    const meaningMatch = meaning.startsWith(query) ||
+                        new RegExp(`[\\s,]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+
+    return wordMatch || pinyinMatch || meaningMatch;
   });
 
   return (

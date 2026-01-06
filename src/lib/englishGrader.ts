@@ -6,20 +6,34 @@ export function gradeEnglishAnswer(
   _prompt: string,
   exerciseId: string
 ): ExerciseAttempt {
-  // Normalize both answers for comparison
-  const normalizedUser = userAnswer.trim().toLowerCase();
-  const normalizedCorrect = correctAnswer.trim().toLowerCase();
+  // Parse comma-separated meanings
+  const correctMeanings = correctAnswer
+    .split(',')
+    .map(m => m.trim().toLowerCase())
+    .filter(m => m.length > 0);
 
-  // Simple exact match for now (case-insensitive)
-  const isCorrect = normalizedUser === normalizedCorrect;
+  const userMeanings = userAnswer
+    .split(',')
+    .map(m => m.trim().toLowerCase())
+    .filter(m => m.length > 0);
+
+  // Count how many user meanings match correct meanings (order-independent)
+  let correctCount = 0;
+  for (const userMeaning of userMeanings) {
+    if (correctMeanings.includes(userMeaning)) {
+      correctCount++;
+    }
+  }
+
+  const totalMeanings = correctMeanings.length;
 
   return {
     exerciseId,
     userAnswer,
     correctAnswer,
     score: {
-      correct: isCorrect ? 1 : 0,
-      total: 1
+      correct: correctCount,
+      total: totalMeanings
     },
     errors: [], // No detailed error tracking for English answers
     timestamp: Date.now()
