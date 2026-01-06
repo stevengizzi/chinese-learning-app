@@ -36,6 +36,8 @@ export function ExerciseScreen() {
   const exerciseNumber = state.currentSession?.attempts.length || 0;
   const remainingWords = state.currentSession?.remainingWords?.length || 0;
   const isCompleteAllMode = state.currentSession?.playMode === 'complete-all';
+  const isDrillMode = state.currentSession?.playMode === 'drill';
+  const showRemainingCount = isCompleteAllMode || isDrillMode;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
@@ -45,7 +47,7 @@ export function ExerciseScreen() {
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-gray-500 text-sm font-medium">
               Exercise {exerciseNumber + 1}
-              {isCompleteAllMode && ` • ${remainingWords} remaining`}
+              {showRemainingCount && ` • ${remainingWords} remaining`}
             </h2>
             <button
               onClick={handleBackToMenu}
