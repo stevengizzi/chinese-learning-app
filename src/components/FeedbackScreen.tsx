@@ -31,18 +31,19 @@ export function FeedbackScreen() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          {/* Back Button */}
-          <div className="flex justify-end mb-4">
-            <button
-              onClick={handleBackToMenu}
-              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
-            >
-              ← Back to Menu
-            </button>
-          </div>
+          {/* Centered Content Container */}
+          <div className="flex flex-col items-center">
+            {/* Score Badge */}
+            <div className="w-1/2 flex justify-end mb-4">
+              <button
+                onClick={handleBackToMenu}
+                className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+              >
+                ← Back to Menu
+              </button>
+            </div>
 
-          {/* Score Badge */}
-          <div className="text-center mb-8">
+            <div className="text-center mb-8">
             {isCorrect ? (
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-6 py-3 rounded-full text-lg font-semibold">
                 <span className="text-2xl">✅</span>
@@ -54,12 +55,12 @@ export function FeedbackScreen() {
                 <span>Score: {score.correct} / {score.total} ({percentage}%)</span>
               </div>
             )}
-          </div>
+            </div>
 
-          {/* Comparison View */}
-          <div className="mb-8">
-            <h3 className="text-gray-700 font-semibold mb-3 text-lg">Comparison:</h3>
-            <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 font-mono text-lg">
+            {/* Comparison View */}
+            <div className="mb-8 w-1/2">
+              <h3 className="text-gray-700 font-semibold mb-3 text-lg">Comparison:</h3>
+              <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 font-mono text-lg">
               <div className="mb-2">
                 <span className={`${isCorrect ? 'text-green-700' : 'text-gray-700'} font-medium`}>
                   Correct Answer: 
@@ -76,17 +77,17 @@ export function FeedbackScreen() {
                   {paddedUser}
                 </span>
               </div>
+              </div>
             </div>
-          </div>
 
-          {/* Error Details */}
-          {errors.length > 0 && (
-            <div className="mb-8">
-              <h3 className="text-gray-700 font-semibold mb-3 text-lg flex items-center gap-2">
-                <span>⚠️</span>
-                <span>Corrections needed:</span>
-              </h3>
-              <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6">
+            {/* Error Details */}
+            {errors.length > 0 && (
+              <div className="mb-8 w-1/2">
+                <h3 className="text-gray-700 font-semibold mb-3 text-lg flex items-center gap-2">
+                  <span>⚠️</span>
+                  <span>Corrections needed:</span>
+                </h3>
+                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6">
                 <ul className="space-y-3">
                   {errors.map((error, index) => {
                     let message = '';
@@ -116,37 +117,40 @@ export function FeedbackScreen() {
                     );
                   })}
                 </ul>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Success Message */}
-          {isCorrect && (
-            <div className="mb-8">
-              <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
-                <p className="text-green-800 text-lg font-medium">
-                  Excellent work! All syllables and tones are correct.
+            {/* Success Message */}
+            {isCorrect && (
+              <div className="mb-8 w-1/2">
+                <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
+                  <p className="text-green-800 text-lg font-medium">
+                    Excellent work! All syllables and tones are correct.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Next Button */}
+            <div className="w-1/4">
+              <button
+                onClick={handleNext}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+              >
+                Next Exercise
+              </button>
+            </div>
+
+            {/* Session Progress */}
+            {state.currentSession && (
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-500">
+                  Exercises completed: {state.currentSession.attempts.length}
                 </p>
               </div>
-            </div>
-          )}
-
-          {/* Next Button */}
-          <button
-            onClick={handleNext}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
-          >
-            Next Exercise
-          </button>
-
-          {/* Session Progress */}
-          {state.currentSession && (
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-500">
-                Exercises completed: {state.currentSession.attempts.length}
-              </p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

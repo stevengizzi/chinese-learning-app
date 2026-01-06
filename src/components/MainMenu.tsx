@@ -59,29 +59,31 @@ export function MainMenu() {
             </p>
           </div>
 
-          {/* Vocabulary Info */}
-          {state.vocabulary && (
-            <div className="mb-8 bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
-              <p className="text-center text-sm text-blue-800">
-                <span className="font-semibold">Active vocabulary:</span> {state.vocabulary.active.length} words
-                {state.vocabulary.metadata.lastUpdated && (
-                  <span className="ml-2">
-                    • Updated: {state.vocabulary.metadata.lastUpdated}
-                  </span>
-                )}
-              </p>
+          {/* Centered Content Container */}
+          <div className="flex flex-col items-center">
+            {/* Vocabulary Info */}
+            {state.vocabulary && (
+              <div className="mb-8 w-1/2 bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+                <p className="text-center text-sm text-blue-800">
+                  <span className="font-semibold">Active vocabulary:</span> {state.vocabulary.active.length} words
+                  {state.vocabulary.metadata.lastUpdated && (
+                    <span className="ml-2">
+                      • Updated: {state.vocabulary.metadata.lastUpdated}
+                    </span>
+                  )}
+                </p>
+              </div>
+            )}
+
+            {/* Update Vocabulary Button */}
+            <div className="mb-8 w-1/4">
+              <VocabularyUploader />
             </div>
-          )}
 
-          {/* Update Vocabulary Button */}
-          <div className="mb-8">
-            <VocabularyUploader />
-          </div>
-
-          {/* Exercise Types */}
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Exercise Types</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Exercise Types */}
+            <div className="mb-8 w-1/2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Exercise Types</h2>
+              <div className="grid grid-cols-1 gap-4">
               {exercises.map((exercise) => (
                 <div
                   key={exercise.type}
@@ -112,19 +114,20 @@ export function MainMenu() {
             </div>
           </div>
 
-          {/* Play Mode Info */}
-          <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Play Modes</h3>
-            <div className="space-y-2">
-              {playModes.map((playMode) => (
-                <div key={playMode.mode} className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold mt-1">•</span>
-                  <div>
-                    <span className="font-semibold text-gray-900">{playMode.name}:</span>
-                    <span className="text-gray-600 ml-2">{playMode.description}</span>
+            {/* Play Mode Info */}
+            <div className="w-1/2 bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Play Modes</h3>
+              <div className="space-y-2">
+                {playModes.map((playMode) => (
+                  <div key={playMode.mode} className="flex items-start gap-3">
+                    <span className="text-blue-600 font-bold mt-1">•</span>
+                    <div>
+                      <span className="font-semibold text-gray-900">{playMode.name}:</span>
+                      <span className="text-gray-600 ml-2">{playMode.description}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

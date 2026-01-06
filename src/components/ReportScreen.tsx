@@ -40,28 +40,30 @@ export function ReportScreen() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          {/* Back Button */}
-          <div className="flex justify-end mb-4">
-            <button
-              onClick={handleBackToMenu}
-              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
-            >
-              ← Back to Menu
-            </button>
-          </div>
+          {/* Centered Content Container */}
+          <div className="flex flex-col items-center">
+            {/* Back Button */}
+            <div className="w-1/2 flex justify-end mb-4">
+              <button
+                onClick={handleBackToMenu}
+                className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+              >
+                ← Back to Menu
+              </button>
+            </div>
 
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
-              <span className="text-4xl">📊</span>
-              <span>Session Report</span>
-            </h1>
-          </div>
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
+                <span className="text-4xl">📊</span>
+                <span>Session Report</span>
+              </h1>
+            </div>
 
-          {hasExercises ? (
-            <>
-              {/* Key Metrics */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {hasExercises ? (
+              <>
+                {/* Key Metrics */}
+                <div className="w-1/2 grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
                   <div className="text-3xl font-bold text-blue-700">
                     {statistics.totalExercises}
@@ -158,32 +160,33 @@ export function ReportScreen() {
                 Complete some exercises to see your performance report!
               </p>
             </div>
-          )}
+            )}
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={handleBackToMenu}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
-            >
-              Back to Main Menu
-            </button>
-            {hasExercises && state.currentSession?.playMode === 'endless' && (
+            {/* Action Buttons */}
+            <div className="w-1/4 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={handleContinue}
-                className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                onClick={handleBackToMenu}
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
               >
-                Continue Session
+                Back to Main Menu
               </button>
-            )}
-            {hasExercises && (
-              <button
-                onClick={handleExportData}
-                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
-              >
-                Export Data
-              </button>
-            )}
+              {hasExercises && state.currentSession?.playMode === 'endless' && (
+                <button
+                  onClick={handleContinue}
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                >
+                  Continue Session
+                </button>
+              )}
+              {hasExercises && (
+                <button
+                  onClick={handleExportData}
+                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg"
+                >
+                  Export Data
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
