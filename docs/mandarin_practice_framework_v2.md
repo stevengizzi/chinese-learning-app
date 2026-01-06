@@ -35,16 +35,20 @@ This yields four fundamental modalities:
 
 Mandarin uses multiple, partially independent representations of language. Each can be tested and trained separately.
 
-### 2.1 Audio
+### 2.1 Meaning (Semantics)
+- Conceptual content independent of form
+- Can be elicited via English translations, definitions, or paraphrases
+
+### 2.2 Audio
 - Continuous speech sounds
 - Includes phonemes, tones, rhythm, and prosody
 
-### 2.2 Characters (Hanzi)
+### 2.3 Characters (Hanzi)
 - Logographic / morpho-semantic units
 - Often phonetic–semantic compounds
 - Not purely pictographic
 
-### 2.3 Pinyin
+### 2.4 Pinyin
 - Romanized phonetic transcription
 - Encodes initials, finals, and tones
 - Acts as an explicit phonological bridge
@@ -64,19 +68,27 @@ This distinction applies independently across audio, characters, and pinyin.
 
 ## 4. Base Skill Matrix: Data Type × Capability
 
-### 4.1 Audio
+### 4.1 Meaning (Semantics)
+1. **Meaning Recognition (Comprehension)**
+   - Understanding what a word, phrase, or utterance means
+   - Accessing semantic content from any form (audio, characters, pinyin)
+2. **Meaning Reproduction (Expression)**
+   - Conveying intended meaning through any modality
+   - Selecting appropriate words/structures to express concepts
+
+### 4.2 Audio
 1. **Audio Recognition**
    - Hearing speech and identifying words, tones, or meaning
 2. **Audio Reproduction**
    - Producing spoken Mandarin with correct sounds and tones
 
-### 4.2 Characters
+### 4.3 Characters
 1. **Character Recognition**
    - Visually identifying characters and accessing meaning and/or pronunciation
 2. **Character Reproduction**
    - Producing characters correctly
 
-### 4.3 Pinyin
+### 4.4 Pinyin
 1. **Pinyin Recognition**
    - Reading pinyin and accessing intended sounds/tones
 2. **Pinyin Reproduction**
@@ -107,26 +119,40 @@ Character reproduction is not a single skill. It can be decomposed into distinct
 
 These tests verify correctness without requiring real-time interaction.
 
-### 6.1 Audio as Input
-1. Listen → reproduce speech
-2. Listen → identify characters (recognition)
-3. Listen → write characters (handwriting or typing)
-4. Listen → identify pinyin
-5. Listen → write pinyin
+### 6.1 Meaning (English) as Input
+1. Read English → identify correct Chinese audio
+2. Read English → reproduce speech (speak Chinese translation)
+3. Read English → identify correct Chinese characters
+4. Read English → write characters (handwriting or typing)
+5. Read English → identify correct pinyin
+6. Read English → write pinyin
 
-### 6.2 Characters as Input
-6. Read characters → identify audio
-7. Read characters → reproduce speech
-8. Read characters → write characters
-9. Read characters → identify pinyin
-10. Read characters → write pinyin
+### 6.2 Audio as Input
+7. Listen → identify meaning (choose English translation)
+8. Listen → translate into English (write/speak)
+9. Listen → reproduce speech
+10. Listen → identify characters (recognition)
+11. Listen → write characters (handwriting or typing)
+12. Listen → identify pinyin
+13. Listen → write pinyin
 
-### 6.3 Pinyin as Input
-11. Read pinyin → identify audio
-12. Read pinyin → reproduce speech
-13. Read pinyin → identify characters
-14. Read pinyin → write characters
-15. Read pinyin → write pinyin
+### 6.3 Characters as Input
+14. Read characters → identify meaning (choose English translation)
+15. Read characters → translate into English (write/speak)
+16. Read characters → identify audio
+17. Read characters → reproduce speech
+18. Read characters → write characters (copy)
+19. Read characters → identify pinyin
+20. Read characters → write pinyin
+
+### 6.4 Pinyin as Input
+21. Read pinyin → identify meaning (choose English translation)
+22. Read pinyin → translate into English (write/speak)
+23. Read pinyin → identify audio
+24. Read pinyin → reproduce speech
+25. Read pinyin → identify characters
+26. Read pinyin → write characters
+27. Read pinyin → write pinyin (copy)
 
 ---
 
@@ -214,11 +240,13 @@ These operate across modalities but become visible primarily at phrase and sente
 
 This framework defines a **complete space of Mandarin learning capabilities**, spanning:
 - Modalities (listening, speaking, reading, writing)
-- Representations (audio, characters, pinyin)
-- Capabilities (recognition, reproduction)
+- Representations (meaning/semantics, audio, characters, pinyin)
+- Capabilities (recognition/comprehension, reproduction/expression)
 - Production mechanisms (speech, handwriting, typing)
 - Linguistic scale (sounds → discourse)
 - Performance dimensions (accuracy, tone, speed)
+
+Critically, **meaning (semantic comprehension and expression)** is treated as a first-class representational layer alongside form-based representations. All other skills ultimately serve the goal of understanding and conveying meaning.
 
 It intentionally makes no claims about priority or efficiency. Those emerge only when this space is constrained by learner goals, time, and context.
 
