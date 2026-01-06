@@ -104,8 +104,14 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
           // Create array with both word and pinyin for each vocabulary entry
           const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.pinyin]);
           remainingWords = shuffleArray(allEntries);
+        } else if (exerciseType === 'english-to-pinyin') {
+          // For English → Pinyin, use meanings as prompts
+          remainingWords = shuffleArray(state.vocabulary.active.map(v => v.meaning));
+        } else if (exerciseType === 'pinyin-to-english') {
+          // For Pinyin → English, use pinyin as prompts
+          remainingWords = shuffleArray(state.vocabulary.active.map(v => v.pinyin));
         } else {
-          // For other modes, just use words
+          // For character-based exercises (character-to-pinyin, character-to-english)
           remainingWords = shuffleArray(state.vocabulary.active.map(v => v.word));
         }
       }
