@@ -62,7 +62,7 @@ export function ExerciseScreen() {
           {/* Prompt Display */}
           <div className="mb-8 flex justify-center">
             <div className="w-1/2 bg-gray-50 border-2 border-gray-200 rounded-xl p-12 text-center">
-              <div className={`${state.currentSession?.exerciseType === 'meaning-to-pinyin' ? 'text-[40px] md:text-[60px]' : 'text-[80px] md:text-[120px]'} leading-tight font-normal text-gray-900 break-words`}>
+              <div className={`${state.currentSession?.exerciseType === 'english-to-pinyin' ? 'text-[40px] md:text-[60px]' : 'text-[80px] md:text-[120px]'} leading-tight font-normal text-gray-900 break-words`}>
                 {state.currentExercise?.prompt}
               </div>
             </div>

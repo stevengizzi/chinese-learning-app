@@ -20,8 +20,8 @@ export function MainMenu() {
       icon: '字'
     },
     {
-      type: 'meaning-to-pinyin' as ExerciseType,
-      title: 'Meaning → Pinyin',
+      type: 'english-to-pinyin' as ExerciseType,
+      title: 'English → Pinyin',
       description: 'View English meanings and type their pinyin with tone numbers',
       icon: '📖'
     }
