@@ -42,9 +42,15 @@ export function generateExercise(
   const exerciseId = `${selectedEntry.word}-${Date.now()}`;
 
   // Determine prompt based on exercise type
-  const prompt = exerciseType === 'character-to-pinyin'
-    ? selectedEntry.word
-    : selectedEntry.meaning;
+  let prompt: string;
+  if (exerciseType === 'character-to-pinyin') {
+    prompt = selectedEntry.word;
+  } else if (exerciseType === 'english-to-pinyin') {
+    prompt = selectedEntry.meaning;
+  } else {
+    // shuffled mode: randomly choose between character or meaning
+    prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
+  }
 
   return {
     id: exerciseId,

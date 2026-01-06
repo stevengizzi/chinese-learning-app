@@ -7,7 +7,7 @@ import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -26,6 +26,7 @@ type ExerciseAction =
   | { type: 'NEXT_EXERCISE' }
   | { type: 'REQUEST_REPORT' }
   | { type: 'BACK_TO_MENU' }
+  | { type: 'VIEW_VOCABULARY' }
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' };
 
@@ -213,6 +214,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         currentExercise: null,
         currentAttempt: null,
         screen: 'menu'
+      };
+    }
+
+    case 'VIEW_VOCABULARY': {
+      return {
+        ...state,
+        screen: 'view-vocabulary'
       };
     }
 

@@ -12,6 +12,10 @@ export function MainMenu() {
     });
   };
 
+  const handleViewVocabulary = () => {
+    dispatch({ type: 'VIEW_VOCABULARY' });
+  };
+
   const exercises = [
     {
       type: 'character-to-pinyin' as ExerciseType,
@@ -24,6 +28,12 @@ export function MainMenu() {
       title: 'English → Pinyin',
       description: 'View English meanings and type their pinyin with tone numbers',
       icon: '📖'
+    },
+    {
+      type: 'shuffled' as ExerciseType,
+      title: 'Shuffled (Characters & English)',
+      description: 'Random mix of Chinese characters and English meanings',
+      icon: '🔀'
     }
   ];
 
@@ -46,15 +56,15 @@ export function MainMenu() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
               Mandarin Pinyin Practice
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
               Choose an exercise type and play mode
             </p>
           </div>
@@ -63,8 +73,8 @@ export function MainMenu() {
           <div className="flex flex-col items-center">
             {/* Vocabulary Info */}
             {state.vocabulary && (
-              <div className="mb-8 w-1/2 bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
-                <p className="text-center text-sm text-blue-800">
+              <div className="mb-8 w-1/2 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
+                <p className="text-center text-sm text-blue-800 dark:text-blue-200">
                   <span className="font-semibold">Active vocabulary:</span> {state.vocabulary.active.length} words
                   {state.vocabulary.metadata.lastUpdated && (
                     <span className="ml-2">
@@ -82,18 +92,18 @@ export function MainMenu() {
 
             {/* Exercise Types */}
             <div className="mb-8 w-1/2">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Exercise Types</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Exercise Types</h2>
               <div className="grid grid-cols-1 gap-4">
               {exercises.map((exercise) => (
                 <div
                   key={exercise.type}
-                  className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors"
+                  className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
                 >
                   <div className="text-4xl mb-3 text-center">{exercise.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
                     {exercise.title}
                   </h3>
-                  <p className="text-gray-600 text-sm text-center mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm text-center mb-4">
                     {exercise.description}
                   </p>
 
@@ -115,20 +125,30 @@ export function MainMenu() {
           </div>
 
             {/* Play Mode Info */}
-            <div className="w-1/2 bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Play Modes</h3>
+            <div className="w-1/2 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 mb-8">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Play Modes</h3>
               <div className="space-y-2 pl-3">
                 {playModes.map((playMode) => (
                   <div key={playMode.mode} className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
+                    <span className="text-blue-600 dark:text-blue-400 font-bold mt-1">•</span>
                     <div>
-                      <span className="font-bold text-gray-900">{playMode.name}</span>
-                      <span className="text-gray-900">: </span>
-                      <span className="text-gray-600">{playMode.description}</span>
+                      <span className="font-bold text-gray-900 dark:text-white">{playMode.name}</span>
+                      <span className="text-gray-900 dark:text-white">: </span>
+                      <span className="text-gray-600 dark:text-gray-300">{playMode.description}</span>
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* View Vocabulary Button */}
+            <div className="w-1/4">
+              <button
+                onClick={handleViewVocabulary}
+                className="w-full bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 my-1"
+              >
+                📋 View Active Vocabulary
+              </button>
             </div>
           </div>
         </div>

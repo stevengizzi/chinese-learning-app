@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { ExerciseProvider, useExercise } from './contexts/ExerciseContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { MainMenu } from './components/MainMenu';
 import { ExerciseScreen } from './components/ExerciseScreen';
 import { FeedbackScreen } from './components/FeedbackScreen';
 import { ReportScreen } from './components/ReportScreen';
+import { ViewVocabulary } from './components/ViewVocabulary';
 import { VocabularyUploader } from './components/VocabularyUploader';
+import { ThemeToggle } from './components/ThemeToggle';
 
 function AppContent() {
   const { state, dispatch } = useExercise();
@@ -44,15 +47,17 @@ function AppContent() {
   // Render screen based on current state
   return (
     <>
+      <ThemeToggle />
       {state.screen === 'menu' && <MainMenu />}
       {state.screen === 'exercise' && <ExerciseScreen />}
       {state.screen === 'feedback' && <FeedbackScreen />}
       {state.screen === 'report' && <ReportScreen />}
+      {state.screen === 'view-vocabulary' && <ViewVocabulary />}
 
       {/* Floating vocabulary update button - show only on menu and report screens */}
       {(state.screen === 'menu' || state.screen === 'report') && (
         <div className="fixed bottom-6 right-6 z-50">
-          <div className="bg-white rounded-xl shadow-lg p-3">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3">
             <VocabularyUploader />
           </div>
         </div>
@@ -63,9 +68,11 @@ function AppContent() {
 
 function App() {
   return (
-    <ExerciseProvider>
-      <AppContent />
-    </ExerciseProvider>
+    <ThemeProvider>
+      <ExerciseProvider>
+        <AppContent />
+      </ExerciseProvider>
+    </ThemeProvider>
   );
 }
 

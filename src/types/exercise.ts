@@ -1,6 +1,6 @@
 import type { VocabularyEntry } from './vocabulary';
 
-export type ExerciseType = 'character-to-pinyin' | 'english-to-pinyin';
+export type ExerciseType = 'character-to-pinyin' | 'english-to-pinyin' | 'shuffled';
 export type PlayMode = 'endless' | 'complete-all' | 'drill';
 
 export interface Exercise {
