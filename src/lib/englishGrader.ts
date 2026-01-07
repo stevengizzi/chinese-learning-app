@@ -6,14 +6,14 @@ export function gradeEnglishAnswer(
   _prompt: string,
   exerciseId: string
 ): ExerciseAttempt {
-  // Parse comma-separated meanings
+  // Parse semicolon-separated meanings
   const correctMeanings = correctAnswer
-    .split(',')
+    .split(';')
     .map(m => m.trim().toLowerCase())
     .filter(m => m.length > 0);
 
   const userMeanings = userAnswer
-    .split(',')
+    .split(';')
     .map(m => m.trim().toLowerCase())
     .filter(m => m.length > 0);
 

@@ -82,6 +82,25 @@ export function generateExercise(
     }
   }
 
+  // Check if we need to disambiguate characters with same word but different pinyin
+  // If prompt is a character and multiple entries share it, disambiguate based on exercise type
+  if (prompt === selectedEntry.word) {
+    const entriesWithSameWord = vocabulary.filter(v => v.word === selectedEntry.word);
+    if (entriesWithSameWord.length > 1) {
+      const isPinyinExercise = exerciseType.endsWith('-pinyin') || exerciseType === 'shuffled';
+      const isEnglishExercise = exerciseType.endsWith('-english');
+
+      if (isPinyinExercise) {
+        // For pinyin exercises, show meaning in parentheses
+        prompt = `${selectedEntry.word} (${selectedEntry.meaning})`;
+      } else if (isEnglishExercise) {
+        // For English exercises, show pinyin in parentheses
+        const pinyinWithTones = convertPinyinStringToToneMarks(selectedEntry.pinyin);
+        prompt = `${selectedEntry.word} (${pinyinWithTones})`;
+      }
+    }
+  }
+
   const exerciseId = `${selectedEntry.word}-${Date.now()}`;
 
   // Determine correct answer based on exercise type

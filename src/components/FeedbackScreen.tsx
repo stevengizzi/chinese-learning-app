@@ -1,8 +1,11 @@
+import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
+import { parseExampleSentences, findMatchingSentences, type ExampleSentence } from '../lib/exampleSentences';
 
 export function FeedbackScreen() {
   const { state, dispatch } = useExercise();
+  const [exampleSentences, setExampleSentences] = useState<ExampleSentence[]>([]);
 
   const handleNext = () => {
     dispatch({ type: 'NEXT_EXERCISE' });
@@ -15,6 +18,33 @@ export function FeedbackScreen() {
   useKeyboardShortcuts({
     onEnter: handleNext
   });
+
+  // Load example sentences when component mounts or exercise changes
+  useEffect(() => {
+    async function loadExampleSentences() {
+      if (!state.currentExercise) return;
+
+      try {
+        // Fetch the example sentences markdown file
+        const response = await fetch('/docs/example_sentences.md');
+        const markdownContent = await response.text();
+
+        // Parse the markdown
+        const allSentences = parseExampleSentences(markdownContent);
+
+        // Find sentences that match the current word (character)
+        const currentWord = state.currentExercise.words[0].word;
+        const matchingSentences = findMatchingSentences(allSentences, currentWord, 10);
+
+        setExampleSentences(matchingSentences);
+      } catch (error) {
+        console.error('Failed to load example sentences:', error);
+        setExampleSentences([]);
+      }
+    }
+
+    loadExampleSentences();
+  }, [state.currentExercise]);
 
   if (!state.currentAttempt) return null;
 
@@ -128,6 +158,25 @@ export function FeedbackScreen() {
                   <p className="text-green-800 text-lg font-medium">
                     Excellent work! All syllables and tones are correct.
                   </p>
+                </div>
+              </div>
+            )}
+
+            {/* Example Sentences */}
+            {exampleSentences.length > 0 && (
+              <div className="mb-8 w-3/4">
+                <h3 className="text-gray-700 font-semibold mb-4 text-lg">Example Sentences:</h3>
+                <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 space-y-4">
+                  {exampleSentences.map((sentence, index) => (
+                    <div key={index} className="space-y-1">
+                      <div className="text-xl text-gray-900">{sentence.hanzi}</div>
+                      <div className="text-base text-gray-600 font-mono">{sentence.pinyin}</div>
+                      <div className="text-base text-gray-700">{sentence.meaning}</div>
+                      {index < exampleSentences.length - 1 && (
+                        <div className="h-4"></div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}

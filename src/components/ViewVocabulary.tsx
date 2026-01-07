@@ -41,17 +41,17 @@ export function ViewVocabulary() {
       // Meaning-only search
       const searchTerm = query.slice(3);
       return meaning.startsWith(searchTerm) ||
-             new RegExp(`[\\s,]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+             new RegExp(`[\\s;]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
     }
 
     // Match only if query appears at the start of a word
     // For Chinese characters, match at start of string
-    // For pinyin and meaning, match at start of string or after word boundary (space, comma)
+    // For pinyin and meaning, match at start of string or after word boundary (space, semicolon)
     const wordMatch = word.startsWith(query);
     const pinyinMatch = pinyin.startsWith(query) ||
-                       new RegExp(`[\\s,]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+                       new RegExp(`[\\s]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
     const meaningMatch = meaning.startsWith(query) ||
-                        new RegExp(`[\\s,]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+                        new RegExp(`[\\s;]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
 
     return wordMatch || pinyinMatch || meaningMatch;
   });
