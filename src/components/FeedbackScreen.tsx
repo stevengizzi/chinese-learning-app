@@ -50,7 +50,7 @@ export function FeedbackScreen() {
         const currentWord = state.currentExercise.words[0].word;
         console.log('Looking for sentences containing:', currentWord);
 
-        const matchingSentences = findMatchingSentences(allSentences, currentWord, 5);
+        const matchingSentences = findMatchingSentences(allSentences, currentWord, 2);
         console.log('Matching sentences found:', matchingSentences.length);
 
         setExampleSentences(matchingSentences);

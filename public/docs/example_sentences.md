@@ -209,7 +209,7 @@
 | 你开始学习英语了吗？ | ni3 kai1 shi3 xue2 xi2 ying1 yu3 le ma ？ | Have you begun studying English? |
 | 它们是瓜。 | ta1 men2 shi4 gua1 。 | They are melons. |
 | 你走了，我们都会想你的。 | ni3 zou3 le，wo3 men2 du1 hui4 xiang3 ni3 de 。 | We shall all miss you when you go away. |
-| 电视的优点在于它给体育爱好者提供了更大的方便。 | dian4 shi4 de you1 dian3 zai4 yu2 ta1 gei3 ti3 yu4 ai4 hao3 zhe3 ti2 gong1 le geng1 da4 de fang1 bian4 。 | Television has the advantage of providing sports fans with greater convenience. |
+| 电视的优点在于它给体育爱好者提供了更大的方便。 | dian4 shi4 de you1 dian3 zai4 yu2 ta1 gei3 ti3 yu4 ai4 hao4 zhe3 ti2 gong1 le geng1 da4 de fang1 bian4 。 | Television has the advantage of providing sports fans with greater convenience. |
 | 我没有拜访他，因为我感冒了。 | wo3 mei2 you3 bai4 fang3 ta1，yin1 wei2 wo3 gan3 mao4 le 。 | I didn't call on him because I had a cold. |
 | 乘公交车费时。 | cheng2 gong1 jiao1 che1 fei4 shi2 。 | The bus will take time. |
 | 由于火车延误，我迟到了。 | you2 yu2 huo3 che1 yan2 wu4，wo3 chi2 dao4 le 。 | I was late as a result of the train delay. |
@@ -801,7 +801,7 @@
 | 在这个城市，白人和黑人间的争端愈演愈烈。 | zai4 zhe4 ge4 cheng2 shi4，bai2 ren2 he2 hei1 ren2 jian1 de zheng1 duan1 yu4 yan3 yu4 lie4 。 | The conflict between blacks and whites in the city became worse. |
 | 这个国家的政府压迫人民。 | zhe4 ge4 guo2 jia1 de zheng4 fu3 ya1 po4 ren2 min2 。 | The government of this country oppresses its people. |
 | 我喉咙很干。 | wo3 hou2 long2 hen3 gan1 。 | My throat feels dry. |
-| 观察鸟类是个很好的业余爱好。 | guan1 cha2 niao3 lei4 shi4 ge4 hen3 hao3 de ye4 yu2 ai4 hao3 。 | Bird watching is a nice hobby. |
+| 观察鸟类是个很好的业余爱好。 | guan1 cha2 niao3 lei4 shi4 ge4 hen3 hao3 de ye4 yu2 ai4 hao4 。 | Bird watching is a nice hobby. |
 | 谁是你的汉语老师? | shui2 shi4 ni3 de han4 yu3 lao3 shi1 ? | Who is your Chinese teacher? |
 | 谁的老师是从英国来的? | shui2 de lao3 shi1 shi4 cong2 ying1 guo2 lai2 de ? | Whose teacher is coming from the United Kingdom? |
 | 我在银行工作。 | wo3 zai4 yin2 hang2 gong1 zuo4 。 | I work in a bank. |
@@ -1397,7 +1397,7 @@
 | 我在伦敦的时候，应该会去看一两场演出。 | wo3 zai4 lun2 dun1 de shi2 hou4，ying1 gai1 hui4 qu4 kan4 yi1 liang3 chang2 yan3 chu1 。 | When I am in London, I will most probably go catch a few performances. |
 | 你什么时候去伦敦的？ | ni3 shi2 mo2 shi2 hou4 qu4 lun2 dun1 de ？ | When did you go to London? |
 | 他喜欢冒险。 | ta1 xi3 huan1 mao4 xian3 。 | He is fond of adventure. |
-| 我妈妈英语说得不太好。 | wo3 ma1 ma1 ying1 yu3 shuo1 de2 bu4 tai4 hao3 。 | My mom doesn't speak English very well. |
+| 我妈妈英语说得不太好。 | wo3 ma1 ma1 ying1 yu3 shuo1 de2 bu4 tai4 hao4 。 | My mom doesn't speak English very well. |
 | 不要小看我的力量。 | bu4 yao4 xiao3 kan4 wo3 de li4 liang2 。 | Don't underestimate my power. |
 | 这颗钻石不是真的。 | zhe4 ke1 zuan1 shi2 bu4 shi4 zhen1 de 。 | This diamond is not real. |
 | 我在考虑明年去国外。 | wo3 zai4 kao3 lv4 ming2 nian2 qu4 guo2 wai4 。 | I'm thinking of going abroad next year. |
@@ -1411,8 +1411,8 @@
 | 我怎么可能是机器人呢？机器人不会做梦。 | wo3 zen3 mo2 ke3 neng2 shi4 ji1 qi4 ren2 ne ？ ji1 qi4 ren2 bu4 hui4 zuo4 meng4 。 | How could I be a robot? Robots can't dream. |
 | 每个人都有他的长处和短处。 | mei3 ge4 ren2 du1 you3 ta1 de chang2 chu3 he2 duan3 chu3 。 | Everyone has strengths and weaknesses. |
 | 我也无法解释。 | wo3 ye3 wu2 fa3 jie3 shi4 。 | I can't explain it either. |
-| 我做得好到不能再好了。 | wo3 zuo4 de2 hao3 dao4 bu4 neng2 zai4 hao3 le 。 | I can't do any better. |
-| 我做得好到不能再好了。 | wo3 zuo4 de2 hao3 dao4 bu4 neng2 zai4 hao3 le 。 | I did my best. |
+| 我做得好到不能再好了。 | wo3 zuo4 de2 hao3 dao4 bu4 neng2 zai4 hao4 le 。 | I can't do any better. |
+| 我做得好到不能再好了。 | wo3 zuo4 de2 hao3 dao4 bu4 neng2 zai4 hao4 le 。 | I did my best. |
 | 我不想这种事发生。 | wo3 bu4 xiang3 zhe4 zhong3 shi4 fa1 sheng1 。 | I don't want something like this to happen. |
 | 我讨厌化学。 | wo3 tao3 yan4 hua4 xue2 。 | I hate chemistry. |
 | 有一天我去法国是无可避免的，我只是不知道何时。 | you3 yi1 tian1 wo3 qu4 fa3 guo2 shi4 wu2 ke3 bi4 mian3 de，wo3 zhi1 shi4 bu4 zhi1 dao4 he2 shi2 。 | It is inevitable that I go to France someday, I just don't know when. |
@@ -2721,8 +2721,8 @@
 | 你不可以把它延遲到明天嗎？ | ni3 bu4 ke3 yi3 ba3 ta1 yan2 chi2 dao4 ming2 tian1 ma2 ？ | Can't you put it off until tomorrow? |
 | 我吃完晚飯後看電視。 | wo3 chi1 wan2 wan3 fan4 hou4 kan4 dian4 shi4 。 | I watch television after supper. |
 | 可以的话你也一起来吧。 | ke3 yi3 de hua4 ni3 ye3 yi1 qi3 lai2 ba1 。 | Come along with us if you like. |
-| 太好了。没有一个人缺席。 | tai4 hao3 le 。 mei2 you3 yi1 ge4 ren2 que1 xi2 。 | Good. No absentees. |
-| 太好了。一个缺席的人都没有。 | tai4 hao3 le 。 yi1 ge4 que1 xi2 de ren2 du1 mei2 you3 。 | Good. No absentees. |
+| 太好了。没有一个人缺席。 | tai4 hao4 le 。 mei2 you3 yi1 ge4 ren2 que1 xi2 。 | Good. No absentees. |
+| 太好了。一个缺席的人都没有。 | tai4 hao4 le 。 yi1 ge4 que1 xi2 de ren2 du1 mei2 you3 。 | Good. No absentees. |
 | 欧洲人喜欢喝红酒。 | ou1 zhou1 ren2 xi3 huan1 he1 hong2 jiu3 。 | The European likes to drink wine. |
 | 我來這裏已有十年了。 | wo3 lai2 zhe4 li3 yi3 you3 shi2 nian2 le 。 | It has been ten years since I came here. |
 | 一朝被蛇咬，十年怕井绳。 | yi1 zhao1 bei4 she2 yao3，shi2 nian2 pa4 jing3 sheng2 。 | Once bitten, twice shy. |
@@ -2799,7 +2799,7 @@
 | 出席的學生不下五百人。 | chu1 xi2 de xue2 sheng1 bu4 xia4 wu3 bai3 ren2 。 | No fewer than five hundred students were present. |
 | 她在鏡前停下腳步，自我欣賞了一番。 | ta1 zai4 jing4 qian2 ting2 xia4 jiao3 bu4，zi4 wo3 xin1 shang3 le yi1 fan1 。 | She stopped before the mirror to admire herself. |
 | 看來快要颳暴風雨了。 | kan4 lai2 kuai4 yao4 gua1 bao4 feng1 yu3 le 。 | It seems that there will be a storm soon. |
-| 你還記得我的生日，那真是太好了。 | ni3 huan2 ji4 de2 wo3 de sheng1 ri4，na4 zhen1 shi4 tai4 hao3 le 。 | It is really marvelous of you to remember my birthday. |
+| 你還記得我的生日，那真是太好了。 | ni3 huan2 ji4 de2 wo3 de sheng1 ri4，na4 zhen1 shi4 tai4 hao4 le 。 | It is really marvelous of you to remember my birthday. |
 | 你有外國郵票嗎？ | ni3 you3 wai4 guo2 you2 piao4 ma2 ？ | Do you have any foreign stamps? |
 | Ben学会了不用火柴就能生火。 | Ben xue2 hui4 le bu4 yong4 huo3 chai2 jiu4 neng2 sheng1 huo3 。 | Ben learned to make a fire without matches. |
 | 那是一個叫人心碎的故事。 | na4 shi4 yi1 ge4 jiao4 ren2 xin1 sui4 de gu4 shi4 。 | It was a heartbreaking story. |
@@ -3393,7 +3393,7 @@
 | 现在是我们回答这个问题的机会。这是我们的时刻这是我们的时代--让我们的人民重新就业，为我们的后代敞开机会之门，恢复繁荣，推进和平，重新确立“美国梦”，再次证明这样一个基本的真理：我们是一家人；只要一息尚存，我们就有希望；当我们遇到嘲讽和怀疑，当有人说我们办不到的时候，我们要以这个永恒的信条来回应他们。是的，我们能做到 | xian4 zai4 shi4 wo3 men2 hui2 da2 zhe4 ge4 wen4 ti2 de ji1 hui4 。 zhe4 shi4 wo3 men2 de shi2 ke4 zhe4 shi4 wo3 men2 de shi2 dai4 -- rang4 wo3 men2 de ren2 min2 zhong4 xin1 jiu4 ye4，wei2 wo3 men2 de hou4 dai4 chang3 kai1 ji1 hui4 zhi1 men2，hui1 fu4 fan2 rong2，tui1 jin4 he2 ping2，zhong4 xin1 que4 li4 “ mei3 guo2 meng4 ”，zai4 ci4 zheng4 ming2 zhe4 yang4 yi1 ge4 ji1 ben3 de zhen1 li3 ： wo3 men2 shi4 yi1 jia1 ren2 ； zhi1 yao4 yi1 xi1 shang4 cun2，wo3 men2 jiu4 you3 xi1 wang4 ； dang1 wo3 men2 yu4 dao4 chao2 feng3 he2 huai2 yi2，dang1 you3 ren2 shuo1 wo3 men2 ban4 bu4 dao4 de shi2 hou4，wo3 men2 yao4 yi3 zhe4 ge4 yong3 heng2 de xin4 tiao2 lai2 hui2 ying1 ta1 men2 。 shi4 de，wo3 men2 neng2 zuo4 dao4 | This is our chance to answer that call. This is our moment. This is our time, to put our people back to work and open doors of opportunity for our kids; to restore prosperity and promote the cause of peace; to reclaim the American dream and reaffirm that fundamental truth, that out of many, we are one; that while we breathe, we hope. And where we are met with cynicism and doubt and those who tell us that we can't, we will respond with that timeless creed that sums up the spirit of a people: Yes, we can. |
 | 感谢你们。上帝保佑你们。愿上帝保佑美利坚合众国 | gan3 xie4 ni3 men2 。 shang4 di4 bao3 you4 ni3 men2 。 yuan4 shang4 di4 bao3 you4 mei3 li4 jian1 he2 zhong4 guo2 | Thank you. God bless you. And may God bless the United States of America. |
 | 我不会讲日本话。 | wo3 bu4 hui4 jiang3 ri4 ben3 hua4 。 | I don't speak Japanese. |
-| 太好了！ | tai4 hao3 le ！ | Great! |
+| 太好了！ | tai4 hao4 le ！ | Great! |
 | 真好！ | zhen1 hao3 ！ | Great! |
 | 我很累所以早睡了。 | wo3 hen3 lei2 suo3 yi3 zao3 shui4 le 。 | I was very tired, so I went to bed early. |
 | 我很担心你。 | wo3 hen3 dan1 xin1 ni3 。 | I'm worried for you. |
@@ -3761,7 +3761,7 @@
 | 去那裏要花一小時。 | qu4 na4 li3 yao4 hua1 yi1 xiao3 shi2 。 | It'll take an hour to get there. |
 | 走捷徑。 | zou3 jie2 jing4 。 | Take a short cut. |
 | 她在這裏有不少朋友。 | ta1 zai4 zhe4 li3 you3 bu4 shao3 peng2 you3 。 | She has a good many friends here. |
-| Jim 和同學的關係不太好。 | Jim  he2 tong2 xue2 de guan1 xi4 bu4 tai4 hao3 。 | Jim is on bad terms with his classmates. |
+| Jim 和同學的關係不太好。 | Jim  he2 tong2 xue2 de guan1 xi4 bu4 tai4 hao4 。 | Jim is on bad terms with his classmates. |
 | 我們必須知道事情的真相。 | wo3 men2 bi4 xu1 zhi1 dao4 shi4 qing2 de zhen1 xiang1 。 | We have to get at the truth of the matter. |
 | 我們和很多國家有生意來往。 | wo3 men2 he2 hen3 duo1 guo2 jia1 you3 sheng1 yi4 lai2 wang3 。 | We are doing business with many countries. |
 | 請耐心等候檢查的結果。 | qing3 nai4 xin1 deng3 hou4 jian3 cha2 de jie2 guo3 。 | Please wait until we get the results of the examination. |
@@ -3934,7 +3934,7 @@
 | 所有的马都是动物, 但并非所有的动物都是马。 | suo3 you3 de ma3 du1 shi4 dong4 wu4, dan4 bing4 fei1 suo3 you3 de dong4 wu4 du1 shi4 ma3 。 | All horses are animals, but not all animals are horses. |
 | 所有的马都是动物, 但并非所有的动物都是马。 | suo3 you3 de ma3 du1 shi4 dong4 wu4, dan4 bing4 fei1 suo3 you3 de dong4 wu4 du1 shi4 ma3 。 | While all horses are animals, not all animals are horses. |
 | 你是带着相机去吗？ | ni3 shi4 dai4 zhao2 xiang1 ji1 qu4 ma ？ | Are you bringing your camera? |
-| 我的爱好是钓鱼。 | wo3 de ai4 hao3 shi4 diao4 yu2 。 | My hobby is fishing. |
+| 我的爱好是钓鱼。 | wo3 de ai4 hao4 shi4 diao4 yu2 。 | My hobby is fishing. |
 | 這裏近幾天都在下大雨。 | zhe4 li3 jin4 ji1 tian1 du1 zai4 xia4 da4 yu3 。 | It's been pouring here for the last few days. |
 | 也就是說，他根本不想做。 | ye3 jiu4 shi4 shuo1，ta1 gen1 ben3 bu4 xiang3 zuo4 。 | In other words, he doesn't want to do it. |
 | 泳池是對公眾開放的。 | yong3 chi2 shi4 dui4 gong1 zhong4 kai1 fang4 de 。 | The swimming pool is open to the public. |
@@ -4349,7 +4349,7 @@
 | 他天生擁有完美的智慧。 | ta1 tian1 sheng1 yong1 you3 wan2 mei3 de zhi4 hui4 。 | He is gifted with perfect wisdom. |
 | 他四處尋找避雨的地方。 | ta1 si4 chu3 xun2 zhao3 bi4 yu3 de di4 fang1 。 | He sought shelter from the rain. |
 | 如果你想成功，就一定要努力工作。 | ru2 guo3 ni3 xiang3 cheng2 gong1，jiu4 yi1 ding4 yao4 nu3 li4 gong1 zuo4 。 | You must work hard if you want to succeed. |
-| 我今天心情不太好。 | wo3 jin1 tian1 xin1 qing2 bu4 tai4 hao3 。 | I have the blues today. |
+| 我今天心情不太好。 | wo3 jin1 tian1 xin1 qing2 bu4 tai4 hao4 。 | I have the blues today. |
 | 喝咖啡傷胃。 | he1 ka1 fei1 shang1 wei4 。 | Coffee does harm to your stomach. |
 | 他的健康狀況很差。 | ta1 de jian4 kang1 zhuang4 kuang4 hen3 cha4 。 | He is in poor health. |
 | 我失望了。 | wo3 shi1 wang4 le 。 | I was disappointed. |
@@ -5503,7 +5503,7 @@
 | 我也去了。 | wo3 ye3 qu4 le 。 | I also went. |
 | 我也去了。 | wo3 ye3 qu4 le 。 | I went, too. |
 | 林子大了什么鸟都有。 | lin2 zi3 da4 le shi2 mo2 niao3 du1 you3 。 | There are all kinds of people in the world. |
-| 要是你来得了，那就太好了。 | yao4 shi4 ni3 lai2 de2 le，na4 jiu4 tai4 hao3 le 。 | If you came, that would be great. |
+| 要是你来得了，那就太好了。 | yao4 shi4 ni3 lai2 de2 le，na4 jiu4 tai4 hao4 le 。 | If you came, that would be great. |
 | 您可能找不到。 | nin2 ke3 neng2 zhao3 bu4 dao4 。 | You might not find it. |
 | 要是你有空的话，我们就去购物吧。 | yao4 shi4 ni3 you3 kong1 de hua4，wo3 men2 jiu4 qu4 gou4 wu4 ba1 。 | If you have time, let's go shopping. |
 | 关于这件事......我真的不知道。 | guan1 yu2 zhe4 jian4 shi4 ...... wo3 zhen1 de bu4 zhi1 dao4 。 | Concerning this matter... I really don’t know. |
@@ -5560,7 +5560,7 @@
 | 他的書房有數百本書。 | ta1 de shu1 fang2 you3 shu4 bai3 ben3 shu1 。 | There are hundreds of books in his study. |
 | 他的名字我記得很清楚。 | ta1 de ming2 zi4 wo3 ji4 de2 hen3 qing1 chu3 。 | I remember that man's name very well. |
 | 他只不過是有點小聰明。 | ta1 zhi1 bu4 guo4 shi4 you3 dian3 xiao3 cong1 ming2 。 | Although he may be clever, he is not wise. |
-| 我們這樣待他，好像不是太好。 | wo3 men2 zhe4 yang4 dai4 ta1，hao3 xiang4 bu4 shi4 tai4 hao3 。 | It would be unfair if we treated him so badly. |
+| 我們這樣待他，好像不是太好。 | wo3 men2 zhe4 yang4 dai4 ta1，hao3 xiang4 bu4 shi4 tai4 hao4 。 | It would be unfair if we treated him so badly. |
 | 「是誰？」「是我。」 | 「 shi4 shui2 ？」「 shi4 wo3 。」 | "Who is it?" "It's me." |
 | 一石二鸟。 | yi1 shi2 er4 niao3 。 | To kill two birds with one stone. |
 | 一石二鸟。 | yi1 shi2 er4 niao3 。 | Kill two birds with one stone. |
@@ -6757,7 +6757,7 @@
 | 在那邊游泳的男孩是誰？ | zai4 na4 bian1 you2 yong3 de nan2 hai2 shi4 shui2 ？ | Who is the boy that is swimming over there? |
 | 我給你五塊錢吧。 | wo3 gei3 ni3 wu3 kuai4 qian2 ba1 。 | I'll give you five dollars. |
 | 有些人認為從小學升到中學是踏入成年的第一步。 | you3 xie1 ren2 ren4 wei2 cong2 xiao3 xue2 sheng1 dao4 zhong1 xue2 shi4 ta4 ru4 cheng2 nian2 de di4 yi1 bu4 。 | The graduation from elementary school to middle school is regarded by some as the first step towards adulthood. |
-| 如果這是真的，那就太好了。 | ru2 guo3 zhe4 shi4 zhen1 de，na4 jiu4 tai4 hao3 le 。 | It would be great if that were true. |
+| 如果這是真的，那就太好了。 | ru2 guo3 zhe4 shi4 zhen1 de，na4 jiu4 tai4 hao4 le 。 | It would be great if that were true. |
 | 現在已經十一時了。我一定要走了。 | xian4 zai4 yi3 jing1 shi2 yi1 shi2 le 。 wo3 yi1 ding4 yao4 zou3 le 。 | It's already eleven o'clock. I must be leaving now. |
 | 你不覺得房子在搖動嗎？ | ni3 bu4 jue2 de2 fang2 zi3 zai4 yao2 dong4 ma2 ？ | Don't you feel the house shaking? |
 | 你班裏有沒有一個叫做珀西的人？ | ni3 ban1 li3 you3 mei2 you3 yi1 ge4 jiao4 zuo4 po4 xi1 de ren2 ？ | Is there a Percy in your class? |
@@ -7438,8 +7438,8 @@
 | 您非常勇敢。 | nin2 fei1 chang2 yong3 gan3 。 | You are very brave. |
 | 您非常勇敢。 | nin2 fei1 chang2 yong3 gan3 。 | You are very courageous. |
 | 你非常勇敢。 | ni3 fei1 chang2 yong3 gan3 。 | You are very brave. |
-| 您真是太好了。 | nin2 zhen1 shi4 tai4 hao3 le 。 | That's very sweet of you. |
-| 你真是太好了。 | ni3 zhen1 shi4 tai4 hao3 le 。 | You're really wonderful. |
+| 您真是太好了。 | nin2 zhen1 shi4 tai4 hao4 le 。 | That's very sweet of you. |
+| 你真是太好了。 | ni3 zhen1 shi4 tai4 hao4 le 。 | You're really wonderful. |
 | 你喜欢去哪儿就可以去哪儿。 | ni3 xi3 huan1 qu4 na3 er2 jiu4 ke3 yi3 qu4 na3 er2 。 | You may go anywhere you like. |
 | 你要这钱干嘛？ | ni3 yao4 zhe4 qian2 gan1 ma2 ？ | What do you need the money for? |
 | 为什么你花了所有钱？ | wei2 shi2 mo2 ni3 hua1 le suo3 you3 qian2 ？ | Why did you use up all the money? |
@@ -9732,7 +9732,7 @@
 | 你呢？ | ni3 ne ？ | What about you? |
 | 我沒有票。 | wo3 mei2 you3 piao4 。 | I don't have a ticket. |
 | 我覺得這本書從頭到尾都很有趣。 | wo3 jue2 de2 zhe4 ben3 shu1 cong2 tou2 dao4 wei3 du1 hen3 you3 qu4 。 | I found this book interesting from beginning to end. |
-| 兩組在比賽中的表現都不太好。 | liang3 zu3 zai4 bi3 sai4 zhong1 de biao3 xian4 du1 bu4 tai4 hao3 。 | Neither team played well in the game. |
+| 兩組在比賽中的表現都不太好。 | liang3 zu3 zai4 bi3 sai4 zhong1 de biao3 xian4 du1 bu4 tai4 hao4 。 | Neither team played well in the game. |
 | 我聽不懂他的笑話。 | wo3 ting1 bu4 dong3 ta1 de xiao4 hua4 。 | I couldn't understand his joke. |
 | 意外中有十個人受了傷。 | yi4 wai4 zhong1 you3 shi2 ge4 ren2 shou4 le shang1 。 | Ten people were injured in the accident. |
 | 他雖然很有才能，但卻不肯努力上進。 | ta1 sui1 ran2 hen3 you3 cai2 neng2，dan4 que4 bu4 ken3 nu3 li4 shang4 jin4 。 | With all the talent he has, he never makes any effort. |
@@ -9767,7 +9767,7 @@
 | 谢谢您的帮助。 | xie4 xie4 nin2 de bang1 zhu4 。 | Thank you for your help. |
 | 谢谢您的礼物。 | xie4 xie4 nin2 de li3 wu4 。 | Thanks for your gift. |
 | 谢谢您的答复。 | xie4 xie4 nin2 de da2 fu4 。 | Thanks for your answer. |
-| 您太好了。 | nin2 tai4 hao3 le 。 | You're the best. |
+| 您太好了。 | nin2 tai4 hao4 le 。 | You're the best. |
 | 不客气。 | bu4 ke4 qi4 。 | You're welcome. |
 | 你吃飯前應該先洗手。 | ni3 chi1 fan4 qian2 ying1 gai1 xian1 xi3 shou3 。 | You should wash your hands before you eat. |
 | 一月是一年之中的頭一個月。 | yi1 yue4 shi4 yi1 nian2 zhi1 zhong1 de tou2 yi1 ge4 yue4 。 | January is the first month of the year. |
@@ -10075,7 +10075,7 @@
 | 这种威士忌太烈了。 | zhe4 zhong3 wei1 shi4 ji4 tai4 lie4 le 。 | This whisky is too strong. |
 | 这种威士忌太烈了。 | zhe4 zhong3 wei1 shi4 ji4 tai4 lie4 le 。 | This whisky is very strong. |
 | 我们的朋友完成了比赛，得了第二名。 | wo3 men2 de peng2 you3 wan2 cheng2 le bi3 sai4，de2 le di4 er4 ming2 。 | Our friend finished the race in second place. |
-| 他的爱好是画有花的图。 | ta1 de ai4 hao3 shi4 hua4 you3 hua1 de tu2 。 | His hobby is painting pictures of flowers. |
+| 他的爱好是画有花的图。 | ta1 de ai4 hao4 shi4 hua4 you3 hua1 de tu2 。 | His hobby is painting pictures of flowers. |
 | 生命确实是好的东西。 | sheng1 ming4 que4 shi2 shi4 hao3 de dong1 xi1 。 | Life is indeed a good thing. |
 | 他一到，咱們就走了吧。 | ta1 yi1 dao4，zan2 men2 jiu4 zou3 le ba1 。 | Let's leave as soon as he arrives. |
 | 你昨天打棒球了没有？ | ni3 zuo2 tian1 da3 bang4 qiu2 le mei2 you3 ？ | Did you play baseball yesterday? |
@@ -10462,7 +10462,7 @@
 | 我是从新加坡来的。 | wo3 shi4 cong2 xin1 jia1 po1 lai2 de 。 | I'm from Singapore. |
 | 我叫Andrea。 | wo3 jiao4 Andrea。 | My name is Andrea. |
 | 听好了，不加税！ | ting1 hao3 le，bu4 jia1 shui4 ！ | Read my lips, no new taxes! |
-| 即使那家饭馆做的菜好吃极了，我也不想在那里吃饭。 | ji2 shi3 na4 jia1 fan4 guan3 zuo4 de cai4 hao3 chi1 ji2 le，wo3 ye3 bu4 xiang3 zai4 na4 li3 chi1 fan4 。 | Even if that restaurant did very tasty food, I wouldn't like to eat there. |
+| 即使那家饭馆做的菜好吃极了，我也不想在那里吃饭。 | ji2 shi3 na4 jia1 fan4 guan3 zuo4 de cai4 hao4 chi1 ji2 le，wo3 ye3 bu4 xiang3 zai4 na4 li3 chi1 fan4 。 | Even if that restaurant did very tasty food, I wouldn't like to eat there. |
 | 即使有人比你漂亮，也不会太多。 | ji2 shi3 you3 ren2 bi3 ni3 piao1 liang4，ye3 bu4 hui4 tai4 duo1 。 | If there even are people more beautiful than you, there won't be many of them. |
 | 即使我的钱够了，我也不会买一辆法拉利。 | ji2 shi3 wo3 de qian2 gou4 le，wo3 ye3 bu4 hui4 mai3 yi1 liang4 fa3 la1 li4 。 | Even if I had enough money, I still wouldn't buy a Ferrari. |
 | 尽管美国是个发达国家，却还有些很贫穷的人。 | jin4 guan3 mei3 guo2 shi4 ge4 fa1 da2 guo2 jia1，que4 huan2 you3 xie1 hen3 pin2 qiong2 de ren2 。 | Even though America is a developed country, it still has some very poor people. |
@@ -12204,7 +12204,7 @@
 | 他被控告杀人罪。 | ta1 bei4 kong4 gao4 sha1 ren2 zui4 。 | He was accused of murder. |
 | 您只要按下按钮就行了。 | nin2 zhi1 yao4 an4 xia4 an4 niu3 jiu4 hang2 le 。 | You have only to push the button. |
 | 你喜欢什么时候打给我就什么时候打。 | ni3 xi3 huan1 shi2 mo2 shi2 hou4 da3 gei3 wo3 jiu4 shi2 mo2 shi2 hou4 da3 。 | You can call me anytime you like. |
-| 在这里见到您真是太好了。 | zai4 zhe4 li3 jian4 dao4 nin2 zhen1 shi4 tai4 hao3 le 。 | It was nice meeting you here. |
+| 在这里见到您真是太好了。 | zai4 zhe4 li3 jian4 dao4 nin2 zhen1 shi4 tai4 hao4 le 。 | It was nice meeting you here. |
 | 我知道你多大了。 | wo3 zhi1 dao4 ni3 duo1 da4 le 。 | I know how old you are. |
 | 我让她洗了碗。 | wo3 rang4 ta1 xi3 le wan3 。 | I got her to wash dishes. |
 | 他从没去过法国。 | ta1 cong2 mei2 qu4 guo4 fa3 guo2 。 | He has not been to France. |
@@ -12901,7 +12901,7 @@
 | 我會去拿一些玻璃杯。 | wo3 hui4 qu4 na2 yi1 xie1 bo1 li2 bei1 。 | I'll get some glasses. |
 | 請照平常一樣五加侖。 | qing3 zhao4 ping2 chang2 yi1 yang4 wu3 jia1 lun2 。 | Five gallons of regular, please. |
 | 請再讀一次。 | qing3 zai4 du2 yi1 ci4 。 | Read it once more, please. |
-| 我快好了。 | wo3 kuai4 hao3 le 。 | I'm about ready. |
+| 我快好了。 | wo3 kuai4 hao4 le 。 | I'm about ready. |
 | 別碰我的相機。 | bie2 peng4 wo3 de xiang1 ji1 。 | Leave my camera alone. |
 | 請把奶油遞給我。 | qing3 ba3 nai3 you2 di4 gei3 wo3 。 | Pass me the butter, please. |
 | 它真的很便宜。 | ta1 zhen1 de hen3 bian4 yi2 。 | It was really cheap. |
@@ -14326,7 +14326,7 @@
 | 被我认作朋友的那个男人欺骗了我。 | bei4 wo3 ren4 zuo4 peng2 you3 de na4 ge4 nan2 ren2 qi1 pian4 le wo3 。 | The man who I thought was my friend deceived me. |
 | 我會把你的手提箱拿到你的房間。 | wo3 hui4 ba3 ni3 de shou3 ti2 xiang1 na2 dao4 ni3 de fang2 jian1 。 | I'll take your suitcase to your room. |
 | 他們每年冬季去野澤滑雪。 | ta1 men2 mei3 nian2 dong1 ji4 qu4 ye3 ze2 hua2 xue3 。 | They go skiing at Nozawa every winter. |
-| 许多人爱好的一个冬季运动是溜冰。 | xu3 duo1 ren2 ai4 hao3 de yi1 ge4 dong1 ji4 yun4 dong4 shi4 liu1 bing1 。 | A winter sport that many people enjoy is ice skating. |
+| 许多人爱好的一个冬季运动是溜冰。 | xu3 duo1 ren2 ai4 hao4 de yi1 ge4 dong1 ji4 yun4 dong4 shi4 liu1 bing1 。 | A winter sport that many people enjoy is ice skating. |
 | 给我弹一曲肖邦。 | gei3 wo3 dan4 yi1 qu1 xiao1 bang1 。 | Play Chopin for me. |
 | 她很快地瞟了一眼報紙。 | ta1 hen3 kuai4 di4 piao3 le yi1 yan3 bao4 zhi3 。 | She glanced briefly at the newspaper. |
 | 她羞怯地看了一眼那個年輕人。 | ta1 xiu1 qie4 di4 kan4 le yi1 yan3 na4 ge4 nian2 qing1 ren2 。 | She glanced shyly at the young man. |
@@ -14643,7 +14643,7 @@
 | Tatoeba: 因為你不能遇到夠多的法國人。 | Tatoeba:  yin1 wei2 ni3 bu4 neng2 yu4 dao4 gou4 duo1 de fa3 guo2 ren2 。 | Tatoeba: Because you can't meet enough frenchies. |
 | Tatoeba:好像怪客入侵還不夠似的。 | Tatoeba: hao3 xiang4 guai4 ke4 ru4 qin1 huan2 bu4 gou4 si4 de 。 | Tatoeba: As if the geek invasion wasn't enough. |
 | FSI人員:"長官，有一個網站，任何人都可以加上一個外國語言的句子!"。FSI主席:"什麼? 炸掉他們!"。 | FSI ren2 yuan2 :" chang2 guan1，you3 yi1 ge4 wang3 zhan4，ren4 he2 ren2 du1 ke3 yi3 jia1 shang4 yi1 ge4 wai4 guo2 yu3 yan2 de ju4 zi3 !"。FSI zhu3 xi2 :" shi2 mo2 ?  zha4 diao4 ta1 men2 !"。 | FSI officer: "Sir, there is a website where ANYONE can add a sentence in a foreign language!". FSI president: "What?! Bomb them!". |
-| "親愛的，快，快。有個名為Tatoeba的網站正在拍賣它的句子收藏一句每一分錢！他們甚至有個優惠像是買一百句送一句！" "啊太好了！現在人們收集句子當作嗜好？！這是什麼世界來著！" | " qin1 ai4 de，kuai4，kuai4 。 you3 ge4 ming2 wei2 Tatoeba de wang3 zhan4 zheng4 zai4 pai1 mai4 ta1 de ju4 zi3 shou1 cang2 yi1 ju4 mei3 yi1 fen1 qian2 ！ ta1 men2 shen4 zhi4 you3 ge4 you1 hui4 xiang4 shi4 mai3 yi1 bai3 ju4 song4 yi1 ju4 ！" " a1 tai4 hao3 le ！ xian4 zai4 ren2 men2 shou1 ji2 ju4 zi3 dang1 zuo4 shi4 hao3 ？！ zhe4 shi4 shi2 mo2 shi4 jie4 lai2 zhu4 ！" | "Honey, quick, quick. There's this website called Tatoeba that's auctioning its sentence collection for a cent each! They've even got special offers like buy 100 sentences and get 1 free!" "Ah great! now people collect sentences as a hobby?! What's the world coming to!" |
+| "親愛的，快，快。有個名為Tatoeba的網站正在拍賣它的句子收藏一句每一分錢！他們甚至有個優惠像是買一百句送一句！" "啊太好了！現在人們收集句子當作嗜好？！這是什麼世界來著！" | " qin1 ai4 de，kuai4，kuai4 。 you3 ge4 ming2 wei2 Tatoeba de wang3 zhan4 zheng4 zai4 pai1 mai4 ta1 de ju4 zi3 shou1 cang2 yi1 ju4 mei3 yi1 fen1 qian2 ！ ta1 men2 shen4 zhi4 you3 ge4 you1 hui4 xiang4 shi4 mai3 yi1 bai3 ju4 song4 yi1 ju4 ！" " a1 tai4 hao4 le ！ xian4 zai4 ren2 men2 shou1 ji2 ju4 zi3 dang1 zuo4 shi4 hao3 ？！ zhe4 shi4 shi2 mo2 shi4 jie4 lai2 zhu4 ！" | "Honey, quick, quick. There's this website called Tatoeba that's auctioning its sentence collection for a cent each! They've even got special offers like buy 100 sentences and get 1 free!" "Ah great! now people collect sentences as a hobby?! What's the world coming to!" |
 | 在Tatoeba，你必須總是傾聽資深成員。他們會告訴你什麼不能做，以及為什麼。然後你去做。 | zai4 Tatoeba，ni3 bi4 xu1 zong3 shi4 qing1 ting1 zi1 shen1 cheng2 yuan2 。 ta1 men2 hui4 gao4 su4 ni3 shi2 mo2 bu4 neng2 zuo4，yi3 ji2 wei2 shi2 mo2 。 ran2 hou4 ni3 qu4 zuo4 。 | In Tatoeba, you gotta always listen to veteran members. They'll tell you what can't be done and why. Then do it. |
 | Tatoeba:凡辯論溫度超過兩隻兔子的會使嬰兒在襪子裡！ | Tatoeba: fan2 bian4 lun4 wen1 du4 chao1 guo4 liang3 zhi1 tu4 zi3 de hui4 shi3 ying1 er2 zai4 wa4 zi3 li3 ！ | Tatoeba: Where debates are hotter than two rabbits making babies in a sock! |
 | Tatoeba是開放原始碼軟體。 | Tatoeba shi4 kai1 fang4 yuan2 shi3 ma3 ruan3 ti3 。 | Tatoeba is open source software. |
@@ -15228,8 +15228,8 @@
 | 法國是一個福利國家，但它卻不再能夠負擔得起了。 | fa3 guo2 shi4 yi1 ge4 fu2 li4 guo2 jia1，dan4 ta1 que4 bu4 zai4 neng2 gou4 fu4 dan1 de2 qi3 le 。 | France is running a welfare state it can no longer afford. |
 | 不快樂不請自來。 | bu4 kuai4 le4 bu4 qing3 zi4 lai2 。 | Unhappiness comes without being called. |
 | 我的孫子還是個嬰兒。 | wo3 de sun1 zi3 huan2 shi4 ge4 ying1 er2 。 | My grandson is still a baby. |
-| 我被各國語言及文字的愛好者所圍繞。 | wo3 bei4 ge4 guo2 yu3 yan2 ji2 wen2 zi4 de ai4 hao3 zhe3 suo3 wei2 rao4 。 | I'm surrounded by linguaphiles! |
-| 我周圍都是各國的語言及文字的愛好者。 | wo3 zhou1 wei2 du1 shi4 ge4 guo2 de yu3 yan2 ji2 wen2 zi4 de ai4 hao3 zhe3 。 | I'm surrounded by linguaphiles! |
+| 我被各國語言及文字的愛好者所圍繞。 | wo3 bei4 ge4 guo2 yu3 yan2 ji2 wen2 zi4 de ai4 hao4 zhe3 suo3 wei2 rao4 。 | I'm surrounded by linguaphiles! |
+| 我周圍都是各國的語言及文字的愛好者。 | wo3 zhou1 wei2 du1 shi4 ge4 guo2 de yu3 yan2 ji2 wen2 zi4 de ai4 hao4 zhe3 。 | I'm surrounded by linguaphiles! |
 | 波多黎各不是一個主權國家。 | bo1 duo1 li2 ge4 bu4 shi4 yi1 ge4 zhu3 quan2 guo2 jia1 。 | Puerto Rico is not a sovereign state. |
 | 他在家裡。 | ta1 zai4 jia1 li3 。 | He is at home. |
 | 不先與我們的承包商討論的話我無法計算出最後的費用。 | bu4 xian1 yu3 wo3 men2 de cheng2 bao1 shang1 tao3 lun4 de hua4 wo3 wu2 fa3 ji4 suan4 chu1 zui4 hou4 de fei4 yong4 。 | I can't calculate the final cost without first discussing it with our contractors. |
@@ -15412,7 +15412,7 @@
 | 他與她在美國成為朋友。 | ta1 yu3 ta1 zai4 mei3 guo2 cheng2 wei2 peng2 you3 。 | He made friends with her in America. |
 | 我是札幌的市民。 | wo3 shi4 zha2 huang3 de shi4 min2 。 | I am a citizen of Sapporo. |
 | 他以一個偉大的詩人聞名。 | ta1 yi3 yi1 ge4 wei3 da4 de shi1 ren2 wen2 ming2 。 | He is known as a great poet. |
-| 这个馓子太好吃了！ | zhe4 ge4 san3 zi3 tai4 hao3 chi1 le ！ | This sangza is really good! |
+| 这个馓子太好吃了！ | zhe4 ge4 san3 zi3 tai4 hao4 chi1 le ！ | This sangza is really good! |
 | 她對那個女人做了鬼臉。 | ta1 dui4 na4 ge4 nv3 ren2 zuo4 le gui3 lian3 。 | She made faces at that woman. |
 | 愛麗絲笑了。 | ai4 li2 si1 xiao4 le 。 | Alice smiled. |
 | 鳥類飛行。 | niao3 lei4 fei1 hang2 。 | Birds fly. |
@@ -16081,7 +16081,7 @@
 | 我覺得精神很好。 | wo3 jue2 de2 jing1 shen2 hen3 hao3 。 | I'm feeling fit. |
 | 離開這裡。 | li2 kai1 zhe4 li3 。 | Get out of here. |
 | 他不喜歡喝咖啡。 | ta1 bu4 xi3 huan1 he1 ka1 fei1 。 | He doesn't like coffee. |
-| 那太好了，不是嗎？ | na4 tai4 hao3 le，bu4 shi4 ma2 ？ | That's good, isn't it? |
+| 那太好了，不是嗎？ | na4 tai4 hao4 le，bu4 shi4 ma2 ？ | That's good, isn't it? |
 | 我想我是對的。 | wo3 xiang3 wo3 shi4 dui4 de 。 | I think I'm right. |
 | 她愛湯姆。 | ta1 ai4 tang1 mu3 。 | She loves Tom. |
 | 我打電話給湯姆了。 | wo3 da3 dian4 hua4 gei3 tang1 mu3 le 。 | I called Tom up. |
@@ -16856,7 +16856,7 @@
 | 昨天我收到了她的信。 | zuo2 tian1 wo3 shou1 dao4 le ta1 de xin4 。 | I received her letter yesterday. |
 | 下次我會更加努力。 | xia4 ci4 wo3 hui4 geng1 jia1 nu3 li4 。 | I'll try harder next time. |
 | 數學是我最喜歡的科目。 | shu4 xue2 shi4 wo3 zui4 xi3 huan1 de ke1 mu4 。 | Mathematics is my favorite subject. |
-| 天氣真是太好了！ | tian1 qi4 zhen1 shi4 tai4 hao3 le ！ | Isn't this weather just great! |
+| 天氣真是太好了！ | tian1 qi4 zhen1 shi4 tai4 hao4 le ！ | Isn't this weather just great! |
 | 已經過了十點鐘了。 | yi3 jing1 guo4 le shi2 dian3 zhong1 le 。 | It's already past ten o'clock. |
 | 請​​借我你的書。 | qing3 ​​ jie4 wo3 ni3 de shu1 。 | Lend me your book, please. |
 | 昨天我跟托尼玩。 | zuo2 tian1 wo3 gen1 tuo1 ni2 wan2 。 | I played with Tony yesterday. |
@@ -22328,10 +22328,10 @@
 | 你應該早點來的。 | ni3 ying1 gai1 zao3 dian3 lai2 de 。 | You ought to have come here earlier. |
 | 抱歉，我沒有早點寫e-mail給你。 | bao4 qian4，wo3 mei2 you3 zao3 dian3 xie3 e-mail gei3 ni3 。 | Sorry I didn't e-mail you sooner. |
 | 跟你講話的那個女人是我姐姐。 | gen1 ni3 jiang3 hua4 de na4 ge4 nv3 ren2 shi4 wo3 jie3 jie3 。 | The woman to whom you were talking is my sister. |
-| 我的爱好为我的生活带来什么？ | wo3 de ai4 hao3 wei2 wo3 de sheng1 huo2 dai4 lai2 shi2 mo2 ？ | What do my hobbies bring to my life? |
-| 我的爱好不但广泛而且有用。 | wo3 de ai4 hao3 bu4 dan4 guang3 fan4 er2 qie3 you3 yong4 。 | My hobbies are not only wide-ranging but also useful. |
-| 对我自己来说，每个人应该有学知识的爱好，也应该对体育活动感兴趣。 | dui4 wo3 zi4 ji3 lai2 shuo1，mei3 ge4 ren2 ying1 gai1 you3 xue2 zhi1 shi2 de ai4 hao3，ye3 ying1 gai1 dui4 ti3 yu4 huo2 dong4 gan3 xing1 qu4 。 | In my view, everyone should have intellectual hobbies as well as an interest in physical activities. |
-| 对知识的爱好而言，我真的喜欢学汉字。 | dui4 zhi1 shi2 de ai4 hao3 er2 yan2，wo3 zhen1 de xi3 huan1 xue2 han4 zi4 。 | In terms of intellectual hobbies, I really like learning Chinese characters. |
+| 我的爱好为我的生活带来什么？ | wo3 de ai4 hao4 wei2 wo3 de sheng1 huo2 dai4 lai2 shi2 mo2 ？ | What do my hobbies bring to my life? |
+| 我的爱好不但广泛而且有用。 | wo3 de ai4 hao4 bu4 dan4 guang3 fan4 er2 qie3 you3 yong4 。 | My hobbies are not only wide-ranging but also useful. |
+| 对我自己来说，每个人应该有学知识的爱好，也应该对体育活动感兴趣。 | dui4 wo3 zi4 ji3 lai2 shuo1，mei3 ge4 ren2 ying1 gai1 you3 xue2 zhi1 shi2 de ai4 hao4，ye3 ying1 gai1 dui4 ti3 yu4 huo2 dong4 gan3 xing1 qu4 。 | In my view, everyone should have intellectual hobbies as well as an interest in physical activities. |
+| 对知识的爱好而言，我真的喜欢学汉字。 | dui4 zhi1 shi2 de ai4 hao4 er2 yan2，wo3 zhen1 de xi3 huan1 xue2 han4 zi4 。 | In terms of intellectual hobbies, I really like learning Chinese characters. |
 | 我平时每天可能练习一个小时汉字。 | wo3 ping2 shi2 mei3 tian1 ke3 neng2 lian4 xi2 yi1 ge4 xiao3 shi2 han4 zi4 。 | Normally I might study Chinese characters for an hour a day. |
 | 我上次计算，估计我已经学会了两千五百个汉字左右。 | wo3 shang4 ci4 ji4 suan4，gu1 ji4 wo3 yi3 jing1 xue2 hui4 le liang3 qian1 wu3 bai3 ge4 han4 zi4 zuo3 you4 。 | Last time I counted, I estimated that I know around 2500 Chinese characters. |
 | 可想而知我在学汉字上花太多时间，所以我应该更好地练习语言的其他方面。 | ke3 xiang3 er2 zhi1 wo3 zai4 xue2 han4 zi4 shang4 hua1 tai4 duo1 shi2 jian1，suo3 yi3 wo3 ying1 gai1 geng1 hao3 di4 lian4 xi2 yu3 yan2 de qi2 ta1 fang1 mian4 。 | It's obvious that I spend too much time studying Chinese characters, so I ought to study other aspects of the language more. |
@@ -22346,7 +22346,7 @@
 | 我每隔一天就跟一个好朋友一起去，我们一起一边谈话一边举重。 | wo3 mei3 ge2 yi1 tian1 jiu4 gen1 yi1 ge4 hao3 peng2 you3 yi1 qi3 qu4，wo3 men2 yi1 qi3 yi1 bian1 tan2 hua4 yi1 bian1 ju3 zhong4 。 | Every other day I go with a friend; we lift weights whilst chatting together. |
 | 因为有互相帮助的机会也有正常竞争，所以我觉得跟朋友去健身房是最好的办法。 | yin1 wei2 you3 hu4 xiang1 bang1 zhu4 de ji1 hui4 ye3 you3 zheng4 chang2 jing4 zheng1，suo3 yi3 wo3 jue2 de2 gen1 peng2 you3 qu4 jian4 shen1 fang2 shi4 zui4 hao3 de ban4 fa3 。 | Because there's the chance to help each other, as well as some healthy competition, I think going to the gym with friends is the best way. |
 | 快要考试的时候，举重真的消愁解闷，再说对身体和精神都很好。 | kuai4 yao4 kao3 shi4 de shi2 hou4，ju3 zhong4 zhen1 de xiao1 chou2 jie3 men4，zai4 shuo1 dui4 shen1 ti3 he2 jing1 shen2 du1 hen3 hao3 。 | When you're about to have exams, lifting weights really does relieve stress, and it's also good for your mind and body. |
-| 大体上，我认为我的爱好很均衡，它们给我的生活带来轻松，并同时为我学习带来更集中的精力。 | da4 ti3 shang4，wo3 ren4 wei2 wo3 de ai4 hao3 hen3 jun1 heng2，ta1 men2 gei3 wo3 de sheng1 huo2 dai4 lai2 qing1 song1，bing4 tong2 shi2 wei2 wo3 xue2 xi2 dai4 lai2 geng1 ji2 zhong1 de jing1 li4 。 | All in all, I think my hobbies are balanced; they bring some relaxation to my life, and at the same time bring focus to my studies. |
+| 大体上，我认为我的爱好很均衡，它们给我的生活带来轻松，并同时为我学习带来更集中的精力。 | da4 ti3 shang4，wo3 ren4 wei2 wo3 de ai4 hao4 hen3 jun1 heng2，ta1 men2 gei3 wo3 de sheng1 huo2 dai4 lai2 qing1 song1，bing4 tong2 shi2 wei2 wo3 xue2 xi2 dai4 lai2 geng1 ji2 zhong1 de jing1 li4 。 | All in all, I think my hobbies are balanced; they bring some relaxation to my life, and at the same time bring focus to my studies. |
 | 替罪羊就是他。 | ti4 zui4 yang2 jiu4 shi4 ta1 。 | He's the scapegoat. |
 | 「几把钥匙？」Pepperberg 问道。 | 「 ji1 ba3 yue4 chi2 ？」Pepperberg  wen4 dao4 。 | "How many keys?" asked Pepperberg. |
 | 他们不是在演唱，他们在调情说爱。 | ta1 men2 bu4 shi4 zai4 yan3 chang4，ta1 men2 zai4 tiao2 qing2 shuo1 ai4 。 | They are not singing, they are flirting with each other. |
@@ -25522,7 +25522,7 @@
 | 我父亲的车和木村先生的一样。 | wo3 fu4 qin1 de che1 he2 mu4 cun1 xian1 sheng1 de yi1 yang4 。 | My father has the same car as Mr Kimura's. |
 | 等你到的时候应该已经散会了。 | deng3 ni3 dao4 de shi2 hou4 ying1 gai1 yi3 jing1 san4 hui4 le 。 | The meeting will have broken up by the time you arrive there. |
 | 这张纸太大，塞不进信封里。 | zhe4 zhang1 zhi3 tai4 da4，sai1 bu4 jin4 xin4 feng1 li3 。 | The paper is too big for the envelope. |
-| “她的爱好不寻常啊，这个转学生。”“她长得可爱，所以对我来说还行。” | “ ta1 de ai4 hao3 bu4 xun2 chang2 a1，zhe4 ge4 zhuan3 xue2 sheng1 。”“ ta1 chang2 de2 ke3 ai4，suo3 yi3 dui4 wo3 lai2 shuo1 huan2 hang2 。” | "That's an unusual hobby she's got, the transfer student." "She's cute so it's fine with me." |
+| “她的爱好不寻常啊，这个转学生。”“她长得可爱，所以对我来说还行。” | “ ta1 de ai4 hao4 bu4 xun2 chang2 a1，zhe4 ge4 zhuan3 xue2 sheng1 。”“ ta1 chang2 de2 ke3 ai4，suo3 yi3 dui4 wo3 lai2 shuo1 huan2 hang2 。” | "That's an unusual hobby she's got, the transfer student." "She's cute so it's fine with me." |
 | 他在回家路上遇到了小萨米·戴维斯先生。 | ta1 zai4 hui2 jia1 lu4 shang4 yu4 dao4 le xiao3 sa4 mi3 · dai4 wei2 si1 xian1 sheng1 。 | He met Sammy Davis, Jr. on his way home. |
 | 叫警察。 | jiao4 jing3 cha2 。 | Please call the police. |
 | 他够大方，借了我一点钱。 | ta1 gou4 da4 fang1，jie4 le wo3 yi1 dian3 qian2 。 | He was kind enough to lend me some money. |
@@ -28250,7 +28250,7 @@
 | 他的生命受到了威胁。 | ta1 de sheng1 ming4 shou4 dao4 le wei1 xie2 。 | His life is in danger. |
 | 此剑际遇不凡。 | ci3 jian4 ji4 yu4 bu4 fan2 。 | This sword has a strange history. |
 | 这是我见过的最高的树。 | zhe4 shi4 wo3 jian4 guo4 de zui4 gao1 de shu4 。 | This is the tallest tree I have ever seen. |
-| 湯姆昨晚睡得不太好。 | tang1 mu3 zuo2 wan3 shui4 de2 bu4 tai4 hao3 。 | Tom didn't sleep very well last night. |
+| 湯姆昨晚睡得不太好。 | tang1 mu3 zuo2 wan3 shui4 de2 bu4 tai4 hao4 。 | Tom didn't sleep very well last night. |
 | 我們組織了一個專案團隊。 | wo3 men2 zu3 zhi1 le yi1 ge4 zhuan1 an4 tuan2 dui4 。 | We organized a project team. |
 | 如當時的習慣，他很年輕便成婚了。 | ru2 dang1 shi2 de xi2 guan4，ta1 hen3 nian2 qing1 bian4 cheng2 hun1 le 。 | As was the custom in those days, he married young. |
 | 因為車子壞了，他們只好步行。 | yin1 wei2 che1 zi3 huai4 le，ta1 men2 zhi1 hao3 bu4 hang2 。 | The car broke down, so they had to walk. |
@@ -29106,7 +29106,7 @@
 | 别惹我了。 | bie2 re3 wo3 le 。 | Don't get me started. |
 | 别惹我了。 | bie2 re3 wo3 le 。 | Don't provoke me. |
 | 在这个世界上的某个地方肯定有一个苹果需要我。 | zai4 zhe4 ge4 shi4 jie4 shang4 de mou3 ge4 di4 fang1 ken3 ding4 you3 yi1 ge4 ping2 guo3 xu1 yao4 wo3 。 | Somewhere in this world, there must be an apple that needs me. |
-| 你的爱好是什么？ | ni3 de ai4 hao3 shi4 shi2 mo2 ？ | What's your hobby? |
+| 你的爱好是什么？ | ni3 de ai4 hao4 shi4 shi2 mo2 ？ | What's your hobby? |
 | 你最喜欢的饮料是什么？ | ni3 zui4 xi3 huan1 de yin3 liao4 shi4 shi2 mo2 ？ | What's your favorite beverage? |
 | 这是一个奇迹。 | zhe4 shi4 yi1 ge4 qi2 ji4 。 | This is a miracle. |
 | 原子弹是二十世纪物理学的产物。 | yuan2 zi3 dan4 shi4 er4 shi2 shi4 ji4 wu4 li3 xue2 de chan3 wu4 。 | The atomic bomb is the offspring of 20th century physics. |
@@ -29826,7 +29826,7 @@
 | 你什么时候有空？ | ni3 shi2 mo2 shi2 hou4 you3 kong1 ？ | When are you free? |
 | 你喜欢打高尔夫吗？ | ni3 xi3 huan1 da3 gao1 er3 fu1 ma ？ | Do you like to play golf? |
 | 孩子们都充满了活力。 | hai2 zi3 men2 du1 chong1 man3 le huo2 li4 。 | Children are full of energy. |
-| 他是一个体育爱好者。 | ta1 shi4 yi1 ge4 ti3 yu4 ai4 hao3 zhe3 。 | He is a lover of sports. |
+| 他是一个体育爱好者。 | ta1 shi4 yi1 ge4 ti3 yu4 ai4 hao4 zhe3 。 | He is a lover of sports. |
 | 不要让孩子们在街上玩耍。 | bu4 yao4 rang4 hai2 zi3 men2 zai4 jie1 shang4 wan2 shua3 。 | Don't let the children play on the street. |
 | 我想要离开这里！ | wo3 xiang3 yao4 li2 kai1 zhe4 li3 ！ | I wanna get out of here! |
 | 我感觉非常棒。 | wo3 gan3 jue2 fei1 chang2 bang4 。 | I do feel pretty good. |
@@ -29889,7 +29889,7 @@
 | 每个傍晚我都会喂我的狗狗们。 | mei3 ge4 bang4 wan3 wo3 du1 hui4 wei4 wo3 de gou3 gou3 men2 。 | I've always fed my dogs in the early evening. |
 | 他充分利用了剩余的时间。 | ta1 chong1 fen1 li4 yong4 le sheng4 yu2 de shi2 jian1 。 | He made the best of the time left. |
 | 你像你说的那些人一样都属于说不好普通话的人。 | ni3 xiang4 ni3 shuo1 de na4 xie1 ren2 yi1 yang4 du1 shu3 yu2 shuo1 bu4 hao3 pu3 tong1 hua4 de ren2 。 | You yourself belong to this group of people that you're talking about - the one that doesn't speak standard Mandarin well. |
-| 这支笔不太好用。 | zhe4 zhi1 bi3 bu4 tai4 hao3 yong4 。 | This pen doesn't write well. |
+| 这支笔不太好用。 | zhe4 zhi1 bi3 bu4 tai4 hao4 yong4 。 | This pen doesn't write well. |
 | 汤姆出神地一边看着天空一边吸着香烟。 | tang1 mu3 chu1 shen2 di4 yi1 bian1 kan4 zhao2 tian1 kong1 yi1 bian1 xi1 zhao2 xiang1 yan1 。 | Lost in thought, Tom watched the sky as he smoked a cigarette. |
 | 我很怀疑他们的计划是否能够成功。 | wo3 hen3 huai2 yi2 ta1 men2 de ji4 hua2 shi4 fou3 neng2 gou4 cheng2 gong1 。 | I have serious doubts about their plans succeeding. |
 | 我很怀疑他们的计划是否能够成功。 | wo3 hen3 huai2 yi2 ta1 men2 de ji4 hua2 shi4 fou3 neng2 gou4 cheng2 gong1 。 | I have serious doubts about their plan succeeding. |
@@ -30234,7 +30234,7 @@
 | 从海洋吹来的风感觉湿漉漉的。 | cong2 hai3 yang2 chui1 lai2 de feng1 gan3 jue2 shi1 lu4 lu4 de 。 | Winds from the sea are moist. |
 | 这个团体内的每个人，像是一个健康的人体内免疫系统里的细胞。 | zhe4 ge4 tuan2 ti3 nei4 de mei3 ge4 ren2，xiang4 shi4 yi1 ge4 jian4 kang1 de ren2 ti3 nei4 mian3 yi4 xi4 tong3 li3 de xi4 bao1 。 | Every person in this community is like a cell in the immune system of a healthy human body. |
 | 他是个吸毒男。 | ta1 shi4 ge4 xi1 du2 nan2 。 | He's a meth addict. |
-| 太好了，死前心愿又完成了一样。 | tai4 hao3 le，si3 qian2 xin1 yuan4 you4 wan2 cheng2 le yi1 yang4 。 | Well, I can cross that off my bucket list. |
+| 太好了，死前心愿又完成了一样。 | tai4 hao4 le，si3 qian2 xin1 yuan4 you4 wan2 cheng2 le yi1 yang4 。 | Well, I can cross that off my bucket list. |
 | 他竭尽全力地讨好他老婆。 | ta1 jie2 jin4 quan2 li4 di4 tao3 hao3 ta1 lao3 po2 。 | He bent over backward to please his wife. |
 | 这是一家专门为学生提供服务的商店。 | zhe4 shi4 yi1 jia1 zhuan1 men2 wei2 xue2 sheng1 ti2 gong1 fu2 wu4 de shang1 dian4 。 | This is a store that caters specially to students. |
 | 他求我尽力去帮他搭桥拉线。 | ta1 qiu2 wo3 jin4 li4 qu4 bang1 ta1 da1 qiao2 la1 xian4 。 | He asked me to do what I can to hook them up. |
@@ -31636,7 +31636,7 @@
 | 弗兰克·兰帕德传球给贝克汉姆，贝克汉姆射门，球进了！ | fu2 lan2 ke4 · lan2 pa4 de2 chuan2 qiu2 gei3 bei4 ke4 han4 mu3，bei4 ke4 han4 mu3 she4 men2，qiu2 jin4 le ！ | Frank Lampard passed the ball to Beckham. Beckham kicked the ball and scored! |
 | 贝尔被犯规了，球队获得了任意球。 | bei4 er3 bei4 fan4 gui1 le，qiu2 dui4 huo4 de2 le ren4 yi4 qiu2 。 | Bale was fouled, and his team was awarded a free kick. |
 | 球迷们安静下来，绷紧神经，观看两支球队的点球大战。 | qiu2 mi2 men2 an1 jing4 xia4 lai2，beng1 jin3 shen2 jing1，guan1 kan4 liang3 zhi1 qiu2 dui4 de dian3 qiu2 da4 zhan4 。 | The fans went silent as they nervously watched the penalty shootout between the two teams. |
-| 球队已经训练了几天，所以这个足球场有些泥泞，不太好用了。 | qiu2 dui4 yi3 jing1 xun4 lian4 le ji1 tian1，suo3 yi3 zhe4 ge4 zu2 qiu2 chang2 you3 xie1 ni2 ning4，bu4 tai4 hao3 yong4 le 。 | Because it had been raining for a couple of days, the pitch was muddy and difficult to play on. |
+| 球队已经训练了几天，所以这个足球场有些泥泞，不太好用了。 | qiu2 dui4 yi3 jing1 xun4 lian4 le ji1 tian1，suo3 yi3 zhe4 ge4 zu2 qiu2 chang2 you3 xie1 ni2 ning4，bu4 tai4 hao4 yong4 le 。 | Because it had been raining for a couple of days, the pitch was muddy and difficult to play on. |
 | 罗纳尔多一脚射门，打进制胜一球。 | luo2 na4 er3 duo1 yi1 jiao3 she4 men2，da3 jin4 zhi4 sheng4 yi1 qiu2 。 | Ronaldo shot the ball right into the back of the net to score the winning goal. |
 | 因为下雨了，球场上没有很多观众。 | yin1 wei2 xia4 yu3 le，qiu2 chang2 shang4 mei2 you3 hen3 duo1 guan1 zhong4 。 | There weren't many spectators at the game because of the rain. |
 | 球迷们在为自己喜欢的球队欢呼，看台上总是一片热闹的景象。 | qiu2 mi2 men2 zai4 wei2 zi4 ji3 xi3 huan1 de qiu2 dui4 huan1 hu1，kan4 tai2 shang4 zong3 shi4 yi1 pian4 re4 nao4 de jing3 xiang4 。 | There was a lot of excitement in the stands as the fans cheered for their teams. |
@@ -31804,7 +31804,7 @@
 | 你要不在了，那我就不在了。 | ni3 yao4 bu4 zai4 le，na4 wo3 jiu4 bu4 zai4 le 。 | If you were gone, I'd die. |
 | 告诉我，发生什么了？ | gao4 su4 wo3，fa1 sheng1 shi2 mo2 le ？ | Tell me what happened. |
 | 这位警察在做什么？ | zhe4 wei4 jing3 cha2 zai4 zuo4 shi2 mo2 ？ | What does the police officer do? |
-| 那是我的爱好。 | na4 shi4 wo3 de ai4 hao3 。 | That's my hobby. |
+| 那是我的爱好。 | na4 shi4 wo3 de ai4 hao4 。 | That's my hobby. |
 | 噢，我忘记买豆腐了。 | o1，wo3 wang4 ji4 mai3 dou4 fu3 le 。 | Ah, I forgot to buy tofu. |
 | “我昨天梦到了你。”“当真？那我（在你梦中）在做什么？” | “ wo3 zuo2 tian1 meng4 dao4 le ni3 。”“ dang1 zhen1 ？ na4 wo3 （ zai4 ni3 meng4 zhong1 ） zai4 zuo4 shi2 mo2 ？” | "I dreamed of you yesterday." "Seriously? And what was I doing?" |
 | 我总是很忙。 | wo3 zong3 shi4 hen3 mang2 。 | I am forever busy. |
@@ -31920,8 +31920,8 @@
 | 你应该去看病。 | ni3 ying1 gai1 qu4 kan4 bing4 。 | You need to see a doctor. |
 | 我来翻译。 | wo3 lai2 fan1 yi4 。 | I will translate. |
 | 我要恭喜你。 | wo3 yao4 gong1 xi3 ni3 。 | I should congratulate you. |
-| 汤姆，你有没有爱好？ | tang1 mu3，ni3 you3 mei2 you3 ai4 hao3 ？ | Do you have a hobby, Tom? |
-| 汤姆，你有爱好吗？ | tang1 mu3，ni3 you3 ai4 hao3 ma ？ | Do you have a hobby, Tom? |
+| 汤姆，你有没有爱好？ | tang1 mu3，ni3 you3 mei2 you3 ai4 hao4 ？ | Do you have a hobby, Tom? |
+| 汤姆，你有爱好吗？ | tang1 mu3，ni3 you3 ai4 hao4 ma ？ | Do you have a hobby, Tom? |
 | 这就是我所说的。 | zhe4 jiu4 shi4 wo3 suo3 shuo1 de 。 | That's what I said. |
 | 你的考试通过了吗？ | ni3 de kao3 shi4 tong1 guo4 le ma ？ | Did you pass your exams? |
 | 现今手机非常普及。 | xian4 jin1 shou3 ji1 fei1 chang2 pu3 ji2 。 | Nowadays mobile phones are very popular. |
@@ -32120,7 +32120,7 @@
 | 我来自中国。 | wo3 lai2 zi4 zhong1 guo2 。 | I am from China. |
 | 在日本生活消费很高。 | zai4 ri4 ben3 sheng1 huo2 xiao1 fei4 hen3 gao1 。 | Life in Japan is expensive. |
 | 我會做的。 | wo3 hui4 zuo4 de 。 | I will do it. |
-| 汤姆最近在工作中发挥不太好。 | tang1 mu3 zui4 jin4 zai4 gong1 zuo4 zhong1 fa1 hui1 bu4 tai4 hao3 。 | Tom has not been doing very well at work recently. |
+| 汤姆最近在工作中发挥不太好。 | tang1 mu3 zui4 jin4 zai4 gong1 zuo4 zhong1 fa1 hui1 bu4 tai4 hao4 。 | Tom has not been doing very well at work recently. |
 | 因为你们公司的业务能够发挥我的特长。 | yin1 wei2 ni3 men2 gong1 si1 de ye4 wu4 neng2 gou4 fa1 hui1 wo3 de te4 chang2 。 | Because your business can play to my strengths. |
 | 公司欢迎消费者对他们产品的反馈 | gong1 si1 huan1 ying2 xiao1 fei4 zhe3 dui4 ta1 men2 chan3 pin3 de fan3 kui4 | The company welcomes feedback from consumers who use their products. |
 | 他相当帅。 | ta1 xiang1 dang1 shuai4 。 | He's rather handsome. |
@@ -33146,7 +33146,7 @@
 | 我爬山。 | wo3 pa2 shan1 。 | I climb mountains. |
 | 我已經和這位學生說過了。 | wo3 yi3 jing1 he2 zhe4 wei4 xue2 sheng1 shuo1 guo4 le 。 | I have already talked with this student. |
 | 我曾经希望我妈妈能活到我结婚的时候。 | wo3 zeng1 jing1 xi1 wang4 wo3 ma1 ma1 neng2 huo2 dao4 wo3 jie2 hun1 de shi2 hou4 。 | I once hoped that my mother would survive until I got married. |
-| 北京的雾霾天气让我心情不太好。 | bei3 jing1 de wu4 mai2 tian1 qi4 rang4 wo3 xin1 qing2 bu4 tai4 hao3 。 | The smoggy air of Beijing makes me feel gloomy. |
+| 北京的雾霾天气让我心情不太好。 | bei3 jing1 de wu4 mai2 tian1 qi4 rang4 wo3 xin1 qing2 bu4 tai4 hao4 。 | The smoggy air of Beijing makes me feel gloomy. |
 | 我是个自由的灵魂。 | wo3 shi4 ge4 zi4 you2 de ling2 hun2 。 | I have a free spirit. |
 | 我喜欢学习各种各样的语言。 | wo3 xi3 huan1 xue2 xi2 ge4 zhong3 ge4 yang4 de yu3 yan2 。 | I like learning various languages. |
 | 我喜欢自由。 | wo3 xi3 huan1 zi4 you2 。 | I like freedom. |
@@ -34170,7 +34170,7 @@
 | 好了孩子们！所以为了这个美术计划，你们所有人都将被分离并加入3-5人的小组 | hao3 le hai2 zi3 men2 ！ suo3 yi3 wei2 le zhe4 ge4 mei3 shu4 ji4 hua2，ni3 men2 suo3 you3 ren2 du1 jiang1 bei4 fen1 li2 bing4 jia1 ru4 3-5 ren2 de xiao3 zu3 | Alrighty kids! So for this art project, all of you guys will split into groups of 3 - 5 people. |
 | 你完全没有理由去试图和那些中国女孩子交流，或者至少那些人。他们非常的粗鲁！ | ni3 wan2 quan2 mei2 you3 li3 you2 qu4 shi4 tu2 he2 na4 xie1 zhong1 guo2 nv3 hai2 zi3 jiao1 liu2，huo4 zhe3 zhi4 shao3 na4 xie1 ren2 。 ta1 men2 fei1 chang2 de cu1 lu3 ！ | There is absolutely no reason that you should even attempt to speak with the Chinese girls, or at least these ones. They're so rude! |
 | 你最好吃点东西 | ni3 zui4 hao3 chi1 dian3 dong1 xi1 | You'd better eat something. |
-| 如果你吃的多一点，你将会比现在好一点 | ru2 guo3 ni3 chi1 de duo1 yi1 dian3，ni3 jiang1 hui4 bi3 xian4 zai4 hao3 yi1 dian3 | It would be better if you would eat more. |
+| 如果你吃的多一点，你将会比现在好一点 | ru2 guo3 ni3 chi1 de duo1 yi1 dian3，ni3 jiang1 hui4 bi3 xian4 zai4 hao4 yi1 dian3 | It would be better if you would eat more. |
 | 你最好进食！ | ni3 zui4 hao3 jin4 shi2 ！ | You'd better eat! |
 | 在人生中，你将会收获和失去，当时你不会强迫事情去发生 | zai4 ren2 sheng1 zhong1，ni3 jiang1 hui4 shou1 huo4 he2 shi1 qu4，dang1 shi2 ni3 bu4 hui4 qiang2 po4 shi4 qing2 qu4 fa1 sheng1 | In life, you gain and lose things, but also can't force things to happen. |
 | 勇气是一个奇怪的东西：没有任何人对它有把握 | yong3 qi4 shi4 yi1 ge4 qi2 guai4 de dong1 xi1 ： mei2 you3 ren4 he2 ren2 dui4 ta1 you3 ba3 wo4 | Courage is a strange thing: One can never be sure of it. |
@@ -34719,7 +34719,7 @@
 | 那样说得通。 | na4 yang4 shuo1 de2 tong1 。 | It makes sense. |
 | 他一嗅到风声不对，就逃之夭夭了。 | ta1 yi1 xiu4 dao4 feng1 sheng1 bu4 dui4，jiu4 tao2 zhi1 yao1 yao1 le 。 | Sensing danger, he ran away. |
 | 摧毁这个寺庙。 | cui1 hui3 zhe4 ge4 si4 miao4 。 | Destroy this temple. |
-| 我的爱好是游览古老的庙宇。 | wo3 de ai4 hao3 shi4 you2 lan3 gu3 lao3 de miao4 yu3 。 | My hobby is visiting old temples. |
+| 我的爱好是游览古老的庙宇。 | wo3 de ai4 hao4 shi4 you2 lan3 gu3 lao3 de miao4 yu3 。 | My hobby is visiting old temples. |
 | 汤姆想说声再见。 | tang1 mu3 xiang3 shuo1 sheng1 zai4 jian4 。 | Tom wanted to say goodbye. |
 | 谁喜欢豆子？ | shui2 xi3 huan1 dou4 zi3 ？ | Who likes beans? |
 | 汤姆现在醉醺醺的了。 | tang1 mu3 xian4 zai4 zui4 xun1 xun1 de le 。 | Tom is quite drunk now. |
@@ -36370,7 +36370,7 @@
 | 你比玛丽可爱。 | ni3 bi3 ma3 li4 ke3 ai4 。 | You're cuter than Mary. |
 | 我要输了。 | wo3 yao4 shu1 le 。 | I'm going to lose. |
 | 我得给汤姆打电话。 | wo3 de2 gei3 tang1 mu3 da3 dian4 hua4 。 | I have to call Tom. |
-| 我认为我的法语不太好。 | wo3 ren4 wei2 wo3 de fa3 yu3 bu4 tai4 hao3 。 | I think my French isn't very good. |
+| 我认为我的法语不太好。 | wo3 ren4 wei2 wo3 de fa3 yu3 bu4 tai4 hao4 。 | I think my French isn't very good. |
 | 我不会再回来了。 | wo3 bu4 hui4 zai4 hui2 lai2 le 。 | I'm never coming back here again. |
 | 汤姆可能知道我是谁。 | tang1 mu3 ke3 neng2 zhi1 dao4 wo3 shi4 shui2 。 | Tom probably knew who I was. |
 | 你丈夫叫什么？ | ni3 zhang4 fu1 jiao4 shi2 mo2 ？ | What's your husband's name? |
@@ -36438,7 +36438,7 @@
 | 看看这天气会不会持续，会很有意思。 | kan4 kan4 zhe4 tian1 qi4 hui4 bu4 hui4 chi2 xu4，hui4 hen3 you3 yi4 si1 。 | It will be interesting to see whether this weather continues. |
 | 汤姆昨晚看来很健康。 | tang1 mu3 zuo2 wan3 kan4 lai2 hen3 jian4 kang1 。 | Tom looked pretty healthy last night. |
 | 我们要明白汤姆想要什么。 | wo3 men2 yao4 ming2 bai2 tang1 mu3 xiang3 yao4 shi2 mo2 。 | We have to find out what Tom wants. |
-| 那不太好。 | na4 bu4 tai4 hao3 。 | That wasn't very good. |
+| 那不太好。 | na4 bu4 tai4 hao4 。 | That wasn't very good. |
 | 你一直努力工作。 | ni3 yi1 zhi2 nu3 li4 gong1 zuo4 。 | You always work hard. |
 | 每个人都想分一点蛋糕。 | mei3 ge4 ren2 du1 xiang3 fen1 yi1 dian3 dan4 gao1 。 | Everyone wanted a piece of the cake. |
 | 你看见那男人了吗？他是我丈夫。 | ni3 kan4 jian4 na4 nan2 ren2 le ma ？ ta1 shi4 wo3 zhang4 fu1 。 | Do you see that man? He's my husband. |
@@ -36575,7 +36575,7 @@
 | 我不会让汤姆独自去做。 | wo3 bu4 hui4 rang4 tang1 mu3 du2 zi4 qu4 zuo4 。 | I'm not letting Tom do this by himself. |
 | 抱歉，你能再说一遍吗？ | bao4 qian4，ni3 neng2 zai4 shuo1 yi1 bian4 ma ？ | I'm sorry, could you say that again? |
 | 她的生日是五月五日。 | ta1 de sheng1 ri4 shi4 wu3 yue4 wu3 ri4 。 | Her birthday is May 5th. |
-| 我爸爸可能會給我一輛車。要是真給就太好了。 | wo3 ba4 ba4 ke3 neng2 hui4 gei3 wo3 yi1 liang4 che1 。 yao4 shi4 zhen1 gei3 jiu4 tai4 hao3 le 。 | I will probably be given a car by my dad and I would feel happy about it if that happened. |
+| 我爸爸可能會給我一輛車。要是真給就太好了。 | wo3 ba4 ba4 ke3 neng2 hui4 gei3 wo3 yi1 liang4 che1 。 yao4 shi4 zhen1 gei3 jiu4 tai4 hao4 le 。 | I will probably be given a car by my dad and I would feel happy about it if that happened. |
 | 我确定汤姆会尽力去做。 | wo3 que4 ding4 tang1 mu3 hui4 jin4 li4 qu4 zuo4 。 | I'm sure Tom will do his best. |
 | 汤姆又给自己倒了一杯酒。 | tang1 mu3 you4 gei3 zi4 ji3 dao3 le yi1 bei1 jiu3 。 | Tom poured himself another glass of wine. |
 | 你能過來一下嗎？ | ni3 neng2 guo4 lai2 yi1 xia4 ma2 ？ | Could you come up here? |
@@ -37884,7 +37884,7 @@
 | 谣言被爆是有根据的。 | yao2 yan2 bei4 bao4 shi4 you3 gen1 ju4 de 。 | There's a reason the rumor exploded. |
 | 跨国公司预料到了规模经济的实行。 | kua4 guo2 gong1 si1 yu4 liao4 dao4 le gui1 mo2 jing1 ji4 de shi2 hang2 。 | The multinational corporation has forecast the implementation of economies of scale. |
 | 她花很多時間在練習彈鋼琴。 | ta1 hua1 hen3 duo1 shi2 jian1 zai4 lian4 xi2 dan4 gang1 qin2 。 | She spent a lot of time practicing the piano. |
-| 人之患，在好為人師。 | ren2 zhi1 huan4，zai4 hao3 wei2 ren2 shi1 。 | When one is in difficulty and comports themselves well, that is a master. |
+| 人之患，在好為人師。 | ren2 zhi1 huan4，zai4 hao4 wei2 ren2 shi1 。 | When one is in difficulty and comports themselves well, that is a master. |
 | 當然，她接受了邀請。 | dang1 ran2，ta1 jie1 shou4 le yao1 qing3 。 | Of course, she accepted the invitation. |
 | 問心無愧是一個非常柔軟的枕頭。 | wen4 xin1 wu2 kui4 shi4 yi1 ge4 fei1 chang2 rou2 ruan3 de zhen3 tou2 。 | A clear conscience is an extraordinarily soft pillow. |
 | 我不接受你給我的建議。 | wo3 bu4 jie1 shou4 ni3 gei3 wo3 de jian4 yi4 。 | I do not accept your suggestion. |
@@ -38289,7 +38289,7 @@
 | 我喜欢你的房子。 | wo3 xi3 huan1 ni3 de fang2 zi3 。 | I like your house. |
 | 别担心。我们有大量水和食物。 | bie2 dan1 xin1 。 wo3 men2 you3 da4 liang2 shui3 he2 shi2 wu4 。 | Don't worry. We have plenty of water and food. |
 | 你不能欺骗我。 | ni3 bu4 neng2 qi1 pian4 wo3 。 | You cannot pull the wool over my eyes. |
-| 真是太好了。 | zhen1 shi4 tai4 hao3 le 。 | It's great. |
+| 真是太好了。 | zhen1 shi4 tai4 hao4 le 。 | It's great. |
 | 我們做不了別的。 | wo3 men2 zuo4 bu4 le bie2 de 。 | There's nothing else we can do. |
 | 我真是饿了。 | wo3 zhen1 shi4 e4 le 。 | I was pretty hungry. |
 | 有什么事发生了。 | you3 shi2 mo2 shi4 fa1 sheng1 le 。 | Something did happen. |
@@ -38383,7 +38383,7 @@
 | 你的一个朋友在我们这里。 | ni3 de yi1 ge4 peng2 you3 zai4 wo3 men2 zhe4 li3 。 | We have one of your friends here with us. |
 | 你就是荒唐。 | ni3 jiu4 shi4 huang1 tang2 。 | You're just being ridiculous. |
 | 汤姆因为有很多作业不能外出。 | tang1 mu3 yin1 wei2 you3 hen3 duo1 zuo4 ye4 bu4 neng2 wai4 chu1 。 | Tom can't go out because he has a lot of homework. |
-| 你能在我们的婚礼上唱歌就太好了。 | ni3 neng2 zai4 wo3 men2 de hun1 li3 shang4 chang4 ge1 jiu4 tai4 hao3 le 。 | It would be wonderful if you could sing at our wedding. |
+| 你能在我们的婚礼上唱歌就太好了。 | ni3 neng2 zai4 wo3 men2 de hun1 li3 shang4 chang4 ge1 jiu4 tai4 hao4 le 。 | It would be wonderful if you could sing at our wedding. |
 | 雨大得让我不能走。 | yu3 da4 de2 rang4 wo3 bu4 neng2 zou3 。 | The rain prevented me from going. |
 | 请问你能给我点事做吗？ | qing3 wen4 ni3 neng2 gei3 wo3 dian3 shi4 zuo4 ma ？ | Can you please give me something to do? |
 | 湯姆沒回覆瑪麗。 | tang1 mu3 mei2 hui2 fu4 ma3 li2 。 | Tom didn't write back to Mary. |
@@ -38473,7 +38473,7 @@
 | 她为自己的儿子成为医生而自豪。 | ta1 wei2 zi4 ji3 de er2 zi3 cheng2 wei2 yi1 sheng1 er2 zi4 hao2 。 | She is proud that her son has become a doctor. |
 | 汤姆仔细地给玛丽解释。 | tang1 mu3 zi1 xi4 di4 gei3 ma3 li4 jie3 shi4 。 | Tom explained it to Mary very carefully. |
 | 你唱歌像天使。 | ni3 chang4 ge1 xiang4 tian1 shi3 。 | You sing like an angel. |
-| 那真是太好了。 | na4 zhen1 shi4 tai4 hao3 le 。 | That's great. |
+| 那真是太好了。 | na4 zhen1 shi4 tai4 hao4 le 。 | That's great. |
 | 你明天在这里吗？ | ni3 ming2 tian1 zai4 zhe4 li3 ma ？ | Will you be here tomorrow? |
 | 我该帮你吗？ | wo3 gai1 bang1 ni3 ma ？ | Should I help you? |
 | 我能跟你私下谈一分钟吗？ | wo3 neng2 gen1 ni3 si1 xia4 tan2 yi1 fen1 zhong1 ma ？ | Can I talk to you privately for a minute? |
@@ -39517,11 +39517,11 @@
 | 我知道你們都是誰。 | wo3 zhi1 dao4 ni3 men2 du1 shi4 shui2 。 | I know who you all are. |
 | 我們必須有計畫。 | wo3 men2 bi4 xu1 you3 ji4 hua4 。 | We have to have a plan. |
 | 我不該對你說謊。 | wo3 bu4 gai1 dui4 ni3 shuo1 huang3 。 | I shouldn't have lied to you. |
-| 我感覺不太好，我該回家。 | wo3 gan3 jue2 bu4 tai4 hao3，wo3 gai1 hui2 jia1 。 | I don't feel very well. I should go home. |
+| 我感覺不太好，我該回家。 | wo3 gan3 jue2 bu4 tai4 hao4，wo3 gai1 hui2 jia1 。 | I don't feel very well. I should go home. |
 | 巴士站離我們的學校近。 | ba1 shi4 zhan4 li2 wo3 men2 de xue2 xiao4 jin4 。 | The bus stop is near our school. |
 | 到我們該走的時候了。 | dao4 wo3 men2 gai1 zou3 de shi2 hou4 le 。 | It's already time for us to go. |
 | 我不知道湯姆在睡覺。 | wo3 bu4 zhi1 dao4 tang1 mu3 zai4 shui4 jue2 。 | I wasn't aware that Tom was sleeping. |
-| 湯姆感覺不太好。 | tang1 mu3 gan3 jue2 bu4 tai4 hao3 。 | Tom isn't feeling very well. |
+| 湯姆感覺不太好。 | tang1 mu3 gan3 jue2 bu4 tai4 hao4 。 | Tom isn't feeling very well. |
 | 她想擁抱他。 | ta1 xiang3 yong1 bao4 ta1 。 | She wants to hug him. |
 | 他們有危險。 | ta1 men2 you3 wei1 xian3 。 | They're in danger. |
 | 今天是我一个朋友的生日。 | jin1 tian1 shi4 wo3 yi1 ge4 peng2 you3 de sheng1 ri4 。 | Today is one of my friends' birthday. |
@@ -39707,7 +39707,7 @@
 | 湯姆有一大罐零錢。 | tang1 mu3 you3 yi1 da4 guan4 ling2 qian2 。 | Tom has a large jar of pennies. |
 | 你能告訴我跳蚤市場在哪裡嗎？ | ni3 neng2 gao4 su4 wo3 tiao4 zao3 shi4 chang2 zai4 na3 li3 ma2 ？ | Can you tell me where the flea market is? |
 | 我們來這裡是為了同一個原因。 | wo3 men2 lai2 zhe4 li3 shi4 wei2 le tong2 yi1 ge4 yuan2 yin1 。 | We're both here for the same reason. |
-| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | Tom isn't very good at speaking French. |
+| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | Tom isn't very good at speaking French. |
 | 湯姆有輛舊車。 | tang1 mu3 you3 liang4 jiu4 che1 。 | Tom has an old car. |
 | 他不能游泳。 | ta1 bu4 neng2 you2 yong3 。 | He could not swim. |
 | 我不認為你該改變。 | wo3 bu4 ren4 wei2 ni3 gai1 gai3 bian4 。 | I don't think you need to change. |
@@ -40265,7 +40265,7 @@
 | 他盡力保護他兒子。 | ta1 jin4 li4 bao3 hu4 ta1 er2 zi3 。 | He did all he could to protect his son. |
 | 那些是爆炸物嗎？ | na4 xie1 shi4 bao4 zha4 wu4 ma2 ？ | Are those explosives? |
 | 別忘了我。 | bie2 wang4 le wo3 。 | Don't forget about me. |
-| 他們說法語說得不太好。 | ta1 men2 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | They didn't speak French very well. |
+| 他們說法語說得不太好。 | ta1 men2 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | They didn't speak French very well. |
 | 你無法為湯姆做甚麼。 | ni3 wu2 fa3 wei2 tang1 mu3 zuo4 shen4 mo2 。 | There's nothing you can do for Tom. |
 | 你明天去學校。 | ni3 ming2 tian1 qu4 xue2 xiao4 。 | You'll go to school tomorrow. |
 | 我認為我有所有的答案。 | wo3 ren4 wei2 wo3 you3 suo3 you3 de da2 an4 。 | I thought I had all the answers. |
@@ -40856,7 +40856,7 @@
 | 我們可以一起走著去。 | wo3 men2 ke3 yi3 yi1 qi3 zou3 zhu4 qu4 。 | We could walk there together. |
 | 我們在跟日本打仗。 | wo3 men2 zai4 gen1 ri4 ben3 da3 zhang4 。 | We're at war with Japan. |
 | 你為甚麼不鎖門？ | ni3 wei2 shen4 mo2 bu4 suo3 men2 ？ | Why didn't you lock the door? |
-| 我唱歌不太好。 | wo3 chang4 ge1 bu4 tai4 hao3 。 | I don't sing very well. |
+| 我唱歌不太好。 | wo3 chang4 ge1 bu4 tai4 hao4 。 | I don't sing very well. |
 | 湯姆說他很高興瑪麗畢業了。 | tang1 mu3 shuo1 ta1 hen3 gao1 xing1 ma3 li2 bi4 ye4 le 。 | Tom said he's glad Mary has finally graduated. |
 | 我沒想到這麼快就收到湯姆的回信。 | wo3 mei2 xiang3 dao4 zhe4 mo2 kuai4 jiu4 shou1 dao4 tang1 mu3 de hui2 xin4 。 | I didn't expect to hear back from Tom so soon. |
 | 沒有甚麼是真正有保證的。 | mei2 you3 shen4 mo2 shi4 zhen1 zheng4 you3 bao3 zheng4 de 。 | Nothing is really guaranteed. |
@@ -41410,7 +41410,7 @@
 | 我想把這些土豆切成絲。 | wo3 xiang3 ba3 zhe4 xie1 tu3 dou4 qie1 cheng2 si1 。 | I want to slice these potatoes into strips. |
 | 今天的西藍花不是很新鮮。 | jin1 tian1 de xi1 lan2 hua1 bu4 shi4 hen3 xin1 xian1 。 | The broccoli today isn't very fresh. |
 | 這家飯店我不喜歡，我們換一家好嗎？ | zhe4 jia1 fan4 dian4 wo3 bu4 xi3 huan1，wo3 men2 huan4 yi1 jia1 hao3 ma2 ？ | I don't like this restaurant -- let's go to a different one, OK? |
-| 這是一個東方的概念，用西班牙語不太好解釋。 | zhe4 shi4 yi1 ge4 dong1 fang1 de gai4 nian4，yong4 xi1 ban1 ya2 yu3 bu4 tai4 hao3 jie3 shi4 。 | This is an East Asian concept -- it's a little tricky to explain in Spanish. |
+| 這是一個東方的概念，用西班牙語不太好解釋。 | zhe4 shi4 yi1 ge4 dong1 fang1 de gai4 nian4，yong4 xi1 ban1 ya2 yu3 bu4 tai4 hao4 jie3 shi4 。 | This is an East Asian concept -- it's a little tricky to explain in Spanish. |
 | 我不喜歡玉米。 | wo3 bu4 xi3 huan1 yu4 mi3 。 | I don't like corn. |
 | “聞起來像爆米花。”“你說的對！” | “ wen2 qi3 lai2 xiang4 bao4 mi3 hua1 。”“ ni3 shuo1 de dui4 ！” | "It smells like popcorn." "You're right!" |
 | 湯姆要爆米花。 | tang1 mu3 yao4 bao4 mi3 hua1 。 | Tom wants popcorn. |
@@ -42108,8 +42108,8 @@
 | 我很幸福。 | wo3 hen3 xing4 fu2 。 | I am very happy. |
 | 我叫杜莎娜。 | wo3 jiao4 du4 suo1 na4 。 | I am called Dusanna. |
 | 我叫杜莎娜。 | wo3 jiao4 du4 suo1 na4 。 | My name is Dusanna. |
-| 饭菜不太好。 | fan4 cai4 bu4 tai4 hao3 。 | The meals are not too good. |
-| 饭菜不太好。 | fan4 cai4 bu4 tai4 hao3 。 | The food isn't too great. |
+| 饭菜不太好。 | fan4 cai4 bu4 tai4 hao4 。 | The meals are not too good. |
+| 饭菜不太好。 | fan4 cai4 bu4 tai4 hao4 。 | The food isn't too great. |
 | 父亲很健康。 | fu4 qin1 hen3 jian4 kang1 。 | The father is very healthy. |
 | 父亲很健康。 | fu4 qin1 hen3 jian4 kang1 。 | Father is very healthy. |
 | 你好！你还在那里吗？ | ni3 hao3 ！ ni3 huan2 zai4 na4 li3 ma ？ | Hello! Are you still there? |
@@ -42410,7 +42410,7 @@
 | 我妻子名叫Lidia Zarębowa。 | wo3 qi1 zi3 ming2 jiao4 Lidia Zarębowa。 | My wife's name is Lidia Zarębowa. |
 | 您当时在忙吗？ | nin2 dang1 shi2 zai4 mang2 ma ？ | Were you busy? |
 | 我们有多远了？ | wo3 men2 you3 duo1 yuan3 le ？ | How far away are we? |
-| 他真的很爱好语言。 | ta1 zhen1 de hen3 ai4 hao3 yu3 yan2 。 | He really likes languages. |
+| 他真的很爱好语言。 | ta1 zhen1 de hen3 ai4 hao4 yu3 yan2 。 | He really likes languages. |
 | 你在看什么？ | ni3 zai4 kan4 shi2 mo2 ？ | What are you looking at? |
 | 你在看什么？ | ni3 zai4 kan4 shi2 mo2 ？ | What're you looking at? |
 | 你在看什么？ | ni3 zai4 kan4 shi2 mo2 ？ | What are you reading? |
@@ -43382,7 +43382,7 @@
 | 哲学就是爱智慧。 | zhe2 xue2 jiu4 shi4 ai4 zhi4 hui4 。 | Philosophy is the love of wisdom. |
 | 他说英语流利得就好像他是美国人。 | ta1 shuo1 ying1 yu3 liu2 li4 de2 jiu4 hao3 xiang4 ta1 shi4 mei3 guo2 ren2 。 | He speaks English so fluently that he resembles an American. |
 | 我們被兩面夾擊了。 | wo3 men2 bei4 liang3 mian4 jia1 ji1 le 。 | We were attacked from both sides. |
-| 您记性不太好。 | nin2 ji4 xing4 bu4 tai4 hao3 。 | Your memory isn't too good. |
+| 您记性不太好。 | nin2 ji4 xing4 bu4 tai4 hao4 。 | Your memory isn't too good. |
 | 从网上退下来去洗个澡吧。 | cong2 wang3 shang4 tui4 xia4 lai2 qu4 xi3 ge4 zao3 ba1 。 | Get off the internet and take a shower. |
 | 瑪麗亞不喜歡在公開場合說話。 | ma3 li2 ya1 bu4 xi3 huan1 zai4 gong1 kai1 chang2 he2 shuo1 hua4 。 | Maria doesn't like speaking in public. |
 | 我在伦敦碰到了他。 | wo3 zai4 lun2 dun1 peng4 dao4 le ta1 。 | I bumped into him in London. |
@@ -45610,7 +45610,7 @@
 | 他坐在地上，玩着自己的玩具。 | ta1 zuo4 zai4 di4 shang4，wan2 zhao2 zi4 ji3 de wan2 ju4 。 | He sat down, playing with his own toys. |
 | 我完全不是学者。 | wo3 wan2 quan2 bu4 shi4 xue2 zhe3 。 | I'm totally not a scholar. |
 | 我不知道，你睡觉去吧！ | wo3 bu4 zhi1 dao4，ni3 shui4 jue2 qu4 ba1 ！ | I don't know, go to sleep! |
-| 我的爱好是开车和弹吉他。 | wo3 de ai4 hao3 shi4 kai1 che1 he2 dan4 ji2 ta1 。 | My hobbies are driving and playing the guitar. |
+| 我的爱好是开车和弹吉他。 | wo3 de ai4 hao4 shi4 kai1 che1 he2 dan4 ji2 ta1 。 | My hobbies are driving and playing the guitar. |
 | 玛丽亚准时来了。 | ma3 li4 ya4 zhun3 shi2 lai2 le 。 | Maria came on time. |
 | 亲切的灯光让他的身上充满了温暖的感觉。 | qin1 qie1 de deng1 guang1 rang4 ta1 de shen1 shang4 chong1 man3 le wen1 nuan3 de gan3 jue2 。 | He was bathed in the warmth of the kind light. |
 | 我失去了生命中的十五秒。 | wo3 shi1 qu4 le sheng1 ming4 zhong1 de shi2 wu3 miao3 。 | I've lost 15 seconds of my life. |
@@ -46332,12 +46332,12 @@
 | 可以用万事达信用卡吗？ | ke3 yi3 yong4 wan4 shi4 da2 xin4 yong4 ka3 ma ？ | Do you take MasterCard? |
 | 可以用万事达信用卡吗？ | ke3 yi3 yong4 wan4 shi4 da2 xin4 yong4 ka3 ma ？ | Can I use Mastercard? |
 | 汤姆那里有联系过你吗？ | tang1 mu3 na4 li3 you3 lian2 xi4 guo4 ni3 ma ？ | Have you heard from Tom? |
-| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao3 le 。 | I'm glad I could be of service. |
-| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao3 le 。 | I'm glad I could help you. |
-| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao3 le 。 | I'm glad I could help. |
-| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao3 le 。 | I'm glad I was able to help. |
-| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao3 le 。 | I'm glad that I was able to help. |
-| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao3 le 。 | I'm glad I could help out. |
+| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao4 le 。 | I'm glad I could be of service. |
+| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao4 le 。 | I'm glad I could help you. |
+| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao4 le 。 | I'm glad I could help. |
+| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao4 le 。 | I'm glad I was able to help. |
+| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao4 le 。 | I'm glad that I was able to help. |
+| 能够出一份力太好了。 | neng2 gou4 chu1 yi1 fen4 li4 tai4 hao4 le 。 | I'm glad I could help out. |
 | 去年圣诞节做了什么了？ | qu4 nian2 sheng4 dan4 jie2 zuo4 le shi2 mo2 le ？ | What did you do last Christmas? |
 | 明天我一整天都在家。 | ming2 tian1 wo3 yi1 zheng3 tian1 du1 zai4 jia1 。 | I'll be at home all day tomorrow. |
 | 明天我一整天都在家。 | ming2 tian1 wo3 yi1 zheng3 tian1 du1 zai4 jia1 。 | Tomorrow I'll be at home all day. |
@@ -47667,7 +47667,7 @@
 | 很快，城市就被士兵占领了。 | hen3 kuai4，cheng2 shi4 jiu4 bei4 shi4 bing1 zhan1 ling3 le 。 | The city was soon occupied by the soldiers. |
 | 我弟弟很喜欢拍山的照片。 | wo3 di4 di4 hen3 xi3 huan1 pai1 shan1 de zhao4 pian4 。 | My brother loves taking pictures of mountains. |
 | 告诉我他怎么弄到的。 | gao4 su4 wo3 ta1 zen3 mo2 nong4 dao4 de 。 | Tell me how he got it. |
-| 我的业余爱好是拍野花的照片。 | wo3 de ye4 yu2 ai4 hao3 shi4 pai1 ye3 hua1 de zhao4 pian4 。 | My hobby is taking pictures of wild flowers. |
+| 我的业余爱好是拍野花的照片。 | wo3 de ye4 yu2 ai4 hao4 shi4 pai1 ye3 hua1 de zhao4 pian4 。 | My hobby is taking pictures of wild flowers. |
 | 我去年得了中耳炎。 | wo3 qu4 nian2 de2 le zhong1 er3 yan2 。 | Last year I suffered from an inflammation of my middle ear. |
 | 谁能揭开海洋的奥秘？ | shui2 neng2 jie1 kai1 hai3 yang2 de ao4 mi4 ？ | Who is able to reveal the mysteries of the sea? |
 | 如水流過鴨背般毫無反應。 | ru2 shui3 liu2 guo4 ya1 bei4 ban1 hao2 wu2 fan3 ying1 。 | It's like water on a duck's back. |
@@ -47782,7 +47782,7 @@
 | 汤姆被感染了吗？ | tang1 mu3 bei4 gan3 ran3 le ma ？ | Is Tom infected? |
 | 汤姆在吗？ | tang1 mu3 zai4 ma ？ | Is Tom there? |
 | 汤姆在吗？ | tang1 mu3 zai4 ma ？ | Is Tom around? |
-| 汤姆是不是身体不太好？ | tang1 mu3 shi4 bu4 shi4 shen1 ti3 bu4 tai4 hao3 ？ | Is Tom sick? |
+| 汤姆是不是身体不太好？ | tang1 mu3 shi4 bu4 shi4 shen1 ti3 bu4 tai4 hao4 ？ | Is Tom sick? |
 | 汤姆受伤了吗？ | tang1 mu3 shou4 shang1 le ma ？ | Is Tom hurt? |
 | 汤姆在家里吗？ | tang1 mu3 zai4 jia1 li3 ma ？ | Is Tom home? |
 | 汤姆在吃饭吗？ | tang1 mu3 zai4 chi1 fan4 ma ？ | Is Tom eating? |
@@ -47987,8 +47987,8 @@
 | 那个教授讲得太快了，没有一个人听得懂。 | na4 ge4 jiao4 shou4 jiang3 de2 tai4 kuai4 le，mei2 you3 yi1 ge4 ren2 ting1 de2 dong3 。 | The professor spoke too fast for anyone to understand. |
 | 八减去三就能得到五。 | ba1 jian3 qu4 san1 jiu4 neng2 de2 dao4 wu3 。 | Subtract three from eight and you get five. |
 | 汤姆是个非常坏的人。 | tang1 mu3 shi4 ge4 fei1 chang2 huai4 de ren2 。 | Tom is a very bad person. |
-| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao3 。 | You don't look so well. |
-| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao3 。 | You seem to be a little under the weather. |
+| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao4 。 | You don't look so well. |
+| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao4 。 | You seem to be a little under the weather. |
 | 他是前几天和你见过面的那个人。 | ta1 shi4 qian2 ji1 tian1 he2 ni3 jian4 guo4 mian4 de na4 ge4 ren2 。 | He is the man you met the other day. |
 | 贝蒂有盗窃前科。 | bei4 di4 you3 dao4 qie4 qian2 ke1 。 | Betty has a previous conviction for theft. |
 | 我扛着米袋。 | wo3 kang2 zhao2 mi3 dai4 。 | I carry a bag of rice. |
@@ -48398,7 +48398,7 @@
 | 门纳德能听到他的牙齿碎裂的声音。 | men2 na4 de2 neng2 ting1 dao4 ta1 de ya2 chi3 sui4 lie4 de sheng1 yin1 。 | Mennad could hear pieces of his tooth chipping. |
 | 汤姆和玛丽不着急做那件事。 | tang1 mu3 he2 ma3 li4 bu4 zhao2 ji2 zuo4 na4 jian4 shi4 。 | Tom and Mary are in no hurry to do that. |
 | 汤姆和玛丽在去波士顿的路上。 | tang1 mu3 he2 ma3 li4 zai4 qu4 bo1 shi4 dun4 de lu4 shang4 。 | Tom and Mary are on their way to Boston. |
-| 她称自己为业余爱好者。 | ta1 cheng1 zi4 ji3 wei2 ye4 yu2 ai4 hao3 zhe3 。 | She calls herself a hobbyist. |
+| 她称自己为业余爱好者。 | ta1 cheng1 zi4 ji3 wei2 ye4 yu2 ai4 hao4 zhe3 。 | She calls herself a hobbyist. |
 | 你似乎并不像汤姆看起来那样害怕。 | ni3 si4 hu1 bing4 bu4 xiang4 tang1 mu3 kan4 qi3 lai2 na4 yang4 hai4 pa4 。 | You don't seem to be as afraid as Tom seems to be. |
 | 萨米从来没那么说过。 | sa4 mi3 cong2 lai2 mei2 na4 mo2 shuo1 guo4 。 | Sami has never said it. |
 | 我的屁股穿这个看起来大吗？ | wo3 de pi4 gu3 chuan1 zhe4 ge4 kan4 qi3 lai2 da4 ma ？ | Does my bum look big in this? |
@@ -48704,7 +48704,7 @@
 | 你工作努力。 | ni3 gong1 zuo4 nu3 li4 。 | You're working hard. |
 | 他為羊隻修剪羊毛。 | ta1 wei2 yang2 zhi1 xiu1 jian3 yang2 mao2 。 | He clipped the sheep. |
 | 你能走嗎？ | ni3 neng2 zou3 ma2 ？ | Can you walk? |
-| 不好意思我发音不太好。 | bu4 hao3 yi4 si1 wo3 fa1 yin1 bu4 tai4 hao3 。 | I'm sorry my pronunciation isn't very good. |
+| 不好意思我发音不太好。 | bu4 hao3 yi4 si1 wo3 fa1 yin1 bu4 tai4 hao4 。 | I'm sorry my pronunciation isn't very good. |
 | 假如你没有这个程序，你现在就可以去下载。 | jia3 ru2 ni3 mei2 you3 zhe4 ge4 cheng2 xu4，ni3 xian4 zai4 jiu4 ke3 yi3 qu4 xia4 zai3 。 | If you don't have this software, you can download it now. |
 | 你有手機嗎？ | ni3 you3 shou3 ji1 ma2 ？ | Do you have a cellphone? |
 | 你有手機嗎？ | ni3 you3 shou3 ji1 ma2 ？ | Do you have a mobile phone? |
@@ -50003,8 +50003,8 @@
 | 再也吃不下了。 | zai4 ye3 chi1 bu4 xia4 le 。 | I could not eat another bite. |
 | 再也吃不下了。 | zai4 ye3 chi1 bu4 xia4 le 。 | I couldn't eat another bite. |
 | 进入地球大气层后，小行星分裂成了无数的小块。 | jin4 ru4 di4 qiu2 da4 qi4 ceng2 hou4，xiao3 hang2 xing1 fen1 lie4 cheng2 le wu2 shu4 de xiao3 kuai4 。 | The asteroid broke up into small pieces as it entered Earth's atmosphere. |
-| 抓到小偷真是太好了。 | zhua1 dao4 xiao3 tou1 zhen1 shi4 tai4 hao3 le 。 | I'm glad that the thief was caught. |
-| 抓到小偷真是太好了。 | zhua1 dao4 xiao3 tou1 zhen1 shi4 tai4 hao3 le 。 | I'm glad the thief was caught. |
+| 抓到小偷真是太好了。 | zhua1 dao4 xiao3 tou1 zhen1 shi4 tai4 hao4 le 。 | I'm glad that the thief was caught. |
+| 抓到小偷真是太好了。 | zhua1 dao4 xiao3 tou1 zhen1 shi4 tai4 hao4 le 。 | I'm glad the thief was caught. |
 | 你知道春卷为什么叫春卷吗？ | ni3 zhi1 dao4 chun1 juan4 wei2 shi2 mo2 jiao4 chun1 juan4 ma ？ | Do you know why spring rolls are called spring rolls? |
 | 40%以上的学生去读大学。 | 40% yi3 shang4 de xue2 sheng1 qu4 du2 da4 xue2 。 | More than 40 percent of the students go to university. |
 | 40%以上的学生去读大学。 | 40% yi3 shang4 de xue2 sheng1 qu4 du2 da4 xue2 。 | More than 40 percent of students go on to university. |
@@ -50125,7 +50125,7 @@
 | 我不知道汤姆在等什么。 | wo3 bu4 zhi1 dao4 tang1 mu3 zai4 deng3 shi2 mo2 。 | I don't know what Tom is waiting for. |
 | 他不知道他在说什么。 | ta1 bu4 zhi1 dao4 ta1 zai4 shuo1 shi2 mo2 。 | He doesn't know what he's talking about. |
 | 编程语言JAVA非常多用途的。 | bian1 cheng2 yu3 yan2 JAVA fei1 chang2 duo1 yong4 tu2 de 。 | The programming language Java is highly versatile. |
-| 编程语言是她的爱好。 | bian1 cheng2 yu3 yan2 shi4 ta1 de ai4 hao3 。 | Programming languages are her hobby. |
+| 编程语言是她的爱好。 | bian1 cheng2 yu3 yan2 shi4 ta1 de ai4 hao4 。 | Programming languages are her hobby. |
 | JavaScript是一种编程语言。 | JavaScript shi4 yi1 zhong3 bian1 cheng2 yu3 yan2 。 | JavaScript is a programming language. |
 | 大家都喜欢什么编程语言？ | da4 jia1 du1 xi3 huan1 shi2 mo2 bian1 cheng2 yu3 yan2 ？ | What programming language does everybody like? |
 | 你最喜欢的编程语言是什么？ | ni3 zui4 xi3 huan1 de bian1 cheng2 yu3 yan2 shi4 shi2 mo2 ？ | What's your favorite programming language? |
@@ -50232,7 +50232,7 @@
 | 他去美国学医了。 | ta1 qu4 mei3 guo2 xue2 yi1 le 。 | He went to the United States to study medicine. |
 | 他白天睡觉，晚上工作。 | ta1 bai2 tian1 shui4 jue2，wan3 shang4 gong1 zuo4 。 | He sleeps by day and works by night. |
 | 这里的人习惯了寒冷。 | zhe4 li3 de ren2 xi2 guan4 le han2 leng3 。 | The people here are accustomed to the cold. |
-| 他的兴趣爱好是收集旧邮票。 | ta1 de xing1 qu4 ai4 hao3 shi4 shou1 ji2 jiu4 you2 piao4 。 | His hobby is collecting old stamps. |
+| 他的兴趣爱好是收集旧邮票。 | ta1 de xing1 qu4 ai4 hao4 shi4 shou1 ji2 jiu4 you2 piao4 。 | His hobby is collecting old stamps. |
 | 我爸爸经常去美国出差。 | wo3 ba4 ba4 jing1 chang2 qu4 mei3 guo2 chu1 cha4 。 | My father often goes to the United States on business. |
 | 你不懂的词做个记号。 | ni3 bu4 dong3 de ci2 zuo4 ge4 ji4 hao4 。 | Mark the words that you cannot understand. |
 | 情况一天比一天差。 | qing2 kuang4 yi1 tian1 bi3 yi1 tian1 cha4 。 | The situation is getting worse by the day. |
@@ -50509,7 +50509,7 @@
 | 她对我说，“我喜欢你”。 | ta1 dui4 wo3 shuo1，“ wo3 xi3 huan1 ni3 ”。 | She said 'I love you' to me. |
 | 喀布尔是阿富汗的首都。 | ka1 bu4 er3 shi4 a1 fu4 han4 de shou3 du1 。 | Kabul is the capital of Afghanistan. |
 | 我是一只猫。我还没有名字。 | wo3 shi4 yi1 zhi1 mao1 。 wo3 huan2 mei2 you3 ming2 zi4 。 | I am a cat. I don't have a name yet. |
-| 他有很多兴趣爱好。 | ta1 you3 hen3 duo1 xing1 qu4 ai4 hao3 。 | He has a lot of hobbies. |
+| 他有很多兴趣爱好。 | ta1 you3 hen3 duo1 xing1 qu4 ai4 hao4 。 | He has a lot of hobbies. |
 | 我母亲是个奇特的人。 | wo3 mu3 qin1 shi4 ge4 qi2 te4 de ren2 。 | My mother is eccentric. |
 | 你应该用一下除臭剂。 | ni3 ying1 gai1 yong4 yi1 xia4 chu2 chou4 ji4 。 | You should use a deodorant. |
 | 老人咽下了最后一口气。 | lao3 ren2 yan1 xia4 le zui4 hou4 yi1 kou3 qi4 。 | The old man breathed his last. |
@@ -51073,7 +51073,7 @@
 | 这个学校的学生很友好。 | zhe4 ge4 xue2 xiao4 de xue2 sheng1 hen3 you3 hao3 。 | The students of this school are kind. |
 | 我想坐在无烟区。 | wo3 xiang3 zuo4 zai4 wu2 yan1 qu1 。 | I would like to sit in the non-smoking section. |
 | 我要的是茶，而他却给了我一杯咖啡。 | wo3 yao4 de shi4 cha2，er2 ta1 que4 gei3 le wo3 yi1 bei1 ka1 fei1 。 | He brought me coffee, when I had asked for tea. |
-| “你太好了。”Willie回答道。 | “ ni3 tai4 hao3 le 。”Willie hui2 da2 dao4 。 | "That's very nice of you," Willie answered. |
+| “你太好了。”Willie回答道。 | “ ni3 tai4 hao4 le 。”Willie hui2 da2 dao4 。 | "That's very nice of you," Willie answered. |
 | 我累得不能再累了。 | wo3 lei2 de2 bu4 neng2 zai4 lei2 le 。 | I'm as tired as tired can be. |
 | 麦克和他妹妹会说法语，但不会说日语。 | mai4 ke4 he2 ta1 mei4 mei4 hui4 shuo1 fa3 yu3，dan4 bu4 hui4 shuo1 ri4 yu3 。 | Mike and his sister can speak French, but they can't speak Japanese. |
 | 麦克和他妹妹会说法语，但不会说日语。 | mai4 ke4 he2 ta1 mei4 mei4 hui4 shuo1 fa3 yu3，dan4 bu4 hui4 shuo1 ri4 yu3 。 | Mike and his sister speak French, but not Japanese. |
@@ -51655,8 +51655,8 @@
 | 我親眼看見了。 | wo3 qin1 yan3 kan4 jian4 le 。 | I've seen it with my own eyes. |
 | 哪个是你的杯子？ | na3 ge4 shi4 ni3 de bei1 zi3 ？ | Which cup is yours? |
 | 我想賺更多錢。 | wo3 xiang3 zhuan4 geng1 duo1 qian2 。 | I'd like to make more money. |
-| 你的爱好是什么？ | ni3 de ai4 hao3 shi4 shi2 mo2 ？ | What are your hobbies? |
-| 你的爱好是什么？ | ni3 de ai4 hao3 shi4 shi2 mo2 ？ | What is your hobby? |
+| 你的爱好是什么？ | ni3 de ai4 hao4 shi4 shi2 mo2 ？ | What are your hobbies? |
+| 你的爱好是什么？ | ni3 de ai4 hao4 shi4 shi2 mo2 ？ | What is your hobby? |
 | 太阳升起来了。 | tai4 yang2 sheng1 qi3 lai2 le 。 | The sun is coming up. |
 | 太阳升起来了。 | tai4 yang2 sheng1 qi3 lai2 le 。 | The sun is rising. |
 | 汤姆无所畏惧。 | tang1 mu3 wu2 suo3 wei4 ju4 。 | Tom is fearless. |
@@ -51898,7 +51898,7 @@
 | 语言的学习在于日积月累。 | yu3 yan2 de xue2 xi2 zai4 yu2 ri4 ji1 yue4 lei2 。 | Putting in effort daily is essential to language learning. |
 | 你们两个无聊胚子！ | ni3 men2 liang3 ge4 wu2 liao2 pei1 zi3 ！ | You two bored foetuses! |
 | 我知道眼睛為什麼長在前面嗎？ | wo3 zhi1 dao4 yan3 jing1 wei2 shi2 mo2 chang2 zai4 qian2 mian4 ma2 ？ | Do I know why eyes are on the front? |
-| 真是太好囉 | zhen1 shi4 tai4 hao3 luo1 | That's really good! |
+| 真是太好囉 | zhen1 shi4 tai4 hao4 luo1 | That's really good! |
 | 明天下午他在醫院。 | ming2 tian1 xia4 wu3 ta1 zai4 yi1 yuan4 。 | He will be at the hospital tomorrow afternoon. |
 | 沙漠中有綠洲。 | sha1 mo4 zhong1 you3 lv4 zhou1 。 | There is an oasis in the desert. |
 | 我對我今天的表現不是很滿意。 | wo3 dui4 wo3 jin1 tian1 de biao3 xian4 bu4 shi4 hen3 man3 yi4 。 | I am not very satisfied with today's performance. |
@@ -52413,7 +52413,7 @@
 | 查理二十歲，丹尼爾十六歲。 | cha2 li3 er4 shi2 sui4，dan1 ni2 er3 shi2 liu4 sui4 。 | Charlie is twenty, and Daniel is sixteen. |
 | 你能把我綁起來嗎？ | ni3 neng2 ba3 wo3 bang3 qi3 lai2 ma2 ？ | Can you tie me up? |
 | 不然你自己去瑞士玩，我跟姊姊去愛沙尼亞。 | bu4 ran2 ni3 zi4 ji3 qu4 rui4 shi4 wan2，wo3 gen1 zi3 zi3 qu4 ai4 sha1 ni2 ya1 。 | Otherwise you should visit Switzerland by yourself, while my sister and I visit Estonia. |
-| 我期待好久了耶！ | wo3 qi1 dai4 hao3 jiu3 le ye2 ！ | I've been looking forward to this for a long time! |
+| 我期待好久了耶！ | wo3 qi1 dai4 hao4 jiu3 le ye2 ！ | I've been looking forward to this for a long time! |
 | 元宵節要猜燈謎。 | yuan2 xiao1 jie2 yao4 cai1 deng1 mi2 。 | It is a must to guess lantern riddles during the Lantern Festival. |
 | 端午節是紀念屈原的。 | duan1 wu3 jie2 shi4 ji4 nian4 qu1 yuan2 de 。 | The Dragon Boat Festival commemorates Qu Yuan. |
 | 编程语言实际上就像一门外语。 | bian1 cheng2 yu3 yan2 shi2 ji4 shang4 jiu4 xiang4 yi1 men2 wai4 yu3 。 | A programming language is actually like a foreign language. |
@@ -52654,7 +52654,7 @@
 | 我這禮拜一直很忙。 | wo3 zhe4 li3 bai4 yi1 zhi2 hen3 mang2 。 | I've been busy this week. |
 | 我這禮拜一直很忙。 | wo3 zhe4 li3 bai4 yi1 zhi2 hen3 mang2 。 | I've been busy all week. |
 | 如果必要的話, 我會和你一起去。 | ru2 guo3 bi4 yao4 de hua4, wo3 hui4 he2 ni3 yi1 qi3 qu4 。 | I'll go with you if necessary. |
-| 你要穿那種衣服出門？不太好看耶。 | ni3 yao4 chuan1 na4 zhong3 yi1 fu2 chu1 men2 ？ bu4 tai4 hao3 kan4 ye2 。 | Going out with those clothes? They look kinda bad. |
+| 你要穿那種衣服出門？不太好看耶。 | ni3 yao4 chuan1 na4 zhong3 yi1 fu2 chu1 men2 ？ bu4 tai4 hao4 kan4 ye2 。 | Going out with those clothes? They look kinda bad. |
 | 化学工厂一着火就爆炸了。 | hua4 xue2 gong1 chang3 yi1 zhao2 huo3 jiu4 bao4 zha4 le 。 | Immediately after it caught fire, the chemical factory blew up. |
 | 英文裡面很多字的字母是不發音的。 | ying1 wen2 li3 mian4 hen3 duo1 zi4 de zi4 mu3 shi4 bu4 fa1 yin1 de 。 | In the English language many words contain letters which are not pronounced. |
 | 我有一個忙碌的生活。 | wo3 you3 yi1 ge4 mang2 lu4 de sheng1 huo2 。 | I lead a busy life. |
@@ -54309,7 +54309,7 @@
 | 汤姆想来看望我们。 | tang1 mu3 xiang3 lai2 kan4 wang4 wo3 men2 。 | Tom wants to see us. |
 | 她说她会等我们的。 | ta1 shuo1 ta1 hui4 deng3 wo3 men2 de 。 | She says she'll wait for us. |
 | 门纳德的演讲非常完美。 | men2 na4 de2 de yan3 jiang3 fei1 chang2 wan2 mei3 。 | Mennad's presentation was perfect. |
-| 咕噜！这食物太好吃了，但我担心它会很贵。 | gu1 lu1 ！ zhe4 shi2 wu4 tai4 hao3 chi1 le，dan4 wo3 dan1 xin1 ta1 hui4 hen3 gui4 。 | Gulp! The food is delicious, but I'm afraid of how expensive it's going to be. |
+| 咕噜！这食物太好吃了，但我担心它会很贵。 | gu1 lu1 ！ zhe4 shi2 wu4 tai4 hao4 chi1 le，dan4 wo3 dan1 xin1 ta1 hui4 hen3 gui4 。 | Gulp! The food is delicious, but I'm afraid of how expensive it's going to be. |
 | 你曾经用德语和那棵小桃树打过招呼吗？ | ni3 zeng1 jing1 yong4 de2 yu3 he2 na4 ke1 xiao3 tao2 shu4 da3 guo4 zhao1 hu1 ma ？ | Have you ever greeted the small peach tree in German? |
 | 只要他写作业，他就能玩游戏了。 | zhi1 yao4 ta1 xie3 zuo4 ye4，ta1 jiu4 neng2 wan2 you2 xi4 le 。 | He can play computer games as long as he does his homework. |
 | 我不可能亲汤姆。 | wo3 bu4 ke3 neng2 qin1 tang1 mu3 。 | I'm not likely to kiss Tom. |
@@ -54420,9 +54420,9 @@
 | 汤姆说他不想把时间浪费在争论上。 | tang1 mu3 shuo1 ta1 bu4 xiang3 ba3 shi2 jian1 lang4 fei4 zai4 zheng1 lun4 shang4 。 | Tom said he didn't want to waste time arguing. |
 | 这永远不会再发生了。 | zhe4 yong3 yuan3 bu4 hui4 zai4 fa1 sheng1 le 。 | This will never happen again. |
 | 今天是2019年的第一天。 | jin1 tian1 shi4 2019 nian2 de di4 yi1 tian1 。 | Today is the first day of 2019. |
-| 我的爱好是阅读。 | wo3 de ai4 hao3 shi4 yue4 du2 。 | My hobby is reading. |
-| 我的爱好是阅读。 | wo3 de ai4 hao3 shi4 yue4 du2 。 | My hobby is to read. |
-| 我的爱好是阅读。 | wo3 de ai4 hao3 shi4 yue4 du2 。 | My pastime is reading. |
+| 我的爱好是阅读。 | wo3 de ai4 hao4 shi4 yue4 du2 。 | My hobby is reading. |
+| 我的爱好是阅读。 | wo3 de ai4 hao4 shi4 yue4 du2 。 | My hobby is to read. |
+| 我的爱好是阅读。 | wo3 de ai4 hao4 shi4 yue4 du2 。 | My pastime is reading. |
 | 有人在意吗？ | you3 ren2 zai4 yi4 ma ？ | Does anyone care? |
 | 尽管雨下得很大，但他还是去医院看望他的朋友了。 | jin4 guan3 yu3 xia4 de2 hen3 da4，dan4 ta1 huan2 shi4 qu4 yi1 yuan4 kan4 wang4 ta1 de peng2 you3 le 。 | In spite of the heavy rain, he visited his friend in the hospital. |
 | 你想要另一杯咖啡吗？ | ni3 xiang3 yao4 ling4 yi1 bei1 ka1 fei1 ma ？ | Would you like another cup of coffee? |
@@ -55980,7 +55980,7 @@
 | 我们待在舅舅家。 | wo3 men2 dai4 zai4 jiu4 jiu4 jia1 。 | We're staying at our uncle's. |
 | 我们睡在我舅舅家。 | wo3 men2 shui4 zai4 wo3 jiu4 jiu4 jia1 。 | We are spending the night at my uncle's house. |
 | 我们睡在我舅舅家。 | wo3 men2 shui4 zai4 wo3 jiu4 jiu4 jia1 。 | We're spending the night at my uncle's house. |
-| 我的舅舅爱好打板球。 | wo3 de jiu4 jiu4 ai4 hao3 da3 ban3 qiu2 。 | My uncle is an amateur cricket player. |
+| 我的舅舅爱好打板球。 | wo3 de jiu4 jiu4 ai4 hao4 da3 ban3 qiu2 。 | My uncle is an amateur cricket player. |
 | 我待在東京的舅舅家。 | wo3 dai4 zai4 dong1 jing1 de jiu4 jiu4 jia1 。 | I am staying with my uncle in Tokyo. |
 | 他在他舅舅那裏過夜。 | ta1 zai4 ta1 jiu4 jiu4 na4 li3 guo4 ye4 。 | He's staying with his uncle. |
 | 我想和你的舅舅谈一谈。 | wo3 xiang3 he2 ni3 de jiu4 jiu4 tan2 yi1 tan2 。 | I want to talk with your uncle. |
@@ -57740,7 +57740,7 @@
 | 湯姆說他希望你不會讓瑪麗那麼做。 | tang1 mu3 shuo1 ta1 xi1 wang4 ni3 bu4 hui4 rang4 ma3 li2 na4 mo2 zuo4 。 | Tom said that he hopes that you won't let Mary do that. |
 | 他已消失多年了。 | ta1 yi3 xiao1 shi1 duo1 nian2 le 。 | It's been years since he disappeared. |
 | 她讓他去洗手。 | ta1 rang4 ta1 qu4 xi3 shou3 。 | She told him to wash his hands. |
-| 他們都是電影愛好者。 | ta1 men2 du1 shi4 dian4 ying3 ai4 hao3 zhe3 。 | They are film buffs. |
+| 他們都是電影愛好者。 | ta1 men2 du1 shi4 dian4 ying3 ai4 hao4 zhe3 。 | They are film buffs. |
 | 床上的那是什麼呀？ | chuang2 shang4 de na4 shi4 shi2 mo2 ya1 ？ | What's that lying on the bed? |
 | 我們現在就需要走。 | wo3 men2 xian4 zai4 jiu4 xu1 yao4 zou3 。 | We have to leave right now. |
 | 瑪麗表示她希望她沒忘了鎖門。 | ma3 li2 biao3 shi4 ta1 xi1 wang4 ta1 mei2 wang4 le suo3 men2 。 | Mary said she wished she hadn't left the door unlocked. |
@@ -57901,7 +57901,7 @@
 | 這是我的行李。 | zhe4 shi4 wo3 de hang2 li3 。 | Here is my baggage. |
 | 這是我的行李。 | zhe4 shi4 wo3 de hang2 li3 。 | Here's my luggage. |
 | 你可跑不掉。 | ni3 ke3 pao3 bu4 diao4 。 | You can't run away. |
-| 你對我太好了。 | ni3 dui4 wo3 tai4 hao3 le 。 | You are much too kind to me. |
+| 你對我太好了。 | ni3 dui4 wo3 tai4 hao4 le 。 | You are much too kind to me. |
 | 這些照片被處理過。 | zhe4 xie1 zhao4 pian4 bei4 chu3 li3 guo4 。 | These photos have been shopped. |
 | 用俄語說！ | yong4 e2 yu3 shuo1 ！ | Say it in Russian! |
 | 我不理解他為什麼沒有說實話。 | wo3 bu4 li3 jie3 ta1 wei2 shi2 mo2 mei2 you3 shuo1 shi2 hua4 。 | I don't understand why he didn't tell the truth. |
@@ -59460,7 +59460,7 @@
 | 这件事十万火急！ | zhe4 jian4 shi4 shi2 wan4 huo3 ji2 ！ | This matter is of incredible urgency! |
 | 这个想法已经在他脑中存在了好久。 | zhe4 ge4 xiang3 fa3 yi3 jing1 zai4 ta1 nao3 zhong1 cun2 zai4 le hao3 jiu3 。 | This idea has been in his mind for a long time now. |
 | 那辆车是黑的。 | na4 liang4 che1 shi4 hei1 de 。 | The car is black. |
-| 这是你的兴趣爱好吗？ | zhe4 shi4 ni3 de xing1 qu4 ai4 hao3 ma ？ | Is this your hobby? |
+| 这是你的兴趣爱好吗？ | zhe4 shi4 ni3 de xing1 qu4 ai4 hao4 ma ？ | Is this your hobby? |
 | 我喜欢西日耳曼语支的语言。 | wo3 xi3 huan1 xi1 ri4 er3 man4 yu3 zhi1 de yu3 yan2 。 | I like West Germanic languages. |
 | 你已经吃过饭了！ | ni3 yi3 jing1 chi1 guo4 fan4 le ！ | You've already eaten! |
 | 镜子被摔碎了。 | jing4 zi3 bei4 shuai1 sui4 le 。 | The mirror was shattered. |
@@ -62310,8 +62310,8 @@
 | 你的作业，做完了没有？ | ni3 de zuo4 ye4，zuo4 wan2 le mei2 you3 ？ | Are you through with your homework? |
 | 你的作业，做完了没有？ | ni3 de zuo4 ye4，zuo4 wan2 le mei2 you3 ？ | Have you completed your homework? |
 | 你的作业，做完了没有？ | ni3 de zuo4 ye4，zuo4 wan2 le mei2 you3 ？ | Did you finish your homework? |
-| 我爺爺的聽力不太好。 | wo3 ye2 ye2 de ting1 li4 bu4 tai4 hao3 。 | My grandfather is a bit hard of hearing. |
-| 我爺爺的聽力不太好。 | wo3 ye2 ye2 de ting1 li4 bu4 tai4 hao3 。 | My grandfather can't hear very well. |
+| 我爺爺的聽力不太好。 | wo3 ye2 ye2 de ting1 li4 bu4 tai4 hao4 。 | My grandfather is a bit hard of hearing. |
+| 我爺爺的聽力不太好。 | wo3 ye2 ye2 de ting1 li4 bu4 tai4 hao4 。 | My grandfather can't hear very well. |
 | 你为什么喜欢我？ | ni3 wei2 shi2 mo2 xi3 huan1 wo3 ？ | Why do you love me? |
 | 我想要一張地圖。 | wo3 xiang3 yao4 yi1 zhang1 di4 tu2 。 | I want a map. |
 | 她買了一台新電腦。 | ta1 mai3 le yi1 tai2 xin1 dian4 nao3 。 | She bought a new computer. |
@@ -62953,7 +62953,7 @@
 | 再試一次。 | zai4 shi4 yi1 ci4 。 | Try again. |
 | 再試一次。 | zai4 shi4 yi1 ci4 。 | Try once again. |
 | 我答應你我永遠不會離開你。 | wo3 da2 ying1 ni3 wo3 yong3 yuan3 bu4 hui4 li2 kai1 ni3 。 | I promise you that I won't ever leave you. |
-| 他的失败好似和他的性格有什么关系。 | ta1 de shi1 bai4 hao3 si4 he2 ta1 de xing4 ge2 you3 shi2 mo2 guan1 xi4 。 | His failure seems to have something to do with his character. |
+| 他的失败好似和他的性格有什么关系。 | ta1 de shi1 bai4 hao4 si4 he2 ta1 de xing4 ge2 you3 shi2 mo2 guan1 xi4 。 | His failure seems to have something to do with his character. |
 | 你可以去了。 | ni3 ke3 yi3 qu4 le 。 | You may go. |
 | 你可以去了。 | ni3 ke3 yi3 qu4 le 。 | You can go. |
 | 您可以走了。 | nin2 ke3 yi3 zou3 le 。 | You can go. |
@@ -64227,11 +64227,11 @@
 | 我可以獨自做。 | wo3 ke3 yi3 du2 zi4 zuo4 。 | I can do it by myself. |
 | 我可以自己做。 | wo3 ke3 yi3 zi4 ji3 zuo4 。 | I can do it myself. |
 | 我可以自己做。 | wo3 ke3 yi3 zi4 ji3 zuo4 。 | I can do this myself. |
-| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | Tom doesn't speak French very well. |
-| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | Tom doesn't speak much French. |
-| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | Tom can't speak much French. |
-| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | Tom can't speak French very well. |
-| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao3 。 | Tom can't speak French well. |
+| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | Tom doesn't speak French very well. |
+| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | Tom doesn't speak much French. |
+| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | Tom can't speak much French. |
+| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | Tom can't speak French very well. |
+| 湯姆說法語說得不太好。 | tang1 mu3 shuo1 fa3 yu3 shuo1 de2 bu4 tai4 hao4 。 | Tom can't speak French well. |
 | 他停下来好穿鞋。 | ta1 ting2 xia4 lai2 hao3 chuan1 xie2 。 | He stopped to put on his shoes. |
 | 這隻狗是白色的。 | zhe4 zhi1 gou3 shi4 bai2 se4 de 。 | The dog is white. |
 | 這隻狗是白色的。 | zhe4 zhi1 gou3 shi4 bai2 se4 de 。 | This dog is white. |
@@ -64506,10 +64506,10 @@
 | 我得找一份兼職工作。 | wo3 de2 zhao3 yi1 fen4 jian1 zhi2 gong1 zuo4 。 | I have to find a part-time job. |
 | 哪里都看得到好人。 | na3 li3 du1 kan4 de2 dao4 hao3 ren2 。 | Good people can be found anywhere. |
 | 所以我給你打了電話。 | suo3 yi3 wo3 gei3 ni3 da3 le dian4 hua4 。 | That's why I called you. |
-| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao3 。 | You don't look so good. |
-| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao3 。 | You don't look very good. |
-| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao3 。 | You don't look too good. |
-| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao3 。 | You don't look so hot. |
+| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao4 。 | You don't look so good. |
+| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao4 。 | You don't look very good. |
+| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao4 。 | You don't look too good. |
+| 你看上去不太好。 | ni3 kan4 shang4 qu4 bu4 tai4 hao4 。 | You don't look so hot. |
 | 这是我看过的最差劲的电影了。 | zhe4 shi4 wo3 kan4 guo4 de zui4 cha4 jin4 de dian4 ying3 le 。 | This is the worst movie I've ever seen. |
 | 快一點！ | kuai4 yi1 dian3 ！ | Faster! |
 | 快一點！ | kuai4 yi1 dian3 ！ | Step on it! |
@@ -64567,7 +64567,7 @@
 | 夠了。 | gou4 le 。 | That does it. |
 | 汤姆假装他是一名医生。 | tang1 mu3 jia3 zhuang1 ta1 shi4 yi1 ming2 yi1 sheng1 。 | Tom pretended that he was a doctor. |
 | 汤姆假装他是一名医生。 | tang1 mu3 jia3 zhuang1 ta1 shi4 yi1 ming2 yi1 sheng1 。 | Tom pretended he was a doctor. |
-| 我的职业正是我的爱好。 | wo3 de zhi2 ye4 zheng4 shi4 wo3 de ai4 hao3 。 | My profession is my hobby. |
+| 我的职业正是我的爱好。 | wo3 de zhi2 ye4 zheng4 shi4 wo3 de ai4 hao4 。 | My profession is my hobby. |
 | 读好书。 | du2 hao3 shu1 。 | Read good books. |
 | 他曾经反对垄断。 | ta1 zeng1 jing1 fan3 dui4 long3 duan4 。 | He was opposed to monopolies. |
 | 我曾经见过他。 | wo3 zeng1 jing1 jian4 guo4 ta1 。 | I've seen him before. |
@@ -65746,7 +65746,7 @@
 | 这部分是容易的 | zhe4 bu4 fen1 shi4 rong2 yi4 de | That part was easy. |
 | 铃声停止了 | ling2 sheng1 ting2 zhi3 le | The ringing stopped. |
 | 我只能描述这可怕的味道像呕吐混合着烂肉 | wo3 zhi1 neng2 miao2 shu4 zhe4 ke3 pa4 de wei4 dao4 xiang4 ou3 tu3 hun4 he2 zhao2 lan4 rou4 | I can only describe the terrible smell as vomit mixed with rotting flesh. |
-| 他是一个体育爱好者。 | ta1 shi4 yi1 ge4 ti3 yu4 ai4 hao3 zhe3 。 | He's a lover of sports. |
+| 他是一个体育爱好者。 | ta1 shi4 yi1 ge4 ti3 yu4 ai4 hao4 zhe3 。 | He's a lover of sports. |
 | 他是個好人。 | ta1 shi4 ge4 hao3 ren2 。 | He is a good person. |
 | 他是個好人。 | ta1 shi4 ge4 hao3 ren2 。 | He's a good fellow. |
 | 他是个好人。 | ta1 shi4 ge4 hao3 ren2 。 | He is a good person. |
@@ -66026,7 +66026,7 @@
 | 戲法人人會變，各有巧妙不同。 | xi4 fa3 ren2 ren2 hui4 bian4，ge4 you3 qiao3 miao4 bu4 tong2 。 | Everyone's tricks are different; each differs in ingenious ways. |
 | 木质家具沉甸甸的。 | mu4 zhi4 jia1 ju4 chen2 dian4 dian4 de 。 | Wooden furniture is heavy. |
 | 女人们不注意他。 | nv3 ren2 men2 bu4 zhu4 yi4 ta1 。 | The ladies don't notice him. |
-| 我爱好翻译。 | wo3 ai4 hao3 fan1 yi4 。 | I love translating. |
+| 我爱好翻译。 | wo3 ai4 hao4 fan1 yi4 。 | I love translating. |
 | 人们必须查看硬币的正反面。 | ren2 men2 bi4 xu1 cha2 kan4 ying4 bi4 de zheng4 fan3 mian4 。 | People must examine the front and back of a coin. |
 | 该地区因它的手工业而出名。 | gai1 di4 qu1 yin1 ta1 de shou3 gong1 ye4 er2 chu1 ming2 。 | This area is famous for its handcraft business. |
 | 如果你能当心些那就更好了。 | ru2 guo3 ni3 neng2 dang1 xin1 xie1 na4 jiu4 geng1 hao3 le 。 | If you could be a bit more careful, that would be even better. |
@@ -69807,7 +69807,7 @@
 | 對對對！ | dui4 dui4 dui4 ！ | Correctamundo! |
 | 逮到了。 | dai4 dao4 le 。 | Hunted. |
 | 抓到了。 | zhua1 dao4 le 。 | Captured. |
-| 太好了。 | tai4 hao3 le 。 | Amazing. |
+| 太好了。 | tai4 hao4 le 。 | Amazing. |
 | 儘快 | jin3 kuai4 | ASAP |
 | 這裡。 | zhe4 li3 。 | Here. |
 | 討厭。 | tao3 yan4 。 | Charming. |
@@ -70076,7 +70076,7 @@
 | 我現在沒時間吃午餐。 | wo3 xian4 zai4 mei2 shi2 jian1 chi1 wu3 can1 。 | I don't have time to eat lunch right now. |
 | 爸爸在哪？ | ba4 ba4 zai4 na3 ？ | Where's Daddy? |
 | 輪到齊莉。 | lun2 dao4 qi2 li4 。 | It's Ziri's turn. |
-| 即使像我們這樣的業餘愛好者也能看出它很糟糕。 | ji2 shi3 xiang4 wo3 men2 zhe4 yang4 de ye4 yu2 ai4 hao3 zhe3 ye3 neng2 kan4 chu1 ta1 hen3 zao1 gao1 。 | Even hobbyists like us can tell that it's bad. |
+| 即使像我們這樣的業餘愛好者也能看出它很糟糕。 | ji2 shi3 xiang4 wo3 men2 zhe4 yang4 de ye4 yu2 ai4 hao4 zhe3 ye3 neng2 kan4 chu1 ta1 hen3 zao1 gao1 。 | Even hobbyists like us can tell that it's bad. |
 | 湯姆說，他真的沒有借助他人協助，自己完成了那件事。 | tang1 mu3 shuo1，ta1 zhen1 de mei2 you3 jie4 zhu4 ta1 ren2 xie2 zhu4，zi4 ji3 wan2 cheng2 le na4 jian4 shi4 。 | Tom said that he really did do that without anybody's help. |
 | 莎米的心幾乎停止了跳動。 | suo1 mi3 de xin1 ji1 hu1 ting2 zhi3 le tiao4 dong4 。 | Sami's heart almost stopped. |
 | 這些箱子是手繪的。 | zhe4 xie1 xiang1 zi3 shi4 shou3 hui4 de 。 | These boxes were hand-painted. |
@@ -72244,7 +72244,7 @@
 | 這本書不管讀多少次，我都能從中有新發現。 | zhe4 ben3 shu1 bu4 guan3 du2 duo1 shao3 ci4，wo3 du1 neng2 cong2 zhong1 you3 xin1 fa1 xian4 。 | No matter how many times I read this book I discover something new. |
 | 這是我以前從未見過的現象。 | zhe4 shi4 wo3 yi3 qian2 cong2 wei4 jian4 guo4 de xian4 xiang4 。 | It's a phenomenon I've never seen before. |
 | 請相信我的話。 | qing3 xiang1 xin4 wo3 de hua4 。 | Please believe what I say. |
-| 今天情況不太好。 | jin1 tian1 qing2 kuang4 bu4 tai4 hao3 。 | Things aren't going well today |
+| 今天情況不太好。 | jin1 tian1 qing2 kuang4 bu4 tai4 hao4 。 | Things aren't going well today |
 | 平壤是北韓城市。 | ping2 rang3 shi4 bei3 han2 cheng2 shi4 。 | Pyongyang is a city in North Korea. |
 | 飛機上可以吃東西嗎？ | fei1 ji1 shang4 ke3 yi3 chi1 dong1 xi1 ma2 ？ | Can I eat on the plane? |
 | 你有朋友嗎？ | ni3 you3 peng2 you3 ma2 ？ | Do you have a friend? |
@@ -72370,7 +72370,7 @@
 | 我深感抱歉。 | wo3 shen1 gan3 bao4 qian4 。 | I am sincerely sorry. |
 | 她可以像海豚一樣游泳。 | ta1 ke3 yi3 xiang4 hai3 tun2 yi1 yang4 you2 yong3 。 | She can swim like a dolphin. |
 | 騙人的！ | pian4 ren2 de ！ | It's a lie! |
-| 我的韓文不太好，請慢點講。 | wo3 de han2 wen2 bu4 tai4 hao3，qing3 man4 dian3 jiang3 。 | My Korean is not very good. Please speak slowly. |
+| 我的韓文不太好，請慢點講。 | wo3 de han2 wen2 bu4 tai4 hao4，qing3 man4 dian3 jiang3 。 | My Korean is not very good. Please speak slowly. |
 | 我在二手書店看到一本書，現在它成為了我最愛的書。 | wo3 zai4 er4 shou3 shu1 dian4 kan4 dao4 yi1 ben3 shu1，xian4 zai4 ta1 cheng2 wei2 le wo3 zui4 ai4 de shu1 。 | A book I happened to come across at a secondhand bookstore has now become my favorite. |
 | 澤倫斯基是戰爭英雄。 | ze2 lun2 si1 ji1 shi4 zhan4 zheng1 ying1 xiong2 。 | Zelenskyy is a war hero. |
 | 車站前有一家不錯的餐廳。 | che1 zhan4 qian2 you3 yi1 jia1 bu4 cuo4 de can1 ting1 。 | There is a good restaurant in front of the station. |
@@ -74297,11 +74297,11 @@
 | 她是我最喜歡的歌手。 | ta1 shi4 wo3 zui4 xi3 huan1 de ge1 shou3 。 | She's my favorite singer. |
 | 接吻時最該注意的是什麼？歌手馬克斯拉貝回答了這個重要的問題。 | jie1 wen3 shi2 zui4 gai1 zhu4 yi4 de shi4 shi2 mo2 ？ ge1 shou3 ma3 ke4 si1 la1 bei4 hui2 da2 le zhe4 ge4 zhong4 yao4 de wen4 ti2 。 | What must one keep in mind during a kiss, above all else? The singer Max Raabe answers this important question. |
 | 幾天之內，德軍便在波蘭境內展開了大規模攻擊。 | ji1 tian1 zhi1 nei4 ， de2 jun1 bian4 zai4 bo1 lan2 jing4 nei4 zhan3 kai1 le da4 gui1 mo2 gong1 ji1 。 | Within days, German forces fanned out across Poland. |
-| 如果你是中國文化愛好者，或許可以讀《古漢語聲調的起源》這篇文章。 | ru2 guo3 ni3 shi4 zhong1 guo2 wen2 hua4 ai4 hao3 zhe3 ， huo4 xu1 ke3 yi3 du2 《 gu3 han4 yu3 sheng1 diao4 de qi3 yuan2 》 zhe4 pian1 wen2 zhang1 。 | If you are a China fan, maybe read the article "Origins of Tones in Old Chinese." |
+| 如果你是中國文化愛好者，或許可以讀《古漢語聲調的起源》這篇文章。 | ru2 guo3 ni3 shi4 zhong1 guo2 wen2 hua4 ai4 hao4 zhe3 ， huo4 xu1 ke3 yi3 du2 《 gu3 han4 yu3 sheng1 diao4 de qi3 yuan2 》 zhe4 pian1 wen2 zhang1 。 | If you are a China fan, maybe read the article "Origins of Tones in Old Chinese." |
 | 你能把風扇關掉嗎？ | ni3 neng2 ba3 feng1 shan4 guan1 diao4 ma2 ？ | Could you turn that fan off? |
-| 湯姆是歌劇愛好者。 | tang1 mu3 shi4 ge1 ju4 ai4 hao3 zhe3 。 | Tom is an opera fan. |
+| 湯姆是歌劇愛好者。 | tang1 mu3 shi4 ge1 ju4 ai4 hao4 zhe3 。 | Tom is an opera fan. |
 | 我不太喜歡湯姆的。 | wo3 bu4 tai4 xi3 huan1 tang1 mu3 de 。 | I'm not a big fan of Tom's. |
-| 日本文化愛好者可能會喜歡《早期古日文中的作格與裸名詞》這篇文章。 | ri4 ben3 wen2 hua4 ai4 hao3 zhe3 ke3 neng2 hui4 xi3 huan1 《 zao3 qi1 gu3 ri4 wen2 zhong1 de zuo4 ge2 yu3 luo3 ming2 ci2 》 zhe4 pian1 wen2 zhang1 。 | Japan fans may like the article "Ergativity and Bare Nominals in Early Old Japanese." |
+| 日本文化愛好者可能會喜歡《早期古日文中的作格與裸名詞》這篇文章。 | ri4 ben3 wen2 hua4 ai4 hao4 zhe3 ke3 neng2 hui4 xi3 huan1 《 zao3 qi1 gu3 ri4 wen2 zhong1 de zuo4 ge2 yu3 luo3 ming2 ci2 》 zhe4 pian1 wen2 zhang1 。 | Japan fans may like the article "Ergativity and Bare Nominals in Early Old Japanese." |
 | 貝內迪托與排隊的粉絲們擊掌。 | bei4 nei4 di2 tuo1 yu3 pai2 dui4 de fen3 si1 men2 ji1 zhang3 。 | Benedito gave out high fives to fans in the queue. |
 | 薩米是海綿寶寶的粉絲。 | sa4 mi3 shi4 hai3 mian2 bao3 bao3 de fen3 si1 。 | Sami is a SpongeBob fan. |
 | 他通常不會和粉絲互動。 | ta1 tong1 chang2 bu4 hui4 he2 fen3 si1 hu4 dong4 。 | He doesn't usually get involved with his fan. |
@@ -74680,7 +74680,7 @@
 | 超市真大！ | chao1 shi4 zhen1 da4 ！ | The supermarket is really big! |
 | 我需要檢查一下你的血壓。 | wo3 xu1 yao4 jian3 cha2 yi1 xia4 ni3 de xie3 ya1 。 | I need to check your blood pressure. |
 | 海嘯襲擊日本。 | hai3 xiao4 xi2 ji1 ri4 ben3 。 | A tsunami struck Japan. |
-| 日本文化愛好者可能會喜歡《早期古日文中的作格與裸名詞》這篇文章。 | ri4 ben3 wen2 hua4 ai4 hao3 zhe3 ke3 neng2 hui4 xi3 huan1 《 zao3 qi1 gu3 ri4 wen2 zhong1 de zuo4 ge2 yu3 luo3 ming2 ci2 》 zhe4 pian1 wen2 zhang1 。 | Enthusiasts of Japanese culture may enjoy the article "Ergativity and Bare Nouns in Early Old Japanese." |
+| 日本文化愛好者可能會喜歡《早期古日文中的作格與裸名詞》這篇文章。 | ri4 ben3 wen2 hua4 ai4 hao4 zhe3 ke3 neng2 hui4 xi3 huan1 《 zao3 qi1 gu3 ri4 wen2 zhong1 de zuo4 ge2 yu3 luo3 ming2 ci2 》 zhe4 pian1 wen2 zhang1 。 | Enthusiasts of Japanese culture may enjoy the article "Ergativity and Bare Nouns in Early Old Japanese." |
 | 睏了。 | kun4 le 。 | I'm sleepy. |
 | 全都好嗎？ | quan2 du1 hao3 ma2 ？ | Is everything okay? |
 | 自信與勇氣不僅是男性特質，也可以是所有人都能追求的價值。 | zi4 xin4 yu3 yong3 qi4 bu4 jin3 shi4 nan2 xing4 te4 zhi4 ， ye3 ke3 yi3 shi4 suo3 you3 ren2 du1 neng2 zhui1 qiu2 de jia4 zhi2 。 | Confidence and courage are not just masculine traits; they are values anyone can strive for. |
