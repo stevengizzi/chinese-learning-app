@@ -186,9 +186,10 @@ export function FeedbackScreen() {
                 <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 space-y-6">
                   {exampleSentences.map((sentence, index) => (
                     <div key={index} className="space-y-1 text-center">
-                      <div className="text-xl text-gray-900 font-bold">{sentence.hanzi}</div>
+                      <div className="text-xl font-extrabold text-gray-900">{sentence.hanzi}</div>
                       <div className="text-base text-gray-600 font-mono">{sentence.pinyin}</div>
                       <div className="text-base text-gray-700">{sentence.meaning}</div>
+                      <div className="my-2">&nbsp;</div>
                     </div>
                   ))}
                 </div>
