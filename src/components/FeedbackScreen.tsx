@@ -22,19 +22,36 @@ export function FeedbackScreen() {
   // Load example sentences when component mounts or exercise changes
   useEffect(() => {
     async function loadExampleSentences() {
-      if (!state.currentExercise) return;
+      if (!state.currentExercise) {
+        console.log('No current exercise');
+        return;
+      }
 
       try {
+        console.log('Fetching example sentences...');
         // Fetch the example sentences markdown file
-        const response = await fetch('/docs/example_sentences.md');
+        // Use import.meta.env.BASE_URL to account for GitHub Pages base path
+        const response = await fetch(`${import.meta.env.BASE_URL}docs/example_sentences.md`);
+
+        if (!response.ok) {
+          console.error('Failed to fetch example sentences:', response.status, response.statusText);
+          setExampleSentences([]);
+          return;
+        }
+
         const markdownContent = await response.text();
+        console.log('Markdown content length:', markdownContent.length);
 
         // Parse the markdown
         const allSentences = parseExampleSentences(markdownContent);
+        console.log('Total sentences parsed:', allSentences.length);
 
         // Find sentences that match the current word (character)
         const currentWord = state.currentExercise.words[0].word;
+        console.log('Looking for sentences containing:', currentWord);
+
         const matchingSentences = findMatchingSentences(allSentences, currentWord, 10);
+        console.log('Matching sentences found:', matchingSentences.length);
 
         setExampleSentences(matchingSentences);
       } catch (error) {
