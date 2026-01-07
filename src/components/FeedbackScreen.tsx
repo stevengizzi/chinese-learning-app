@@ -181,7 +181,7 @@ export function FeedbackScreen() {
 
             {/* Example Sentences */}
             {exampleSentences.length > 0 && (
-              <div className="mb-8 w-3/4">
+              <div className="mb-8 w-1/2">
                 <h3 className="text-gray-700 font-semibold mb-4 text-lg text-center">Example Sentences:</h3>
                 <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 space-y-6">
                   {exampleSentences.map((sentence, index) => (
