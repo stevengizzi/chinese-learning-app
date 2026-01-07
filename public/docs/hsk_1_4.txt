@@ -391,12 +391,12 @@ pinyin: suǒ yǒu de shēn qǐng zhě yī gè jiē zhe yī gè cān jiā miàn s
 english:  All the boys in the class want to go out with the pretty girl.
 hsk: 1
 mandarin: 班里所有的男孩都想陪这个漂亮的女孩一起出游。
-pinyin: bān lǐ suǒ yǒu de nán hái dōu xiǎng péi zhè gè piào liang de nu:3 hái yī qǐ chū yóu。
+pinyin: bān lǐ suǒ yǒu de nán hái dōu xiǎng péi zhè gè piào liang de nǚ hái yī qǐ chū yóu。
 --
 english:  All the female workers in this factory got a present on March 8.
 hsk: 1
 mandarin: 这家工厂的所有女职工在三八节都得到了一份礼物。
-pinyin: zhè jiā gōng chǎng de suǒ yǒu nu:3 zhí gōng zài sān bā jié dōu dé dào le yī fèn lǐ wù。
+pinyin: zhè jiā gōng chǎng de suǒ yǒu nǚ zhí gōng zài sān bā jié dōu dé dào le yī fèn lǐ wù。
 --
 english:  All the goodness has been boiled off the vegetables.
 hsk: 1
@@ -491,7 +491,7 @@ pinyin: pào bīng bù shǔ zài xī biān。
 english:  As a rule, it's the gentleman that holds out his hand to invite a lady to dance.
 hsk: 1
 mandarin: 通常, 是男士伸出手来邀请女士跳舞。
-pinyin: tōng cháng, shì nán shì shēn chū shǒu lái yāo qǐng nu:3 shì tiào wǔ。
+pinyin: tōng cháng, shì nán shì shēn chū shǒu lái yāo qǐng nǚ shì tiào wǔ。
 --
 english:  As far as I am concerned, I'm not against your plan.
 hsk: 1
@@ -676,7 +676,7 @@ pinyin: xì xīn de rén zǒng shì bǎ dōng xi fàng de hěn zhěng qí。
 english:  Cares preyed upon her health.
 hsk: 1
 mandarin: 忧虑损害了她的健康。
-pinyin: yōu lu:4 sǔn hài le tā de jiàn kāng。
+pinyin: yōu lǜ sǔn hài le tā de jiàn kāng。
 --
 english:  Cars and trolleys filled the streets.
 hsk: 1
@@ -956,7 +956,7 @@ pinyin: yóu yú tóu zī shào，wǒ men de gōng yè shēng chǎn yī zhí tí
 english:  Each side of a case in court has its own counsel.
 hsk: 1
 mandarin: 法庭上原告和被告双方都有各自的律师。
-pinyin: fǎ tíng shàng yuán gào huò bèi gào shuāng fāng dōu yǒu gè zi de lu:4 shī。
+pinyin: fǎ tíng shàng yuán gào huò bèi gào shuāng fāng dōu yǒu gè zi de lǜ shī。
 --
 english:  Each student was issued with a textbook.
 hsk: 1
@@ -1051,7 +1051,7 @@ pinyin: yī qiè dū huì hǎo de。
 english:  Fashions have changed a lot since I was a little girl.
 hsk: 1
 mandarin: 现在的时装和我还是小女孩时候流行的样子很不一样了。
-pinyin: xiàn zài de shí zhuāng huò wǒ hái shì xiǎo nu:3 hái shí hou liú xíng de yàng zi hěn bù yí yàng le。
+pinyin: xiàn zài de shí zhuāng huò wǒ hái shì xiǎo nǚ hái shí hou liú xíng de yàng zi hěn bù yí yàng le。
 --
 english:  Father always takes a nap in the afternoon.
 hsk: 1
@@ -1176,7 +1176,7 @@ pinyin: hǎo de shuǐ guǒ dōng tiān nán dé xiàn dào，ér qiě jià gé �
 english:  Good-bye, and have a nice journey.
 hsk: 1
 mandarin: 再见，旅途愉快。
-pinyin: zài jiàn，lu:3 tú yú kuài。
+pinyin: zài jiàn，lǚ tú yú kuài。
 --
 english:  Good-bye. Nice seeing you.
 hsk: 1
@@ -1441,7 +1441,7 @@ pinyin: tā bù zàn chéng gǎi biàn dǎng de fāng zhēn。
 english:  He deserves to be punished with the full rigor of the law.
 hsk: 1
 mandarin: 他应该受到法律最严厉的惩罚。
-pinyin: tā yīng gāi shòu dào fǎ lu:4 zuì yán lì de chéng fá。
+pinyin: tā yīng gāi shòu dào fǎ lǜ zuì yán lì de chéng fá。
 --
 english:  He determined to view the rooms behind the office.
 hsk: 1
@@ -2101,7 +2101,7 @@ pinyin: tā duì nèi gè zuì fàn zuò chū le cái jué。
 english:  He persuaded his daughter to change her mind
 hsk: 1
 mandarin: 他说服女儿改变主意.
-pinyin: tā shuō fú nu:3 ér gǎi biàn zhǔ yi。
+pinyin: tā shuō fú nǚ ér gǎi biàn zhǔ yi。
 --
 english:  He planted some flowers on the balcony that projects over the street.
 hsk: 1
@@ -2188,7 +2188,7 @@ hsk: 1
 mandarin: 他坐在风口上，着凉了。
 pinyin: tā zuò zài fēng kǒu shàng，zháo liáng le。
 --
-english:  He saved money bit by bit until he had enough to buy a car
+english:  He saved money bit by bit until he had enough to buy a car.
 hsk: 1
 mandarin: 他一点儿一点儿攒钱直到够买一辆汽车.
 pinyin: tā yī diǎnr yī diǎnr zǎn qián zhí dào gòu mǎi yī liàng qì chē。
@@ -2296,7 +2296,7 @@ pinyin: tā dāi zài mù hòu wèi le bì kāi gōng zhòng de zhù yì。
 english:  He stayed one night in a motel and went on travelling.
 hsk: 1
 mandarin: 他在一家汽车旅馆呆了一晚上，就又接着旅行了。
-pinyin: tā zài yī jiā qì chē lu:3 guǎn dāi le yī wǎn shang，jiù yòu jiē zhe lu:3 xíng le。
+pinyin: tā zài yī jiā qì chē lǚ guǎn dāi le yī wǎn shang，jiù yòu jiē zhe lǚ xíng le。
 --
 english:  He steamed the stamp off the envelope.
 hsk: 1
@@ -2313,7 +2313,7 @@ hsk: 1
 mandarin: 在一些问题上，他仍然保留自己的意见。
 pinyin: zài yī xiē wèn tí shàng，tā réng rán bǎo liú zì jǐ de yì jiàn。
 --
-english:  He stood framed in the doorway to the hall
+english:  He stood framed in the doorway to the hall.
 hsk: 1
 mandarin: 他站在门口, 堵住通向大厅的路.
 pinyin: tā zhàn zài mén kǒu, dǔ zhù tōng xiàng dà tīng de lù。
@@ -2341,7 +2341,7 @@ pinyin: tā xiàng hú lǐ rēng le yī kuài shí tou。
 english:  He told a very descriptive account of his journey.
 hsk: 1
 mandarin: 他对旅行作了十分生动的叙述。
-pinyin: tā duì lu:3 xíng zuò le shí fēn shēng dòng de xù shù。
+pinyin: tā duì lǚ xíng zuò le shí fēn shēng dòng de xù shù。
 --
 english:  He told me the news with a laugh.
 hsk: 1
@@ -2353,7 +2353,7 @@ hsk: 1
 mandarin: 他向新闻记者讲了这次谈话的情况，却不愿把实况录音磁带放给他们听。
 pinyin: tā xiàng xīn wén jì zhě jiǎng le zhè cì tán huà de qíng kuàng，què bù yuàn bǎ shí kuàng lù yīn cí dài fàng jǐ tā men tìng。
 --
-english:  He told the photographers to stop pestering him
+english:  He told the photographers to stop pestering him.
 hsk: 1
 mandarin: 他告诉照相的人别再缠著他.
 pinyin: tā gào su zhào xiàng de rén biè zài chán著 tā。
@@ -2403,7 +2403,7 @@ hsk: 1
 mandarin: 他想在餐具室里找到一些酒。
 pinyin: tā xiǎng zài cān jù shì lǐ zhǎo dào yī xiē jiǔ。
 --
-english:  He wants to be a doctor or go into business
+english:  He wants to be a doctor or go into business.
 hsk: 1
 mandarin: 他想当医生或者经商.
 pinyin: tā xiǎng dàng yī shēng huò zhě jīng shāng。
@@ -2426,7 +2426,7 @@ pinyin: tā qù nián rù dǎng le。
 english:  He was asked the same question so many times that the answer became mechanical.
 hsk: 1
 mandarin: 同样的问题人们向他问得太多了，所以他的答案也是千篇一律。
-pinyin: tóng yàng de wèn tí rén men xiàng tā wèn de tài duō le，suǒ yǐ tā de dá àn yě shì qiān piān yī lu:4。
+pinyin: tóng yàng de wèn tí rén men xiàng tā wèn de tài duō le，suǒ yǐ tā de dá àn yě shì qiān piān yī lǜ。
 --
 english:  He was attacked by a wild boar.
 hsk: 1
@@ -2451,7 +2451,7 @@ pinyin: tā yīn wèi duì shì gù jìn xíng huì bào ér shòu dào wěi yu�
 english:  He was fettered by his family and could not travel any longer.
 hsk: 1
 mandarin: 他被家庭束缚，不能再到处去旅游了。
-pinyin: tā bèi jiā tíng shù fù，bù néng zài dào chù qù lu:3 yóu le。
+pinyin: tā bèi jiā tíng shù fù，bù néng zài dào chù qù lǚ yóu le。
 --
 english:  He was filled with envy at my success.
 hsk: 1
@@ -2491,7 +2491,7 @@ pinyin: tā tǎng zài shā fā shàng kàn diàn shì。
 english:  He was nervous before the plane trip.
 hsk: 1
 mandarin: 乘飞机旅行前他紧张不安。
-pinyin: chéng fēi jī lu:3 xíng qián tā jǐn zhāng bù ān。
+pinyin: chéng fēi jī lǚ xíng qián tā jǐn zhāng bù ān。
 --
 english:  He was seduced into leaving the company by the offer of higher pay elsewhere.
 hsk: 1
@@ -2786,7 +2786,7 @@ pinyin: tā de tou yī zhèn zhèn dì tòng。
 english:  His heart melted when he saw the little girl crying.
 hsk: 1
 mandarin: 看到这个小女孩哭起来，他的心软了。
-pinyin: kàn dào zhè gè xiǎo nu:3 hái kū qǐ lai，tā de xīn ruǎn le。
+pinyin: kàn dào zhè gè xiǎo nǚ hái kū qǐ lai，tā de xīn ruǎn le。
 --
 english:  His house looks terrible with those pieces of ugly furniture.
 hsk: 1
@@ -2976,7 +2976,7 @@ pinyin: wǒ zǒng jué de tā tǎo yàn wǒ，dàn wǒ bù zhī dào wèi shén 
 english:  I always tell my daughter a story before she goes to sleep.
 hsk: 1
 mandarin: 女儿睡觉之前，我总讲故事给她听。
-pinyin: nu:3 ér shuì jiào zhī qián，wǒ zǒng jiǎng gù shì jǐ tā tìng。
+pinyin: nǚ ér shuì jiào zhī qián，wǒ zǒng jiǎng gù shì jǐ tā tìng。
 --
 english:  I am a broadcasting auditor.
 hsk: 1
@@ -3251,7 +3251,7 @@ pinyin: wǒ bù xiāng xìn tā kuài rú yuē qián lái fǎng wèn。
 english:  I doubt if there will be a female president in this country in my lifetime.
 hsk: 1
 mandarin: 我怀疑在我有生之年这个国家会不会出现一位女总统。
-pinyin: wǒ huái yí zài wǒ yǒu shēng zhī nián zhè gè guó jiā kuài bù huì chū xiàn yī wèi nu:3 zǒng tǒng。
+pinyin: wǒ huái yí zài wǒ yǒu shēng zhī nián zhè gè guó jiā kuài bù huì chū xiàn yī wèi nǚ zǒng tǒng。
 --
 english:  I drank a miniature bottle of brandy last night.
 hsk: 1
@@ -3436,7 +3436,7 @@ pinyin: wǒ lí kāi Bā lí yǐ jīng liǎng xīng qī le。
 english:  I have engaged a room at this hotel.
 hsk: 1
 mandarin: 我已经在这个旅馆里预订了一个房间。
-pinyin: wǒ yǐ jīng zài zhè gè lu:3 guǎn lǐ yù dìng le yī gè fáng jiān。
+pinyin: wǒ yǐ jīng zài zhè gè lǚ guǎn lǐ yù dìng le yī gè fáng jiān。
 --
 english:  I have five times the number of Tom's books.
 hsk: 1
@@ -3451,7 +3451,7 @@ pinyin: wǒ lián yí dòng shuāng jué de lì qi dōu jī hū méi yǒu le。
 english:  I have loved her like a father should.
 hsk: 1
 mandarin: 我爱她就像爱自己的女儿一样。
-pinyin: wǒ ài tā jiù xiàng ài zì jǐ de nu:3 ér yí yàng。
+pinyin: wǒ ài tā jiù xiàng ài zì jǐ de nǚ ér yí yàng。
 --
 english:  I have many discs.
 hsk: 1
@@ -3536,7 +3536,7 @@ pinyin: wǒ xī wàng wǒ de gào jiè kuài cù shǐ tā zuò chū gèng dà de
 english:  I kept in touch with my classmates during my journey.
 hsk: 1
 mandarin: 我在旅行期间舆同学们保持联系。
-pinyin: wǒ zài lu:3 xíng qī jiān yú tóng xué men bǎo chí lián xì。
+pinyin: wǒ zài lǚ xíng qī jiān yú tóng xué men bǎo chí lián xì。
 --
 english:  I know Mrs Hill by sight, but we've never met
 hsk: 1
@@ -3821,7 +3821,7 @@ pinyin: wǒ rèn wéi zhí jié le dāng dì gào su tā zhè gè huài xiāo xi
 english:  I think there is no gulf between my daughter and I.
 hsk: 1
 mandarin: 我认为我和我女儿之间没有隔阂。
-pinyin: wǒ rèn wéi wǒ huò wǒ nu:3 ér zhī jiān méi yǒu gé hé。
+pinyin: wǒ rèn wéi wǒ huò wǒ nǚ ér zhī jiān méi yǒu gé hé。
 --
 english:  I think these interesting old customs should be preserved.
 hsk: 1
@@ -3981,7 +3981,7 @@ pinyin: děng dào wǒ dé zhī zhè xiàng jué dìng shí，yǐ jīng tài ch�
 english:  I went away so my daughter acted as hostess.
 hsk: 1
 mandarin: 那时我不在家，所以由我女儿招待客人。
-pinyin: nà shí wǒ bù zài jiā，suǒ yǐ yóu wǒ nu:3 ér zhāo dài kè ren。
+pinyin: nà shí wǒ bù zài jiā，suǒ yǐ yóu wǒ nǚ ér zhāo dài kè ren。
 --
 english:  I went out in the rain and got wet through.
 hsk: 1
@@ -4031,12 +4031,12 @@ pinyin: zhù nǐ shēng rì kuài lè。
 english:  I wish you a pleasant journey.
 hsk: 1
 mandarin: 祝您旅途愉快。
-pinyin: zhù nín lu:3 tú yú kuài。
+pinyin: zhù nín lǚ tú yú kuài。
 --
 english:  I wish you a pleasant trip.
 hsk: 1
 mandarin: 祝你旅途愉快。
-pinyin: zhù nǐ lu:3 tú yú kuài。
+pinyin: zhù nǐ lǚ tú yú kuài。
 --
 english:  I won't have any wine; I'll just have (a) soda water
 hsk: 1
@@ -4421,7 +4421,7 @@ pinyin: rè tiān chuān mián bù zhī lèi yǒu shèn tòu xìng de cái liào
 english:  In learning foreign languages, the girls knock spots off the boys every time
 hsk: 1
 mandarin: 学习外语女孩总是比男孩强.
-pinyin: xué xí wài yǔ nu:3 hái zǒng shì bì nán hái qiáng。
+pinyin: xué xí wài yǔ nǚ hái zǒng shì bì nán hái qiáng。
 --
 english:  In May, all kinds of plants are in full bloom.
 hsk: 1
@@ -4576,7 +4576,7 @@ pinyin: yī bān rén dōu xiāng xìn nǔ lì shì zhí de de。
 english:  It is generally thought that traveling abroad can enrich one's knowledge.
 hsk: 1
 mandarin: 一般认为出国旅游可增广见闻。
-pinyin: yì bān rèn wéi chū guó lu:3 yóu kě zēng guǎng jiàn wén。
+pinyin: yì bān rèn wéi chū guó lǚ yóu kě zēng guǎng jiàn wén。
 --
 english:  It is important that he be quiet.
 hsk: 1
@@ -4891,7 +4891,7 @@ pinyin: zhè cì jù huì yī dìng mò yì si-- zán men xiǎng gè fǎ zi biè
 english:  It's cheaper to live in lodgings than in a hotel
 hsk: 1
 mandarin: 住寄宿舍比住旅馆便宜.
-pinyin: zhù jì sù shè bì zhù lu:3 guǎn pián yi。
+pinyin: zhù jì sù shè bì zhù lǚ guǎn pián yi。
 --
 english:  It's hailing outside.
 hsk: 1
@@ -5061,7 +5061,7 @@ pinyin: ràng wǒ xiǎng yī xiǎng。
 english:  Let's consider the pluses and minuses of moving house.
 hsk: 1
 mandarin: 咱们考虑一下搬家的利弊吧。
-pinyin: zán men kǎo lu:4 yī xià bān jiā de lì bì ba。
+pinyin: zán men kǎo lǜ yī xià bān jiā de lì bì ba。
 --
 english:  Let's go and have icecream to cool off.
 hsk: 1
@@ -5091,7 +5091,7 @@ pinyin: zán men lái bǎ tā men yòng jiāo shuǐ zhān zài yī kuài er。
 english:  Life can be likened to a journey with an unknown destination.
 hsk: 1
 mandarin: 生命可以被比作一次不知目的地的旅行。
-pinyin: shēng mìng kě yǐ bèi bì zuò yī cì bù zhī mù dì dì de lu:3 xíng。
+pinyin: shēng mìng kě yǐ bèi bì zuò yī cì bù zhī mù dì dì de lǚ xíng。
 --
 english:  Life in the country is rather delightful.
 hsk: 1
@@ -5201,7 +5201,7 @@ pinyin: zhè dà gài zhèng shì wǒ yào zuò de。
 english:  Members of the jury, you must now retire to consider your verdict.
 hsk: 1
 mandarin: 陪审团的全体成员，你们现在必须退下去考虑应如何裁决。
-pinyin: péi shěn tuán de quán tǐ chéng yuán，nǐ men xiàn zài bì xū tuì xià qu kǎo lu:4 yìng rú hé cái jué。
+pinyin: péi shěn tuán de quán tǐ chéng yuán，nǐ men xiàn zài bì xū tuì xià qu kǎo lǜ yìng rú hé cái jué。
 --
 english:  Metals expand when they are heated.
 hsk: 1
@@ -5311,12 +5311,12 @@ pinyin: wǒ de tóng shì yǐ jīng jiè diào le xī yān de xí guàn。
 english:  My daughter screamed when she saw a slug.
 hsk: 1
 mandarin: 我的女儿看见了一条鼻涕虫，尖叫了起来。
-pinyin: wǒ de nu:3 ér kàn jiàn le yī tiáo bí tì chóng，jiān jiào le qǐ lai。
+pinyin: wǒ de nǚ ér kàn jiàn le yī tiáo bí tì chóng，jiān jiào le qǐ lai。
 --
 english:  My daughter's a bit poorly today, so she didn't go to school
 hsk: 1
 mandarin: 我女儿今天有点不舒服, 所以她没去上学.
-pinyin: wǒ nu:3 ér jīn tiān yǒu diǎn bù shū fu, suǒ yǐ tā mò qù shàng xué。
+pinyin: wǒ nǚ ér jīn tiān yǒu diǎn bù shū fu, suǒ yǐ tā mò qù shàng xué。
 --
 english:  My father bought me a puppy as a birthday gift.
 hsk: 1
@@ -5366,7 +5366,7 @@ pinyin: wǒ mā ma gǔ lì wǒ，ér qiě jiān chí wǒ yīng gāi jì xù wǒ 
 english:  My mother is a housewife.
 hsk: 1
 mandarin: 我妈妈是个家庭妇女。
-pinyin: wǒ mā ma shì gè jiā tíng fù nu:3。
+pinyin: wǒ mā ma shì gè jiā tíng fù nǚ。
 --
 english:  My mother is fifty years old.
 hsk: 1
@@ -5616,7 +5616,7 @@ pinyin: wǒ men gōng chǎng shēng chǎn mò dāo shí。
 english:  Our hostess served up a large plate of steaming hot dumplings.
 hsk: 1
 mandarin: 女主人给我们端上来一大盘热气腾腾的饺子。
-pinyin: nu:3 zhǔ rén jǐ wǒ men duān shàng lái yī dà pán rè qì téng téng de jiǎo zi。
+pinyin: nǚ zhǔ rén jǐ wǒ men duān shàng lái yī dà pán rè qì téng téng de jiǎo zi。
 --
 english:  Our house is equidistant from the two pubs in the village
 hsk: 1
@@ -5986,7 +5986,7 @@ pinyin: tàn zhào dēng sào guò tiān kōng。
 english:  Seen from this angle, the woman in the picture is smiling.
 hsk: 1
 mandarin: 从这个角度来看, 画中的女子面带微笑.
-pinyin: zòng zhè gè jiǎo dù lái kàn, huà zhòng dì nu:3 zǐ miàn dài wēi xiào。
+pinyin: zòng zhè gè jiǎo dù lái kàn, huà zhòng dì nǚ zǐ miàn dài wēi xiào。
 --
 english:  Several baskets of fruit were eaten at the party.
 hsk: 1
@@ -6061,7 +6061,7 @@ pinyin: tā bì shēng zhì lì yú kē xué。
 english:  She developed into a beautiful woman.
 hsk: 1
 mandarin: 她长成了一位漂亮的女人。
-pinyin: tā zhǎng chéng le yī wèi piào liang de nu:3 rén。
+pinyin: tā zhǎng chéng le yī wèi piào liang de nǚ rén。
 --
 english:  She didn't have to learn how to run: she's a natural.
 hsk: 1
@@ -6251,7 +6251,7 @@ pinyin: tā shì gè zhēn zhèng de zhuān jiā。
 english:  She is a waitress in a restaurant.
 hsk: 1
 mandarin: 她是饭店的女服务员。
-pinyin: tā shì fàn diàn de nu:3 fú wù yuán。
+pinyin: tā shì fàn diàn de nǚ fú wù yuán。
 --
 english:  She is always so disagreeable when we ask her to help.
 hsk: 1
@@ -6276,7 +6276,7 @@ pinyin: tā yī bèi zi gǎo xì jù。
 english:  She is easily the best lawyer in the city.
 hsk: 1
 mandarin: 她无疑是本市最好的律师。
-pinyin: tā wú yí shì běn shì zuì hǎo de lu:4 shī。
+pinyin: tā wú yí shì běn shì zuì hǎo de lǜ shī。
 --
 english:  She is fumbling the light switch.
 hsk: 1
@@ -6366,7 +6366,7 @@ pinyin: tā bǎ hái zi bào zài huái lǐ。
 english:  She never wears green.
 hsk: 1
 mandarin: 她从不穿绿色的衣服。
-pinyin: tā cóng bù chuān lu:4 sè de yī fu。
+pinyin: tā cóng bù chuān lǜ sè de yī fu。
 --
 english:  She offered me the loan of her car.
 hsk: 1
@@ -6526,7 +6526,7 @@ pinyin: tōng zhī tā jiāo nà fá kuǎn，dàn tā jù bù fú zòng。
 english:  She was too timid to talk with other travelers.
 hsk: 1
 mandarin: 她很害羞，不敢和其他旅行者交谈。
-pinyin: tā hěn hài xiū，bù gǎn huò qí tā lu:3 xíng zhě jiāo tán。
+pinyin: tā hěn hài xiū，bù gǎn huò qí tā lǚ xíng zhě jiāo tán。
 --
 english:  She was unlucky to catch a cold on the first day of her holiday.
 hsk: 1
@@ -6546,7 +6546,7 @@ pinyin: jīn tiān tā dài le yī tiáo zhēn zhū xiàng liàn。
 english:  She wears a ring set with emeralds on her right hand.
 hsk: 1
 mandarin: 她的右手上戴着一枚镶有绿宝石的戒指。
-pinyin: tā de yòu shǒu shàng dài zhuó yī méi xiāng yǒu lu:4 bǎo shí de jiè zhi。
+pinyin: tā de yòu shǒu shàng dài zhuó yī méi xiāng yǒu lǜ bǎo shí de jiè zhi。
 --
 english:  She wears a wedding ring to show that she's married.
 hsk: 1
@@ -6851,7 +6851,7 @@ pinyin: nèi gè Yà zhōu rén lán zhù wǒ，wèn wǒ shì bú shì Zhōng gu
 english:  That beautiful girl is a fashion model.
 hsk: 1
 mandarin: 那位漂亮的女孩是一位时装模特儿。
-pinyin: nà wèi piào liang de nu:3 hái shì yī wèi shí zhuāng mó tè er。
+pinyin: nà wèi piào liang de nǚ hái shì yī wèi shí zhuāng mó tè er。
 --
 english:  That boy can spell out the Chinese for the fast time.
 hsk: 1
@@ -6926,7 +6926,7 @@ pinyin: nà wèi dài biǎo tí chū le yí xiàng duì xīn wén fǎ de xiū zh
 english:  That retired woman is a baby-sitter.
 hsk: 1
 mandarin: 那个退休妇女是个临时保姆。
-pinyin: nèi gè tuì xiū fù nu:3 shì gè lín shí bǎo mǔ。
+pinyin: nèi gè tuì xiū fù nǚ shì gè lín shí bǎo mǔ。
 --
 english:  That sentence suddenly illumined her.
 hsk: 1
@@ -7286,7 +7286,7 @@ pinyin: cháng jiāng shì shì jiè shàng zuì cháng de hé liú zhī yī。
 english:  The cheapness of coach travel is its only recommendation
 hsk: 1
 mandarin: 乘长途汽车唯一可取之处就是旅费便宜.
-pinyin: chéng cháng tú qì chē wéi yī kě qǔ zhī chù jiù shì lu:3 fèi pián yi。
+pinyin: chéng cháng tú qì chē wéi yī kě qǔ zhī chù jiù shì lǚ fèi pián yi。
 --
 english:  The checker made a check on all the victims' friends.
 hsk: 1
@@ -7786,7 +7786,7 @@ pinyin: zhè wèi jiāng jūn bèi yù wèi lǐng dǎo quán guó yíng dé shè
 english:  The girl was fortunate enough to have her mother as a bosom friend.
 hsk: 1
 mandarin: 这个女孩非常幸运，她的妈妈是她的知心朋友。
-pinyin: zhè gè nu:3 hái fēi cháng xìng yùn，tā de mā ma shì tā de zhī xīn péng you。
+pinyin: zhè gè nǚ hái fēi cháng xìng yùn，tā de mā ma shì tā de zhī xīn péng you。
 --
 english:  The glass shattered.
 hsk: 1
@@ -7921,7 +7921,7 @@ pinyin: mǎ zài lù shang xiǎo pǎo zhuó。
 english:  The hotel provides a reservation of tickets for its residents.
 hsk: 1
 mandarin: 这家旅馆为旅客提供订票服务。
-pinyin: zhè jiā lu:3 guǎn wèi lu:3 kè tí gōng dìng piào fú wù。
+pinyin: zhè jiā lǚ guǎn wèi lǚ kè tí gōng dìng piào fú wù。
 --
 english:  The hunter watched for the hare to come out of the burrow.
 hsk: 1
@@ -7956,7 +7956,7 @@ pinyin: dì èr cì shì jiè dà zhàn qī jiān，Rì běn zhèng fǔ huò Dé
 english:  The jet zoomed low over the houses, frightening everyone
 hsk: 1
 mandarin: 那架喷气式飞机低飞掠过房顶, 隆隆声把大家吓了一跳.
-pinyin: nà jià pèn qì shì fēi jī dī fēi lu:è guò fáng dǐng, lóng lóng shēng bǎ dà jiā xià le yī tiào。
+pinyin: nà jià pèn qì shì fēi jī dī fēi lüè guò fáng dǐng, lóng lóng shēng bǎ dà jiā xià le yī tiào。
 --
 english:  The Jews lived in dread of being caught.
 hsk: 1
@@ -8026,7 +8026,7 @@ pinyin: zhè tī zi yǒu bā jí。
 english:  The lady at the tourist office told me it opened at 1 pm
 hsk: 1
 mandarin: 旅行社的那位小姐告诉我下午一点开门.
-pinyin: lu:3 xíng shè de nà wèi xiǎo jie gào su wǒ xià wǔ yī diǎn kāi mén。
+pinyin: lǚ xíng shè de nà wèi xiǎo jie gào su wǒ xià wǔ yī diǎn kāi mén。
 --
 english:  The lady looked at me with a contented smile.
 hsk: 1
@@ -8041,7 +8041,7 @@ pinyin: zhè shǒu shī de zuì hòu liǎng xìng méi yǒu yā hào yùn。
 english:  The lawyer explained the new law to us.
 hsk: 1
 mandarin: 律师向我们解释了新法律。
-pinyin: lu:4 shī xiàng wǒ men jiě shì le xīn fǎ lu:4。
+pinyin: lǜ shī xiàng wǒ men jiě shì le xīn fǎ lǜ。
 --
 english:  The leader made a sagacious decision.
 hsk: 1
@@ -8131,12 +8131,12 @@ pinyin: xiǎo māo hè le niú nǎi，yòu xǐ le liǎn。
 english:  The little girl dares not to appear in public because she is cross-eyed.
 hsk: 1
 mandarin: 这个小女孩因为斜视不敢在公共场合露面。
-pinyin: zhè gè xiǎo nu:3 hái yīn wèi xié shì bù gǎn zài gōng gòng chǎng hé lòu miàn。
+pinyin: zhè gè xiǎo nǚ hái yīn wèi xié shì bù gǎn zài gōng gòng chǎng hé lòu miàn。
 --
 english:  The little girl drowned in the river.
 hsk: 1
 mandarin: 小女孩在河里淹死了。
-pinyin: xiǎo nu:3 hái zài hé lǐ yān sǐ le。
+pinyin: xiǎo nǚ hái zài hé lǐ yān sǐ le。
 --
 english:  The loft is used for storing things.
 hsk: 1
@@ -8171,7 +8171,7 @@ pinyin: fā zhǎn de zhǔ yào zhàng ài shì zhè gè guó jiā rén kǒu tài
 english:  The male is physically stronger than the female.
 hsk: 1
 mandarin: 男性在身体上要比女性强壮。
-pinyin: nán xìng zài shēn tǐ shàng yào bì nu:3 xìng qiáng zhuàng。
+pinyin: nán xìng zài shēn tǐ shàng yào bì nǚ xìng qiáng zhuàng。
 --
 english:  The man cleft a block of wood in two with an axe.
 hsk: 1
@@ -8411,7 +8411,7 @@ pinyin: zhè fú huà bèi tā kàn zhòng le，suǒ yǐ tā jiù bǎ tā mǎi l
 english:  The paper turned green as if by magic.
 hsk: 1
 mandarin: 这纸魔术般地变成了绿色。
-pinyin: zhè zhǐ mó shù bān de biàn chéng le lu:4 sè。
+pinyin: zhè zhǐ mó shù bān de biàn chéng le lǜ sè。
 --
 english:  The park is only five minutes from downtown.
 hsk: 1
@@ -8541,7 +8541,7 @@ pinyin: hòu rèn zǒng tǒng jiàng zài xià zhōu zhèng shì jiù rèn。
 english:  The priest makes pastoral visits every Tuesday.
 hsk: 1
 mandarin: 牧师每星期二作履行神职的访问。
-pinyin: mù shī měi xīng qī èr zuò lu:3 xíng shén zhí de fǎng wèn。
+pinyin: mù shī měi xīng qī èr zuò lǚ xíng shén zhí de fǎng wèn。
 --
 english:  The prisoner slipped past the guards on the gate and escaped
 hsk: 1
@@ -8681,7 +8681,7 @@ pinyin: shēng rì wǎn huì zhī hòu, fáng jiān lǐ yī piàn hùn luàn。
 english:  The route was once much travelled but has fallen into disuse.
 hsk: 1
 mandarin: 这条路线旅行的人以前常走，但是现在已不用了。
-pinyin: zhè tiáo lù xiàn lu:3 xíng de rén yǐ qián cháng zǒu，dàn shì xiàn zài yǐ bù yòng le。
+pinyin: zhè tiáo lù xiàn lǚ xíng de rén yǐ qián cháng zǒu，dàn shì xiàn zài yǐ bù yòng le。
 --
 english:  The sales manager wants to open up new markets in the Far East.
 hsk: 1
@@ -8951,7 +8951,7 @@ pinyin: lǎo shī jǐ quán bān tóng xué zuò le tīng xiě。
 english:  The teacher gave each of us a piece of filter paper before doing the experiment.
 hsk: 1
 mandarin: 做试验前，老师给我们每个人发了一张滤纸。
-pinyin: zuò shì yàn qián，lǎo shī jǐ wǒ men měi gè rén fà le yī zhāng lu:4 zhǐ。
+pinyin: zuò shì yàn qián，lǎo shī jǐ wǒ men měi gè rén fà le yī zhāng lǜ zhǐ。
 --
 english:  The teacher gave the children holiday tasks.
 hsk: 1
@@ -9261,7 +9261,7 @@ pinyin: Shì jiè bēi jué sài xiàn zài zhèng xiàng wǔ shí duō gè guó
 english:  The young girl aspired to be a scientist.
 hsk: 1
 mandarin: 小女孩立志要做一名科学家。
-pinyin: xiǎo nu:3 hái lì zhì yào zuò yī míng kē xué jiā。
+pinyin: xiǎo nǚ hái lì zhì yào zuò yī míng kē xué jiā。
 --
 english:  The young girl has a pair of almond eyes.
 hsk: 1
@@ -9271,7 +9271,7 @@ pinyin: zhè gè nián qīng de gū niang zhǎng zhuó yī shuāng xìng yǎn。
 english:  The young man courted the young lady by bring her flowers every day.
 hsk: 1
 mandarin: 那青年通过每天给那女子送花而向她求爱。
-pinyin: nà qīng nián tōng guò měi tiān jǐ nà nu:3 zǐ sòng huā ér xiàng tā qiú ài。
+pinyin: nà qīng nián tōng guò měi tiān jǐ nà nǚ zǐ sòng huā ér xiàng tā qiú ài。
 --
 english:  The youngest children are in the first form, the oldest in the sixth form
 hsk: 1
@@ -10071,7 +10071,7 @@ pinyin: jiù fān yì xùn liàn ér yán wǒ rèn wéi zhè shì yī běn wú c
 english:  This is a very popular name for a girl.
 hsk: 1
 mandarin: 这是一个非常普通的女孩名字。
-pinyin: zhè shì yī gè fēi cháng pǔ tōng de nu:3 hái míng zi。
+pinyin: zhè shì yī gè fēi cháng pǔ tōng de nǚ hái míng zi。
 --
 english:  This is an instructive book.
 hsk: 1
@@ -10386,7 +10386,7 @@ pinyin: wǒ men què xìn néng shèng lì。
 english:  We are considering giving them greater say in such matters.
 hsk: 1
 mandarin: 我们正考虑在这样的事情上给他们更多的发言权。
-pinyin: wǒ men zhèng kǎo lu:4 zài zhè yàng de shì qing shàng jǐ tā men gèng duō de fā yán quán。
+pinyin: wǒ men zhèng kǎo lǜ zài zhè yàng de shì qing shàng jǐ tā men gèng duō de fā yán quán。
 --
 english:  We are deeply grateful for your support.
 hsk: 1
@@ -10731,7 +10731,7 @@ pinyin: wǒ men zài nà r jī hū mò kàn jiàn xué sheng。
 english:  We sent the poor girl a birthday present in token of friendship.
 hsk: 1
 mandarin: 我们送给那个可怜的小女孩一份生日礼物作为友谊的表示。
-pinyin: wǒ men sòng jǐ nèi gè kě lián de xiǎo nu:3 hái yī fèn shēng rì lǐ wù zuò wéi yǒu yì de biǎo shì。
+pinyin: wǒ men sòng jǐ nèi gè kě lián de xiǎo nǚ hái yī fèn shēng rì lǐ wù zuò wéi yǒu yì de biǎo shì。
 --
 english:  We shall have meetings on two consecutive days, Monday and Tuesday.
 hsk: 1
@@ -10756,7 +10756,7 @@ pinyin: wǒ men yīng gāi duì xià yī dài fù zé。
 english:  We should eat more green vegetables rich in cellulose.
 hsk: 1
 mandarin: 我们应该多吃一些富含纤维素的绿色蔬菜。
-pinyin: wǒ men yīng gāi duō jí yī xiē fù hán xiān wéi sù de lu:4 sè shū cài。
+pinyin: wǒ men yīng gāi duō jí yī xiē fù hán xiān wéi sù de lǜ sè shū cài。
 --
 english:  We should make a better use of the existing equipment.
 hsk: 1
@@ -10771,7 +10771,7 @@ pinyin: wǒ men bù yīng gāi cháo xiào bié rén de zōng jiào xìn yǎng�
 english:  We should obey the law.
 hsk: 1
 mandarin: 我们应当遵守法律。
-pinyin: wǒ men yīng dāng zūn shǒu fǎ lu:4。
+pinyin: wǒ men yīng dāng zūn shǒu fǎ lǜ。
 --
 english:  We should pay more attention to the infection of young people with dangerous ideologies.
 hsk: 1
@@ -10856,7 +10856,7 @@ pinyin: wǒ men míng tiān zǎo chén jìn xíng yī gè xiǎo cè yàn。
 english:  We will have an overland journey.
 hsk: 1
 mandarin: 我们要做陆地旅行。
-pinyin: wǒ men yào zuò lù dì lu:3 xíng。
+pinyin: wǒ men yào zuò lù dì lǚ xíng。
 --
 english:  We won the contract but only through a lot of tough negotiating.
 hsk: 1
@@ -10971,7 +10971,7 @@ pinyin: tā wèi shén me dào nà li qù，zhè duì wǒ lái shuō shì gè m�
 english:  Winter is the slack season at most hotels.
 hsk: 1
 mandarin: 冬天是大多数旅馆的淡季。
-pinyin: dōng tiān shì dà duō shù lu:3 guǎn de dàn jì。
+pinyin: dōng tiān shì dà duō shù lǚ guǎn de dàn jì。
 --
 english:  With this performance, she has notched up her third championship title.
 hsk: 1
@@ -11001,7 +11001,7 @@ pinyin: shì de，dāng rán kě yǐ。
 english:  You always follow your own inclination instead of thinking of our feelings.
 hsk: 1
 mandarin: 你总是随心所欲而不考虑我们的情感。
-pinyin: nǐ zǒng shì suí xīn suǒ yù ér bù kǎo lu:4 wǒ men de qíng gǎn。
+pinyin: nǐ zǒng shì suí xīn suǒ yù ér bù kǎo lǜ wǒ men de qíng gǎn。
 --
 english:  You and your sister said so yourselves.
 hsk: 1
@@ -11201,7 +11201,7 @@ pinyin: nián qīng gū niang bì xū yán cí jǐn shèn，yī zhuó de tǐ，x
 english:  Young ladies used to have lessons in deportment.
 hsk: 1
 mandarin: 少女以前要上仪态课。
-pinyin: shào nu:3 yǐ qián yào shàng yí tài kè。
+pinyin: shào nǚ yǐ qián yào shàng yí tài kè。
 --
 english:  Your boyfriend called you just now.
 hsk: 1
@@ -11251,7 +11251,7 @@ pinyin: shǎn guāng zhuāng zhì rú guǎng gào xuān chuán gào shì shàng 
 english: A favored female companion or sweetheart
 hsk: 1
 mandarin: 女朋友最喜欢的女性同伴或爱人
-pinyin: nu péng you zuì xǐ huan de nu:3 xìng tóng bàn huò ài ren。
+pinyin: nu péng you zuì xǐ huan de nǚ xìng tóng bàn huò ài ren。
 --
 english: A retired person should not be made to feel he's on the shelf
 hsk: 1
@@ -11616,7 +11616,7 @@ pinyin: tā tíng zhǐ sào de，yǐ zhuó sào zhou xiū xi。
 english: Local landowners often mistreated peasants.
 hsk: 1
 mandarin: 当地地主常常虐待农民。
-pinyin: dāng dì dì zhǔ cháng cháng nu:è dài nóng mín。
+pinyin: dāng dì dì zhǔ cháng cháng nüè dài nóng mín。
 --
 english: There are eight crenels in this section of the Great Wall.
 hsk: 1
@@ -11746,7 +11746,7 @@ pinyin: tā bǎ huàr shàng de yī xiǎo bù fen cā qián jìng le。
 english: The leaves turn from green to yellowish brown in autumn.
 hsk: 1
 mandarin: 秋天树叶由绿色变成黄褐色。
-pinyin: qiū tiān shù yè yóu lu:4 sè biàn chéng huáng hè sè。
+pinyin: qiū tiān shù yè yóu lǜ sè biàn chéng huáng hè sè。
 --
 english: 【Proverb】Whether east or west is good, home is the best.
 hsk: 1
@@ -11761,7 +11761,7 @@ pinyin: qī qū bù píng de dào lù shǐ jū diān bǒ de hěn lì hai。
 english: The queen was crowned in traditional ceremony.
 hsk: 1
 mandarin: 女王以传统仪式举行了加冕礼。
-pinyin: nu:3 wáng yǐ chuán tǒng yí shì jǔ xíng le jiā miǎn lǐ。
+pinyin: nǚ wáng yǐ chuán tǒng yí shì jǔ xíng le jiā miǎn lǐ。
 --
 english: People gathered around the campfire and sang.
 hsk: 1
@@ -11771,7 +11771,7 @@ pinyin: rén men jù jí zài gōu huǒ zhōu wéi chàng gē。
 english: The preposition is shortened to "prep" in the dictionary.
 hsk: 1
 mandarin: 介词在词典中略作 “prep”。
-pinyin: jiè cí zài cí diǎn zhòng lu:è zuò “prep”。
+pinyin: jiè cí zài cí diǎn zhòng lüè zuò “prep”。
 --
 english: The curtains are painted with delicate floral designs.
 hsk: 1
@@ -11816,7 +11816,7 @@ pinyin: zhè zhǐ xiǎo dòng wù yǒu yī shuāng dàn hè sè de yǎn jīng。
 english: This woman said, "Maybe he is deaf and dumb."
 hsk: 1
 mandarin: 这个女人说："也许他又聋又哑吧。"
-pinyin: zhè gè nu:3 rén shuō：" yě xǔ tā yòu lóng yòu yǎ ba。
+pinyin: zhè gè nǚ rén shuō：" yě xǔ tā yòu lóng yòu yǎ ba。
 --
 english: I lost a white handkerchief with blue lace.
 hsk: 1
@@ -12191,7 +12191,7 @@ pinyin: nǐ xū yòng bèng著 shí chōu xī jǐ fēn zhōng, cái néng bǎ y�
 english: The law is prohibited from selling alcoholic beverages under 18 years of age.
 hsk: 1
 mandarin: 法律禁止向18岁以下的人出售含有酒精的饮料。
-pinyin: fǎ lu:4 jìn zhǐ xià1ng8 suì yǐ xià de rén chū shòu hán yǒu jiǔ jīng de yǐn liào。
+pinyin: fǎ lǜ jìn zhǐ xià1ng8 suì yǐ xià de rén chū shòu hán yǒu jiǔ jīng de yǐn liào。
 --
 english: This pump is pulled out through this valve (in the container) air.
 hsk: 1
@@ -12216,7 +12216,7 @@ pinyin: tā yóu yū yī jiàn biǎo xiàn chū jīng zhàn jì yì de zuò pǐn
 english: My daughter is eighteen years old and has grown into a beautiful lady.
 hsk: 1
 mandarin: 我的女儿十八岁了，已经长成为美丽的淑女。
-pinyin: wǒ de nu:3 ér shí bā suì le，yǐ jīng zhǎng chéng wéi měi lì de淑 nu:3。
+pinyin: wǒ de nǚ ér shí bā suì le，yǐ jīng zhǎng chéng wéi měi lì de淑 nǚ。
 --
 english: We have different factions, such as apples, cherries and strawberry pie.
 hsk: 1
@@ -12231,7 +12231,7 @@ pinyin: tā de wò shì shì zhè zuò cáo zá fáng wū zhòng yī gè nán d�
 english: The two girls often played under that big hawthorn tree together.
 hsk: 1
 mandarin: 那两个女孩经常一起在那棵大山楂树下玩耍。
-pinyin: nà liǎng gè nu:3 hái jīng cháng yī qǐ zài nà kē dà shān zhā shù xià wàn shuǎ。
+pinyin: nà liǎng gè nǚ hái jīng cháng yī qǐ zài nà kē dà shān zhā shù xià wàn shuǎ。
 --
 english: Geranium is a garden plant that is popular, pink or white.
 hsk: 1
@@ -12326,7 +12326,7 @@ pinyin: wǎng rì jī qíng jiàng xī de yú jìn réng kě zòng tā de wén z
 english: There are many nouns in this paragraph, such as boys, girls and books.
 hsk: 1
 mandarin: 这一段里面有很多名词，例如男孩、女孩和书本。
-pinyin: zhè yī duàn lǐ miàn yǒu hěn duō míng cí，lì rú nán hái、 nu:3 hái huò shū běn。
+pinyin: zhè yī duàn lǐ miàn yǒu hěn duō míng cí，lì rú nán hái、 nǚ hái huò shū běn。
 --
 english: Zhen and Mary are good friends, the former is a teacher, and the latter is a nurse.
 hsk: 1
@@ -13021,7 +13021,7 @@ pinyin: ō!  duō lèi de yī tiān!
 english: Surely you don't expect me to take your potty suggestions seriously?
 hsk: 1
 mandarin: 你肯定不会指望我认真考虑你那些荒谬的建议吧?
-pinyin: nǐ kěn dìng bù huì zhǐ wàng wǒ rèn zhēn kǎo lu:4 nǐ nà xiē huāng miù de jiàn yì ba?
+pinyin: nǐ kěn dìng bù huì zhǐ wàng wǒ rèn zhēn kǎo lǜ nǐ nà xiē huāng miù de jiàn yì ba?
 --
 english: What color is your dress?
 hsk: 1
@@ -13151,7 +13151,7 @@ pinyin: guì guó shì shén me shí hou shí xíng pǔ xuǎn quán de?
 english: Please tell me how to contact a lawyer?
 hsk: 1
 mandarin: 请您告诉我怎样去联络律师？
-pinyin: qǐng nín gào su wǒ zěn yàng qù lián luò lu:4 shī?
+pinyin: qǐng nín gào su wǒ zěn yàng qù lián luò lǜ shī?
 --
 english: What do you do with my fur coat?
 hsk: 1
