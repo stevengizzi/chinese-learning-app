@@ -65994,8 +65994,6 @@
 | 你怎麼拿到車展的免費門票的? | ni3 zen3 mo2 na2 dao4 che1 zhan3 de mian3 fei4 men2 piao4 de ? | How did you get the free ticket for the car show? |
 | 他有很多具有影响力的朋友。 | ta1 you3 hen3 duo1 ju4 you3 ying3 xiang3 li4 de peng2 you3 。 | He has a lot of influential friends. |
 | 汤姆被萨米骂了一顿。 | tang1 mu3 bei4 sa4 mi3 ma4 le yi1 dun4 。 | Tom got scolded by Sammy. |
-| 俗話說：人不犯我，我不犯人；可俗話又說：先下手為強，後下手遭殃! | su2 hua4 shuo1 ： ren2 bu4 fan4 wo3，wo3 bu4 fan4 ren2 ； ke3 su2 hua4 you4 shuo1 ： xian1 xia4 shou3 wei2 qiang2，hou4 xia4 shou3 zao1 yang1 ! | As the saying goes: As long as you don't offend me, I won't offend you. But there's another saying: To strike first means victory, to strike second means tragedy. |
-| 人類食衣住行娛樂用的每一件東西都是全世界的人一起幫我們做出來的，而且參與的每個人都只知道怎麼創造一小部分，沒有例外。因此當我們決定幫自己一把來幫助全世界，只要全力關注創造，全世界的人都會幫我們。 | ren2 lei4 shi2 yi1 zhu4 hang2 yu2 le4 yong4 de mei3 yi1 jian4 dong1 xi1 du1 shi4 quan2 shi4 jie4 de ren2 yi1 qi3 bang1 wo3 men2 zuo4 chu1 lai2 de，er2 qie3 can1 yu3 de mei3 ge4 ren2 du1 zhi1 zhi1 dao4 zen3 mo2 chuang4 zao4 yi1 xiao3 bu4 fen1，mei2 you3 li4 wai4 。 yin1 ci3 dang1 wo3 men2 jue2 ding4 bang1 zi4 ji3 yi1 ba3 lai2 bang1 zhu4 quan2 shi4 jie4，zhi1 yao4 quan2 li4 guan1 zhu4 chuang4 zao4，quan2 shi4 jie4 de ren2 du1 hui4 bang1 wo3 men2 。 | Humanity's food, cloth, place of living, transport, entertainment are all created together by people around the globe. Also, people who partake in these activities only know a fraction of how the parts are created, without exception. Therefore, when we decide to help ourselves to help the entire world, as long as we focus with our entire being to create, the entire world will help us. |
 | 每次我去日本餐馆，我都会把筷子带回家。 | mei3 ci4 wo3 qu4 ri4 ben3 can1 guan3，wo3 du1 hui4 ba3 kuai4 zi3 dai4 hui2 jia1 。 | Every time I go to a Japanese restaurant, I bring the chopsticks home. |
 | 是的。我是汤姆。 | shi4 de 。 wo3 shi4 tang1 mu3 。 | Yes. I am Tom. |
 | 她不是創辦人，她是投資人。 | ta1 bu4 shi4 chuang4 ban4 ren2，ta1 shi4 tou2 zi1 ren2 。 | She is not the founder, she's the investor. |
@@ -66010,19 +66008,15 @@
 | 说时迟，那时快。 | shuo1 shi2 chi2，na4 shi2 kuai4 。 | It's slow to say, but it was quick. |
 | 死亡是唯一可能的解脱吗？ | si3 wang2 shi4 wei2 yi1 ke3 neng2 de jie3 tuo1 ma ？ | Is death the only way to liberation? |
 | 她一直在朝我們翻白眼。 | ta1 yi1 zhi2 zai4 zhao1 wo3 men2 fan1 bai2 yan3 。 | She keeps on rolling her eyes towards our direction. |
-| 在科隆一家疗养院的附近有一个公交车站。这一站没有任何公交车停靠。它是为更加容易地寻找逃跑的精神病患者而设立的。 | zai4 ke1 long2 yi1 jia1 liao2 yang3 yuan4 de fu4 jin4 you3 yi1 ge4 gong1 jiao1 che1 zhan4 。 zhe4 yi1 zhan4 mei2 you3 ren4 he2 gong1 jiao1 che1 ting2 kao4 。 ta1 shi4 wei2 geng1 jia1 rong2 yi4 di4 xun2 zhao3 tao2 pao3 de jing1 shen2 bing4 huan4 zhe3 er2 she4 li4 de 。 | There is a bus stop near a nursing home in Cologne. No bus ever stops there. It's created for the purpose of finding mental patients on the run more easily. |
 | 中国女孩子年龄大了家里都会着急的。 | zhong1 guo2 nv3 hai2 zi3 nian2 ling2 da4 le jia1 li3 du1 hui4 zhao2 ji2 de 。 | When a Chinese girl gets old, her family becomes nervous. |
 | 如果小姐要的话，可以打八折。 | ru2 guo3 xiao3 jie3 yao4 de hua4，ke3 yi3 da3 ba1 zhe1 。 | If the lady desires, 20% discount is possible. |
 | 你去過西班牙的某個城市嗎？ | ni3 qu4 guo4 xi1 ban1 ya2 de mou3 ge4 cheng2 shi4 ma2 ？ | Have you ever been to a Spanish city? |
-| 富贵不能迷乱他的思想，贫贱不能改变他的操守，威武不能压服他的意志，这就是大丈夫的本分。 | fu4 gui4 bu4 neng2 mi2 luan4 ta1 de si1 xiang3，pin2 jian4 bu4 neng2 gai3 bian4 ta1 de cao1 shou3，wei1 wu3 bu4 neng2 ya1 fu2 ta1 de yi4 zhi4，zhe4 jiu4 shi4 da4 zhang4 fu1 de ben3 fen1 。 | Wealth could not muddle his thoughts, poverty could not change his integrity, force could not oppress his will, this is what it means to be a man. |
 | 离开是部分的死亡，而死亡不仅仅是离开。 | li2 kai1 shi4 bu4 fen1 de si3 wang2，er2 si3 wang2 bu4 jin3 jin3 shi4 li2 kai1 。 | Departure is a partial death but death in essence is not only departure. |
 | 你的椅子和我的很像。 | ni3 de yi3 zi3 he2 wo3 de hen3 xiang4 。 | Your chair is similar to mine. |
 | 为了养足精神，你应该早点去睡觉。 | wei2 le yang3 zu2 jing1 shen2，ni3 ying1 gai1 zao3 dian3 qu4 shui4 jue2 。 | You should go to sleep early, for restfulness sake. |
 | 他被一件辛苦的工作累坏了。 | ta1 bei4 yi1 jian4 xin1 ku3 de gong1 zuo4 lei2 huai4 le 。 | He was tired out by an awfully tough job. |
-| 孔子說："像夏禹的為人，我找不到可以指責的漏洞。自己吃著菲薄的飲食，而卻用豐厚祭品祭拜祖先與神明；自己平時穿粗劣的衣裳，而在祭祀時穿戴華服禮帽；自己住小房子，卻盡力開通水道溝渠。像夏禹這樣的人，我實在找不到可以指責的漏洞了。" | kong3 zi3 shuo1 ：" xiang4 xia4 yu3 de wei2 ren2，wo3 zhao3 bu4 dao4 ke3 yi3 zhi3 ze2 de lou4 dong4 。 zi4 ji3 chi1 zhu4 fei1 bao2 de yin3 shi2，er2 que4 yong4 feng1 hou4 ji4 pin3 ji4 bai4 zu3 xian1 yu3 shen2 ming2 ； zi4 ji3 ping2 shi2 chuan1 cu1 lie4 de yi1 chang2，er2 zai4 ji4 si4 shi2 chuan1 dai4 hua2 fu2 li3 mao4 ； zi4 ji3 zhu4 xiao3 fang2 zi3，que4 jin4 li4 kai1 tong1 shui3 dao4 gou1 qu2 。 xiang4 xia4 yu3 zhe4 yang4 de ren2，wo3 shi2 zai4 zhao3 bu4 dao4 ke3 yi3 zhi3 ze2 de lou4 dong4 le 。" | Confucius said: " Yu the Great's conduct, I could not point out any flaws. He consumes meager amount of food, while offering boastful riches to the Gods and ancestors; He always don the crudest attire, but wears lavish garments when worshipping; He resides in a small house, yet forges water ways and ditches with all his might. Figures like Yu the Great, I honestly cannot point out any reprehensible flaws." |
 | 对不起，请让我下车。 | dui4 bu4 qi3，qing3 rang4 wo3 xia4 che1 。 | Sorry, please let me off. |
 | 您使我印象深刻。 | nin2 shi3 wo3 yin4 xiang4 shen1 ke4 。 | You have left a heavy impression on me. |
-| 教導學生，不到他想瞭解而不得其解的時候，不去開導他；不到他想表達意見卻說不出來的時候，不去啟發他。教給他一個方面的東西，他卻不能由此而推知其它三個方面的東西，那就不再教他了。 | jiao4 dao3 xue2 sheng1，bu4 dao4 ta1 xiang3 liao3 jie3 er2 bu4 de2 qi2 jie3 de shi2 hou4，bu4 qu4 kai1 dao3 ta1 ； bu4 dao4 ta1 xiang3 biao3 da2 yi4 jian4 que4 shuo1 bu4 chu1 lai2 de shi2 hou4，bu4 qu4 qi3 fa1 ta1 。 jiao4 gei3 ta1 yi1 ge4 fang1 mian4 de dong1 xi1，ta1 que4 bu4 neng2 you2 ci3 er2 tui1 zhi1 qi2 ta1 san1 ge4 fang1 mian4 de dong1 xi1，na4 jiu4 bu4 zai4 jiao4 ta1 le 。 | When teaching a student, do not enlighten him until he wishes to understand what he could not. Do not inspire him until he wishes to express but could not. When teaching him one side of a solution, if he could not discover the other three sides, then do not teach him again. |
 | 戲法人人會變，各有巧妙不同。 | xi4 fa3 ren2 ren2 hui4 bian4，ge4 you3 qiao3 miao4 bu4 tong2 。 | Everyone's tricks are different; each differs in ingenious ways. |
 | 木质家具沉甸甸的。 | mu4 zhi4 jia1 ju4 chen2 dian4 dian4 de 。 | Wooden furniture is heavy. |
 | 女人们不注意他。 | nv3 ren2 men2 bu4 zhu4 yi4 ta1 。 | The ladies don't notice him. |
@@ -66031,7 +66025,6 @@
 | 该地区因它的手工业而出名。 | gai1 di4 qu1 yin1 ta1 de shou3 gong1 ye4 er2 chu1 ming2 。 | This area is famous for its handcraft business. |
 | 如果你能当心些那就更好了。 | ru2 guo3 ni3 neng2 dang1 xin1 xie1 na4 jiu4 geng1 hao3 le 。 | If you could be a bit more careful, that would be even better. |
 | 那個小孩子很沒有規矩。 | na4 ge4 xiao3 hai2 zi3 hen3 mei2 you3 gui1 ju3 。 | That little kid is quite bratty. |
-| 俗話說：浪子回頭金不換；可俗話又說：狗改不了吃屎！ | su2 hua4 shuo1 ： lang4 zi3 hui2 tou2 jin1 bu4 huan4 ； ke3 su2 hua4 you4 shuo1 ： gou3 gai3 bu4 le chi1 shi3 ！ | The saying goes: to turn a new leaf is priceless. The saying also goes: a dog can't change their habits of eating shit! |
 | 暫時藏在倉庫裡好了。 | zan4 shi2 cang2 zai4 cang1 ku4 li3 hao3 le 。 | Hide it inside the warehouse for now. |
 | 我們稱一斤花枝吧。 | wo3 men2 cheng1 yi1 jin1 hua1 zhi1 ba1 。 | Let us weigh one catty of cuttlefish. |
 | 據說懷孕的時候不能聞麝香。 | ju4 shuo1 huai2 yun4 de shi2 hou4 bu4 neng2 wen2 she4 xiang1 。 | It's been said that one should not smell deer musk when pregnant. |
@@ -66049,7 +66042,6 @@
 | 他们说人类要重建巴别塔，我对此不予评价。 | ta1 men2 shuo1 ren2 lei4 yao4 zhong4 jian4 ba1 bie2 ta3，wo3 dui4 ci3 bu4 yu2 ping2 jia4 。 | They said humanity needs to rebuild the Tower of Babel, I have no comment on this. |
 | 好好审视自己吧。 | hao3 hao3 shen3 shi4 zi4 ji3 ba1 。 | Take a better look at yourself. |
 | 那儿的小星星是所有星星里最亮的。 | na4 er2 de xiao3 xing1 xing1 shi4 suo3 you3 xing1 xing1 li3 zui4 liang4 de 。 | That tiny star there is the brightest out of all the stars. |
-| 如果有人早期对俾斯麦说他是个很好的演说家，他会很生气。那也太平淡了，他会说自己不是个好演说家，我说话结巴。我是个政治家，不是个好演说家。 | ru2 guo3 you3 ren2 zao3 qi1 dui4 bi3 si1 mai4 shuo1 ta1 shi4 ge4 hen3 hao3 de yan3 shuo1 jia1，ta1 hui4 hen3 sheng1 qi4 。 na4 ye3 tai4 ping2 dan4 le，ta1 hui4 shuo1 zi4 ji3 bu4 shi4 ge4 hao3 yan3 shuo1 jia1，wo3 shuo1 hua4 jie2 ba1 。 wo3 shi4 ge4 zheng4 zhi4 jia1，bu4 shi4 ge4 hao3 yan3 shuo1 jia1 。 | If someone told Bismarck early on that he's a great public speaker, he would be very angry. That's so plain, he would say he is not a good public speaker, I talk with a stammer. I'm a politician, not a good public speaker. |
 | 他们是外行。 | ta1 men2 shi4 wai4 hang2 。 | They are laymen. |
 | 在我们的城市那，我们非常谨慎地分类收集垃圾。 | zai4 wo3 men2 de cheng2 shi4 na4，wo3 men2 fei1 chang2 jin3 shen4 di4 fen1 lei4 shou1 ji2 la1 ji1 。 | In our city, we carefully separate and collect garbage. |
 | 我没钱了。 | wo3 mei2 qian2 le 。 | I have no money. |
@@ -66058,10 +66050,8 @@
 | 橡皮擦掉地上就很难找到了。 | xiang4 pi2 ca1 diao4 di4 shang4 jiu4 hen3 nan2 zhao3 dao4 le 。 | It's hard to find an eraser that's on the floor. |
 | 日历上画着红圈的截稿日期使我陷入了焦虑。 | ri4 li4 shang4 hua4 zhao2 hong2 quan1 de jie2 gao3 ri4 qi1 shi3 wo3 xian4 ru4 le jiao1 lv4 。 | The red circle on the calendar marking the deadline causes me to fall into anxiety. |
 | 这对他来说是致命的打击。 | zhe4 dui4 ta1 lai2 shuo1 shi4 zhi4 ming4 de da3 ji1 。 | To him this is a deadly blow. |
-| 这个老师总是拖堂，占用同学们课间休息的时间，后来他被举报了，真过瘾啊。 | zhe4 ge4 lao3 shi1 zong3 shi4 tuo1 tang2，zhan1 yong4 tong2 xue2 men2 ke4 jian1 xiu1 xi1 de shi2 jian1，hou4 lai2 ta1 bei4 ju3 bao4 le，zhen1 guo4 yin3 a1 。 | This teacher always drags his class time, taking up the students' rest time, later he got reported, it felt amazing. |
 | 一支大军正浩浩荡荡地行进着。 | yi1 zhi1 da4 jun1 zheng4 hao4 hao4 dang4 dang4 di4 hang2 jin4 zhao2 。 | A large army is proudly proceeding. |
 | 看起来不男不女的人常常受到议论和歧视。 | kan4 qi3 lai2 bu4 nan2 bu4 nv3 de ren2 chang2 chang2 shou4 dao4 yi4 lun4 he2 qi2 shi4 。 | Androgynous-looking people are often the subject of discussion and discrimination. |
-| 能够直截了当地表达自己想法的人很直爽。 | neng2 gou4 zhi2 jie2 le dang1 di4 biao3 da2 zi4 ji3 xiang3 fa3 de ren2 hen3 zhi2 shuang3 。 | People who can express their thoughts in a clear-cut way are very straightforward. |
 | 要不要買個無線鼠標呢？ | yao4 bu4 yao4 mai3 ge4 wu2 xian4 shu3 biao1 ne ？ | Should I buy a wireless mouse? |
 | 正規的考試不允許使用塗改液。 | zheng4 gui1 de kao3 shi4 bu4 yun3 xu1 shi3 yong4 tu2 gai3 ye4 。 | A proper test does not allow the use of correction fluid. |
 | 她莞尔一笑，动人心魄。 | ta1 guan1 er3 yi1 xiao4，dong4 ren2 xin1 po4 。 | She smiles, very moving. |
@@ -66071,8 +66061,6 @@
 | 這隻貓咪氣場全開，走著貓步，相當優雅，然後摔倒了，真是糗大了。 | zhe4 zhi1 mao1 mi1 qi4 chang2 quan2 kai1，zou3 zhu4 mao1 bu4，xiang1 dang1 you1 ya3，ran2 hou4 shuai1 dao3 le，zhen1 shi4 qiu3 da4 le 。 | The cat glided along, very refined, but ended up falling, which was very embarrassing. |
 | 你这孩子！别老是接触一些陌生人，很危险的！ | ni3 zhe4 hai2 zi3 ！ bie2 lao3 shi4 jie1 chu4 yi1 xie1 mo4 sheng1 ren2，hen3 wei1 xian3 de ！ | Son, stop always getting so close to strangers. It's very dangerous! |
 | 我辗转反侧，反复思考着白天发生的事，后悔不已。 | wo3 zhan3 zhuan3 fan3 ce4，fan3 fu4 si1 kao3 zhao2 bai2 tian1 fa1 sheng1 de shi4，hou4 hui3 bu4 yi3 。 | I'm tossing and turning, repeatedly thinking about what happened today, deeply remorseful. |
-| 没有男人有能把控住女性理性的想象力，这就是为什么它被说无理。 | mei2 you3 nan2 ren2 you3 neng2 ba3 kong4 zhu4 nv3 xing4 li3 xing4 de xiang3 xiang4 li4，zhe4 jiu4 shi4 wei2 shi2 mo2 ta1 bei4 shuo1 wu2 li3 。 | No man has the imagination required to grasp female reason, which is why it is called unreasonable. |
-| 我不想分析这事实的原因，因为那样我就不得不进入政治领域，这是我所想避免的。我只是实话实说。 | wo3 bu4 xiang3 fen1 xi1 zhe4 shi4 shi2 de yuan2 yin1，yin1 wei2 na4 yang4 wo3 jiu4 bu4 de2 bu4 jin4 ru4 zheng4 zhi4 ling3 yu4，zhe4 shi4 wo3 suo3 xiang3 bi4 mian3 de 。 wo3 zhi1 shi4 shi2 hua4 shi2 shuo1 。 | I do not want to examine the cause, because then I would have to cross into politics. I would like to avoid that. I'm just telling the truth as it is. |
 | 难以抵抗给句子押韵的愿望。 | nan2 yi3 di3 kang4 gei3 ju4 zi3 ya1 yun4 de yuan4 wang4 。 | It's hard to resist the wish to make the sentence rhyme. |
 | 这种药物只能外用。 | zhe4 zhong3 yao4 wu4 zhi1 neng2 wai4 yong4 。 | This kind of medicine can only be applied externally. |
 | 你已经在京都了吗？ | ni3 yi3 jing1 zai4 jing1 du1 le ma ？ | You're already in Kyoto? |
@@ -66140,7 +66128,6 @@
 | 我的嗜好是有條件的給錢還有無條件的給感謝。你的呢？ | wo3 de shi4 hao3 shi4 you3 tiao2 jian4 de gei3 qian2 huan2 you3 wu2 tiao2 jian4 de gei3 gan3 xie4 。 ni3 de ne ？ | My bad habit is to give money conditionally and to give thanks unconditionally. Yours? |
 | 我曾嘗試忘記。 | wo3 zeng1 chang2 shi4 wang4 ji4 。 | I tried forgetting. |
 | 挺好，挺好，下一次再花点儿功夫就成功了。 | ting3 hao3，ting3 hao3，xia4 yi1 ci4 zai4 hua1 dian3 er2 gong1 fu1 jiu4 cheng2 gong1 le 。 | Good, good, next time use a bit more effort and you'll succeed. |
-| 即使她没生病，到了规定的日期她也完成不了她的博士论文，因为论文题目涉及的内容太广泛。 | ji2 shi3 ta1 mei2 sheng1 bing4，dao4 le gui1 ding4 de ri4 qi1 ta1 ye3 wan2 cheng2 bu4 le ta1 de bo2 shi4 lun4 wen2， yin1 wei2 lun4 wen2 ti2 mu4 she4 ji2 de nei4 rong2 tai4 guang3 fan4 。 | Even if she wasn't sick, she couldn't complete her doctoral thesis by the deadline because the thesis problem contains a vast amount of detail. |
 | 萨米仍然喜欢他的朋友。 | sa4 mi3 reng2 ran2 xi3 huan1 ta1 de peng2 you3 。 | Sami still liked his friend. |
 | 要說容貌，她不比她姊姊難看。 | yao4 shuo1 rong2 mao4，ta1 bu4 bi3 ta1 zi3 zi3 nan2 kan4 。 | In terms of appearance, she's not any worse than her sister. |
 | 今天上午你们不在医院。 | jin1 tian1 shang4 wu3 ni3 men2 bu4 zai4 yi1 yuan4 。 | Earlier today you guys weren't at the hospital. |
@@ -66160,19 +66147,16 @@
 | 青春只有一次。 | qing1 chun1 zhi1 you3 yi1 ci4 。 | You're only young once. |
 | 我想学数学。 | wo3 xiang3 xue2 shu4 xue2 。 | I want to study maths. |
 | 我想学数学。 | wo3 xiang3 xue2 shu4 xue2 。 | I want to study mathematics. |
-| 總是聽到有人說何時會碰到貴人，也許我們應該問，誰不是我們的貴人？ | zong3 shi4 ting1 dao4 you3 ren2 shuo1 he2 shi2 hui4 peng4 dao4 gui4 ren2，ye3 xu1 wo3 men2 ying1 gai1 wen4，shui2 bu4 shi4 wo3 men2 de gui4 ren2 ？ | We always hear people asking when they'll meet someone who'll help turn their life around, but why not ask instead who isn't that someone? |
 | 我准备回上海了。 | wo3 zhun3 bei4 hui2 shang4 hai3 le 。 | Now I'm preparing to go back to Shanghai. |
 | 细节成就伟大的想法。 | xi4 jie2 cheng2 jiu4 wei3 da4 de xiang3 fa3 。 | Great thoughts are created through intricate details. |
 | 我想我迷路了。 | wo3 xiang3 wo3 mi2 lu4 le 。 | I think I'm lost. |
 | 这个男人简直像一台被扯掉了电源的肮脏电器。 | zhe4 ge4 nan2 ren2 jian3 zhi2 xiang4 yi1 tai2 bei4 che3 diao4 le dian4 yuan2 de ang1 zang1 dian4 qi4 。 | This man is like a filthy electronic without a battery. |
 | 你沒必要假裝你不會講法語。 | ni3 mei2 bi4 yao4 jia3 zhuang1 ni3 bu4 hui4 jiang3 fa3 yu3 。 | There's no need to pretend you don't speak French. |
-| 如果人類的物質生活一年比一年富足，蛋糕的推出越來越精緻，科技越來越便利，同時沒有前人種樹就不可能有後人乘涼，那麼我便可以肯定“富有”的人生，肯定是由熱愛吃苦的前輩，那群帶有苦味的食客開創出來的。 | ru2 guo3 ren2 lei4 de wu4 zhi4 sheng1 huo2 yi1 nian2 bi3 yi1 nian2 fu4 zu2，dan4 gao1 de tui1 chu1 yue4 lai2 yue4 jing1 zhi4，ke1 ji4 yue4 lai2 yue4 bian4 li4，tong2 shi2 mei2 you3 qian2 ren2 zhong3 shu4 jiu4 bu4 ke3 neng2 you3 hou4 ren2 cheng2 liang2，na4 mo2 wo3 bian4 ke3 yi3 ken3 ding4 “ fu4 you3 ” de ren2 sheng1，ken3 ding4 shi4 you2 re4 ai4 chi1 ku3 de qian2 bei4，na4 qun2 dai4 you3 ku3 wei4 de shi2 ke4 kai1 chuang4 chu1 lai2 de 。 | If humanity's material life becomes richer year by year, cakes become more and more elaborate, technology becomes more and more convenient, and at the same time, without earlier generations planting trees, later generations would not be able to enjoy their shade, then I am sure that the "rich" life must've been brought about by our industrious forefathers, those who were unafraid to taste the bitterness of hardship. |
 | 当我在错误的时候开口时，我总是让我和我的朋友陷入困境。 | dang1 wo3 zai4 cuo4 wu4 de shi2 hou4 kai1 kou3 shi2，wo3 zong3 shi4 rang4 wo3 he2 wo3 de peng2 you3 xian4 ru4 kun4 jing4 。 | When I speak up at the wrong moment, I often get my friends and myself into difficult situations. |
 | 又是你們打破的！ | you4 shi4 ni3 men2 da3 po4 de ！ | You guys broke it again! |
 | 我刚才在树林里散步时看见了一只漂亮的孔雀在开屏。 | wo3 gang1 cai2 zai4 shu4 lin2 li3 san4 bu4 shi2 kan4 jian4 le yi1 zhi1 piao1 liang4 de kong3 que4 zai4 kai1 ping2 。 | I just saw a beautiful peacock displaying its feathers while on a walk in the forest. |
 | 你安全到达目的地以后，别忘记打个电话告诉我。 | ni3 an1 quan2 dao4 da2 mu4 de di4 yi3 hou4，bie2 wang4 ji4 da3 ge4 dian4 hua4 gao4 su4 wo3 。 | When you safely arrive at your destination, don't forget to call me. |
 | 我不會讓自己說二遍。 | wo3 bu4 hui4 rang4 zi4 ji3 shuo1 er4 bian4 。 | I'm not repeating myself twice. |
-| 任何境遇都是宇宙给你的机会，假如你懂得利用、抓紧它。它将是你一生的财富。假如你遗漏、放弃或者没有做出积极的响应，宇宙会让这次机会在下一个时间、地点，和其他人重新来过。但在其中，你失去的是最宝贵的时间！知错就改，把握当下；在合适的尺度下，能跳就跳吧，能唱就唱吧，能疯就疯吧，能闹就闹吧。 | ren4 he2 jing4 yu4 du1 shi4 yu3 zhou4 gei3 ni3 de ji1 hui4，jia3 ru2 ni3 dong3 de2 li4 yong4 、 zhua1 jin3 ta1 。 ta1 jiang1 shi4 ni3 yi1 sheng1 de cai2 fu4 。 jia3 ru2 ni3 yi2 lou4 、 fang4 qi4 huo4 zhe3 mei2 you3 zuo4 chu1 ji1 ji2 de xiang3 ying1，yu3 zhou4 hui4 rang4 zhe4 ci4 ji1 hui4 zai4 xia4 yi1 ge4 shi2 jian1 、 di4 dian3，he2 qi2 ta1 ren2 zhong4 xin1 lai2 guo4 。 dan4 zai4 qi2 zhong1，ni3 shi1 qu4 de shi4 zui4 bao3 gui4 de shi2 jian1 ！ zhi1 cuo4 jiu4 gai3，ba3 wo4 dang1 xia4 ； zai4 he2 shi4 de chi3 du4 xia4，neng2 tiao4 jiu4 tiao4 ba1，neng2 chang4 jiu4 chang4 ba1，neng2 feng1 jiu4 feng1 ba1，neng2 nao4 jiu4 nao4 ba1 。 | Every situation is an opportunity given to you by the universe. If you know how to make the most out of that situation, do it. It will be a wealth that lasts you a lifetime. If you missed out, gave up, or didn't even attempt to take advantage of the opportunity, the universe will set this chance aside for the next person, in a different time and place. But what's most important is that you lost precious time. Understand what you did wrong, and control the present. Then with proper restraint, if you can dance, dance. If you can sing, sing. If you can be wild, be wild. If you can be lively, be lively. |
 | 每月六百元，每周一天休息，行吗？ | mei3 yue4 liu4 bai3 yuan2，mei3 zhou1 yi1 tian1 xiu1 xi1，hang2 ma ？ | Six hundred dollars a month, with a day rest every week. That works for you? |
 | 他们说的话，我连标点符号都不信。 | ta1 men2 shuo1 de hua4，wo3 lian2 biao1 dian3 fu2 hao4 du1 bu4 xin4 。 | I do not trust a single word that comes out of their mouths. |
 | 你的邮箱为什么发不过去邮件呢，奇怪。 | ni3 de you2 xiang1 wei2 shi2 mo2 fa1 bu4 guo4 qu4 you2 jian4 ne，qi2 guai4 。 | Strange, why can't I send any mail to your mail box? |
@@ -66447,7 +66431,6 @@
 | 我在沙發上睡的。 | wo3 zai4 sha1 fa1 shang4 shui4 de 。 | I slept on the sofa. |
 | 我在沙發上睡的。 | wo3 zai4 sha1 fa1 shang4 shui4 de 。 | I slept on the couch. |
 | 她决定搬到比利时。 | ta1 jue2 ding4 ban1 dao4 bi3 li4 shi2 。 | She decided to move to Belgium. |
-| 但与此同时，它却在消逝：时间无可挽回地流逝，而我们却四处游荡，成为我们对细节的热爱的囚徒。 | dan4 yu3 ci3 tong2 shi2，ta1 que4 zai4 xiao1 shi4 ： shi2 jian1 wu2 ke3 wan3 hui2 di4 liu2 shi4， er2 wo3 men2 que4 si4 chu3 you2 dang4，cheng2 wei2 wo3 men2 dui4 xi4 jie2 de re4 ai4 de qiu2 tu2 。 | But meanwhile it flees: time flees irretrievably, while we wander around, prisoners of our love of detail. |
 | 小心! | xiao3 xin1 ! | Be careful! |
 | 树叶变红了。 | shu4 ye4 bian4 hong2 le 。 | The leaves of the trees have turned red. |
 | 树叶变红了。 | shu4 ye4 bian4 hong2 le 。 | The leaves on the tree have turned red. |
@@ -66943,7 +66926,6 @@
 | 我们不想给你添麻烦。 | wo3 men2 bu4 xiang3 gei3 ni3 tian1 ma2 fan2 。 | We don't want to cause you any trouble. |
 | 汤姆是LGBTQ+群体中的一员。 | tang1 mu3 shi4 LGBTQ+ qun2 ti3 zhong1 de yi1 yuan2 。 | Tom is part of the LGBTQ+ community. |
 | 自由魁北克万岁！ | zi4 you2 kui2 bei3 ke4 wan4 sui4 ！ | Long live free Quebec! |
-| 这两个男孩，一个14岁、一个16岁，都穿着军队制服，衣袖上佩戴着镶金色蕾丝边的中士袖章。 | zhe4 liang3 ge4 nan2 hai2，yi1 ge4 14 sui4 、 yi1 ge4 16 sui4，du1 chuan1 zhao2 jun1 dui4 zhi4 fu2，yi1 xiu4 shang4 pei4 dai4 zhao2 xiang1 jin1 se4 lei3 si1 bian1 de zhong1 shi4 xiu4 zhang1 。 | The two boys, aged respectively fourteen and sixteen, were dressed in the army uniform, and wore gold-lace sergeant's chevrons upon their sleeves. |
 | 这个坏掉的花瓶无法修复了。 | zhe4 ge4 huai4 diao4 de hua1 ping2 wu2 fa3 xiu1 fu4 le 。 | This broken vase can't be repaired. |
 | 汤姆相当生气。 | tang1 mu3 xiang1 dang1 sheng1 qi4 。 | Tom is really angry. |
 | 汤姆会几种不同语言，但是他还不能教别人。 | tang1 mu3 hui4 ji1 zhong3 bu4 tong2 yu3 yan2，dan4 shi4 ta1 huan2 bu4 neng2 jiao4 bie2 ren2 。 | Tom has knowledge of different languages, but he cannot teach others. |
@@ -67407,7 +67389,6 @@
 | 我绝对不会借钱给别人。 | wo3 jue2 dui4 bu4 hui4 jie4 qian2 gei3 bie2 ren2 。 | I would never lend money to anyone. |
 | 你睡着了吗？ | ni3 shui4 zhao2 le ma ？ | Have you fallen asleep? |
 | 你把那个拿走. | ni3 ba3 na4 ge4 na2 zou3 . | You should take that away. |
-| 荷蘭的公立教育常會教授法語、德語或者西班牙語，有時也會教像拉丁語和希臘語這樣的古典語言，不過古典語言的學習需要由學生主動提出。 | he2 lan2 de gong1 li4 jiao4 yu4 chang2 hui4 jiao4 shou4 fa3 yu3 、 de2 yu3 huo4 zhe3 xi1 ban1 ya2 yu3，you3 shi2 ye3 hui4 jiao4 xiang4 la1 ding1 yu3 he2 xi1 la4 yu3 zhe4 yang4 de gu3 dian3 yu3 yan2，bu4 guo4 gu3 dian3 yu3 yan2 de xue2 xi2 xu1 yao4 you2 xue2 sheng1 zhu3 dong4 ti2 chu1 。 | The public education in the Netherlands usually teaches French, German, or Spanish. Sometimes, it will also teach classical languages like Latin and Greek, although students have to voluntarily request to learn classical languages. |
 | 饭勿要盛得满得很。 | fan4 wu4 yao4 sheng4 de2 man3 de2 hen3 。 | Don't fill up your bowl with too much food. |
 | 我累死了，想睡觉。 | wo3 lei2 si3 le，xiang3 shui4 jue2 。 | I'm really tired, I want to sleep. |
 | 這個景點只能網上購票。 | zhe4 ge4 jing3 dian3 zhi1 neng2 wang3 shang4 gou4 piao4 。 | The tickets for this attraction can only be bought online. |

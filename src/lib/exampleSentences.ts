@@ -5,25 +5,42 @@ export interface ExampleSentence {
 }
 
 /**
- * Parses the example_sentences.md file content and returns an array of example sentences
+ * Parses the hsk_1_4.txt file content and returns an array of example sentences
  */
-export function parseExampleSentences(markdownContent: string): ExampleSentence[] {
-  const lines = markdownContent.split('\n');
+export function parseExampleSentences(content: string): ExampleSentence[] {
   const sentences: ExampleSentence[] = [];
 
-  for (const line of lines) {
-    // Skip header lines and empty lines
-    if (line.startsWith('|') && !line.includes('---') && !line.includes('Hanzi')) {
-      // Parse table row: | Hanzi | Pinyin | Meaning |
-      const parts = line.split('|').map(p => p.trim()).filter(p => p.length > 0);
+  // Split by "--" separator to get individual sentence blocks
+  const blocks = content.split(/\n--\n/).filter(block => block.trim());
 
-      if (parts.length === 3) {
-        sentences.push({
-          hanzi: parts[0],
-          pinyin: parts[1],
-          meaning: parts[2]
-        });
+  for (const block of blocks) {
+    const lines = block.split('\n');
+    let english = '';
+    let mandarin = '';
+    let pinyin = '';
+
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+      if (trimmedLine.startsWith('english:')) {
+        english = trimmedLine.substring('english:'.length).trim();
+      } else if (trimmedLine.startsWith('mandarin:')) {
+        mandarin = trimmedLine.substring('mandarin:'.length).trim();
+      } else if (trimmedLine.startsWith('pinyin:')) {
+        pinyin = trimmedLine.substring('pinyin:'.length).trim();
+        // Remove trailing period if present
+        if (pinyin.endsWith('。')) {
+          pinyin = pinyin.slice(0, -1);
+        }
       }
+    }
+
+    // Only add if all three fields are present
+    if (english && mandarin && pinyin) {
+      sentences.push({
+        hanzi: mandarin,
+        pinyin: pinyin,
+        meaning: english
+      });
     }
   }
 

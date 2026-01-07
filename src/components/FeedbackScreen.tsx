@@ -29,9 +29,9 @@ export function FeedbackScreen() {
 
       try {
         console.log('Fetching example sentences...');
-        // Fetch the example sentences markdown file
+        // Fetch the example sentences text file
         // Use import.meta.env.BASE_URL to account for GitHub Pages base path
-        const response = await fetch(`${import.meta.env.BASE_URL}docs/example_sentences.md`);
+        const response = await fetch(`${import.meta.env.BASE_URL}docs/hsk_1_4.txt`);
 
         if (!response.ok) {
           console.error('Failed to fetch example sentences:', response.status, response.statusText);
@@ -39,11 +39,11 @@ export function FeedbackScreen() {
           return;
         }
 
-        const markdownContent = await response.text();
-        console.log('Markdown content length:', markdownContent.length);
+        const textContent = await response.text();
+        console.log('Text content length:', textContent.length);
 
-        // Parse the markdown
-        const allSentences = parseExampleSentences(markdownContent);
+        // Parse the text file
+        const allSentences = parseExampleSentences(textContent);
         console.log('Total sentences parsed:', allSentences.length);
 
         // Find sentences that match the current word (character)
