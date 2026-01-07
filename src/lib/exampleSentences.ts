@@ -5,7 +5,7 @@ export interface ExampleSentence {
 }
 
 /**
- * Parses the hsk_1.txt file content and returns an array of example sentences
+ * Parses the hsk_1_4.txt file content and returns an array of example sentences
  */
 export function parseExampleSentences(content: string): ExampleSentence[] {
   const sentences: ExampleSentence[] = [];
