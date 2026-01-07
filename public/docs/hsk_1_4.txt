@@ -4203,7 +4203,7 @@ hsk: 1
 mandarin: 我很忙，所以不得不中断每周的访问。
 pinyin: wǒ hěn máng，suǒ yǐ bù dé bù zhōng duàn měi zhōu de fǎng wèn。
 --
-english:  I'm so tired I could sleep for a whole day.
+english:  I'm so tired, I could sleep for a whole day.
 hsk: 1
 mandarin: 我真是累极了，简直可以睡上一整天。
 pinyin: wǒ zhēn shì lèi jí le，jiǎn zhí kě yǐ shuì shàng yī zhěng tiān。
@@ -9108,7 +9108,7 @@ hsk: 1
 mandarin: 他们俩在公园的长凳上拥抱亲吻。
 pinyin: tā men liǎng zài gōng yuán de zhǎng dèng shàng yōng bào qīn wěn。
 --
-english:  The two villages are a mile apart, and my house lies midway between them
+english:  The two villages are a mile apart, and my house lies midway between them.
 hsk: 1
 mandarin: 两村相距一英里, 我家在中间.
 pinyin: liǎng cūn xiàng jù yī yīng lǐ, wǒ jiā zài zhōng jiān。
@@ -9123,7 +9123,7 @@ hsk: 1
 mandarin: 美利坚合众国保证合众国各州实行共和政体。
 pinyin: měi lì jiān hé zhòng guó bǎo zhèng hé zhòng guó gè zhōu shí xíng gòng hé zhèng tǐ。
 --
-english:  The vessel tax of anchorage is 5,000 dollars per year
+english:  The vessel tax of anchorage is 5,000 dollars per year.
 hsk: 1
 mandarin: 这艘船的停泊税一年是五千美元.
 pinyin: zhè sōu chuán de tíng bó shuì yī nián shì wǔ qiān měi yuán。
@@ -9136,9 +9136,9 @@ pinyin: nà sōu chuán shì bèi qián shuǐ tǐng huǐ huài de。
 english:  The video is programmed to switch on at ten o'clock.
 hsk: 1
 mandarin: 电视机设定在10点钟自动打开。
-pinyin: diàn shì jī shè dìng zàī0 diǎn zhōng zì dòng dǎ kāi。
+pinyin: diàn shì jī shè dìng zài 10 diǎn zhōng zì dòng dǎ kāi。
 --
-english:  The village boy was strange to city life
+english:  The village boy was strange to city life.
 hsk: 1
 mandarin: 那个农村男孩儿过不惯城市生活.
 pinyin: nèi gè nóng cūn nán háir guò bù guàn chéng shì shēng huó。
@@ -9568,12 +9568,12 @@ hsk: 1
 mandarin: 没有什么可害怕的.
 pinyin: méi yǒu shén me kě hài pà de。
 --
-english:  There's something interesting on the front page
+english:  There's something interesting on the front page.
 hsk: 1
 mandarin: 头版上有些有意思的消息.
 pinyin: tóu bǎn shàng yǒu xiē yǒu yì si de xiāo xi。
 --
-english:  There's the bell for the end of the lesson
+english:  There's the bell for the end of the lesson.
 hsk: 1
 mandarin: 下课铃响了.
 pinyin: xià kè líng xiǎng le。
@@ -9583,7 +9583,7 @@ hsk: 1
 mandarin: 这一千本书将构成学校新图书馆藏书的基础。
 pinyin: zhè yī qiān běn shū jiàng gòu chéng xué xiào xīn tú shū guǎn zàng shū de jī chǔ。
 --
-english:  These animals only come out at night
+english:  These animals only come out at night.
 hsk: 1
 mandarin: 这些动物仅在夜间才出来.
 pinyin: zhè xie dòng wù jǐn zài yè jiān cái chū lai。
@@ -9603,7 +9603,7 @@ hsk: 1
 mandarin: 这些条件已不复存在了。
 pinyin: zhè xie tiáo jiàn yǐ bù fù cún zài le。
 --
-english:  These developments are underpinned by solid progress in heavy industry
+english:  These developments are underpinned by solid progress in heavy industry.
 hsk: 1
 mandarin: 重工业的稳固发展为这些进展打下了基础.
 pinyin: zhòng gōng yè de wěn gù fā zhǎn wèi zhè xie jìn zhǎn dǎ xià le jī chǔ。
@@ -9613,7 +9613,7 @@ hsk: 1
 mandarin: 这些发展促使家用电脑的需求量增大。
 pinyin: zhè xie fā zhǎn cù shǐ jiā yòng diàn nǎo de xū qiú liàng zēng dà。
 --
-english:  These excellent results reflect great credit on all our staff
+english:  These excellent results reflect great credit on all our staff.
 hsk: 1
 mandarin: 这些优异的成绩给我们全体工作人员带来了莫大的光荣.
 pinyin: zhè xie yōu yì de chéng jī jǐ wǒ men quán tǐ gōng zuò rén yuán dài lái le mò dà de guāng róng。
@@ -9648,7 +9648,7 @@ hsk: 1
 mandarin: 这些话毫无意义。
 pinyin: zhè xie huà háo wú yì yì。
 --
-english:  They all went off in one direction
+english:  They all went off in one direction.
 hsk: 1
 mandarin: 他们都往同一方向走了.
 pinyin: tā men dōu wàng tóng yī fāng xiàng zǒu le。
@@ -9683,7 +9683,7 @@ hsk: 1
 mandarin: 他们要求对税收制度进行根本改革。
 pinyin: tā men yāo qiú duì shuì shōu zhì dù jìn xíng gēn běn gǎi gé。
 --
-english:  They came at six and went at nine
+english:  They came at six and went at nine.
 hsk: 1
 mandarin: 他们六时来的, 九时走的.
 pinyin: tā men liù shí lái de, jiǔ shí zǒu de。
@@ -11655,8 +11655,8 @@ pinyin: tā men zài shān jiǎo xià zhī qǐ le zhàng peng。
 --
 english: Bananas, apples and oranges are all fruits.
 hsk: 1
-mandarin: 香蕉、 苹果和橘子都是水果.
-pinyin: xiāng jiāo、  píng guǒ huò jú zi dōu shì shuǐ guǒ。
+mandarin: 香蕉、苹果和橘子都是水果.
+pinyin: xiāng jiāo、 píng guǒ huò jú zi dōu shì shuǐ guǒ。
 --
 english: He scored 48 points in last night's game.
 hsk: 1
@@ -11705,8 +11705,8 @@ pinyin: biān fú zài yè jiān fēi xíng，yǐ kūn chóng wèi sì。
 --
 english: The nurse cleans the skin and shaves the hair of the patient.
 hsk: 1
-mandarin: 护士给病人清洗皮肤、 刮去毛发.
-pinyin: hù shi jǐ bìng rén qīng xǐ pí fū、  guā qù máo fà。
+mandarin: 护士给病人清洗皮肤、刮去毛发.
+pinyin: hù shi jǐ bìng rén qīng xǐ pí fū、 guā qù máo fà。
 --
 english: He flipped through the address book, looking for the number.
 hsk: 1
@@ -11721,7 +11721,7 @@ pinyin: tā yòng ōu qín de nèn zhī diǎn zhuì zài jī shàng。
 english: The sun, moon and stars are all celestial bodies.
 hsk: 1
 mandarin: 太阳、月亮和星星都是天体。
-pinyin: tài yáng、 yuè liàng huò xīng xing dōu shì tiān tǐ。
+pinyin: tài yáng、yuè liàng huò xīng xing dōu shì tiān tǐ。
 --
 english: The music of the song made her happy.
 hsk: 1
@@ -11730,13 +11730,13 @@ pinyin: zhè zhī gē de yuè qǔ shǐ tā xīn kuàng shén yí。
 --
 english: He was ninth in a class of 40.
 hsk: 1
-mandarin: 他在40 个人的班级里排第九名。
-pinyin: tā zàì0  gè rén de bān jí lǐ pǎi dì jiǔ míng。
+mandarin: 他在40个人的班级里排第九名。
+pinyin: tā zài 40 gè rén de bān jí lǐ pǎi dì jiǔ míng。
 --
 english: The area of ​​this house is 80 square meters.
 hsk: 1
 mandarin: 这个屋子的面积是80平方米。
-pinyin: zhè gè wū zi de miàn ji shì80 píng fāng mǐ。
+pinyin: zhè gè wū zi de miàn ji shì 80 píng fāng mǐ。
 --
 english: She wiped a small part of the painting clean.
 hsk: 1
@@ -11841,7 +11841,7 @@ pinyin: wǒ zuò zài tíng yuàn lǐ xiǎng shòu míng mèi de yáng guāng。
 english: The central C audio is equivalent to 256 times per second.
 hsk: 1
 mandarin: 中央C音相当於每秒钟振动256次.
-pinyin: zhōng yāngC yīn xiāng dāng yū měi miǎo zhōng zhèn dò2ng6 cì。
+pinyin: zhōng yāngC yīn xiāng dāng yū měi miǎo zhōng zhèn dòng 256 cì。
 --
 english: The moon's attractiveness to the earth causes tide.
 hsk: 1
@@ -11915,8 +11915,8 @@ pinyin: wǒ jiàn yì gāng kāi shǐ pá shān de rén shǐ yòng guǎi zhàng�
 --
 english: Clothing, food, and residence are the basic necessities of life.
 hsk: 1
-mandarin: 衣、 食、 住所是生活的基本必需品.
-pinyin: yì、  sì、  zhù suǒ shì shēng huó de jī běn bì xū pǐn。
+mandarin: 衣、食、住所是生活的基本必需品.
+pinyin: yì、 sì、 zhù suǒ shì shēng huó de jī běn bì xū pǐn。
 --
 english: There is a taste of smoke and rosemary flowers in the air.
 hsk: 1
@@ -11936,7 +11936,7 @@ pinyin: nǐ bǎ wán jù wánr wán le yǐ後 fàng jìn guì zi lǐ qù。
 english: She loves the interest, noise and colorful in the market.
 hsk: 1
 mandarin: 她爱市场上的生趣、喧哗与多姿多彩。
-pinyin: tā ài shì chǎng shàng de shēng qù、 xuān huá yù duō zī duō cǎi。
+pinyin: tā ài shì chǎng shàng de shēng qù、xuān huá yù duō zī duō cǎi。
 --
 english: Long live the shouts of the Japanese when the attack or the cheer of patriotism
 hsk: 1
@@ -11996,12 +11996,12 @@ pinyin: chǔ lǐ zhè zhǒng kùn nan nǐ yǒu shén me jù tǐ de xiǎng fǎ。
 english: News -When someone bite a dog or robs the hotel.
 hsk: 1
 mandarin: 新闻——当有人咬狗、或者打劫酒店之时。
-pinyin: xīn wén—— dàng yǒu rén yǎo gǒu、 huò zhě dǎ jié jiǔ diàn zhī shí。
+pinyin: xīn wén—— dàng yǒu rén yǎo gǒu、huò zhě dǎ jié jiǔ diàn zhī shí。
 --
 english: There are three sex in German: positive, negative, and neutral.
 hsk: 1
-mandarin: 德语中有三性: 阳性、 阴性和中性.
-pinyin: dé yǔ zhòng yǒu sān xìng:  yáng xìng、  yīn xìng huò zhōng xìng。
+mandarin: 德语中有三性: 阳性、阴性和中性.
+pinyin: dé yǔ zhòng yǒu sān xìng:  yáng xìng、 yīn xìng huò zhōng xìng。
 --
 english: The public interest is higher than the personal interests.
 hsk: 1
@@ -12121,7 +12121,7 @@ pinyin: wǒ men xū yào jù yǒu zhēn zhī zhuó jiàn de rén lái lǐng dǎo
 english: I like to eat fruits, such as apples, pears, bananas and so on.
 hsk: 1
 mandarin: 我喜欢吃水果，比如苹果、梨子、香蕉等等。
-pinyin: wǒ xǐ huan jí shuǐ guǒ，bǐ rú píng guǒ、 lí zǐ、 xiāng jiāo děng děng。
+pinyin: wǒ xǐ huan jí shuǐ guǒ，bǐ rú píng guǒ、lí zǐ、xiāng jiāo děng děng。
 --
 english: You hit my elbow and damaged the picture I was drawing.
 hsk: 1
@@ -12221,7 +12221,7 @@ pinyin: wǒ de nǚ ér shí bā suì le，yǐ jīng zhǎng chéng wéi měi lì 
 english: We have different factions, such as apples, cherries and strawberry pie.
 hsk: 1
 mandarin: 我们有不同的派，例如苹果、樱桃和草莓派。
-pinyin: wǒ men yǒu bù tóng de pài，lì rú píng guǒ、 yīng táo huò cǎo méi pài。
+pinyin: wǒ men yǒu bù tóng de pài，lì rú píng guǒ、yīng táo huò cǎo méi pài。
 --
 english: Her bedroom is a rare and quiet place in this noisy house.
 hsk: 1
@@ -12236,7 +12236,7 @@ pinyin: nà liǎng gè nǚ hái jīng cháng yī qǐ zài nà kē dà shān zhā
 english: Geranium is a garden plant that is popular, pink or white.
 hsk: 1
 mandarin: 天竺葵是种开红、粉红或白色花的花园植物。
-pinyin: tiān zhú kuí shì zhòng kāi hóng、 fěn hóng huò bái sè huā de huā yuán zhí wù。
+pinyin: tiān zhú kuí shì zhòng kāi hóng、fěn hóng huò bái sè huā de huā yuán zhí wù。
 --
 english: Even the smartest people will fall into trivial matters and chaos.
 hsk: 1
@@ -12285,8 +12285,8 @@ pinyin: chǔ cún de　 wù jīng cháng shòu sǔn huài, yóu qí shì lǎo sh
 --
 english: Participate in sports activities-basketball, ice hockey, swimming and other activities.
 hsk: 1
-mandarin: 要参加体育活动--篮球、 冰球、 游泳之类的活动.
-pinyin: yào cān jiā tǐ yù huó dòng-- lán qiú、  bīng qiú、  yóu yǒng zhī lèi de huó dòng。
+mandarin: 要参加体育活动--篮球、冰球、游泳之类的活动.
+pinyin: yào cān jiā tǐ yù huó dòng-- lán qiú、 bīng qiú、 yóu yǒng zhī lèi de huó dòng。
 --
 english: These children have milk and biscuits between breakfast and lunch.
 hsk: 1
@@ -12326,7 +12326,7 @@ pinyin: wǎng rì jī qíng jiàng xī de yú jìn réng kě zòng tā de wén z
 english: There are many nouns in this paragraph, such as boys, girls and books.
 hsk: 1
 mandarin: 这一段里面有很多名词，例如男孩、女孩和书本。
-pinyin: zhè yī duàn lǐ miàn yǒu hěn duō míng cí，lì rú nán hái、 nǚ hái huò shū běn。
+pinyin: zhè yī duàn lǐ miàn yǒu hěn duō míng cí，lì rú nán hái、nǚ hái huò shū běn。
 --
 english: Zhen and Mary are good friends, the former is a teacher, and the latter is a nurse.
 hsk: 1
@@ -12415,8 +12415,8 @@ pinyin: yào shì tài yáng zòng xī biān chū lai，tā jiù kuài tōng gu�
 --
 english: There are some snacks during the middle rest (such as ice cream, fried potato chips, chocolate).
 hsk: 1
-mandarin: 中间休息时有些点心（如冰激凌、 炸土豆片、 巧克力）.
-pinyin: zhōng jiān xiū xi shí yǒu xiē diǎn xīn（ rú bīng jī líng、  zhà tǔ dòu piàn、  qiǎo kè lì）。
+mandarin: 中间休息时有些点心（如冰激凌、炸土豆片、巧克力）.
+pinyin: zhōng jiān xiū xi shí yǒu xiē diǎn xīn（ rú bīng jī líng、 zhà tǔ dòu piàn、 qiǎo kè lì）。
 --
 english: She needs to make the request softly in order to turn it as polite and polite as much as possible.
 hsk: 1
@@ -12432,16 +12432,6 @@ english: We should strive to get rid of the opposition between the group of peop
 hsk: 1
 mandarin: 我们应该努力摆脱劳资关系中｀那群人和我们＇这种对立的态度.
 pinyin: wǒ men yīng gāi nǔ lì bǎi tuō láo zī guān xi zhòng｀ nà qún rén huò wǒ men＇ zhè zhǒng duì lì de tài du。
---
-english: The word "micro" means "small", and microClmate "refers to climate conditions in the community.
-hsk: 1
-mandarin: “Micro”这个词的意思是“小”，Microclimate＂是指小区域里的气候条件。
-pinyin: “Micro” zhè gè cí de yì si shì“ xiǎo”，Microclimate＂ shì zhǐ xiǎo qū yù lǐ de qì hòu tiáo jiàn。
---
-english: (Turning or marriage) Handshake is used to indicate a kind of handshake that represents the oath of contract or marriage
-hsk: 1
-mandarin: （成交或成婚时的）握手用来表示诸如合约或婚姻的誓言的一种握手
-pinyin: （ chéng jiāo huò chéng hūn shí de） wò shǒu yòng lái biǎo shì zhū rú hé yuē huò hūn yīn de shì yán de yī zhòng wò shǒu 。
 --
 english: Zerrymi is a fledgling, so we don't expect him to perform well in this competition.
 hsk: 1
@@ -12471,32 +12461,17 @@ pinyin: yī dào yào yǎn de shǎn guāng，bǎ rén men de yǎn jīng dōu zh�
 english: The broom is on the branches, dried grass or pagas, and is bound to a stick or handle for cleaning
 hsk: 1
 mandarin: 扫帚梆在一块儿的枝条、干草或刺毛，缚在一根棍或把柄上，作清扫之用
-pinyin: sào zhou bāng zài yī kuài er de zhī tiáo、 gān cǎo huò cì máo，fú zài yī gēn gùn huò bǎ bǐng shàng，zuò qīng sǎo zhī yòng。
+pinyin: sào zhou bāng zài yī kuài er de zhī tiáo、gān cǎo huò cì máo，fú zài yī gēn gùn huò bǎ bǐng shàng，zuò qīng sǎo zhī yòng。
 --
-english: Compared with the high -rise buildings in the big city, he prefers the farm and fields in the countryside than the hustle and bustle.
+english: Compared with the high-rise buildings in the big city, he prefers the farm and fields in the countryside than the hustle and bustle.
 hsk: 1
 mandarin: 和大城市中的高楼大厦和喧嚣的街道相比，他更喜欢乡间的农庄和田野。
 pinyin: huò dà chéng shì zhòng dì gāo lóu dà shà huò xuān xiāo de jiē dào xiāng bǐ，tā gèng xǐ huan xiāng jiàn de nóng zhuāng Hé tián yě。
 --
-english: Our solar planets include Mercury, Venus, Earth, Mars, Jupiter, Saturn, Heavenly Star and Neptune.
+english: Our solar planets include Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune.
 hsk: 1
 mandarin: 我们太阳系的行星有水星、金星、地球、火星、木星、土星、天王星和海王星。
-pinyin: wǒ men tài yáng xì de xíng xīng yǒu shuǐ xīng、 jīn xīng、 dì qiú、 huǒ xīng、 Mù xīng、 tǔ xīng、 tiān wáng xīng huò hǎi wáng xīng。
---
-english: He asked: "Do you want to go to the UK in the future?" I said, "No, I have broken this idea."
-hsk: 1
-mandarin: 他问道："你想日后到英国去住吗？"我说："不会的，我已经断了这个念头了。"
-pinyin: tā wèn dào：" nǐ xiǎng rì hòu dào Yīng guó qù zhù ma  wǒ shuō： bù huì de，wǒ yǐ jīng duàn le zhè gè niàn tou le。
---
-english: Clipping books, albums, signed a thin blank pages in order to insert or store collecting products, such as stamps, photos or signature books
-hsk: 1
-mandarin: 剪贴簿，影集，签名薄有空白页以便插入或存放收集品，如邮票、照片或签名的本子
-pinyin: jiǎn tiē bù，yǐng jí，qiān míng bò yǒu kòng bái yè yǐ biàn chā rù huò cún fàng shōu jí pǐn，rú yóu piào、 zhào piàn huò qiān míng de běn zi。
---
-english: Photography is strongly overflowed with ultra -pressure, and the pan -light light is used for photography lighting, which can generate continuous bright light and re -use.
-hsk: 1
-mandarin: 摄影用超压强烈溢光灯，照相泛光灯用于摄影照明的、可产生持续明亮光线的可再次使用的电灯
-pinyin: shè yǐng yòng chāo yā qiáng liè yì guāng dēng，zhào xiàng fàn guāng dēng yòng yú shè yǐng zhào míng de、 kě chǎn shēng chí xù míng liàng guāng xiàn de kě zài cì shǐ yòng de diàn dēng。
+pinyin: wǒ men tài yáng xì de xíng xīng yǒu shuǐ xīng、jīn xīng、dì qiú、huǒ xīng、Mù xīng、tǔ xīng、tiān wáng xīng huò hǎi wáng xīng。
 --
 english: Do you know how to squeeze milk?
 hsk: 1
@@ -13395,8 +13370,8 @@ pinyin: nǐ dú le yǒu guān xìn xī gé mìng de nà piān wén zhāng méi y
 --
 english: Five, four, three, two, one, zero. We have lifted off!
 hsk: 1
-mandarin: 五、 四、 三、 二、 一、 零. 我们升空了!
-pinyin: wǔ、  sì、 sān、èr、yī、líng、 wǒ men shēng kōng le!
+mandarin: 五、四、三、二、一、零. 我们升空了!
+pinyin: wǔ、 sì、sān、èr、yī、líng、wǒ men shēng kōng le!
 --
 english: Is the comrade we just saw as your teacher?
 hsk: 1
