@@ -50,7 +50,7 @@ export function FeedbackScreen() {
         const currentWord = state.currentExercise.words[0].word;
         console.log('Looking for sentences containing:', currentWord);
 
-        const matchingSentences = findMatchingSentences(allSentences, currentWord, 10);
+        const matchingSentences = findMatchingSentences(allSentences, currentWord, 5);
         console.log('Matching sentences found:', matchingSentences.length);
 
         setExampleSentences(matchingSentences);
@@ -182,16 +182,13 @@ export function FeedbackScreen() {
             {/* Example Sentences */}
             {exampleSentences.length > 0 && (
               <div className="mb-8 w-3/4">
-                <h3 className="text-gray-700 font-semibold mb-4 text-lg">Example Sentences:</h3>
-                <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 space-y-4">
+                <h3 className="text-gray-700 font-semibold mb-4 text-lg text-center">Example Sentences:</h3>
+                <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 space-y-6">
                   {exampleSentences.map((sentence, index) => (
-                    <div key={index} className="space-y-1">
-                      <div className="text-xl text-gray-900">{sentence.hanzi}</div>
+                    <div key={index} className="space-y-1 text-center">
+                      <div className="text-xl text-gray-900 font-bold">{sentence.hanzi}</div>
                       <div className="text-base text-gray-600 font-mono">{sentence.pinyin}</div>
                       <div className="text-base text-gray-700">{sentence.meaning}</div>
-                      {index < exampleSentences.length - 1 && (
-                        <div className="h-4"></div>
-                      )}
                     </div>
                   ))}
                 </div>
