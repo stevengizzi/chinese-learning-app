@@ -123,7 +123,7 @@ notes:
 | 本 | ben3 | root; origin                                                                    |
 | 女人 | nü3 ren | woman; women |
 | 对 | dui4 | correct; towards; match                                                         |
-| 哪儿 | na3 er | where? |
+| 哪儿 | na3 r | where? |
 | 外语 | wai4 yu3 | foreign language |
 | 动 | dong4 | to move |
 | 风 | feng1 | wind |
