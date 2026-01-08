@@ -136,7 +136,7 @@ notes:
 | 送 | song4 | to deliver; to send; to give (as a present) |
 | 别人 | bie2 ren | other people |
 | 小学生 | xiao3 xue2 sheng1 | (primary school) student |
-| 系 | xi4 | to tie (rope; a tie; etc); to wear (a seatbelt) |
+| 系 | xi4 | to tie (rope, a tie, etc); to wear (a seatbelt) |
 | 牛奶 | niu2 nai3 | (cow) milk |
 | 六 | liu4 | six |
 | 条 | tiao2 | item; strip; classifier for long thin things |

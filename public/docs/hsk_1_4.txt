@@ -174,15 +174,15 @@ pinyin: Wǒ míngbai.
 english: Do you understand?
 mandarin: 你明白吗？
 pinyin: Nǐ míngbai ma?
-
+--
 Where is the school?
 学校在哪里？
 Xuéxiào zài nǎlǐ?
-
+--
 Where did you go?
 你去哪里？
 Nǐ qù nǎlǐ?
-
+--
 I get up.
 我起来。
 Wǒ qǐlái.
@@ -262,7 +262,7 @@ pinyin: Wǒ tīngjiàn gē le.
 english: Did you hear it?
 mandarin: 你听见了吗？
 pinyin: Nǐ tīngjiàn le ma?
-
+--
 I forgot.
 我忘记了。
 Wǒ wàngjì le.
@@ -426,11 +426,11 @@ pinyin: Mèi zài chàng gē.
 english: What is this?
 mandarin: 这是什么？
 pinyin: Zhè shì shénme?
-
+--
 What do you want to do?
 你做什么？
 Nǐ zuò shénme?
-
+--
 The room is big.
 房间很大。
 Fángjiān hěn dà.
@@ -566,7 +566,7 @@ pinyin: Wǒ rèn tā.
 english: Do you recognize this word?
 mandarin: 你认这个字吗？
 pinyin: Nǐ rèn zhège zì ma?
-
+--
 I sing.
 我唱。
 Wǒ chàng.
@@ -606,7 +606,7 @@ Nǐmen zài zhèr.
 english: Do you all understand?
 mandarin: 你们明白吗？
 pinyin: Nǐmen míngbai ma?
-
+--
 I go tomorrow.
 我明天去。
 Wǒ míngtiān qù.
@@ -754,7 +754,7 @@ pinyin: Tā xǐhuan dúshū.
 english: What is your name? (what are you called?)
 mandarin: 你叫什么名字？
 pinyin: Nǐ jiào shénme míngzi?
-
+--
 He is called Ma.
 他叫马。
 Tā jiào Mǎ.
@@ -810,11 +810,11 @@ pinyin: Zhège duì.
 english: Where are you?
 mandarin: 你在哪儿？
 pinyin: Nǐ zài nǎr?
-
+--
 Where is the store?
 店在哪儿？
 Diàn zài nǎr?
-
+--
 I study a foreign language.
 我学外语。
 Wǒ xué wàiyǔ.
@@ -966,7 +966,7 @@ pinyin: Wǒ de míngzi shì Steven.
 english: What is her name?
 mandarin: 她的名字是什么？
 pinyin: Tā de míngzi shì shénme?
-
+--
 There is a telephone here.
 这儿有电话。
 Zhèr yǒu diànhuà.
