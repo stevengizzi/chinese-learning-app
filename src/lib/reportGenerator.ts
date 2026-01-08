@@ -1,7 +1,11 @@
 import type { SessionStatistics } from '../types/session';
 import type { ExerciseAttempt } from '../types/exercise';
 
-export function generateSessionStatistics(attempts: ExerciseAttempt[]): SessionStatistics {
+export function generateSessionStatistics(
+  attempts: ExerciseAttempt[],
+  startTime?: number,
+  endTime?: number
+): SessionStatistics {
   if (attempts.length === 0) {
     return {
       totalExercises: 0,
@@ -10,7 +14,9 @@ export function generateSessionStatistics(attempts: ExerciseAttempt[]): SessionS
       averageAccuracy: 0,
       toneErrors: 0,
       syllableErrors: 0,
-      commonMistakes: {}
+      commonMistakes: {},
+      totalTimeMs: undefined,
+      averageTimePerCorrectAnswer: undefined
     };
   }
 
@@ -19,10 +25,16 @@ export function generateSessionStatistics(attempts: ExerciseAttempt[]): SessionS
   let toneErrors = 0;
   let syllableErrors = 0;
   const mistakes: Record<string, number> = {};
+  let correctAnswersCount = 0;
 
   for (const attempt of attempts) {
     totalCharacters += attempt.score.total;
     correctCharacters += attempt.score.correct;
+
+    // Count perfect answers (all syllables correct)
+    if (attempt.score.correct === attempt.score.total) {
+      correctAnswersCount++;
+    }
 
     for (const error of attempt.errors) {
       if (error.errorType === 'tone') {
@@ -43,6 +55,18 @@ export function generateSessionStatistics(attempts: ExerciseAttempt[]): SessionS
     ? Math.round((correctCharacters / totalCharacters) * 100)
     : 0;
 
+  // Calculate timing metrics
+  let totalTimeMs: number | undefined;
+  let averageTimePerCorrectAnswer: number | undefined;
+
+  if (startTime !== undefined && endTime !== undefined) {
+    totalTimeMs = endTime - startTime;
+    // Only calculate average if there were correct answers
+    if (correctAnswersCount > 0) {
+      averageTimePerCorrectAnswer = totalTimeMs / correctAnswersCount;
+    }
+  }
+
   return {
     totalExercises: attempts.length,
     totalCharacters,
@@ -50,7 +74,9 @@ export function generateSessionStatistics(attempts: ExerciseAttempt[]): SessionS
     averageAccuracy,
     toneErrors,
     syllableErrors,
-    commonMistakes: mistakes
+    commonMistakes: mistakes,
+    totalTimeMs,
+    averageTimePerCorrectAnswer
   };
 }
 

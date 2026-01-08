@@ -19,4 +19,6 @@ export interface SessionStatistics {
   toneErrors: number;
   syllableErrors: number;
   commonMistakes: Record<string, number>;
+  totalTimeMs?: number;  // Total time spent in session
+  averageTimePerCorrectAnswer?: number;  // Average time per correct answer in ms
 }

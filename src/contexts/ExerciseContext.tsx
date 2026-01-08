@@ -156,7 +156,12 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
           );
 
       const updatedAttempts = [...state.currentSession.attempts, attempt];
-      const updatedStatistics = generateSessionStatistics(updatedAttempts);
+      const currentTime = Date.now();
+      const updatedStatistics = generateSessionStatistics(
+        updatedAttempts,
+        state.currentSession.startTime,
+        currentTime
+      );
 
       // Handle remaining words based on play mode
       let updatedRemainingWords = state.currentSession.remainingWords;
@@ -184,7 +189,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         ...state.currentSession,
         attempts: updatedAttempts,
         statistics: updatedStatistics,
-        remainingWords: updatedRemainingWords
+        remainingWords: updatedRemainingWords,
+        endTime: currentTime
       };
 
       // If complete-all or drill mode and no more words, go to report
@@ -230,8 +236,22 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     }
 
     case 'REQUEST_REPORT': {
+      if (!state.currentSession) return state;
+
+      const endTime = Date.now();
+      const updatedStatistics = generateSessionStatistics(
+        state.currentSession.attempts,
+        state.currentSession.startTime,
+        endTime
+      );
+
       return {
         ...state,
+        currentSession: {
+          ...state.currentSession,
+          endTime,
+          statistics: updatedStatistics
+        },
         screen: 'report'
       };
     }

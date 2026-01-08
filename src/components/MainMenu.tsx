@@ -1,9 +1,33 @@
+import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import type { ExerciseType, PlayMode } from '../types/exercise';
 import { VocabularyUploader } from './VocabularyUploader';
+import { getAllHighScores, formatTime, formatDate } from '../lib/highScores';
 
 export function MainMenu() {
   const { state, dispatch } = useExercise();
+  const [highScores, setHighScores] = useState(getAllHighScores());
+
+  // Reload high scores when component mounts or when returning from a session
+  useEffect(() => {
+    const reloadHighScores = () => {
+      setHighScores(getAllHighScores());
+    };
+
+    // Reload immediately
+    reloadHighScores();
+
+    // Set up interval to check for updates (in case of multiple tabs)
+    const interval = setInterval(reloadHighScores, 1000);
+
+    // Listen for storage events from other tabs
+    window.addEventListener('storage', reloadHighScores);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('storage', reloadHighScores);
+    };
+  }, [state.screen]); // Reload when screen changes (e.g., returning from report)
 
   const handleStartExercise = (exerciseType: ExerciseType, playMode: PlayMode) => {
     dispatch({
@@ -14,6 +38,11 @@ export function MainMenu() {
 
   const handleViewVocabulary = () => {
     dispatch({ type: 'VIEW_VOCABULARY' });
+  };
+
+  const getHighScoreForMode = (exerciseType: ExerciseType, playMode: PlayMode) => {
+    const key = `${exerciseType}-${playMode}`;
+    return highScores[key];
   };
 
   const exercises = [
@@ -137,15 +166,28 @@ export function MainMenu() {
 
                   {/* Play Mode Buttons */}
                   <div className="space-y-2">
-                    {playModes.map((playMode) => (
-                      <button
-                        key={playMode.mode}
-                        onClick={() => handleStartExercise(exercise.type, playMode.mode)}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-sm my-1"
-                      >
-                        {playMode.name}
-                      </button>
-                    ))}
+                    {playModes.map((playMode) => {
+                      const highScore = getHighScoreForMode(exercise.type, playMode.mode);
+                      return (
+                        <div key={playMode.mode}>
+                          <button
+                            onClick={() => handleStartExercise(exercise.type, playMode.mode)}
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-sm my-1"
+                          >
+                            {playMode.name}
+                          </button>
+                          {highScore && (
+                            <div className="text-xs text-gray-600 dark:text-gray-400 text-center mt-1 mb-2">
+                              <span className="font-semibold">🏆 Best: </span>
+                              {formatTime(highScore.averageTimePerCorrectAnswer)}
+                              <span className="text-gray-500 dark:text-gray-500 ml-1">
+                                ({formatDate(highScore.date)})
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ))}

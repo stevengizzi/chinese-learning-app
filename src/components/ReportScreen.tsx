@@ -1,8 +1,30 @@
+import { useEffect, useState } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { generateSuggestions } from '../lib/reportGenerator';
+import { updateHighScore, formatTime, formatDate } from '../lib/highScores';
 
 export function ReportScreen() {
   const { state, dispatch } = useExercise();
+  const [isNewHighScore, setIsNewHighScore] = useState(false);
+
+  // Check and save high score when session is available
+  useEffect(() => {
+    if (!state.currentSession) return;
+
+    const { statistics, exerciseType, playMode } = state.currentSession;
+
+    // Only save high score if we have timing data and at least one correct answer
+    if (statistics.averageTimePerCorrectAnswer !== undefined) {
+      const wasNewHighScore = updateHighScore(
+        exerciseType,
+        playMode,
+        statistics.averageTimePerCorrectAnswer,
+        statistics.totalExercises,
+        statistics.averageAccuracy
+      );
+      setIsNewHighScore(wasNewHighScore);
+    }
+  }, [state.currentSession]);
 
   const handleBackToMenu = () => {
     dispatch({ type: 'BACK_TO_MENU' });
@@ -62,6 +84,22 @@ export function ReportScreen() {
 
             {hasExercises ? (
               <>
+                {/* New High Score Banner */}
+                {isNewHighScore && statistics.averageTimePerCorrectAnswer !== undefined && (
+                  <div className="w-1/2 mb-6">
+                    <div className="bg-gradient-to-r from-yellow-100 to-yellow-50 border-2 border-yellow-400 rounded-xl p-4 text-center">
+                      <div className="flex items-center justify-center gap-2 text-yellow-800 font-bold text-lg">
+                        <span className="text-2xl">🏆</span>
+                        <span>New High Score!</span>
+                        <span className="text-2xl">🏆</span>
+                      </div>
+                      <div className="text-yellow-700 text-sm mt-1">
+                        Best average time per correct answer for this mode
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Metrics */}
                 <div className="w-1/2 grid grid-cols-3 gap-3 mb-8">
                   <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
@@ -89,6 +127,31 @@ export function ReportScreen() {
                     </div>
                   </div>
                 </div>
+
+                {/* Timing Metrics */}
+                {statistics.totalTimeMs !== undefined && (
+                  <div className="w-1/2 mb-8">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Timing Metrics</h2>
+                    <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                          <span className="text-gray-700 font-medium">Total Time</span>
+                          <span className="text-2xl font-bold text-blue-600">
+                            {formatTime(statistics.totalTimeMs)}
+                          </span>
+                        </div>
+                        {statistics.averageTimePerCorrectAnswer !== undefined && (
+                          <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                            <span className="text-gray-700 font-medium">Avg Time / Correct Answer</span>
+                            <span className="text-2xl font-bold text-green-600">
+                              {formatTime(statistics.averageTimePerCorrectAnswer)}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Error Breakdown */}
                 <div className="w-1/2 mb-8">
