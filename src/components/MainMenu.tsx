@@ -178,7 +178,7 @@ export function MainMenu() {
                           </button>
                           {highScore && (
                             <div className="text-xs text-gray-600 dark:text-gray-400 text-center mt-1 mb-2">
-                              <span className="font-semibold">🏆 Best: </span>
+                              <span className="font-semibold">🏆 Best Average: </span>
                               {formatTime(highScore.averageTimePerCorrectAnswer)}
                               <span className="text-gray-500 dark:text-gray-500 ml-1">
                                 ({formatDate(highScore.date)})
