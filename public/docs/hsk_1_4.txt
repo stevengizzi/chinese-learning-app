@@ -175,17 +175,17 @@ english: Do you understand?
 mandarin: 你明白吗？
 pinyin: Nǐ míngbai ma?
 --
-Where is the school?
-学校在哪里？
-Xuéxiào zài nǎlǐ?
+english: Where is the school?
+mandarin: 学校在哪里？
+pinyin: Xuéxiào zài nǎlǐ?
 --
-Where did you go?
-你去哪里？
-Nǐ qù nǎlǐ?
+english: Where did you go?
+mandarin: 你去哪里？
+pinyin: Nǐ qù nǎlǐ?
 --
-I get up.
-我起来。
-Wǒ qǐlái.
+english: I get up.
+mandarin: 我起来。
+pinyin: Wǒ qǐlái.
 --
 english: Stand up.
 mandarin: 起。
@@ -263,9 +263,9 @@ english: Did you hear it?
 mandarin: 你听见了吗？
 pinyin: Nǐ tīngjiàn le ma?
 --
-I forgot.
-我忘记了。
-Wǒ wàngjì le.
+english: I forgot.
+mandarin: 我忘记了。
+pinyin: Wǒ wàngjì le.
 --
 english: The child forgot the exam.
 mandarin: 孩子忘记考试。
@@ -334,10 +334,10 @@ pinyin: Wǒ zhī.
 english: Do you know?
 mandarin: 你知吗？
 pinyin: Nǐ zhī ma?
-
-This bag is heavy.
-这个包很重。
-Zhège bāo hěn zhòng.
+--
+english: This bag is heavy.
+mandarin: 这个包很重。
+pinyin: Zhège bāo hěn zhòng.
 --
 english: This matter is important.
 mandarin: 这件事很重。
@@ -427,13 +427,13 @@ english: What is this?
 mandarin: 这是什么？
 pinyin: Zhè shì shénme?
 --
-What do you want to do?
-你做什么？
-Nǐ zuò shénme?
+english: What do you want to do?
+mandarin: 你做什么？
+pinyin: Nǐ zuò shénme?
 --
-The room is big.
-房间很大。
-Fángjiān hěn dà.
+english: The room is big.
+mandarin: 房间很大。
+pinyin: Fángjiān hěn dà.
 --
 english: This is my room.
 mandarin: 这是我的房间。
@@ -567,9 +567,9 @@ english: Do you recognize this word?
 mandarin: 你认这个字吗？
 pinyin: Nǐ rèn zhège zì ma?
 --
-I sing.
-我唱。
-Wǒ chàng.
+english: I sing.
+mandarin: 我唱。
+pinyin: Wǒ chàng.
 --
 english: She is singing a song.
 mandarin: 她在唱歌。
@@ -598,18 +598,18 @@ pinyin: Zhè zhǒng yàng.
 english: What kind is this?
 mandarin: 这是什么样？
 pinyin: Zhè shì shénme yàng?
-
-You all are here.
-你们在这儿。
-Nǐmen zài zhèr.
+--
+english: You all are here.
+mandarin: 你们在这儿。
+pinyin: Nǐmen zài zhèr.
 --
 english: Do you all understand?
 mandarin: 你们明白吗？
 pinyin: Nǐmen míngbai ma?
 --
-I go tomorrow.
-我明天去。
-Wǒ míngtiān qù.
+english: I go tomorrow.
+mandarin: 我明天去。
+pinyin: Wǒ míngtiān qù.
 --
 english: Tomorrow we have class.
 mandarin: 明天我们上课。
@@ -755,9 +755,9 @@ english: What is your name? (what are you called?)
 mandarin: 你叫什么名字？
 pinyin: Nǐ jiào shénme míngzi?
 --
-He is called Ma.
-他叫马。
-Tā jiào Mǎ.
+english: He is called Ma.
+mandarin: 他叫马。
+pinyin: Tā jiào Mǎ.
 --
 english: We eat dinner.
 mandarin: 我们吃晚饭。
@@ -811,13 +811,13 @@ english: Where are you?
 mandarin: 你在哪儿？
 pinyin: Nǐ zài nǎr?
 --
-Where is the store?
-店在哪儿？
-Diàn zài nǎr?
+english: Where is the store?
+mandarin: 店在哪儿？
+pinyin: Diàn zài nǎr?
 --
-I study a foreign language.
-我学外语。
-Wǒ xué wàiyǔ.
+english: I study a foreign language.
+mandarin: 我学外语。
+pinyin: Wǒ xué wàiyǔ.
 --
 english: Foreign languages are important.
 mandarin: 外语很重要。
@@ -967,9 +967,9 @@ english: What is her name?
 mandarin: 她的名字是什么？
 pinyin: Tā de míngzi shì shénme?
 --
-There is a telephone here.
-这儿有电话。
-Zhèr yǒu diànhuà.
+english: There is a telephone here.
+mandarin: 这儿有电话。
+pinyin: Zhèr yǒu diànhuà.
 --
 english: Give me the phone.
 mandarin: 给我电话。
@@ -987,159 +987,159 @@ english: This year is good.
 mandarin: 今年很好。
 pinyin: Jīnnián hěn hǎo.
 --
-Last year I studied.
-去年我学习。
-Qùnián wǒ xuéxí.
+english: Last year I studied.
+mandarin: 去年我学习。
+pinyin: Qùnián wǒ xuéxí.
 --
 english: He is my friend.
 mandarin: 他是我朋。
 pinyin: Tā shì wǒ péng.
 --
-Friends are important.
-朋很重要。
-Péng hěn zhòngyào.
+english: Friends are important.
+mandarin: 朋很重要。
+pinyin: Péng hěn zhòngyào.
 --
 english: This dish is good.
 mandarin: 这个菜很好。
 pinyin: Zhège cài hěn hǎo.
 --
-There are vegetables.
-有菜。
-Yǒu cài.
+english: There are vegetables.
+mandarin: 有菜。
+pinyin: Yǒu cài.
 --
 english: I study Chinese.
 mandarin: 我学习汉语。
 pinyin: Wǒ xuéxí Hànyǔ.
 --
-She is studying.
-她在学习。
-Tā zài xuéxí.
+english: She is studying.
+mandarin: 她在学习。
+pinyin: Tā zài xuéxí.
 --
 english: This food is delicious.
 mandarin: 这个很好吃。
 pinyin: Zhège hěn hǎochī.
 --
-The dish is tasty.
-菜很好吃。
-Cài hěn hǎochī.
+english: The dish is tasty.
+mandarin: 菜很好吃。
+pinyin: Cài hěn hǎochī.
 --
 english: My son is here.
 mandarin: 我的儿子在这儿。
 pinyin: Wǒ de érzi zài zhèr.
 --
-Her son is a student.
-她的儿子是学生。
-Tā de érzi shì xuéshēng.
+english: Her son is a student.
+mandarin: 她的儿子是学生。
+pinyin: Tā de érzi shì xuéshēng.
 --
 english: I play ball.
 mandarin: 我打球。
 pinyin: Wǒ dǎ qiú.
 --
-They are playing ball.
-他们在打球。
-Tāmen zài dǎ qiú.
+english: They are playing ball.
+mandarin: 他们在打球。
+pinyin: Tāmen zài dǎ qiú.
 --
 english: Where is the bathroom?
 mandarin: 洗手间在哪儿？
 pinyin: Xǐshǒujiān zài nǎr?
 --
-I go to the bathroom.
-我去洗手间。
-Wǒ qù xǐshǒujiān.
+english: I go to the bathroom.
+mandarin: 我去洗手间。
+pinyin: Wǒ qù xǐshǒujiān.
 --
 english: Put it here.
 mandarin: 放在这儿。
 pinyin: Fàng zài zhèr.
 --
-Put the book on the table.
-把书放在桌子上。
-Bǎ shū fàng zài zhuōzi shàng.
+english: Put the book on the table.
+mandarin: 把书放在桌子上。
+pinyin: Bǎ shū fàng zài zhuōzi shàng.
 --
 english: This is milk.
 mandarin: 这是奶。
 pinyin: Zhè shì nǎi.
 --
-The child drinks milk.
-孩子喝奶。
-Háizi hē nǎi.
+english: The child drinks milk.
+mandarin: 孩子喝奶。
+pinyin: Háizi hē nǎi.
 --
 english: The east is there.
 mandarin: 东在那儿。
 pinyin: Dōng zài nàr.
 --
-Go east.
-往东走。
-Wǎng dōng zǒu.
+english: Go east.
+mandarin: 往东走。
+pinyin: Wǎng dōng zǒu.
 --
 english: The room is bright.
 mandarin: 房间很明。
 pinyin: Fángjiān hěn míng.
 --
-This explanation is clear.
-这个很明。
-Zhège hěn míng.
+english: This explanation is clear.
+mandarin: 这个很明。
+pinyin: Zhège hěn míng.
 --
 english: The north is cold.
 mandarin: 北很冷。
 pinyin: Běi hěn lěng.
 --
-Go north.
-往北走。
-Wǎng běi zǒu.
+english: Go north.
+mandarin: 往北走。
+pinyin: Wǎng běi zǒu.
 --
 english: She is female.
 mandarin: 她是女。
 pinyin: Tā shì nǚ.
 --
-Female students.
-女学生。
-Nǚ xuéshēng.
+english: Female students.
+mandarin: 女学生。
+pinyin: Nǚ xuéshēng.
 --
 english: Come in.
 mandarin: 进来。
 pinyin: Jìnlái.
 --
-The child comes in.
-孩子进来了。
-Háizi jìnlái le.
+english: The child comes in.
+mandarin: 孩子进来了。
+pinyin: Háizi jìnlái le.
 --
 english: It is on the right side.
 mandarin: 在右边。
 pinyin: Zài yòubiān.
 --
-The store is on the right.
-店在右边。
-Diàn zài yòubiān.
+english: The store is on the right.
+mandarin: 店在右边。
+pinyin: Diàn zài yòubiān.
 --
 english: I am a student.
 mandarin: 我是学生。
 pinyin: Wǒ shì xuéshēng.
 --
-The students are studying.
-学生在学习。
-Xuéshēng zài xuéxí.
+english: The students are studying.
+mandarin: 学生在学习。
+pinyin: Xuéshēng zài xuéxí.
 --
 english: Close the door.
 mandarin: 关门。
 pinyin: Guān mén.
 --
-Turn off the TV.
-关电视机。
-Guān diànshìjī.
+english: Turn off the TV.
+mandarin: 关电视机。
+pinyin: Guān diànshìjī.
 --
 english: Today is hot.
 mandarin: 今天很热。
 pinyin: Jīntiān hěn rè.
 --
-The food is hot.
-菜很热。
-Cài hěn rè.
+english: The food is hot.
+mandarin: 菜很热。
+pinyin: Cài hěn rè.
 --
 english: One person.
 mandarin: 一个人。
 pinyin: Yí gè rén.
 --
-One book.
-一本书。
-Yì běn shū.
+english: One book.
+mandarin: 一本书。
+pinyin: Yì běn shū.
 --
