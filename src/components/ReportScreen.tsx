@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { generateSuggestions } from '../lib/reportGenerator';
-import { updateHighScore, formatTime, formatDate } from '../lib/highScores';
+import { updateHighScore, formatTime } from '../lib/highScores';
 
 export function ReportScreen() {
   const { state, dispatch } = useExercise();
