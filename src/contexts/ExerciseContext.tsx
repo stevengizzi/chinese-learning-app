@@ -56,11 +56,12 @@ function createNewSession(exerciseType: ExerciseType, playMode: PlayMode, vocabu
     ? shuffleArray(Array.from({ length: vocabularySize }, (_, i) => i.toString()))
     : undefined;
 
+  const now = Date.now();
   return {
     id: `session-${Date.now()}`,
     exerciseType,
     playMode,
-    startTime: Date.now(),
+    startTime: now,
     attempts: [],
     statistics: {
       totalExercises: 0,
@@ -71,7 +72,9 @@ function createNewSession(exerciseType: ExerciseType, playMode: PlayMode, vocabu
       syllableErrors: 0,
       commonMistakes: {}
     },
-    remainingWords
+    remainingWords,
+    accumulatedTimeMs: 0,
+    lastResumeTime: now  // Timer starts immediately
   };
 }
 
@@ -157,10 +160,18 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const updatedAttempts = [...state.currentSession.attempts, attempt];
       const currentTime = Date.now();
+
+      // Accumulate time: add time since last resume to accumulated time, then pause
+      const timeElapsedSinceResume = state.currentSession.lastResumeTime
+        ? currentTime - state.currentSession.lastResumeTime
+        : 0;
+      const newAccumulatedTime = (state.currentSession.accumulatedTimeMs || 0) + timeElapsedSinceResume;
+
       const updatedStatistics = generateSessionStatistics(
         updatedAttempts,
         state.currentSession.startTime,
-        currentTime
+        currentTime,
+        newAccumulatedTime
       );
 
       // Handle remaining words based on play mode
@@ -190,7 +201,9 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         attempts: updatedAttempts,
         statistics: updatedStatistics,
         remainingWords: updatedRemainingWords,
-        endTime: currentTime
+        endTime: currentTime,
+        accumulatedTimeMs: newAccumulatedTime,
+        lastResumeTime: undefined  // Pause timer during feedback
       };
 
       // If complete-all or drill mode and no more words, go to report
@@ -227,10 +240,17 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         state.currentSession.remainingWords || []
       );
 
+      // Resume timer
+      const resumeTime = Date.now();
+
       return {
         ...state,
         currentExercise: exercise,
         currentAttempt: null,
+        currentSession: {
+          ...state.currentSession,
+          lastResumeTime: resumeTime  // Resume timer when starting next exercise
+        },
         screen: 'exercise'
       };
     }
@@ -239,10 +259,18 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       if (!state.currentSession) return state;
 
       const endTime = Date.now();
+
+      // Calculate final accumulated time (add time since last resume if timer is running)
+      const timeElapsedSinceResume = state.currentSession.lastResumeTime
+        ? endTime - state.currentSession.lastResumeTime
+        : 0;
+      const finalAccumulatedTime = (state.currentSession.accumulatedTimeMs || 0) + timeElapsedSinceResume;
+
       const updatedStatistics = generateSessionStatistics(
         state.currentSession.attempts,
         state.currentSession.startTime,
-        endTime
+        endTime,
+        finalAccumulatedTime
       );
 
       return {
@@ -250,6 +278,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         currentSession: {
           ...state.currentSession,
           endTime,
+          accumulatedTimeMs: finalAccumulatedTime,
+          lastResumeTime: undefined,  // Pause timer
           statistics: updatedStatistics
         },
         screen: 'report'

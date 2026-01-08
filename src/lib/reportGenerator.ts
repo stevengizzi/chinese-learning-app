@@ -4,7 +4,8 @@ import type { ExerciseAttempt } from '../types/exercise';
 export function generateSessionStatistics(
   attempts: ExerciseAttempt[],
   startTime?: number,
-  endTime?: number
+  endTime?: number,
+  accumulatedTimeMs?: number
 ): SessionStatistics {
   if (attempts.length === 0) {
     return {
@@ -59,7 +60,14 @@ export function generateSessionStatistics(
   let totalTimeMs: number | undefined;
   let averageTimePerCorrectAnswer: number | undefined;
 
-  if (startTime !== undefined && endTime !== undefined) {
+  // Use accumulated time if provided (excludes feedback screen time), otherwise fall back to total elapsed time
+  if (accumulatedTimeMs !== undefined) {
+    totalTimeMs = accumulatedTimeMs;
+    // Only calculate average if there were correct answers
+    if (correctAnswersCount > 0) {
+      averageTimePerCorrectAnswer = totalTimeMs / correctAnswersCount;
+    }
+  } else if (startTime !== undefined && endTime !== undefined) {
     totalTimeMs = endTime - startTime;
     // Only calculate average if there were correct answers
     if (correctAnswersCount > 0) {

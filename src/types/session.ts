@@ -9,6 +9,8 @@ export interface Session {
   attempts: ExerciseAttempt[];
   statistics: SessionStatistics;
   remainingWords?: string[];  // For complete-all mode
+  accumulatedTimeMs?: number;  // Total active time (excluding feedback screens)
+  lastResumeTime?: number;  // Timestamp when timer last resumed
 }
 
 export interface SessionStatistics {
