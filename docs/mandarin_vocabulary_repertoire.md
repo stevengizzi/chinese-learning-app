@@ -43,7 +43,7 @@ notes:
 | 课 | ke4 | class; lesson |
 | 两 | liang3 | two; both |
 | 零 | ling2 | zero |
-| 明白 | ming2 bai2 | to be clear; to understand |
+| 明白 | ming2 bai | to be clear; to understand |
 | 哪里 | na3 li3 | where? |
 | 起 | qi3 | to rise; to start |
 | 钱 | qian2 | money |
@@ -145,3 +145,23 @@ notes:
 | 名字 | ming2 zi | name |
 | 电话 | dian4 hua4 | telephone |
 | 工 | gong1 | work |
+| 年 | nian2 | year |
+| 朋 | peng2 | friend |
+| 菜 | cai4 | dish (of food); vegetable |
+| 学习 | xue2 xi2 | to study |
+| 好吃 | hao3 chi1 | tasty; delicious |
+| 儿子 | er2 zi | son |
+| 打球 | da3 qiu4 | to play ball; to play with a ball |
+| 洗手间 | xi3 shou3 jian1 | washroom; bathroom |
+| 放 | fang4 | to put; to place; to set off (fireworks, etc) |
+| 奶 | nai3 | breast; milk; to breastfeed |
+| 东 | dong1 | east |
+| 明 | ming2 | bright; clear |
+| 北 | bei3 | north |
+| 女 | nü3 | female |
+| 进来 | jin4 lai2 | to come in |
+| 右边 | you4 bian | the right side |
+| 学生 | xue2 sheng | student |
+| 关 | guan1 | to close; to turn off |
+| 热 | re4 | hot (of weather); heat |
+| 一 | yi1 | one |

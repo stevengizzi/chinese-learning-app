@@ -983,3 +983,163 @@ english: He is working.
 mandarin: 他在做工。
 pinyin: Tā zài zuò gōng.
 --
+english: This year is good.
+mandarin: 今年很好。
+pinyin: Jīnnián hěn hǎo.
+--
+Last year I studied.
+去年我学习。
+Qùnián wǒ xuéxí.
+--
+english: He is my friend.
+mandarin: 他是我朋。
+pinyin: Tā shì wǒ péng.
+--
+Friends are important.
+朋很重要。
+Péng hěn zhòngyào.
+--
+english: This dish is good.
+mandarin: 这个菜很好。
+pinyin: Zhège cài hěn hǎo.
+--
+There are vegetables.
+有菜。
+Yǒu cài.
+--
+english: I study Chinese.
+mandarin: 我学习汉语。
+pinyin: Wǒ xuéxí Hànyǔ.
+--
+She is studying.
+她在学习。
+Tā zài xuéxí.
+--
+english: This food is delicious.
+mandarin: 这个很好吃。
+pinyin: Zhège hěn hǎochī.
+--
+The dish is tasty.
+菜很好吃。
+Cài hěn hǎochī.
+--
+english: My son is here.
+mandarin: 我的儿子在这儿。
+pinyin: Wǒ de érzi zài zhèr.
+--
+Her son is a student.
+她的儿子是学生。
+Tā de érzi shì xuéshēng.
+--
+english: I play ball.
+mandarin: 我打球。
+pinyin: Wǒ dǎ qiú.
+--
+They are playing ball.
+他们在打球。
+Tāmen zài dǎ qiú.
+--
+english: Where is the bathroom?
+mandarin: 洗手间在哪儿？
+pinyin: Xǐshǒujiān zài nǎr?
+--
+I go to the bathroom.
+我去洗手间。
+Wǒ qù xǐshǒujiān.
+--
+english: Put it here.
+mandarin: 放在这儿。
+pinyin: Fàng zài zhèr.
+--
+Put the book on the table.
+把书放在桌子上。
+Bǎ shū fàng zài zhuōzi shàng.
+--
+english: This is milk.
+mandarin: 这是奶。
+pinyin: Zhè shì nǎi.
+--
+The child drinks milk.
+孩子喝奶。
+Háizi hē nǎi.
+--
+english: The east is there.
+mandarin: 东在那儿。
+pinyin: Dōng zài nàr.
+--
+Go east.
+往东走。
+Wǎng dōng zǒu.
+--
+english: The room is bright.
+mandarin: 房间很明。
+pinyin: Fángjiān hěn míng.
+--
+This explanation is clear.
+这个很明。
+Zhège hěn míng.
+--
+english: The north is cold.
+mandarin: 北很冷。
+pinyin: Běi hěn lěng.
+--
+Go north.
+往北走。
+Wǎng běi zǒu.
+--
+english: She is female.
+mandarin: 她是女。
+pinyin: Tā shì nǚ.
+--
+Female students.
+女学生。
+Nǚ xuéshēng.
+--
+english: Come in.
+mandarin: 进来。
+pinyin: Jìnlái.
+--
+The child comes in.
+孩子进来了。
+Háizi jìnlái le.
+--
+english: It is on the right side.
+mandarin: 在右边。
+pinyin: Zài yòubiān.
+--
+The store is on the right.
+店在右边。
+Diàn zài yòubiān.
+--
+english: I am a student.
+mandarin: 我是学生。
+pinyin: Wǒ shì xuéshēng.
+--
+The students are studying.
+学生在学习。
+Xuéshēng zài xuéxí.
+--
+english: Close the door.
+mandarin: 关门。
+pinyin: Guān mén.
+--
+Turn off the TV.
+关电视机。
+Guān diànshìjī.
+--
+english: Today is hot.
+mandarin: 今天很热。
+pinyin: Jīntiān hěn rè.
+--
+The food is hot.
+菜很热。
+Cài hěn rè.
+--
+english: One person.
+mandarin: 一个人。
+pinyin: Yí gè rén.
+--
+One book.
+一本书。
+Yì běn shū.
+--
