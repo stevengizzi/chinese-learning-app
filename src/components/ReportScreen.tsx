@@ -11,10 +11,15 @@ export function ReportScreen() {
   useEffect(() => {
     if (!state.currentSession) return;
 
-    const { statistics, exerciseType, playMode } = state.currentSession;
+    const { statistics, exerciseType, playMode, remainingWords } = state.currentSession;
 
-    // Only save high score if we have timing data and at least one correct answer
-    if (statistics.averageTimePerCorrectAnswer !== undefined) {
+    // Determine if session was completed
+    const isCompleted =
+      playMode === 'endless' || // Endless mode always counts
+      (remainingWords !== undefined && remainingWords.length === 0); // Complete-all/drill only if finished
+
+    // Only save high score if we have timing data, at least one correct answer, and session was completed
+    if (statistics.averageTimePerCorrectAnswer !== undefined && isCompleted) {
       const wasNewHighScore = updateHighScore(
         exerciseType,
         playMode,

@@ -14,6 +14,13 @@ export interface HighScoreKey {
 
 const HIGH_SCORES_KEY = 'highScores';
 
+// Clear all existing high scores on module load (one-time migration)
+// This can be removed after users have loaded the updated version
+if (typeof window !== 'undefined' && localStorage.getItem(HIGH_SCORES_KEY)) {
+  localStorage.removeItem(HIGH_SCORES_KEY);
+  console.log('High scores cleared due to updated completion logic');
+}
+
 /**
  * Gets all high scores from localStorage
  */
@@ -87,6 +94,17 @@ export function formatTime(ms: number): string {
     const minutes = Math.floor(ms / 60000);
     const seconds = Math.floor((ms % 60000) / 1000);
     return `${minutes}m ${seconds}s`;
+  }
+}
+
+/**
+ * Clears all high scores from localStorage
+ */
+export function clearAllHighScores(): void {
+  try {
+    localStorage.removeItem(HIGH_SCORES_KEY);
+  } catch (error) {
+    console.error('Failed to clear high scores:', error);
   }
 }
 
