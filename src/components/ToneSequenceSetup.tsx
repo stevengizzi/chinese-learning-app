@@ -32,6 +32,18 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
 
   const savedSettings = loadSavedSettings();
 
+  // Merge saved sandhi rules with defaults (preserve functions)
+  const mergeSandhiRules = () => {
+    if (!savedSettings?.sandhiRules) {
+      return DEFAULT_SANDHI_RULES;
+    }
+    // Map saved rules to defaults, preserving enabled state
+    return DEFAULT_SANDHI_RULES.map(defaultRule => {
+      const savedRule = savedSettings.sandhiRules.find(r => r.id === defaultRule.id);
+      return savedRule ? { ...defaultRule, enabled: savedRule.enabled } : defaultRule;
+    });
+  };
+
   // Tone selection (all enabled by default, or load from storage)
   const [activeTones, setActiveTones] = useState<Set<ToneNumber>>(
     savedSettings?.activeTones
@@ -46,8 +58,8 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
   // Excluded syllables
   const [excludedSyllablesText, setExcludedSyllablesText] = useState(savedSettings?.excludedSyllablesText ?? '');
 
-  // Sandhi rules
-  const [sandhiRules, setSandhiRules] = useState(savedSettings?.sandhiRules ?? DEFAULT_SANDHI_RULES);
+  // Sandhi rules - merge with defaults to preserve functions
+  const [sandhiRules, setSandhiRules] = useState(mergeSandhiRules());
 
   // Exercise parameters
   const [sequenceLength, setSequenceLength] = useState(savedSettings?.sequenceLength ?? 4);
