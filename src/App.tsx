@@ -9,6 +9,7 @@ import { ReportScreen } from './components/ReportScreen';
 import { ViewVocabulary } from './components/ViewVocabulary';
 import { VocabularyUploader } from './components/VocabularyUploader';
 import { ThemeToggle } from './components/ThemeToggle';
+import { ToneSequenceTrainer } from './components/ToneSequenceTrainer';
 
 function AppContent() {
   const { state, dispatch } = useExercise();
@@ -54,6 +55,9 @@ function AppContent() {
           {state.screen === 'feedback' && <FeedbackScreen />}
           {state.screen === 'report' && <ReportScreen />}
           {state.screen === 'view-vocabulary' && <ViewVocabulary />}
+          {state.screen === 'tone-sequence' && (
+            <ToneSequenceTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
+          )}
 
           {/* Floating vocabulary update button - show only on menu and report screens */}
           {(state.screen === 'menu' || state.screen === 'report') && (

@@ -51,7 +51,7 @@ notes:
 | 去年 | qu4 nian2 | last year |
 | 认真 | ren4 zhen1 | serious; earnest |
 | 商 | shang1 | trade; commerce |
-| 上学 | shang4 xue2 | to go to school |
+| 上学 | shang4 xue2 | to go to school; to attend school |
 | 生日 | sheng1 ri4 | birthday |
 | 手 | shou3 | hand |
 | 听见 | ting1 jian4 | to hear |
@@ -60,7 +60,7 @@ notes:
 | 下 | xia4 | down; below |
 | 谢谢 | xie4 xie | thank you |
 | 学校 | xue2 xiao4 | school |
-| 一下儿 | yi1 xia4 r | all of a sudden; give it a go |
+| 一下儿 | yi2 xia4 r | all of a sudden; give it a go |
 | 月 | yue4 | month; moon |
 | 再见 | zai4 jian4 | goodbye; see you again later |
 | 知 | zhi1 | to know; to be aware |

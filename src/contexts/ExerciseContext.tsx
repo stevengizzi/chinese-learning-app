@@ -8,7 +8,7 @@ import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -28,6 +28,7 @@ type ExerciseAction =
   | { type: 'REQUEST_REPORT' }
   | { type: 'BACK_TO_MENU' }
   | { type: 'VIEW_VOCABULARY' }
+  | { type: 'START_TONE_SEQUENCE' }
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' };
 
@@ -300,6 +301,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         screen: 'view-vocabulary'
+      };
+    }
+
+    case 'START_TONE_SEQUENCE': {
+      return {
+        ...state,
+        screen: 'tone-sequence'
       };
     }
 

@@ -143,8 +143,22 @@ export function MainMenu() {
             </div>
 
             {/* Update Vocabulary Button */}
-            <div className="mb-8 w-1/4">
+            <div className="mb-4 w-1/4">
               <VocabularyUploader />
+            </div>
+
+            {/* Tone Sequence Trainer Button */}
+            <div className="mb-8 w-1/2">
+              <button
+                onClick={() => dispatch({ type: 'START_TONE_SEQUENCE' })}
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                <span className="text-2xl mr-2">🎵</span>
+                <span className="text-lg">Tone Sequence Trainer</span>
+              </button>
+              <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Practice tone pronunciation with random syllable sequences
+              </p>
             </div>
 
             {/* Exercise Types */}
