@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ToneNumber, ToneSequenceConfig } from '../types/toneSequence';
 import { DEFAULT_SANDHI_RULES } from '../lib/toneSequence/toneSandhiRules';
 
@@ -7,25 +7,65 @@ interface ToneSequenceSetupProps {
   onBack: () => void;
 }
 
+const STORAGE_KEY = 'toneSequenceSettings';
+
+interface StoredSettings {
+  activeTones: number[];
+  difficultyMin: number;
+  difficultyMax: number;
+  excludedSyllablesText: string;
+  sandhiRules: typeof DEFAULT_SANDHI_RULES;
+  sequenceLength: number;
+  bpm: number;
+}
+
 export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
-  // Tone selection (all enabled by default)
+  // Load saved settings from localStorage
+  const loadSavedSettings = (): StoredSettings | null => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const savedSettings = loadSavedSettings();
+
+  // Tone selection (all enabled by default, or load from storage)
   const [activeTones, setActiveTones] = useState<Set<ToneNumber>>(
-    new Set([1, 2, 3, 4, 5] as ToneNumber[])
+    savedSettings?.activeTones
+      ? new Set(savedSettings.activeTones as ToneNumber[])
+      : new Set([1, 2, 3, 4, 5] as ToneNumber[])
   );
 
   // Difficulty range
-  const [difficultyMin, setDifficultyMin] = useState(1);
-  const [difficultyMax, setDifficultyMax] = useState(5);
+  const [difficultyMin, setDifficultyMin] = useState(savedSettings?.difficultyMin ?? 1);
+  const [difficultyMax, setDifficultyMax] = useState(savedSettings?.difficultyMax ?? 5);
 
   // Excluded syllables
-  const [excludedSyllablesText, setExcludedSyllablesText] = useState('');
+  const [excludedSyllablesText, setExcludedSyllablesText] = useState(savedSettings?.excludedSyllablesText ?? '');
 
   // Sandhi rules
-  const [sandhiRules, setSandhiRules] = useState(DEFAULT_SANDHI_RULES);
+  const [sandhiRules, setSandhiRules] = useState(savedSettings?.sandhiRules ?? DEFAULT_SANDHI_RULES);
 
   // Exercise parameters
-  const [sequenceLength, setSequenceLength] = useState(4);
-  const [bpm, setBPM] = useState(120);
+  const [sequenceLength, setSequenceLength] = useState(savedSettings?.sequenceLength ?? 4);
+  const [bpm, setBPM] = useState(savedSettings?.bpm ?? 120);
+
+  // Save settings to localStorage whenever they change
+  useEffect(() => {
+    const settings: StoredSettings = {
+      activeTones: Array.from(activeTones),
+      difficultyMin,
+      difficultyMax,
+      excludedSyllablesText,
+      sandhiRules,
+      sequenceLength,
+      bpm,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+  }, [activeTones, difficultyMin, difficultyMax, excludedSyllablesText, sandhiRules, sequenceLength, bpm]);
 
   const toggleTone = (tone: ToneNumber) => {
     const newTones = new Set(activeTones);
@@ -100,12 +140,15 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                 <button
                   key={tone.number}
                   onClick={() => toggleTone(tone.number)}
-                  className={`p-4 rounded-lg border-2 transition-colors ${
+                  className={`p-4 rounded-lg border-2 transition-all relative ${
                     activeTones.has(tone.number)
-                      ? 'bg-blue-100 border-blue-500 text-blue-900'
-                      : 'bg-gray-50 border-gray-300 text-gray-500'
+                      ? 'bg-blue-500 border-blue-600 text-white shadow-lg scale-105'
+                      : 'bg-white border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
                   }`}
                 >
+                  {activeTones.has(tone.number) && (
+                    <div className="absolute top-1 right-1 text-white font-bold text-xs">✓</div>
+                  )}
                   <div className="text-sm font-medium">{tone.name}</div>
                   <div className="text-2xl font-bold mt-1">{tone.example}</div>
                   <div className="text-xs mt-1">{tone.symbol || '(neutral)'}</div>

@@ -43,6 +43,18 @@ export function ToneSequenceExercise({
     }
   }, [config.bpm]);
 
+  // Add Enter key handler for Next Sequence
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        generateNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [config]);
+
   const generateNext = () => {
     try {
       const sequence = generateToneSequence(config);
