@@ -57,12 +57,24 @@ export function ToneSequenceExercise({
 
   const generateNext = () => {
     try {
+      console.log('Generating sequence with config:', {
+        activeTones: Array.from(config.activeTones),
+        difficultyRange: config.difficultyRange,
+        excludedSyllables: Array.from(config.excludedSyllables),
+        sequenceLength: config.sequenceLength,
+        sandhiRulesCount: config.sandhiRules.length
+      });
       const sequence = generateToneSequence(config);
+      console.log('Generated sequence:', sequence);
       setCurrentSequence(sequence);
       setSequencesCompleted(prev => prev + 1);
     } catch (error) {
       console.error('Error generating sequence:', error);
-      alert('Error generating sequence. Check your configuration settings.');
+      console.error('Error details:', {
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined
+      });
+      alert(`Error generating sequence: ${error instanceof Error ? error.message : 'Unknown error'}\n\nCheck your configuration settings.`);
     }
   };
 
