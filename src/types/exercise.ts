@@ -1,4 +1,5 @@
 import type { VocabularyEntry } from './vocabulary';
+import type { PromptType } from './responseTracking';
 
 export type ExerciseType =
   | 'character-to-pinyin'
@@ -14,6 +15,7 @@ export interface Exercise {
   id: string;
   type: ExerciseType;
   prompt: string;             // What to show (character, meaning, or pinyin)
+  promptType: PromptType;     // What was shown to user (determined from prompt content)
   correctPinyin?: string;     // Correct tone-number pinyin (for pinyin exercises)
   correctMeaning?: string;    // Correct English meaning (for English exercises)
   words: VocabularyEntry[];   // Words used in exercise

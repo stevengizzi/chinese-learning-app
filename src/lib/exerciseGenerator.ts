@@ -1,9 +1,36 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
-import type { ResponseDatabase } from '../types/responseTracking';
+import type { ResponseDatabase, PromptType } from '../types/responseTracking';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
 import { generateVocabularyId, calculateGlobalAverage } from './responseTracking/storage';
 import { getSlowerThanAverageEntries } from './responseTracking/analytics';
+
+/**
+ * Determine the prompt type based on what was shown to the user
+ */
+function determinePromptType(
+  prompt: string,
+  selectedEntry: VocabularyEntry,
+  isPinyinExercise: boolean
+): PromptType {
+  // Check if the original prompt (before disambiguation) matches character, pinyin, or meaning
+  const promptWithoutDisambiguation = prompt.split(' (')[0]; // Remove disambiguation text
+
+  if (promptWithoutDisambiguation === selectedEntry.word || prompt.startsWith(selectedEntry.word + ' (')) {
+    // Prompt is a character
+    if (isPinyinExercise) {
+      return 'character-to-pinyin';
+    } else {
+      return 'character-to-english';
+    }
+  } else if (promptWithoutDisambiguation === selectedEntry.meaning || prompt.includes(selectedEntry.meaning)) {
+    // Prompt is English meaning
+    return 'english-to-pinyin';
+  } else {
+    // Prompt is pinyin (with tone marks or in parentheses)
+    return 'pinyin-to-english';
+  }
+}
 
 export function generateExercise(
   vocabulary: VocabularyEntry[],
@@ -175,10 +202,14 @@ export function generateExercise(
   const isPinyinExercise = exerciseType.endsWith('-pinyin') || exerciseType === 'shuffled';
   const isEnglishExercise = exerciseType.endsWith('-english');
 
+  // Determine prompt type based on what was shown
+  const promptType = determinePromptType(prompt, selectedEntry, isPinyinExercise);
+
   return {
     id: exerciseId,
     type: exerciseType,
     prompt,
+    promptType,
     correctPinyin: isPinyinExercise ? selectedEntry.pinyin : undefined,
     correctMeaning: isEnglishExercise ? selectedEntry.meaning : undefined,
     words: [selectedEntry]

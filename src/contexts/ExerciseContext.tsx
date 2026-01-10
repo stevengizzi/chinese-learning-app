@@ -198,6 +198,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         character: vocabEntry.word,
         pinyin: vocabEntry.pinyin,
         meaning: vocabEntry.meaning,
+        promptType: state.currentExercise.promptType,
         responseTimeMs,
         wasCorrect
       };
@@ -327,6 +328,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
             pinyin: timing.pinyin,
             meaning: timing.meaning,
             exerciseType: state.currentSession!.exerciseType,
+            promptType: timing.promptType,
             responseTimeMs: timing.responseTimeMs,
             wasCorrect: timing.wasCorrect
           }));

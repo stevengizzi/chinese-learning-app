@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
+import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
+import { formatResponseTime } from '../lib/responseTracking/analytics';
+import type { ResponseDatabase } from '../types/responseTracking';
 
 export function ViewVocabulary() {
   const { state, dispatch } = useExercise();
   const [searchQuery, setSearchQuery] = useState('');
+  const [responseDatabase, setResponseDatabase] = useState<ResponseDatabase | null>(null);
+
+  useEffect(() => {
+    loadResponseDatabase().then(db => {
+      setResponseDatabase(db);
+    });
+  }, []);
 
   const handleBackToMenu = () => {
     dispatch({ type: 'BACK_TO_MENU' });
@@ -104,29 +114,58 @@ export function ViewVocabulary() {
 
           {/* Vocabulary Table */}
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
-                  <th className="text-left p-4 font-semibold text-gray-900 dark:text-white">Character</th>
-                  <th className="text-left p-4 font-semibold text-gray-900 dark:text-white">Pinyin</th>
-                  <th className="text-left p-4 font-semibold text-gray-900 dark:text-white">Meaning</th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white">Character</th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white">Pinyin</th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white">Meaning</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white" title="Character → Pinyin average speed">字→拼</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white" title="Character → English average speed">字→英</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white" title="Pinyin → English average speed">拼→英</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white" title="English → Pinyin average speed">英→拼</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredVocabulary.length > 0 ? (
-                  filteredVocabulary.map((entry, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
-                    >
-                      <td className="p-4 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
-                      <td className="p-4 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
-                      <td className="p-4 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
-                    </tr>
-                  ))
+                  filteredVocabulary.map((entry, index) => {
+                    const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
+                    const stats = responseDatabase?.statistics[vocabId];
+
+                    return (
+                      <tr
+                        key={index}
+                        className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      >
+                        <td className="p-3 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
+                        <td className="p-3 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
+                        <td className="p-3 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                          {stats?.byPromptType?.['character-to-pinyin']?.correctAttempts ?? 0 > 0
+                            ? formatResponseTime(stats?.byPromptType?.['character-to-pinyin']?.averageResponseTimeMs ?? 0)
+                            : '—'}
+                        </td>
+                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                          {stats?.byPromptType?.['character-to-english']?.correctAttempts ?? 0 > 0
+                            ? formatResponseTime(stats?.byPromptType?.['character-to-english']?.averageResponseTimeMs ?? 0)
+                            : '—'}
+                        </td>
+                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                          {stats?.byPromptType?.['pinyin-to-english']?.correctAttempts ?? 0 > 0
+                            ? formatResponseTime(stats?.byPromptType?.['pinyin-to-english']?.averageResponseTimeMs ?? 0)
+                            : '—'}
+                        </td>
+                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                          {stats?.byPromptType?.['english-to-pinyin']?.correctAttempts ?? 0 > 0
+                            ? formatResponseTime(stats?.byPromptType?.['english-to-pinyin']?.averageResponseTimeMs ?? 0)
+                            : '—'}
+                        </td>
+                      </tr>
+                    );
+                  })
                 ) : (
                   <tr>
-                    <td colSpan={3} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    <td colSpan={7} className="p-8 text-center text-gray-500 dark:text-gray-400">
                       No matching vocabulary found
                     </td>
                   </tr>

@@ -7,15 +7,38 @@
 import type { ExerciseType } from './exercise';
 
 /**
+ * Prompt type - what was shown to the user
+ */
+export type PromptType =
+  | 'character-to-pinyin'      // Character → Pinyin
+  | 'character-to-english'     // Character → English
+  | 'pinyin-to-english'        // Pinyin → English
+  | 'english-to-pinyin';       // English → Pinyin
+
+/**
  * Individual response record
  */
 export interface ResponseRecord {
   vocabularyId: string;        // Unique ID: "{character}:{pinyin}:{meaning}"
   character: string;            // The Chinese character
   exerciseType: ExerciseType;  // Type of exercise
+  promptType: PromptType;       // What was shown to user (for shuffled exercises)
   responseTimeMs: number;       // Time taken to respond (ms)
   wasCorrect: boolean;          // Whether answer was correct
   timestamp: number;            // When this occurred (Unix timestamp)
+}
+
+/**
+ * Statistics for a specific prompt type
+ */
+export interface PromptTypeStats {
+  totalAttempts: number;
+  correctAttempts: number;
+  averageResponseTimeMs: number;  // Average of correct responses only
+  fastestResponseMs: number;
+  slowestResponseMs: number;
+  lastAttemptTimestamp: number;
+  recentResponseTimes: number[];  // Last 10 correct response times
 }
 
 /**
@@ -28,11 +51,12 @@ export interface VocabularySpeedStats {
   meaning: string;
   totalAttempts: number;
   correctAttempts: number;
-  averageResponseTimeMs: number;  // Average of correct responses only
+  averageResponseTimeMs: number;  // Average of correct responses only (across all prompt types)
   fastestResponseMs: number;
   slowestResponseMs: number;
   lastAttemptTimestamp: number;
   recentResponseTimes: number[];  // Last 10 correct response times
+  byPromptType: Record<PromptType, PromptTypeStats>;  // Stats broken down by prompt type
 }
 
 /**

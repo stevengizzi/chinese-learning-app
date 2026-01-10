@@ -4,7 +4,7 @@
  * Manages loading and saving response time data to/from JSON file and localStorage cache
  */
 
-import type { ResponseDatabase, ResponseRecord, VocabularySpeedStats } from '../../types/responseTracking';
+import type { ResponseDatabase, ResponseRecord, VocabularySpeedStats, PromptType, PromptTypeStats } from '../../types/responseTracking';
 import type { ExerciseType } from '../../types/exercise';
 
 const DB_URL = `${import.meta.env.BASE_URL}data/response-tracking.json`;
@@ -74,6 +74,21 @@ export function saveResponseDatabase(database: ResponseDatabase): void {
 }
 
 /**
+ * Create empty prompt type stats
+ */
+function createEmptyPromptTypeStats(): PromptTypeStats {
+  return {
+    totalAttempts: 0,
+    correctAttempts: 0,
+    averageResponseTimeMs: 0,
+    fastestResponseMs: Infinity,
+    slowestResponseMs: 0,
+    lastAttemptTimestamp: 0,
+    recentResponseTimes: []
+  };
+}
+
+/**
  * Add response records and update statistics
  */
 export function addResponseRecords(
@@ -84,6 +99,7 @@ export function addResponseRecords(
     pinyin: string;
     meaning: string;
     exerciseType: ExerciseType;
+    promptType: PromptType;
     responseTimeMs: number;
     wasCorrect: boolean;
   }>
@@ -95,6 +111,7 @@ export function addResponseRecords(
     vocabularyId: r.vocabularyId,
     character: r.character,
     exerciseType: r.exerciseType,
+    promptType: r.promptType,
     responseTimeMs: r.responseTimeMs,
     wasCorrect: r.wasCorrect,
     timestamp: now
@@ -108,7 +125,7 @@ export function addResponseRecords(
   const updatedStatistics = { ...database.statistics };
 
   for (const record of records) {
-    const { vocabularyId, character, pinyin, meaning, responseTimeMs, wasCorrect } = record;
+    const { vocabularyId, character, pinyin, meaning, promptType, responseTimeMs, wasCorrect } = record;
 
     // Get or create stats entry
     let stats = updatedStatistics[vocabularyId];
@@ -124,25 +141,57 @@ export function addResponseRecords(
         fastestResponseMs: Infinity,
         slowestResponseMs: 0,
         lastAttemptTimestamp: 0,
-        recentResponseTimes: []
+        recentResponseTimes: [],
+        byPromptType: {
+          'character-to-pinyin': createEmptyPromptTypeStats(),
+          'character-to-english': createEmptyPromptTypeStats(),
+          'pinyin-to-english': createEmptyPromptTypeStats(),
+          'english-to-pinyin': createEmptyPromptTypeStats()
+        }
       };
     }
 
-    // Update stats
+    // Ensure byPromptType exists (for backward compatibility with old data)
+    if (!stats.byPromptType) {
+      stats.byPromptType = {
+        'character-to-pinyin': createEmptyPromptTypeStats(),
+        'character-to-english': createEmptyPromptTypeStats(),
+        'pinyin-to-english': createEmptyPromptTypeStats(),
+        'english-to-pinyin': createEmptyPromptTypeStats()
+      };
+    }
+
+    // Update overall stats
     stats.totalAttempts++;
     stats.lastAttemptTimestamp = now;
 
+    // Update prompt-type-specific stats
+    const promptStats = stats.byPromptType[promptType];
+    promptStats.totalAttempts++;
+    promptStats.lastAttemptTimestamp = now;
+
     if (wasCorrect) {
       stats.correctAttempts++;
+      promptStats.correctAttempts++;
 
-      // Update response times (only for correct answers)
+      // Update overall response times (only for correct answers)
       stats.recentResponseTimes = [...stats.recentResponseTimes, responseTimeMs].slice(-10);
       stats.fastestResponseMs = Math.min(stats.fastestResponseMs, responseTimeMs);
       stats.slowestResponseMs = Math.max(stats.slowestResponseMs, responseTimeMs);
 
-      // Recalculate average from recent times
+      // Update prompt-type-specific response times
+      promptStats.recentResponseTimes = [...promptStats.recentResponseTimes, responseTimeMs].slice(-10);
+      promptStats.fastestResponseMs = Math.min(promptStats.fastestResponseMs, responseTimeMs);
+      promptStats.slowestResponseMs = Math.max(promptStats.slowestResponseMs, responseTimeMs);
+
+      // Recalculate overall average from recent times
       if (stats.recentResponseTimes.length > 0) {
         stats.averageResponseTimeMs = stats.recentResponseTimes.reduce((a, b) => a + b, 0) / stats.recentResponseTimes.length;
+      }
+
+      // Recalculate prompt-type-specific average
+      if (promptStats.recentResponseTimes.length > 0) {
+        promptStats.averageResponseTimeMs = promptStats.recentResponseTimes.reduce((a, b) => a + b, 0) / promptStats.recentResponseTimes.length;
       }
     }
 

@@ -1,4 +1,5 @@
 import type { ExerciseAttempt, ExerciseType, PlayMode } from './exercise';
+import type { PromptType } from './responseTracking';
 
 export interface Session {
   id: string;
@@ -17,6 +18,7 @@ export interface Session {
     character: string;
     pinyin: string;
     meaning: string;
+    promptType: PromptType;  // What was shown to the user
     responseTimeMs: number;
     wasCorrect: boolean;
   }>;
