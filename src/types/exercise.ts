@@ -8,7 +8,7 @@ export type ExerciseType =
   | 'pinyin-to-english'
   | 'shuffled-to-english';
 
-export type PlayMode = 'endless' | 'complete-all' | 'drill';
+export type PlayMode = 'endless' | 'complete-all' | 'drill' | 'speed-drill';
 
 export interface Exercise {
   id: string;

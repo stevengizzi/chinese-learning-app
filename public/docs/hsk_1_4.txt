@@ -21,7 +21,7 @@ pinyin: Wǒ mǎi le huǒchē chēpiào.
 --
 english: This ticket is not cheap.
 mandarin: 这张车票不便宜。
-pinyin: Zhè zhāng chēpiào bú piányí.
+pinyin: Zhè zhāng chēpiào bù piányí.
 --
 english: I got the money.
 mandarin: 我得到钱了。
@@ -29,7 +29,7 @@ pinyin: Wǒ dédào qián le.
 --
 english: She got a book.
 mandarin: 她得了一本书。
-pinyin: Tā dé le yì běn shū.
+pinyin: Tā dé le yī běn shū.
 --
 english: I must go to school today.
 mandarin: 我今天得上学。
@@ -305,11 +305,11 @@ pinyin: Wǒ xǐhuan xuéxiào.
 --
 english: Try it a bit.
 mandarin: 试一下儿。
-pinyin: Shì yíxiàr.
+pinyin: Shì yīxiàr.
 --
 english: Wait a moment.
 mandarin: 等一下儿。
-pinyin: Děng yíxiàr.
+pinyin: Děng yīxiàr.
 --
 english: This month is good.
 mandarin: 这个月很好。
@@ -401,7 +401,7 @@ pinyin: Nǐ zuìhǎo qù.
 --
 english: A little bit.
 mandarin: 一点。
-pinyin: Yì diǎn.
+pinyin: Yī diǎn.
 --
 english: At three o’clock.
 mandarin: 三点。
@@ -521,11 +521,11 @@ pinyin: Qiántiān hěn máng.
 --
 english: We go together.
 mandarin: 我们一块儿去。
-pinyin: Wǒmen yíkuàir qù.
+pinyin: Wǒmen yīkuàir qù.
 --
 english: Eat together.
 mandarin: 一块儿吃。
-pinyin: Yíkuàir chī.
+pinyin: Yīkuàir chī.
 --
 english: This word uses 绍.
 mandarin: 这个词用绍。
@@ -577,11 +577,11 @@ pinyin: Tā zài chàng gē.
 --
 english: Half of it.
 mandarin: 一半。
-pinyin: Yíbàn.
+pinyin: Yībàn.
 --
 english: I ate half.
 mandarin: 我吃了一半。
-pinyin: Wǒ chī le yíbàn.
+pinyin: Wǒ chī le yībàn.
 --
 english: Good evening.
 mandarin: 晚上好。
@@ -669,7 +669,7 @@ pinyin: Shì.
 --
 english: Try a bit.
 mandarin: 试一下儿。
-pinyin: Shì yíxiàr.
+pinyin: Shì yīxiàr.
 --
 english: Come out.
 mandarin: 出来。
@@ -785,7 +785,7 @@ pinyin: Wǒ yǒu shì.
 --
 english: One book.
 mandarin: 一本书。
-pinyin: Yì běn shū.
+pinyin: Yī běn shū.
 --
 english: I bought two books.
 mandarin: 我买了两本书。
@@ -853,7 +853,7 @@ pinyin: Xià cì jiàn.
 --
 english: Next time we go together.
 mandarin: 下次我们一块儿去。
-pinyin: Xià cì wǒmen yíkuàir qù.
+pinyin: Xià cì wǒmen yīkuàir qù.
 --
 english: This store is good.
 mandarin: 这个店很好。
@@ -937,7 +937,7 @@ pinyin: Liù diǎn.
 --
 english: One road.
 mandarin: 一条路。
-pinyin: Yì tiáo lù.
+pinyin: Yī tiáo lù.
 --
 english: Two roads.
 mandarin: 两条路。
@@ -1137,9 +1137,169 @@ pinyin: Cài hěn rè.
 --
 english: One person.
 mandarin: 一个人。
-pinyin: Yí gè rén.
+pinyin: Yī gè rén.
 --
 english: One book.
 mandarin: 一本书。
-pinyin: Yì běn shū.
+pinyin: Yī běn shū.
+--
+english: She gave birth to a child.
+mandarin: 她生孩子。
+pinyin: Tā shēng háizi.
+--
+english: Life is important.
+mandarin: 生很重要。
+pinyin: Shēng hěn zhòngyào.
+--
+english: This is incorrect.
+mandarin: 这个不对。
+pinyin: Zhège bù duì.
+--
+english: Your answer is wrong.
+mandarin: 你的答案不对。
+pinyin: Nǐ de dá’àn bù duì.
+--
+english: Walk and sing at the same time.
+mandarin: 一边走，一边唱。
+pinyin: Yī biān zǒu, yī biān chàng.
+--
+english: On the right side.
+mandarin: 在右边这一边。
+pinyin: Zài yòubiān zhè yī biān.
+--
+english: You’re welcome.
+mandarin: 不客气。
+pinyin: Bù kèqi.
+--
+english: Don’t be rude.
+mandarin: 别不客气。
+pinyin: Bié bù kèqi.
+--
+english: I also go.
+mandarin: 我也去。
+pinyin: Wǒ yě qù.
+--
+english: She is also a student.
+mandarin: 她也是学生。
+pinyin: Tā yě shì xuéshēng.
+--
+english: There is a mountain.
+mandarin: 有山。
+pinyin: Yǒu shān.
+--
+english: That mountain is big.
+mandarin: 那座山很大。
+pinyin: Nà zuò shān hěn dà.
+--
+english: He is my friend.
+mandarin: 他是我友。
+pinyin: Tā shì wǒ yǒu.
+--
+english: Friends are important.
+mandarin: 友很重要。
+pinyin: Yǒu hěn zhòngyào.
+--
+english: I want to go.
+mandarin: 我要去。
+pinyin: Wǒ yào qù.
+--
+english: She is going to study.
+mandarin: 她要学习。
+pinyin: Tā yào xuéxí.
+--
+english: One hundred yuan.
+mandarin: 一百块钱。
+pinyin: Yī bǎi kuài qián.
+--
+english: There are one hundred people.
+mandarin: 有一百个人。
+pinyin: Yǒu yī bǎi gè rén.
+--
+english: Eight people.
+mandarin: 八个人。
+pinyin: Bā gè rén.
+--
+english: At eight o’clock.
+mandarin: 八点。
+pinyin: Bā diǎn.
+--
+english: This is useful.
+mandarin: 这个有用。
+pinyin: Zhège yǒuyòng.
+--
+english: Knowledge is useful.
+mandarin: 知识有用。
+pinyin: Zhīshi yǒuyòng.
+--
+english: Five cents.
+mandarin: 五分钱。
+pinyin: Wǔ fēn qián.
+--
+english: This is one part.
+mandarin: 这是一分。
+pinyin: Zhè shì yī fēn.
+--
+english: We all go.
+mandarin: 我们都去。
+pinyin: Wǒmen dōu qù.
+--
+english: They all are students.
+mandarin: 他们都是学生。
+pinyin: Tāmen dōu shì xuéshēng.
+--
+english: I got the money.
+mandarin: 我得到钱了。
+pinyin: Wǒ dédào qián le.
+--
+english: She received the book.
+mandarin: 她得到书了。
+pinyin: Tā dédào shū le.
+--
+english: One dollar.
+mandarin: 一快钱。
+pinyin: Yī kuài qián.
+--
+english: I have two dollars.
+mandarin: 我有两快钱。
+pinyin: Wǒ yǒu liǎng kuài qián.
+--
+english: They are here.
+mandarin: 他们在这儿。
+pinyin: Tāmen zài zhèr.
+--
+english: They are studying.
+mandarin: 他们在学习。
+pinyin: Tāmen zài xuéxí.
+--
+english: This room is clean.
+mandarin: 这个房间很干净。
+pinyin: Zhège fángjiān hěn gānjìng.
+--
+english: The table is clean.
+mandarin: 桌子很干净。
+pinyin: Zhuōzi hěn gānjìng.
+--
+english: I speak Chinese.
+mandarin: 我说汉语。
+pinyin: Wǒ shuō Hànyǔ.
+--
+english: She is speaking.
+mandarin: 她在说。
+pinyin: Tā zài shuō.
+--
+english: Knowledge is important.
+mandarin: 知识很重要。
+pinyin: Zhīshi hěn zhòngyào.
+--
+english: I study knowledge.
+mandarin: 我学习知识。
+pinyin: Wǒ xuéxí zhīshi.
+--
+english: She is a female student.
+mandarin: 她是女生。
+pinyin: Tā shì nǚshēng.
+--
+english: The girls are studying.
+mandarin: 女生在学习。
+pinyin: Nǚshēng zài xuéxí.
 --

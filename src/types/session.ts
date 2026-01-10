@@ -11,6 +11,15 @@ export interface Session {
   remainingWords?: string[];  // For complete-all mode
   accumulatedTimeMs?: number;  // Total active time (excluding feedback screens)
   lastResumeTime?: number;  // Timestamp when timer last resumed
+  exerciseStartTime?: number;  // When current exercise was shown
+  responseTimings: Array<{
+    vocabularyId: string;
+    character: string;
+    pinyin: string;
+    meaning: string;
+    responseTimeMs: number;
+    wasCorrect: boolean;
+  }>;
 }
 
 export interface SessionStatistics {

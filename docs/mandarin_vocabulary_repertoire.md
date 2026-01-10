@@ -165,3 +165,23 @@ notes:
 | 关 | guan1 | to close; to turn off |
 | 热 | re4 | hot (of weather); heat |
 | 一 | yi1 | one |
+| 生 | sheng1 | to be born; life |
+| 不对 | bu4 dui4 | incorrect; wrong |
+| 一边 | yi1 bian1 | at the same time...; side |
+| 不客气 | bu4 ke4 qi | you're welcome; don't mention it; impolite; rude |
+| 也 | ye3 | also; too |
+| 山 | shan1 | mountain |
+| 友 | you3 | friend |
+| 要 | yao4 | going to (do something); to want |
+| 百 | bai3 | hundred |
+| 八 | ba1 | eight |
+| 有用 | you3 yong4 | useful |
+| 分 | fen1 | component; minute (time); part; cent (money) |
+| 都 | dou1 | all; both |
+| 得到 | de2 dao4 | to get; to obtain; to receive |
+| 快 | kuai4 | dollar; piece; lump |
+| 他们 | ta1 men | they; them |
+| 干净 | gan1 jing4 | clean; neat |
+| 说 | shuo1 | to speak |
+| 知识 | zhi1 shi | knowledge |
+| 女生 | nü3 sheng1 | schoolgirl; female student; girl |

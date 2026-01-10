@@ -75,7 +75,9 @@ function createNewSession(exerciseType: ExerciseType, playMode: PlayMode, vocabu
     },
     remainingWords,
     accumulatedTimeMs: 0,
-    lastResumeTime: now  // Timer starts immediately
+    lastResumeTime: now,  // Timer starts immediately
+    exerciseStartTime: now,  // Start timing first exercise
+    responseTimings: []
   };
 }
 
@@ -99,7 +101,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       // Create remaining words list based on exercise type
       let remainingWords: string[] | undefined;
-      if (playMode === 'complete-all' || playMode === 'drill') {
+      if (playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') {
         if (exerciseType === 'shuffled') {
           // Create array with both word and meaning for each vocabulary entry
           const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
@@ -162,6 +164,24 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       const updatedAttempts = [...state.currentSession.attempts, attempt];
       const currentTime = Date.now();
 
+      // Calculate response time for this exercise
+      const responseTimeMs = state.currentSession.exerciseStartTime
+        ? currentTime - state.currentSession.exerciseStartTime
+        : 0;
+
+      // Record response timing
+      const vocabEntry = state.currentExercise.words[0];
+      const wasCorrect = attempt.score.correct === attempt.score.total;
+      const newTiming = {
+        vocabularyId: `${vocabEntry.word}:${vocabEntry.pinyin}:${vocabEntry.meaning}`,
+        character: vocabEntry.word,
+        pinyin: vocabEntry.pinyin,
+        meaning: vocabEntry.meaning,
+        responseTimeMs,
+        wasCorrect
+      };
+      const updatedResponseTimings = [...(state.currentSession.responseTimings || []), newTiming];
+
       // Accumulate time: add time since last resume to accumulated time, then pause
       const timeElapsedSinceResume = state.currentSession.lastResumeTime
         ? currentTime - state.currentSession.lastResumeTime
@@ -179,7 +199,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       let updatedRemainingWords = state.currentSession.remainingWords;
       const currentWord = state.currentExercise.words[0].word;
 
-      if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords) {
+      if ((state.currentSession.playMode === 'complete-all' || state.currentSession.playMode === 'speed-drill') && updatedRemainingWords) {
         // Remove current word (always move forward)
         updatedRemainingWords = updatedRemainingWords.slice(1);
       } else if (state.currentSession.playMode === 'drill' && updatedRemainingWords) {
@@ -204,11 +224,12 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         remainingWords: updatedRemainingWords,
         endTime: currentTime,
         accumulatedTimeMs: newAccumulatedTime,
-        lastResumeTime: undefined  // Pause timer during feedback
+        lastResumeTime: undefined,  // Pause timer during feedback
+        responseTimings: updatedResponseTimings
       };
 
-      // If complete-all or drill mode and no more words, go to report
-      if ((state.currentSession.playMode === 'complete-all' || state.currentSession.playMode === 'drill') && updatedRemainingWords?.length === 0) {
+      // If complete-all, drill, or speed-drill mode and no more words, go to report
+      if ((state.currentSession.playMode === 'complete-all' || state.currentSession.playMode === 'drill' || state.currentSession.playMode === 'speed-drill') && updatedRemainingWords?.length === 0) {
         return {
           ...state,
           currentSession: updatedSession,
@@ -250,7 +271,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         currentAttempt: null,
         currentSession: {
           ...state.currentSession,
-          lastResumeTime: resumeTime  // Resume timer when starting next exercise
+          lastResumeTime: resumeTime,  // Resume timer when starting next exercise
+          exerciseStartTime: resumeTime  // Start timing for new exercise
         },
         screen: 'exercise'
       };
