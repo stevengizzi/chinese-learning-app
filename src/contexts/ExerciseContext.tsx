@@ -319,27 +319,36 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         finalAccumulatedTime
       );
 
-      // Save response time data to database
+      // Save response time data to database synchronously
       if (state.currentSession.responseTimings && state.currentSession.responseTimings.length > 0) {
-        loadResponseDatabase().then(db => {
-          const records = state.currentSession!.responseTimings.map(timing => ({
-            vocabularyId: timing.vocabularyId,
-            character: timing.character,
-            pinyin: timing.pinyin,
-            meaning: timing.meaning,
-            exerciseType: state.currentSession!.exerciseType,
-            promptType: timing.promptType,
-            responseTimeMs: timing.responseTimeMs,
-            wasCorrect: timing.wasCorrect
-          }));
+        // Load current database synchronously from localStorage
+        const cachedData = localStorage.getItem('response-tracking-cache');
+        let db;
+        if (cachedData) {
+          try {
+            db = JSON.parse(cachedData);
+          } catch {
+            db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+          }
+        } else {
+          db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+        }
 
-          const updatedDb = addResponseRecords(db, records);
-          saveResponseDatabase(updatedDb);
+        const records = state.currentSession.responseTimings.map(timing => ({
+          vocabularyId: timing.vocabularyId,
+          character: timing.character,
+          pinyin: timing.pinyin,
+          meaning: timing.meaning,
+          exerciseType: state.currentSession!.exerciseType,
+          promptType: timing.promptType,
+          responseTimeMs: timing.responseTimeMs,
+          wasCorrect: timing.wasCorrect
+        }));
 
-          console.log(`Saved ${records.length} response time records`);
-        }).catch(error => {
-          console.error('Failed to save response times:', error);
-        });
+        const updatedDb = addResponseRecords(db, records);
+        saveResponseDatabase(updatedDb);
+
+        console.log(`Saved ${records.length} response time records`);
       }
 
       return {
