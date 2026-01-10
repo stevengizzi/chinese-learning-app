@@ -1,22 +1,90 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
+import type { ResponseDatabase } from '../types/responseTracking';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
+import { generateVocabularyId, calculateGlobalAverage } from './responseTracking/storage';
+import { getSlowerThanAverageEntries } from './responseTracking/analytics';
 
 export function generateExercise(
   vocabulary: VocabularyEntry[],
   exerciseType: ExerciseType,
   playMode: PlayMode,
   recentExerciseIds: string[] = [],
-  remainingWords: string[] = []
+  remainingWords: string[] = [],
+  responseDatabase?: ResponseDatabase
 ): Exercise {
   if (vocabulary.length === 0) {
     throw new Error('No vocabulary available for exercises');
   }
 
-  let selectedEntry: VocabularyEntry;
+  let selectedEntry: VocabularyEntry | undefined;
   let prompt: string;
 
-  if ((playMode === 'complete-all' || playMode === 'drill') && remainingWords.length > 0) {
+  // Speed Drill mode: weighted selection based on response times
+  if (playMode === 'speed-drill' && responseDatabase) {
+    const globalAverage = calculateGlobalAverage(responseDatabase);
+    const slowEntries = getSlowerThanAverageEntries(responseDatabase);
+
+    // Create map of vocabulary to stats
+    const statsMap = new Map();
+    slowEntries.forEach(stat => {
+      const vocab = vocabulary.find(v =>
+        generateVocabularyId(v.word, v.pinyin, v.meaning) === stat.vocabularyId
+      );
+      if (vocab) statsMap.set(vocab, stat);
+    });
+
+    // Use slow entries if available, otherwise all vocabulary
+    const targetPool = slowEntries.length > 0
+      ? Array.from(statsMap.keys())
+      : vocabulary;
+
+    // Weighted random selection
+    if (statsMap.size > 0) {
+      const weights = targetPool.map(v => {
+        const stats = statsMap.get(v);
+        if (!stats) return 1;
+        const ratio = stats.averageResponseTimeMs / globalAverage;
+        return Math.pow(ratio, 2); // Square for emphasis
+      });
+
+      const totalWeight = weights.reduce((a, b) => a + b, 0);
+      let random = Math.random() * totalWeight;
+
+      for (let i = 0; i < targetPool.length; i++) {
+        random -= weights[i];
+        if (random <= 0) {
+          selectedEntry = targetPool[i];
+          break;
+        }
+      }
+    }
+
+    // Fallback if nothing was selected (use random from target pool)
+    if (!selectedEntry && targetPool.length > 0) {
+      selectedEntry = targetPool[Math.floor(Math.random() * targetPool.length)];
+    }
+
+    // Safety check - should not happen
+    if (!selectedEntry) {
+      throw new Error('Failed to select vocabulary entry for speed-drill mode');
+    }
+
+    // Determine prompt based on exercise type for speed-drill mode
+    if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
+      prompt = selectedEntry.word;
+    } else if (exerciseType === 'english-to-pinyin') {
+      prompt = selectedEntry.meaning;
+    } else if (exerciseType === 'pinyin-to-english') {
+      prompt = selectedEntry.pinyin;
+    } else if (exerciseType === 'shuffled') {
+      // shuffled (to pinyin): randomly choose between character or meaning
+      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
+    } else {
+      // shuffled-to-english: randomly choose between character or pinyin
+      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.pinyin;
+    }
+  } else if ((playMode === 'complete-all' || playMode === 'drill') && remainingWords.length > 0) {
     // Pick from remaining words (could be word, meaning, or pinyin)
     const promptToUse = remainingWords[0];
     // Try to find by word first, then by meaning, then by pinyin

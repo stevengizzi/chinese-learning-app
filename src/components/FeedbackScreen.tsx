@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { parseExampleSentences, findMatchingSentences, type ExampleSentence } from '../lib/exampleSentences';
+import { SpeedFeedback } from './SpeedFeedback';
 
 export function FeedbackScreen() {
   const { state, dispatch } = useExercise();
@@ -176,6 +177,20 @@ export function FeedbackScreen() {
                     Excellent work! All syllables and tones are correct.
                   </p>
                 </div>
+              </div>
+            )}
+
+            {/* Speed Feedback */}
+            {state.currentSession && state.currentSession.responseTimings.length > 0 && (
+              <div className="mb-8 w-1/2">
+                <SpeedFeedback
+                  responseTimeMs={
+                    state.currentSession.responseTimings[
+                      state.currentSession.responseTimings.length - 1
+                    ]?.responseTimeMs || 0
+                  }
+                  wasCorrect={isCorrect}
+                />
               </div>
             )}
 

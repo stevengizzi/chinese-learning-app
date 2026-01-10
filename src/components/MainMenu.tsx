@@ -99,6 +99,11 @@ export function MainMenu() {
       mode: 'drill',
       name: 'Drill Mode',
       description: 'Repeat each word until answered correctly'
+    },
+    {
+      mode: 'speed-drill',
+      name: 'Speed Drill ⚡',
+      description: 'Focus on improving response speed for slower vocabulary'
     }
   ];
 

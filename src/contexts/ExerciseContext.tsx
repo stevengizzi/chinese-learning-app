@@ -3,10 +3,12 @@ import type { ReactNode } from 'react';
 import type { VocabularyData } from '../types/vocabulary';
 import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode } from '../types/exercise';
 import type { Session } from '../types/session';
+import type { ResponseDatabase } from '../types/responseTracking';
 import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
+import { loadResponseDatabase, addResponseRecords, saveResponseDatabase } from '../lib/responseTracking/storage';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence';
 
@@ -18,10 +20,12 @@ interface ExerciseState {
   screen: Screen;
   isLoading: boolean;
   error: string | null;
+  responseDatabase: ResponseDatabase | null;
 }
 
 type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
+  | { type: 'SET_RESPONSE_DATABASE'; payload: ResponseDatabase }
   | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
   | { type: 'NEXT_EXERCISE' }
@@ -39,7 +43,8 @@ const initialState: ExerciseState = {
   currentAttempt: null,
   screen: 'menu',
   isLoading: true,
-  error: null
+  error: null,
+  responseDatabase: null
 };
 
 function generateNewExercise(
@@ -47,9 +52,17 @@ function generateNewExercise(
   exerciseType: ExerciseType,
   playMode: PlayMode,
   recentIds: string[],
-  remainingWords: string[]
+  remainingWords: string[],
+  responseDatabase?: ResponseDatabase | null
 ): Exercise {
-  return generateExercise(vocabulary.active, exerciseType, playMode, recentIds, remainingWords);
+  return generateExercise(
+    vocabulary.active,
+    exerciseType,
+    playMode,
+    recentIds,
+    remainingWords,
+    responseDatabase || undefined
+  );
 }
 
 function createNewSession(exerciseType: ExerciseType, playMode: PlayMode, vocabularySize: number): Session {
@@ -94,6 +107,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       };
     }
 
+    case 'SET_RESPONSE_DATABASE': {
+      return {
+        ...state,
+        responseDatabase: action.payload
+      };
+    }
+
     case 'START_SESSION_WITH_CONFIG': {
       if (!state.vocabulary) return state;
 
@@ -130,7 +150,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         exerciseType,
         playMode,
         [],
-        remainingWords || []
+        remainingWords || [],
+        state.responseDatabase
       );
 
       return {
@@ -259,7 +280,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         state.currentSession.exerciseType,
         state.currentSession.playMode,
         recentIds,
-        state.currentSession.remainingWords || []
+        state.currentSession.remainingWords || [],
+        state.responseDatabase
       );
 
       // Resume timer
@@ -295,6 +317,28 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         endTime,
         finalAccumulatedTime
       );
+
+      // Save response time data to database
+      if (state.currentSession.responseTimings && state.currentSession.responseTimings.length > 0) {
+        loadResponseDatabase().then(db => {
+          const records = state.currentSession!.responseTimings.map(timing => ({
+            vocabularyId: timing.vocabularyId,
+            character: timing.character,
+            pinyin: timing.pinyin,
+            meaning: timing.meaning,
+            exerciseType: state.currentSession!.exerciseType,
+            responseTimeMs: timing.responseTimeMs,
+            wasCorrect: timing.wasCorrect
+          }));
+
+          const updatedDb = addResponseRecords(db, records);
+          saveResponseDatabase(updatedDb);
+
+          console.log(`Saved ${records.length} response time records`);
+        }).catch(error => {
+          console.error('Failed to save response times:', error);
+        });
+      }
 
       return {
         ...state,
@@ -374,6 +418,15 @@ export function ExerciseProvider({ children }: { children: ReactNode }) {
       localStorage.setItem('vocabulary', JSON.stringify(state.vocabulary));
     }
   }, [state.vocabulary]);
+
+  // Load response database on mount
+  useEffect(() => {
+    loadResponseDatabase().then(database => {
+      dispatch({ type: 'SET_RESPONSE_DATABASE', payload: database });
+    }).catch(error => {
+      console.error('Failed to load response database:', error);
+    });
+  }, []);
 
   return (
     <ExerciseContext.Provider value={{ state, dispatch }}>

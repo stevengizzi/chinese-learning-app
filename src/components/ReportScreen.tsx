@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { generateSuggestions } from '../lib/reportGenerator';
 import { updateHighScore, formatTime } from '../lib/highScores';
+import { loadResponseDatabase } from '../lib/responseTracking/storage';
+import { generateSpeedReport, formatResponseTime } from '../lib/responseTracking/analytics';
+import type { SpeedReport } from '../types/responseTracking';
 
 export function ReportScreen() {
   const { state, dispatch } = useExercise();
   const [isNewHighScore, setIsNewHighScore] = useState(false);
+  const [speedReport, setSpeedReport] = useState<SpeedReport | null>(null);
 
   // Check and save high score when session is available
   useEffect(() => {
@@ -28,6 +32,16 @@ export function ReportScreen() {
         statistics.averageAccuracy
       );
       setIsNewHighScore(wasNewHighScore);
+    }
+  }, [state.currentSession]);
+
+  // Generate speed report when session is available
+  useEffect(() => {
+    if (state.currentSession) {
+      loadResponseDatabase().then(db => {
+        const report = generateSpeedReport(state.currentSession!, db);
+        setSpeedReport(report);
+      });
     }
   }, [state.currentSession]);
 
@@ -153,6 +167,63 @@ export function ReportScreen() {
                             </span>
                           </div>
                         )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Speed Performance */}
+                {speedReport && speedReport.entriesPracticed > 0 && (
+                  <div className="w-1/2 mb-8">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Speed Performance</h2>
+                    <div className="grid grid-cols-3 gap-4 mb-4">
+                      <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4 text-center">
+                        <div className="text-sm text-blue-600 dark:text-blue-300 font-medium mb-1">
+                          Session Average
+                        </div>
+                        <div className="text-2xl font-bold text-blue-700 dark:text-blue-200">
+                          {formatResponseTime(speedReport.sessionAverageMs)}
+                        </div>
+                      </div>
+                      <div className="bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-700 rounded-xl p-4 text-center">
+                        <div className="text-sm text-green-600 dark:text-green-300 font-medium mb-1">
+                          Fastest
+                        </div>
+                        <div className="text-2xl font-bold text-green-700 dark:text-green-200">
+                          {formatResponseTime(speedReport.fastestResponseMs)}
+                        </div>
+                      </div>
+                      <div className="bg-purple-50 dark:bg-purple-900/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4 text-center">
+                        <div className="text-sm text-purple-600 dark:text-purple-300 font-medium mb-1">
+                          vs Global Avg
+                        </div>
+                        <div className="text-2xl font-bold text-purple-700 dark:text-purple-200">
+                          {speedReport.improvement > 0 ? '+' : ''}{speedReport.improvement.toFixed(1)}%
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Fastest/Slowest entries */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4">
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Fastest Responses</h3>
+                        <ul className="space-y-1">
+                          {speedReport.fastestEntries.slice(0, 3).map((entry, i) => (
+                            <li key={i} className="text-sm text-gray-700 dark:text-gray-300">
+                              {entry.character}: {formatResponseTime(entry.timeMs)}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4">
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Slowest Responses</h3>
+                        <ul className="space-y-1">
+                          {speedReport.slowestEntries.slice(0, 3).map((entry, i) => (
+                            <li key={i} className="text-sm text-gray-700 dark:text-gray-300">
+                              {entry.character}: {formatResponseTime(entry.timeMs)}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
