@@ -9,11 +9,12 @@ export function ViewVocabulary() {
   const [searchQuery, setSearchQuery] = useState('');
   const [responseDatabase, setResponseDatabase] = useState<ResponseDatabase | null>(null);
 
+  // Reload database whenever this component is shown
   useEffect(() => {
     loadResponseDatabase().then(db => {
       setResponseDatabase(db);
     });
-  }, []);
+  }, [state.screen]); // Reload when screen changes (including when returning to this view)
 
   const handleBackToMenu = () => {
     dispatch({ type: 'BACK_TO_MENU' });

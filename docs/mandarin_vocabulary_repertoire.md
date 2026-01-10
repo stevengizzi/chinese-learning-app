@@ -60,7 +60,7 @@ notes:
 | 下 | xia4 | down; below |
 | 谢谢 | xie4 xie | thank you |
 | 学校 | xue2 xiao4 | school |
-| 一下儿 | yi2 xia4 r | all of a sudden; give it a go |
+| 一下儿 | yi1 xia4 r | all of a sudden; give it a go |
 | 月 | yue4 | month; moon |
 | 再见 | zai4 jian4 | goodbye; see you again later |
 | 知 | zhi1 | to know; to be aware |
