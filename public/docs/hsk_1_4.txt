@@ -1302,4 +1302,165 @@ pinyin: Tā shì nǚshēng.
 english: The girls are studying.
 mandarin: 女生在学习。
 pinyin: Nǚshēng zài xuéxí.
+-
+--
+english: Come here.
+mandarin: 来这边。
+pinyin: Lái zhèbiān.
+--
+english: The washroom is on this side.
+mandarin: 洗手间在这边。
+pinyin: Xǐshǒujiān zài zhèbiān.
+--
+english: He is wearing white clothes.
+mandarin: 他穿白衣。
+pinyin: Tā chuān bái yī.
+--
+english: I wear this.
+mandarin: 我穿这个。
+pinyin: Wǒ chuān zhè ge.
+--
+english: I will come back in a moment.
+mandarin: 我一会儿回去。
+pinyin: Wǒ yíhuìr huíqù.
+--
+english: In a moment, we eat dinner.
+mandarin: 一会儿我们吃晚饭。
+pinyin: Yíhuìr wǒmen chī wǎnfàn.
+--
+english: He has work.
+mandarin: 他有工作。
+pinyin: Tā yǒu gōngzuò.
+--
+english: I am working.
+mandarin: 我在工作。
+pinyin: Wǒ zài gōngzuò.
+--
+english: He goes to Beijing.
+mandarin: 他去北京。
+pinyin: Tā qù Běijīng.
+--
+english: Beijing is very famous.
+mandarin: 北京很有名。
+pinyin: Běijīng hěn yǒumíng.
+--
+english: He is a man.
+mandarin: 他是男人。
+pinyin: Tā shì nánrén.
+--
+english: That man is very busy.
+mandarin: 那个男人很忙。
+pinyin: Nà ge nánrén hěn máng.
+--
+english: Tell me your name.
+mandarin: 告诉我你的名字。
+pinyin: Gàosu wǒ nǐ de míngzi.
+--
+english: She tells him.
+mandarin: 她告诉他。
+pinyin: Tā gàosu tā.
+--
+english: He is outside.
+mandarin: 他在外边。
+pinyin: Tā zài wàibian.
+--
+english: We wait outside.
+mandarin: 我们在外边等。
+pinyin: Wǒmen zài wàibian děng.
+--
+english: This is fake.
+mandarin: 这是假的。
+pinyin: Zhè shì jiǎ de.
+--
+english: That money is fake.
+mandarin: 那个钱是假的。
+pinyin: Nà ge qián shì jiǎ de.
+--
+english: He goes outside.
+mandarin: 他到外。
+pinyin: Tā dào wài.
+--
+english: The car is outside.
+mandarin: 车在外。
+pinyin: Chē zài wài.
+--
+english: We meet tomorrow.
+mandarin: 我们明天见面。
+pinyin: Wǒmen míngtiān jiànmiàn.
+--
+english: I want to meet you.
+mandarin: 我想和你见面。
+pinyin: Wǒ xiǎng hé nǐ jiànmiàn.
+--
+english: He is my online friend.
+mandarin: 他是我的网友。
+pinyin: Tā shì wǒ de wǎngyǒu.
+--
+english: I have many online friends.
+mandarin: 我有很多网友。
+pinyin: Wǒ yǒu hěn duō wǎngyǒu.
+--
+english: Yesterday I went to school.
+mandarin: 昨天我去学校。
+pinyin: Zuótiān wǒ qù xuéxiào.
+--
+english: Yesterday we ate bread.
+mandarin: 昨天我们吃面包。
+pinyin: Zuótiān wǒmen chī miànbāo.
+--
+english: I want to eat.
+mandarin: 我想吃。
+pinyin: Wǒ xiǎng chī.
+--
+english: I miss my mom.
+mandarin: 我想妈妈。
+pinyin: Wǒ xiǎng māma.
+--
+english: My older brother is working.
+mandarin: 我哥哥在工作。
+pinyin: Wǒ gēge zài gōngzuò.
+--
+english: His older brother is very busy.
+mandarin: 他哥哥很忙。
+pinyin: Tā gēge hěn máng.
+--
+english: Turn left.
+mandarin: 往左走。
+pinyin: Wǎng zuǒ zǒu.
+--
+english: The store is on the left.
+mandarin: 店在左边。
+pinyin: Diàn zài zuǒbiān.
+--
+english: I also have money.
+mandarin: 我还有钱。
+pinyin: Wǒ háiyǒu qián.
+--
+english: There is also bread.
+mandarin: 还有面包。
+pinyin: Háiyǒu miànbāo.
+--
+english: He is abroad.
+mandarin: 他在国外。
+pinyin: Tā zài guówài.
+--
+english: I go abroad.
+mandarin: 我去国外。
+pinyin: Wǒ qù guówài.
+--
+english: She is my friend.
+mandarin: 她是我的朋友。
+pinyin: Tā shì wǒ de péngyou.
+--
+english: She goes to Beijing.
+mandarin: 她去北京。
+pinyin: Tā qù Běijīng.
+--
+english: She is singing.
+mandarin: 她在唱歌。
+pinyin: Tā zài chànggē.
+--
+english: The children like to sing.
+mandarin: 小朋友喜欢唱歌。
+pinyin: Xiǎopéngyou xǐhuān chànggē.
 --

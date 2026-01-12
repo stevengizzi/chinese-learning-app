@@ -185,3 +185,23 @@ notes:
 | 说 | shuo1 | to speak |
 | 知识 | zhi1 shi | knowledge |
 | 女生 | nü3 sheng1 | schoolgirl; female student; girl |
+| 这边 | zhe4 bian1 | this side; here |
+| 穿 | chuan1 | to wear; to put on; to pass through |
+| 一会儿 | yi1 hui4 r | in a moment; in a little while |
+| 工作 | gong1 zuo4 | job; work |
+| 北京 | bei3 jing1 | Beijing |
+| 男人 | nan2 ren2 | man; men |
+| 告诉 | gao4 su | to tell; to let know |
+| 外边 | wai4 bian | outside |
+| 假 | jia3 | fake; false |
+| 外 | wai3 | outside; external |
+| 见面 | jian4 mian4 | to meet; to see each other |
+| 网友 | wang3 you3 | online friend; Internet user |
+| 昨天 | zuo2 tian1 | yesterday |
+| 想 | xiang3 | to think; to want; to miss (sb or sth)
+| 哥哥 | ge1 ge | older brother |
+| 左 | zuo3 | left |
+| 还有 | hai2 you3 | also; in addition; still | 
+| 国外 | guo2 wai4 | abroad; external (affairs); overseas; foreign |
+| 她 | ta1 | she; her |
+| 唱歌 | chang4 ge1 | to sing a song |
