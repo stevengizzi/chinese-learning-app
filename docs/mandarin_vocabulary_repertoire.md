@@ -205,3 +205,44 @@ notes:
 | 国外 | guo2 wai4 | abroad; external (affairs); overseas; foreign |
 | 她 | ta1 | she; her |
 | 唱歌 | chang4 ge1 | to sing a song |
+| 干什么 | gan4 shen2 me | what are you doing?; what's he up to? |
+| 早上 | zao3 shang | early morning |
+| 最 | zui4 | the most |
+| 她们 | ta1 men | they; them (for females) |
+| 身体 | shen1 ti3 | the body |
+| 面 | mian4 | face; surface; noodles |
+| 师 | shi1 | master; expert |
+| 教学楼 | jiao4 xue2 lou2 | teaching block; school building |
+| 作 | zuo4 | to make; to do |
+| 打开 | da3 kai1 | to open; to turn on |
+| 觉 | jue2 / jiao4 | to feel; sleep |
+| 这儿 | zhe4 r | here |
+| 难 | nan2 | difficult; hard |
+| 出 | chu1 | to go out |
+| 说话 | shuo1 hua4 | to speak; talk |
+| 雨 | yu3 | rain |
+| 旁 | pang2 | side; beside |
+| 那里 | na4 li | there; that place |
+| 电 | dian4 | electricity |
+| 多少 | duo1 shao3 | how much? |
+| 茶 | cha2 | tea |
+| 中 | zhong1 | middle; to fit exactly; center |
+| 息 | xi1 | breath; news; to stop or rest; interest (on an investment or loan) |
+| 上网 | shang4 wang3 | to go online |
+| 页 | ye4 | page (in a book, etc) |
+| 上次 | shang4 ci4 | last time |
+| 影 | ying3 | shadow; image |
+| 站 | zhan4 | to stand |
+| 听写 | ting1 xie3 | dictation |
+| 汉语 | han4 yu3 | Chinese language |
+| 上午 | shang4 wu3 | morning |
+| 子 | zi | son; child |
+| 休息 | xiu1 xi | to rest; to take a break |
+| 今 | jin1 | today; current |
+| 差 | cha4 | to fall short of; lacking; bad |
+| 边 | bian1 | side; border |
+| 怎 | zen3 | how |
+| 人 | ren2 | person; people |
+| 上课 | shang4 ke4 | to go to class; to attend class; to go to teach a class |
+| 哪 | na3 | which |
+| 小时 | xiao3 shi2 | hour |

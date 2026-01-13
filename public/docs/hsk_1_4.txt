@@ -1464,3 +1464,331 @@ english: The children like to sing.
 mandarin: 小朋友喜欢唱歌。
 pinyin: Xiǎopéngyou xǐhuān chànggē.
 --
+english: What are you doing?
+mandarin: 你在干什么？
+pinyin: Nǐ zài gàn shénme?
+--
+english: What is he doing?
+mandarin: 他在干什么？
+pinyin: Tā zài gàn shénme?
+--
+english: I go to school in the morning.
+mandarin: 我早上去学校。
+pinyin: Wǒ zǎoshang qù xuéxiào.
+--
+english: He eats bread in the morning.
+mandarin: 他早上吃面包。
+pinyin: Tā zǎoshang chī miànbāo.
+--
+english: This is the best.
+mandarin: 这是最好。
+pinyin: Zhè shì zuì hǎo.
+--
+english: He is the happiest.
+mandarin: 他最高兴。
+pinyin: Tā zuì gāoxìng.
+--
+english: They are students.
+mandarin: 她们是学生。
+pinyin: Tāmen shì xuésheng.
+--
+english: They go to Beijing.
+mandarin: 她们去北京。
+pinyin: Tāmen qù Běijīng.
+--
+english: His body is very tired.
+mandarin: 他的身体很累。
+pinyin: Tā de shēntǐ hěn lèi.
+--
+english: My body is not good.
+mandarin: 我的身体不好。
+pinyin: Wǒ de shēntǐ bù hǎo.
+--
+english: His face is white.
+mandarin: 他的面是白的。
+pinyin: Tā de miàn shì bái de.
+--
+english: This noodle is good to eat.
+mandarin: 这个面好吃。
+pinyin: Zhè ge miàn hǎochī.
+--
+english: He is a teacher.
+mandarin: 他是老师。
+pinyin: Tā shì lǎoshī.
+--
+english: The teacher is in the teaching building.
+mandarin: 师在教学楼。
+pinyin: Shī zài jiàoxuélóu.
+--
+english: The teaching building is in the middle.
+mandarin: 教学楼在中。
+pinyin: Jiàoxuélóu zài zhōng.
+--
+english: We go to the teaching building.
+mandarin: 我们去教学楼。
+pinyin: Wǒmen qù jiàoxuélóu.
+--
+english: I do work.
+mandarin: 我作工。
+pinyin: Wǒ zuò gōng.
+--
+english: He makes bread.
+mandarin: 他作面包。
+pinyin: Tā zuò miànbāo.
+--
+english: Open the door.
+mandarin: 打开门。
+pinyin: Dǎkāi mén.
+--
+english: Turn on the TV.
+mandarin: 打开电视机。
+pinyin: Dǎkāi diànshìjī.
+--
+english: I sleep.
+mandarin: 我觉。
+pinyin: Wǒ jiào.
+--
+english: He wants to sleep.
+mandarin: 他想觉。
+pinyin: Tā xiǎng jiào.
+--
+english: I am here.
+mandarin: 我在这儿。
+pinyin: Wǒ zài zhèr.
+--
+english: The phone is here.
+mandarin: 电话在这儿。
+pinyin: Diànhuà zài zhèr.
+--
+english: This is difficult.
+mandarin: 这个难。
+pinyin: Zhè ge nán.
+--
+english: Chinese is difficult.
+mandarin: 汉语难。
+pinyin: Hànyǔ nán.
+--
+english: He goes out.
+mandarin: 他出。
+pinyin: Tā chū.
+--
+english: The child comes out.
+mandarin: 小孩儿出来。
+pinyin: Xiǎoháir chūlái.
+--
+english: He is speaking.
+mandarin: 他在说话。
+pinyin: Tā zài shuōhuà.
+--
+english: Don’t speak now.
+mandarin: 现在别说话。
+pinyin: Xiànzài bié shuōhuà.
+--
+english: There is rain.
+mandarin: 有雨。
+pinyin: Yǒu yǔ.
+--
+english: Today it rains.
+mandarin: 今天下雨。
+pinyin: Jīntiān xià yǔ.
+--
+english: The store is beside the school.
+mandarin: 店在学校旁。
+pinyin: Diàn zài xuéxiào páng.
+--
+english: He is beside me.
+mandarin: 他在我旁。
+pinyin: Tā zài wǒ páng.
+--
+english: He is there.
+mandarin: 他在那里。
+pinyin: Tā zài nàli.
+--
+english: The restaurant is there.
+mandarin: 饭店在那里。
+pinyin: Fàndiàn zài nàli.
+--
+english: The TV uses electricity.
+mandarin: 电视机用电。
+pinyin: Diànshìjī yòng diàn.
+--
+english: There is no electricity.
+mandarin: 没有电。
+pinyin: Méiyǒu diàn.
+--
+english: How much money?
+mandarin: 多少钱？
+pinyin: Duōshao qián?
+--
+english: How many people?
+mandarin: 多少人？
+pinyin: Duōshao rén?
+--
+english: I drink tea.
+mandarin: 我喝茶。
+pinyin: Wǒ hē chá.
+--
+english: He wants tea.
+mandarin: 他要茶。
+pinyin: Tā yào chá.
+--
+english: The school is in the middle.
+mandarin: 学校在中。
+pinyin: Xuéxiào zài zhōng.
+--
+english: The teaching building is in the middle.
+mandarin: 教学楼在中。
+pinyin: Jiàoxuélóu zài zhōng.
+--
+english: I rest.
+mandarin: 我息。
+pinyin: Wǒ xī.
+--
+english: He wants to rest.
+mandarin: 他要息。
+pinyin: Tā yào xī.
+--
+english: I go online.
+mandarin: 我上网。
+pinyin: Wǒ shàngwǎng.
+--
+english: He is going online.
+mandarin: 他在上网。
+pinyin: Tā zài shàngwǎng.
+--
+english: This is one page.
+mandarin: 这是一页。
+pinyin: Zhè shì yí yè.
+--
+english: I read this page.
+mandarin: 我读这一页。
+pinyin: Wǒ dú zhè yí yè.
+--
+english: Last time I went to Beijing.
+mandarin: 上次我去北京。
+pinyin: Shàngcì wǒ qù Běijīng.
+--
+english: He came last time.
+mandarin: 他上次来。
+pinyin: Tā shàngcì lái.
+--
+english: There is a shadow here.
+mandarin: 这儿有影。
+pinyin: Zhèr yǒu yǐng.
+--
+english: I see his shadow.
+mandarin: 我看见他的影。
+pinyin: Wǒ kànjiàn tā de yǐng.
+--
+english: He stands.
+mandarin: 他站。
+pinyin: Tā zhàn.
+--
+english: I stand here.
+mandarin: 我在这儿站。
+pinyin: Wǒ zài zhèr zhàn.
+--
+english: We do dictation.
+mandarin: 我们听写。
+pinyin: Wǒmen tīngxiě.
+--
+english: The teacher gives dictation.
+mandarin: 老师听写。
+pinyin: Lǎoshī tīngxiě.
+--
+english: I study Chinese.
+mandarin: 我学习汉语。
+pinyin: Wǒ xuéxí Hànyǔ.
+--
+english: Chinese is difficult.
+mandarin: 汉语难。
+pinyin: Hànyǔ nán.
+--
+english: I have class in the morning.
+mandarin: 我上午上课。
+pinyin: Wǒ shàngwǔ shàngkè.
+--
+english: He studies in the morning.
+mandarin: 他上午学习。
+pinyin: Tā shàngwǔ xuéxí.
+--
+english: He has a son.
+mandarin: 他有子。
+pinyin: Tā yǒu zǐ.
+--
+english: This child is my son.
+mandarin: 这个子是我儿子。
+pinyin: Zhè ge zǐ shì wǒ érzi.
+--
+english: I rest now.
+mandarin: 我现在休息。
+pinyin: Wǒ xiànzài xiūxi.
+--
+english: He wants to rest.
+mandarin: 他想休息。
+pinyin: Tā xiǎng xiūxi.
+--
+english: Today is good.
+mandarin: 今好。
+pinyin: Jīn hǎo.
+--
+english: Today we go to school.
+mandarin: 今我们去学校。
+pinyin: Jīn wǒmen qù xuéxiào.
+--
+english: This is bad.
+mandarin: 这个差。
+pinyin: Zhè ge chà.
+--
+english: His Chinese is bad.
+mandarin: 他的汉语差。
+pinyin: Tā de Hànyǔ chà.
+--
+english: I am on this side.
+mandarin: 我在这边。
+pinyin: Wǒ zài zhèbiān.
+--
+english: The store is on that side.
+mandarin: 店在那边。
+pinyin: Diàn zài nàbiān.
+--
+english: How do you go?
+mandarin: 你怎去？
+pinyin: Nǐ zěn qù?
+--
+english: How do we do this?
+mandarin: 我们怎作？
+pinyin: Wǒmen zěn zuò?
+--
+english: He is a good person.
+mandarin: 他是好人。
+pinyin: Tā shì hǎo rén.
+--
+english: Many people.
+mandarin: 很多人。
+pinyin: Hěn duō rén.
+--
+english: We have class now.
+mandarin: 我们现在上课。
+pinyin: Wǒmen xiànzài shàngkè.
+--
+english: He has class in the morning.
+mandarin: 他上午上课。
+pinyin: Tā shàngwǔ shàngkè.
+--
+english: Which one?
+mandarin: 哪一个？
+pinyin: Nǎ yí ge?
+--
+english: Which school?
+mandarin: 哪学校？
+pinyin: Nǎ xuéxiào?
+--
+english: One hour.
+mandarin: 一小时。
+pinyin: Yì xiǎoshí.
+--
+english: Two hours.
+mandarin: 两小时。
+pinyin: Liǎng xiǎoshí.
+--
