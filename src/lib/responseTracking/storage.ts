@@ -34,30 +34,51 @@ function createEmptyDatabase(): ResponseDatabase {
  * Load database from file with localStorage cache fallback
  */
 export async function loadResponseDatabase(): Promise<ResponseDatabase> {
+  let fileData: ResponseDatabase | null = null;
+  let cacheData: ResponseDatabase | null = null;
+
+  // Try loading from file
   try {
-    // Try loading from file first
     const response = await fetch(DB_URL);
     if (response.ok) {
-      const data = await response.json();
-      // Cache in localStorage
-      localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-      return data;
+      fileData = await response.json();
     }
   } catch (error) {
-    console.warn('Could not load response database from file, using cache or creating new:', error);
+    console.warn('Could not load response database from file:', error);
   }
 
-  // Fallback to localStorage cache
+  // Try loading from localStorage cache
   try {
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
-      return JSON.parse(cached);
+      cacheData = JSON.parse(cached);
     }
   } catch (error) {
     console.warn('Could not load from cache:', error);
   }
 
-  // Create new empty database
+  // Use the most recently updated database
+  if (fileData && cacheData) {
+    // Both exist - use the one with the most recent data
+    const useCache = cacheData.lastUpdated > fileData.lastUpdated;
+    const result = useCache ? cacheData : fileData;
+
+    // Update localStorage with the most recent data
+    if (!useCache) {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(fileData));
+    }
+
+    return result;
+  } else if (cacheData) {
+    // Only cache exists
+    return cacheData;
+  } else if (fileData) {
+    // Only file exists
+    localStorage.setItem(CACHE_KEY, JSON.stringify(fileData));
+    return fileData;
+  }
+
+  // Neither exists - create new empty database
   return createEmptyDatabase();
 }
 
