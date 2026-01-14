@@ -1791,4 +1791,3 @@ pinyin: Yì xiǎoshí.
 english: Two hours.
 mandarin: 两小时。
 pinyin: Liǎng xiǎoshí.
---
