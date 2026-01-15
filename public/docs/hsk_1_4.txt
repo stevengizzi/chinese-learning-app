@@ -1952,3 +1952,163 @@ english: That cow is big.
 mandarin: 那个牛大。
 pinyin: Nà ge niú dà.
 --
+english: This is good.
+mandarin: 这个好。
+pinyin: Zhè ge hǎo.
+--
+english: I like this.
+mandarin: 我喜欢这。
+pinyin: Wǒ xǐhuān zhè.
+--
+english: I go to work in the morning.
+mandarin: 我早上上班。
+pinyin: Wǒ zǎoshang shàngbān.
+--
+english: He goes to work now.
+mandarin: 他现在上班。
+pinyin: Tā xiànzài shàngbān.
+--
+english: Who is he?
+mandarin: 他是谁？
+pinyin: Tā shì shéi?
+--
+english: Who is coming?
+mandarin: 谁来？
+pinyin: Shéi lái?
+--
+english: There is a tree here.
+mandarin: 这儿有树。
+pinyin: Zhèr yǒu shù.
+--
+english: The tree is outside.
+mandarin: 树在外边。
+pinyin: Shù zài wàibian.
+--
+english: Yesterday I went to school.
+mandarin: 昨我去学校。
+pinyin: Zuó wǒ qù xuéxiào.
+--
+english: Yesterday he was busy.
+mandarin: 昨他很忙。
+pinyin: Zuó tā hěn máng.
+--
+english: He goes west.
+mandarin: 他去西。
+pinyin: Tā qù xī.
+--
+english: The west is cold.
+mandarin: 西很冷。
+pinyin: Xī hěn lěng.
+--
+english: I go to the store.
+mandarin: 我去商店。
+pinyin: Wǒ qù shāngdiàn.
+--
+english: The store is downstairs.
+mandarin: 商店在楼下。
+pinyin: Shāngdiàn zài lóuxià.
+--
+english: Those people are students.
+mandarin: 那些人是学生。
+pinyin: Nàxiē rén shì xuésheng.
+--
+english: I like those books.
+mandarin: 我喜欢那些书。
+pinyin: Wǒ xǐhuān nàxiē shū.
+--
+english: I’m sorry.
+mandarin: 对不起。
+pinyin: Duìbuqǐ.
+--
+english: Sorry, I’m late.
+mandarin: 对不起，我晚了。
+pinyin: Duìbuqǐ, wǒ wǎn le.
+--
+english: I think this is good.
+mandarin: 我觉得这个好。
+pinyin: Wǒ juéde zhè ge hǎo.
+--
+english: He feels tired.
+mandarin: 他觉得累。
+pinyin: Tā juéde lèi.
+--
+english: This movie is good.
+mandarin: 这个电影好看。
+pinyin: Zhè ge diànyǐng hǎokàn.
+--
+english: I like movies.
+mandarin: 我喜欢电影。
+pinyin: Wǒ xǐhuān diànyǐng.
+--
+english: My older sister is working.
+mandarin: 我姐姐在工作。
+pinyin: Wǒ jiějie zài gōngzuò.
+--
+english: Her older sister is very kind.
+mandarin: 她姐姐很好。
+pinyin: Tā jiějie hěn hǎo.
+--
+english: Sunday is a holiday.
+mandarin: 星期日放假。
+pinyin: Xīngqīrì fàngjià.
+--
+english: We rest on Sunday.
+mandarin: 星期日我们休息。
+pinyin: Xīngqīrì wǒmen xiūxi.
+--
+english: I go home.
+mandarin: 我回家。
+pinyin: Wǒ huí jiā.
+--
+english: My family is here.
+mandarin: 我家在这儿。
+pinyin: Wǒ jiā zài zhèr.
+--
+english: The restaurant is downstairs.
+mandarin: 饭店在楼下。
+pinyin: Fàndiàn zài lóuxià.
+--
+english: He waits downstairs.
+mandarin: 他在楼下等。
+pinyin: Tā zài lóuxià děng.
+--
+english: He is sick.
+mandarin: 他生病了。
+pinyin: Tā shēngbìng le.
+--
+english: I was sick yesterday.
+mandarin: 我昨天生病。
+pinyin: Wǒ zuótiān shēngbìng.
+--
+english: I use the phone.
+mandarin: 我用电话。
+pinyin: Wǒ yòng diànhuà.
+--
+english: This uses electricity.
+mandarin: 这个用电。
+pinyin: Zhè ge yòng diàn.
+--
+english: We go to the movie theater.
+mandarin: 我们去电影院。
+pinyin: Wǒmen qù diànyǐngyuàn.
+--
+english: The movie theater is there.
+mandarin: 电影院在那里。
+pinyin: Diànyǐngyuàn zài nàli.
+--
+english: My younger brother is a student.
+mandarin: 我弟是学生。
+pinyin: Wǒ dì shì xuésheng.
+--
+english: His younger brother likes sports.
+mandarin: 他弟喜欢打球。
+pinyin: Tā dì xǐhuān dǎqiú.
+--
+english: I go to the shopping mall.
+mandarin: 我去商场。
+pinyin: Wǒ qù shāngchǎng.
+--
+english: The shopping mall is very big.
+mandarin: 商场很大。
+pinyin: Shāngchǎng hěn dà.
+--

@@ -266,3 +266,23 @@ notes:
 | 再 | zai4 | again; once more |
 | 吗 | ma | marker at the end of a sentence indicating a question |
 | 牛 | niu2 | cow; ox |
+| 这 | zhe4 | this; these |
+| 上班 | shang4 ban1 | to go to work; to go to the office |
+| 谁 | shei2 | who |
+| 树 | shu4 | tree |
+| 昨 | zuo2 | yesterday |
+| 西 | xi1 | west |
+| 商店 | shang1 dian4 | store; shop |
+| 那些 | na4 xie1 | those |
+| 对不起 | dui4 bu qi3 | I'm sorry; excuse me; to let down |
+| 觉得 | jue2 de | to think; to feel |
+| 电影 | dian4 ying3 | movie |
+| 姐姐 | jie3 jie | older sister |
+| 星期日 | xing1 qi1 ri4 | Sunday |
+| 家 | jia1 | home; family |
+| 楼下 | lou2 xia4 | downstairs |
+| 生病 | sheng1 bing4 | to get sick |
+| 用 | yong4 | to use |
+| 电影院 | dian4 ying3 yuan4 | movie theater; cinema |
+| 弟 | di4 | younger brother |
+| 商场 | shang1 chang3 | shopping mall; department store |
