@@ -246,3 +246,23 @@ notes:
 | 上课 | shang4 ke4 | to go to class; to attend class; to go to teach a class |
 | 哪 | na3 | which |
 | 小时 | xiao3 shi2 | hour |
+| 好看 | hao3 kan4 | good-looking; good (of a movie, book, TV show, etc) |
+| 服 | fu2 | to wear; to obey; to take (medicine) |
+| 慢 | man4 | slow |
+| 下班 | xia4 ban1 | to get off work |
+| 天气 | tian1 qi4 | weather |
+| 现在 | xian4 zai4 | now; at present |
+| 网上 | wang3 shang4 | online |
+| 学 | xue2 | to study |
+| 爷 | ye2 | grandpa; old gentleman |
+| 球 | qiu2 | ball |
+| 常 | chang2 | often; frequently; common |
+| 日期 | ri4 qi1 | date (calendar) |
+| 体 | ti3 | body; substance; system |
+| 儿 | er2 | child; "legs" radical; used to indicate "rhotacization" in Beijing dialect |
+| 南 | nan2 | south |
+| 新 | xin1 | new |
+| 国家 | guo2 jia1 | country; nation |
+| 再 | zai4 | again; once more |
+| 吗 | ma | marker at the end of a sentence indicating a question |
+| 牛 | niu2 | cow; ox |

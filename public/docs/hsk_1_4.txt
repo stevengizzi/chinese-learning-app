@@ -1791,3 +1791,164 @@ pinyin: Yì xiǎoshí.
 english: Two hours.
 mandarin: 两小时。
 pinyin: Liǎng xiǎoshí.
+--
+english: This movie is good.
+mandarin: 这个电影好看。
+pinyin: Zhè ge diànyǐng hǎokàn.
+--
+english: She is good-looking.
+mandarin: 她很好看。
+pinyin: Tā hěn hǎokàn.
+--
+english: He takes medicine.
+mandarin: 他服药。
+pinyin: Tā fú yào.
+--
+english: I wear this clothing.
+mandarin: 我服这衣。
+pinyin: Wǒ fú zhè yī.
+--
+english: He walks slowly.
+mandarin: 他走得慢。
+pinyin: Tā zǒu de màn.
+--
+english: This car is slow.
+mandarin: 这个车慢。
+pinyin: Zhè ge chē màn.
+--
+english: He gets off work now.
+mandarin: 他现在下班。
+pinyin: Tā xiànzài xiàbān.
+--
+english: I get off work in the evening.
+mandarin: 我晚上下班。
+pinyin: Wǒ wǎnshang xiàbān.
+--
+english: Today’s weather is good.
+mandarin: 今天天气好。
+pinyin: Jīntiān tiānqì hǎo.
+--
+english: The weather is hot.
+mandarin: 天气热。
+pinyin: Tiānqì rè.
+--
+english: I am studying now.
+mandarin: 我现在学习。
+pinyin: Wǒ xiànzài xuéxí.
+--
+english: Now we eat.
+mandarin: 我们现在吃饭。
+pinyin: Wǒmen xiànzài chī fàn.
+--
+english: I study online.
+mandarin: 我网上学习。
+pinyin: Wǒ wǎngshàng xuéxí.
+--
+english: He meets friends online.
+mandarin: 他网上见朋友。
+pinyin: Tā wǎngshàng jiàn péngyou.
+--
+english: I study Chinese.
+mandarin: 我学汉语。
+pinyin: Wǒ xué Hànyǔ.
+--
+english: He studies at school.
+mandarin: 他在学校学。
+pinyin: Tā zài xuéxiào xué.
+--
+english: My grandpa is very busy.
+mandarin: 我爷很忙。
+pinyin: Wǒ yé hěn máng.
+--
+english: That old gentleman walks slowly.
+mandarin: 那个爷走得慢。
+pinyin: Nà ge yé zǒu de màn.
+--
+english: The child plays with a ball.
+mandarin: 小孩儿打球。
+pinyin: Xiǎoháir dǎ qiú.
+--
+english: This ball is big.
+mandarin: 这个球大。
+pinyin: Zhè ge qiú dà.
+--
+english: I often study.
+mandarin: 我常学习。
+pinyin: Wǒ cháng xuéxí.
+--
+english: He often goes to the bookstore.
+mandarin: 他常去书店。
+pinyin: Tā cháng qù shūdiàn.
+--
+english: What is the date today?
+mandarin: 今天日期是什么？
+pinyin: Jīntiān rìqī shì shénme?
+--
+english: This date is correct.
+mandarin: 这个日期对。
+pinyin: Zhè ge rìqī duì.
+--
+english: The body is tired.
+mandarin: 身体累。
+pinyin: Shēntǐ lèi.
+--
+english: This is a body system.
+mandarin: 这是一个体。
+pinyin: Zhè shì yí ge tǐ.
+--
+english: This child is very happy.
+mandarin: 这个儿很高兴。
+pinyin: Zhè ge ér hěn gāoxìng.
+--
+english: My son is a child.
+mandarin: 我儿是孩子。
+pinyin: Wǒ ér shì háizi.
+--
+english: He goes south.
+mandarin: 他去南。
+pinyin: Tā qù nán.
+--
+english: The south is hot.
+mandarin: 南很热。
+pinyin: Nán hěn rè.
+--
+english: This is a new book.
+mandarin: 这是新书。
+pinyin: Zhè shì xīn shū.
+--
+english: I have a new phone.
+mandarin: 我有新电话。
+pinyin: Wǒ yǒu xīn diànhuà.
+--
+english: China is a country.
+mandarin: 中国是国家。
+pinyin: Zhōngguó shì guójiā.
+--
+english: He loves his country.
+mandarin: 他爱国家。
+pinyin: Tā ài guójiā.
+--
+english: Say it again.
+mandarin: 再说一次。
+pinyin: Zài shuō yí cì.
+--
+english: We meet again tomorrow.
+mandarin: 明天再见面。
+pinyin: Míngtiān zài jiànmiàn.
+--
+english: Are you a student?
+mandarin: 你是学生吗？
+pinyin: Nǐ shì xuésheng ma?
+--
+english: Is this good?
+mandarin: 这个好吗？
+pinyin: Zhè ge hǎo ma?
+--
+english: The cow drinks milk.
+mandarin: 牛喝奶。
+pinyin: Niú hē nǎi.
+--
+english: That cow is big.
+mandarin: 那个牛大。
+pinyin: Nà ge niú dà.
+--
