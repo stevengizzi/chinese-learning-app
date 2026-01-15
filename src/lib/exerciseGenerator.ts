@@ -2,8 +2,7 @@ import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
 import type { ResponseDatabase, PromptType } from '../types/responseTracking';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
-import { generateVocabularyId, calculateGlobalAverage } from './responseTracking/storage';
-import { getSlowerThanAverageEntries } from './responseTracking/analytics';
+import { generateVocabularyId, getEntriesNeedingSpeedTraining } from './responseTracking/storage';
 
 /**
  * Determine the prompt type based on what was shown to the user
@@ -47,52 +46,29 @@ export function generateExercise(
   let selectedEntry: VocabularyEntry | undefined;
   let prompt: string;
 
-  // Speed Drill mode: weighted selection based on response times
+  // Speed Drill mode: select from entries needing training (no data or above threshold)
   if (playMode === 'speed-drill' && responseDatabase) {
-    const globalAverage = calculateGlobalAverage(responseDatabase);
-    const slowEntries = getSlowerThanAverageEntries(responseDatabase);
+    // Get all vocabulary IDs
+    const allVocabIds = vocabulary.map(v => generateVocabularyId(v.word, v.pinyin, v.meaning));
 
-    // Create map of vocabulary to stats
-    const statsMap = new Map();
-    slowEntries.forEach(stat => {
-      const vocab = vocabulary.find(v =>
-        generateVocabularyId(v.word, v.pinyin, v.meaning) === stat.vocabularyId
-      );
-      if (vocab) statsMap.set(vocab, stat);
-    });
+    // Get entries that need training
+    const needsTrainingIds = getEntriesNeedingSpeedTraining(responseDatabase, allVocabIds);
 
-    // Use slow entries if available, otherwise all vocabulary
-    const targetPool = slowEntries.length > 0
-      ? Array.from(statsMap.keys())
-      : vocabulary;
+    // Filter vocabulary to only those needing training
+    const targetPool = needsTrainingIds.length > 0
+      ? vocabulary.filter(v => needsTrainingIds.includes(generateVocabularyId(v.word, v.pinyin, v.meaning)))
+      : [];
 
-    // Weighted random selection
-    if (statsMap.size > 0) {
-      const weights = targetPool.map(v => {
-        const stats = statsMap.get(v);
-        if (!stats) return 1;
-        const ratio = stats.averageResponseTimeMs / globalAverage;
-        return Math.pow(ratio, 2); // Square for emphasis
-      });
-
-      const totalWeight = weights.reduce((a, b) => a + b, 0);
-      let random = Math.random() * totalWeight;
-
-      for (let i = 0; i < targetPool.length; i++) {
-        random -= weights[i];
-        if (random <= 0) {
-          selectedEntry = targetPool[i];
-          break;
-        }
-      }
-    }
-
-    // Fallback if nothing was selected (use random from target pool)
-    if (!selectedEntry && targetPool.length > 0) {
+    // If we have entries needing training, select randomly from them
+    if (targetPool.length > 0) {
       selectedEntry = targetPool[Math.floor(Math.random() * targetPool.length)];
+    } else {
+      // All entries meet threshold - speed drill is complete!
+      // For now, just select a random entry
+      selectedEntry = vocabulary[Math.floor(Math.random() * vocabulary.length)];
     }
 
-    // Safety check - should not happen
+    // Safety check
     if (!selectedEntry) {
       throw new Error('Failed to select vocabulary entry for speed-drill mode');
     }

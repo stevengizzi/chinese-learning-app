@@ -8,7 +8,7 @@ import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
-import { loadResponseDatabase, addResponseRecords, saveResponseDatabase } from '../lib/responseTracking/storage';
+import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords, getEntriesNeedingSpeedTraining, generateVocabularyId, calculateSpeedThreshold } from '../lib/responseTracking/storage';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence';
 
@@ -119,9 +119,24 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const { exerciseType, playMode } = action.payload;
 
-      // Create remaining words list based on exercise type
+      // Create remaining words list based on exercise type and play mode
       let remainingWords: string[] | undefined;
-      if (playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') {
+
+      if (playMode === 'speed-drill') {
+        // For speed-drill, populate with vocabulary IDs that need training
+        if (state.responseDatabase) {
+          const allVocabIds = state.vocabulary.active.map(v =>
+            generateVocabularyId(v.word, v.pinyin, v.meaning)
+          );
+          const needsTrainingIds = getEntriesNeedingSpeedTraining(state.responseDatabase, allVocabIds);
+          remainingWords = shuffleArray(needsTrainingIds);
+        } else {
+          // No database yet, train all vocabulary
+          remainingWords = shuffleArray(state.vocabulary.active.map(v =>
+            generateVocabularyId(v.word, v.pinyin, v.meaning)
+          ));
+        }
+      } else if (playMode === 'complete-all' || playMode === 'drill') {
         if (exerciseType === 'shuffled') {
           // Create array with both word and meaning for each vocabulary entry
           const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
@@ -193,6 +208,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       // Record response timing
       const vocabEntry = state.currentExercise.words[0];
       const wasCorrect = attempt.score.correct === attempt.score.total;
+
+      // Determine the correct answer to count words
+      const correctAnswer = isEnglishExercise
+        ? (state.currentExercise.correctMeaning || '')
+        : (state.currentExercise.correctPinyin || '');
+      const wordCount = countWords(correctAnswer);
+
       const newTiming = {
         vocabularyId: `${vocabEntry.word}:${vocabEntry.pinyin}:${vocabEntry.meaning}`,
         character: vocabEntry.word,
@@ -200,6 +222,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         meaning: vocabEntry.meaning,
         promptType: state.currentExercise.promptType,
         responseTimeMs,
+        wordCount,
         wasCorrect
       };
       const updatedResponseTimings = [...(state.currentSession.responseTimings || []), newTiming];
@@ -220,8 +243,47 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       // Handle remaining words based on play mode
       let updatedRemainingWords = state.currentSession.remainingWords;
       const currentWord = state.currentExercise.words[0].word;
+      const currentVocabId = `${vocabEntry.word}:${vocabEntry.pinyin}:${vocabEntry.meaning}`;
 
-      if ((state.currentSession.playMode === 'complete-all' || state.currentSession.playMode === 'speed-drill') && updatedRemainingWords) {
+      if (state.currentSession.playMode === 'speed-drill' && updatedRemainingWords) {
+        // For speed-drill: only remove if answer was correct AND meets threshold
+        if (wasCorrect) {
+          const threshold = calculateSpeedThreshold(wordCount);
+          const perWordThreshold = wordCount > 0 ? threshold / wordCount : threshold;
+          const perWordTime = wordCount > 0 ? responseTimeMs / wordCount : responseTimeMs;
+
+          if (perWordTime <= perWordThreshold) {
+            // Met threshold - remove from training list
+            updatedRemainingWords = updatedRemainingWords.filter(id => id !== currentVocabId);
+          } else {
+            // Didn't meet threshold - keep in list but move to back
+            updatedRemainingWords = updatedRemainingWords.slice(1);
+            if (updatedRemainingWords.length > 0) {
+              const insertPosition = Math.floor(Math.random() * updatedRemainingWords.length);
+              updatedRemainingWords = [
+                ...updatedRemainingWords.slice(0, insertPosition),
+                currentVocabId,
+                ...updatedRemainingWords.slice(insertPosition)
+              ];
+            } else {
+              updatedRemainingWords = [currentVocabId];
+            }
+          }
+        } else {
+          // Incorrect answer - keep in list but move to back
+          updatedRemainingWords = updatedRemainingWords.slice(1);
+          if (updatedRemainingWords.length > 0) {
+            const insertPosition = Math.floor(Math.random() * updatedRemainingWords.length);
+            updatedRemainingWords = [
+              ...updatedRemainingWords.slice(0, insertPosition),
+              currentVocabId,
+              ...updatedRemainingWords.slice(insertPosition)
+            ];
+          } else {
+            updatedRemainingWords = [currentVocabId];
+          }
+        }
+      } else if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords) {
         // Remove current word (always move forward)
         updatedRemainingWords = updatedRemainingWords.slice(1);
       } else if (state.currentSession.playMode === 'drill' && updatedRemainingWords) {
@@ -342,6 +404,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
           exerciseType: state.currentSession!.exerciseType,
           promptType: timing.promptType,
           responseTimeMs: timing.responseTimeMs,
+          wordCount: timing.wordCount,
           wasCorrect: timing.wasCorrect
         }));
 

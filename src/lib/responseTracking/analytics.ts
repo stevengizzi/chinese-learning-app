@@ -156,6 +156,7 @@ export function generateSpeedReport(
 
 /**
  * Get entries slower than average (for Speed Drill mode)
+ * @deprecated Use getEntriesAboveThreshold instead
  */
 export function getSlowerThanAverageEntries(
   database: ResponseDatabase

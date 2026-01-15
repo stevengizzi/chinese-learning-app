@@ -20,6 +20,7 @@ export interface Session {
     meaning: string;
     promptType: PromptType;  // What was shown to the user
     responseTimeMs: number;
+    wordCount: number;  // Number of words in correct answer
     wasCorrect: boolean;
   }>;
 }

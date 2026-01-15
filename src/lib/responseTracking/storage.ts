@@ -19,6 +19,56 @@ export function generateVocabularyId(character: string, pinyin: string, meaning:
 }
 
 /**
+ * Count words in a text (handles both English and pinyin)
+ * For pinyin: counts space-separated syllables
+ * For English: counts space-separated words
+ */
+export function countWords(text: string): number {
+  const trimmed = text.trim();
+  if (!trimmed) return 0;
+  // Split by whitespace and count non-empty parts
+  return trimmed.split(/\s+/).length;
+}
+
+/**
+ * Calculate speed threshold for a given word count
+ * Base: 3000ms for 1 word, +1000ms for each additional word
+ */
+export function calculateSpeedThreshold(wordCount: number): number {
+  return 3000 + Math.max(0, wordCount - 1) * 1000;
+}
+
+/**
+ * Get entries that need speed drill training
+ * Returns entries that either:
+ * 1. Have no recorded correct attempts, OR
+ * 2. Have average per-word time above the threshold for their word count
+ */
+export function getEntriesNeedingSpeedTraining(
+  database: ResponseDatabase,
+  vocabularyIds: string[]
+): string[] {
+  const needsTraining: string[] = [];
+
+  for (const vocabId of vocabularyIds) {
+    const stats = database.statistics[vocabId];
+
+    if (!stats || stats.correctAttempts === 0) {
+      // No data - needs training
+      needsTraining.push(vocabId);
+    } else {
+      // Has data - check if above threshold
+      const perWordThreshold = calculateSpeedThreshold(stats.wordCount) / stats.wordCount;
+      if (stats.averageResponseTimeMs > perWordThreshold) {
+        needsTraining.push(vocabId);
+      }
+    }
+  }
+
+  return needsTraining;
+}
+
+/**
  * Create empty database
  */
 function createEmptyDatabase(): ResponseDatabase {
@@ -122,6 +172,7 @@ export function addResponseRecords(
     exerciseType: ExerciseType;
     promptType: PromptType;
     responseTimeMs: number;
+    wordCount: number;
     wasCorrect: boolean;
   }>
 ): ResponseDatabase {
@@ -134,6 +185,7 @@ export function addResponseRecords(
     exerciseType: r.exerciseType,
     promptType: r.promptType,
     responseTimeMs: r.responseTimeMs,
+    wordCount: r.wordCount,
     wasCorrect: r.wasCorrect,
     timestamp: now
   }));
@@ -146,7 +198,10 @@ export function addResponseRecords(
   const updatedStatistics = { ...database.statistics };
 
   for (const record of records) {
-    const { vocabularyId, character, pinyin, meaning, promptType, responseTimeMs, wasCorrect } = record;
+    const { vocabularyId, character, pinyin, meaning, promptType, responseTimeMs, wordCount, wasCorrect } = record;
+
+    // Calculate per-word response time
+    const perWordTimeMs = wordCount > 0 ? responseTimeMs / wordCount : responseTimeMs;
 
     // Get or create stats entry
     let stats = updatedStatistics[vocabularyId];
@@ -156,6 +211,7 @@ export function addResponseRecords(
         character,
         pinyin,
         meaning,
+        wordCount,
         totalAttempts: 0,
         correctAttempts: 0,
         averageResponseTimeMs: 0,
@@ -170,6 +226,11 @@ export function addResponseRecords(
           'english-to-pinyin': createEmptyPromptTypeStats()
         }
       };
+    }
+
+    // Ensure wordCount is set (for backward compatibility)
+    if (!stats.wordCount) {
+      stats.wordCount = wordCount;
     }
 
     // Ensure byPromptType exists (for backward compatibility with old data)
@@ -195,15 +256,15 @@ export function addResponseRecords(
       stats.correctAttempts++;
       promptStats.correctAttempts++;
 
-      // Update overall response times (only for correct answers)
-      stats.recentResponseTimes = [...stats.recentResponseTimes, responseTimeMs].slice(-10);
-      stats.fastestResponseMs = Math.min(stats.fastestResponseMs, responseTimeMs);
-      stats.slowestResponseMs = Math.max(stats.slowestResponseMs, responseTimeMs);
+      // Update overall response times with per-word time (only for correct answers)
+      stats.recentResponseTimes = [...stats.recentResponseTimes, perWordTimeMs].slice(-10);
+      stats.fastestResponseMs = Math.min(stats.fastestResponseMs, perWordTimeMs);
+      stats.slowestResponseMs = Math.max(stats.slowestResponseMs, perWordTimeMs);
 
-      // Update prompt-type-specific response times
-      promptStats.recentResponseTimes = [...promptStats.recentResponseTimes, responseTimeMs].slice(-10);
-      promptStats.fastestResponseMs = Math.min(promptStats.fastestResponseMs, responseTimeMs);
-      promptStats.slowestResponseMs = Math.max(promptStats.slowestResponseMs, responseTimeMs);
+      // Update prompt-type-specific response times with per-word time
+      promptStats.recentResponseTimes = [...promptStats.recentResponseTimes, perWordTimeMs].slice(-10);
+      promptStats.fastestResponseMs = Math.min(promptStats.fastestResponseMs, perWordTimeMs);
+      promptStats.slowestResponseMs = Math.max(promptStats.slowestResponseMs, perWordTimeMs);
 
       // Recalculate overall average from recent times
       if (stats.recentResponseTimes.length > 0) {

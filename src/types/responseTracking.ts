@@ -24,6 +24,7 @@ export interface ResponseRecord {
   exerciseType: ExerciseType;  // Type of exercise
   promptType: PromptType;       // What was shown to user (for shuffled exercises)
   responseTimeMs: number;       // Time taken to respond (ms)
+  wordCount: number;            // Number of words in correct answer
   wasCorrect: boolean;          // Whether answer was correct
   timestamp: number;            // When this occurred (Unix timestamp)
 }
@@ -34,11 +35,11 @@ export interface ResponseRecord {
 export interface PromptTypeStats {
   totalAttempts: number;
   correctAttempts: number;
-  averageResponseTimeMs: number;  // Average of correct responses only
-  fastestResponseMs: number;
-  slowestResponseMs: number;
+  averageResponseTimeMs: number;  // Average per-word response time (correct responses only)
+  fastestResponseMs: number;      // Fastest per-word response time
+  slowestResponseMs: number;      // Slowest per-word response time
   lastAttemptTimestamp: number;
-  recentResponseTimes: number[];  // Last 10 correct response times
+  recentResponseTimes: number[];  // Last 10 correct per-word response times
 }
 
 /**
@@ -49,13 +50,14 @@ export interface VocabularySpeedStats {
   character: string;
   pinyin: string;
   meaning: string;
+  wordCount: number;              // Number of words in this vocabulary entry
   totalAttempts: number;
   correctAttempts: number;
-  averageResponseTimeMs: number;  // Average of correct responses only (across all prompt types)
-  fastestResponseMs: number;
-  slowestResponseMs: number;
+  averageResponseTimeMs: number;  // Average per-word response time (correct responses, all prompt types)
+  fastestResponseMs: number;      // Fastest per-word response time
+  slowestResponseMs: number;      // Slowest per-word response time
   lastAttemptTimestamp: number;
-  recentResponseTimes: number[];  // Last 10 correct response times
+  recentResponseTimes: number[];  // Last 10 correct per-word response times
   byPromptType: Record<PromptType, PromptTypeStats>;  // Stats broken down by prompt type
 }
 

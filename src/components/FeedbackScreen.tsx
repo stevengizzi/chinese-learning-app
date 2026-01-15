@@ -189,6 +189,16 @@ export function FeedbackScreen() {
                       state.currentSession.responseTimings.length - 1
                     ]?.responseTimeMs || 0
                   }
+                  wordCount={
+                    state.currentSession.responseTimings[
+                      state.currentSession.responseTimings.length - 1
+                    ]?.wordCount || 1
+                  }
+                  vocabularyId={
+                    state.currentSession.responseTimings[
+                      state.currentSession.responseTimings.length - 1
+                    ]?.vocabularyId || ''
+                  }
                   wasCorrect={isCorrect}
                 />
               </div>
