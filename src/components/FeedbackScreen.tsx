@@ -233,13 +233,45 @@ export function FeedbackScreen() {
             </div>
 
             {/* Session Progress */}
-            {state.currentSession && (
-              <div className="mt-6 text-center">
-                <p className="text-sm text-gray-500">
-                  Exercises completed: {state.currentSession.attempts.length}
-                </p>
-              </div>
-            )}
+            {state.currentSession && (() => {
+              const playMode = state.currentSession.playMode;
+              const totalPrompts = (state.currentSession.remainingWords?.length || 0) + state.currentSession.attempts.length;
+
+              let successfulCompletions = 0;
+
+              if (playMode === 'speed-drill') {
+                // For speed-drill: count attempts where answer was correct AND within threshold
+                const config = state.currentSession.speedDrillConfig || { baseThresholdMs: 3000, incrementPerWordMs: 1000 };
+                successfulCompletions = state.currentSession.responseTimings.filter(timing => {
+                  if (!timing.wasCorrect) return false;
+                  const threshold = config.baseThresholdMs + Math.max(0, timing.wordCount - 1) * config.incrementPerWordMs;
+                  const perWordThreshold = timing.wordCount > 0 ? threshold / timing.wordCount : threshold;
+                  const perWordTime = timing.wordCount > 0 ? timing.responseTimeMs / timing.wordCount : timing.responseTimeMs;
+                  return perWordTime <= perWordThreshold;
+                }).length;
+              } else if (playMode === 'drill' || playMode === 'complete-all') {
+                // For drill/complete-all: count attempts where answer was correct
+                successfulCompletions = state.currentSession.attempts.filter(attempt =>
+                  attempt.score.correct === attempt.score.total
+                ).length;
+              } else {
+                // For endless mode: just show total attempts
+                successfulCompletions = state.currentSession.attempts.length;
+              }
+
+              const showOutOfTotal = playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill';
+
+              return (
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-gray-500">
+                    {showOutOfTotal
+                      ? `Exercises completed: ${successfulCompletions} out of ${totalPrompts}`
+                      : `Exercises completed: ${successfulCompletions}`
+                    }
+                  </p>
+                </div>
+              );
+            })()}
           </div>
         </div>
       </div>

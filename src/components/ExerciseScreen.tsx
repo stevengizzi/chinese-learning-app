@@ -37,7 +37,8 @@ export function ExerciseScreen() {
   const remainingWords = state.currentSession?.remainingWords?.length || 0;
   const isCompleteAllMode = state.currentSession?.playMode === 'complete-all';
   const isDrillMode = state.currentSession?.playMode === 'drill';
-  const showRemainingCount = isCompleteAllMode || isDrillMode;
+  const isSpeedDrillMode = state.currentSession?.playMode === 'speed-drill';
+  const showRemainingCount = isCompleteAllMode || isDrillMode || isSpeedDrillMode;
 
   // Helper function to check if prompt is primarily Chinese characters
   // (not just containing Chinese, but being primarily Chinese)
