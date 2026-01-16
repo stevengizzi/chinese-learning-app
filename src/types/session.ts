@@ -10,6 +10,7 @@ export interface Session {
   attempts: ExerciseAttempt[];
   statistics: SessionStatistics;
   remainingWords?: string[];  // For complete-all, drill, and speed-drill modes
+  totalPrompts?: number;  // Total number of prompts at session start (for drill modes)
   accumulatedTimeMs?: number;  // Total active time (excluding feedback screens)
   lastResumeTime?: number;  // Timestamp when timer last resumed
   exerciseStartTime?: number;  // When current exercise was shown

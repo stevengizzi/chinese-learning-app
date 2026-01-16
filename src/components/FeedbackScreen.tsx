@@ -235,7 +235,7 @@ export function FeedbackScreen() {
             {/* Session Progress */}
             {state.currentSession && (() => {
               const playMode = state.currentSession.playMode;
-              const totalPrompts = (state.currentSession.remainingWords?.length || 0) + state.currentSession.attempts.length;
+              const totalPrompts = state.currentSession.totalPrompts || 0;
 
               let successfulCompletions = 0;
 

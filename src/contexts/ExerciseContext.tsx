@@ -147,6 +147,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const session = createNewSession(exerciseType, playMode, state.vocabulary.active.length);
       session.remainingWords = remainingWords;
+      session.totalPrompts = remainingWords?.length; // Store initial total
 
       const exercise = generateNewExercise(
         state.vocabulary,
@@ -452,6 +453,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const session = createNewSession(exerciseType, 'speed-drill', state.vocabulary.active.length);
       session.remainingWords = remainingWords;
+      session.totalPrompts = remainingWords?.length; // Store initial total
       session.speedDrillConfig = { baseThresholdMs, incrementPerWordMs };
 
       const exercise = generateNewExercise(
