@@ -8,9 +8,9 @@ import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
-import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords, getEntriesNeedingSpeedTraining, generateVocabularyId, calculateSpeedThreshold } from '../lib/responseTracking/storage';
+import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -21,12 +21,15 @@ interface ExerciseState {
   isLoading: boolean;
   error: string | null;
   responseDatabase: ResponseDatabase | null;
+  pendingSpeedDrillExercise?: ExerciseType; // Exercise type pending speed drill config
 }
 
 type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
   | { type: 'SET_RESPONSE_DATABASE'; payload: ResponseDatabase }
   | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
+  | { type: 'SHOW_SPEED_DRILL_CONFIG'; payload: { exerciseType: ExerciseType } }
+  | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
   | { type: 'NEXT_EXERCISE' }
   | { type: 'REQUEST_REPORT' }
@@ -52,16 +55,14 @@ function generateNewExercise(
   exerciseType: ExerciseType,
   playMode: PlayMode,
   recentIds: string[],
-  remainingWords: string[],
-  responseDatabase?: ResponseDatabase | null
+  remainingWords: string[]
 ): Exercise {
   return generateExercise(
     vocabulary.active,
     exerciseType,
     playMode,
     recentIds,
-    remainingWords,
-    responseDatabase || undefined
+    remainingWords
   );
 }
 
@@ -122,21 +123,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       // Create remaining words list based on exercise type and play mode
       let remainingWords: string[] | undefined;
 
-      if (playMode === 'speed-drill') {
-        // For speed-drill, populate with vocabulary IDs that need training
-        if (state.responseDatabase) {
-          const allVocabIds = state.vocabulary.active.map(v =>
-            generateVocabularyId(v.word, v.pinyin, v.meaning)
-          );
-          const needsTrainingIds = getEntriesNeedingSpeedTraining(state.responseDatabase, allVocabIds);
-          remainingWords = shuffleArray(needsTrainingIds);
-        } else {
-          // No database yet, train all vocabulary
-          remainingWords = shuffleArray(state.vocabulary.active.map(v =>
-            generateVocabularyId(v.word, v.pinyin, v.meaning)
-          ));
-        }
-      } else if (playMode === 'complete-all' || playMode === 'drill') {
+      if (playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') {
+        // All these modes work through all vocabulary prompts
         if (exerciseType === 'shuffled') {
           // Create array with both word and meaning for each vocabulary entry
           const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
@@ -165,8 +153,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         exerciseType,
         playMode,
         [],
-        remainingWords || [],
-        state.responseDatabase
+        remainingWords || []
       );
 
       return {
@@ -242,60 +229,50 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       // Handle remaining words based on play mode
       let updatedRemainingWords = state.currentSession.remainingWords;
-      const currentWord = state.currentExercise.words[0].word;
-      const currentVocabId = `${vocabEntry.word}:${vocabEntry.pinyin}:${vocabEntry.meaning}`;
+
+      // Get the actual prompt that was shown (could be word, meaning, or pinyin)
+      // Need to extract the base prompt without disambiguation text
+      const currentPrompt = state.currentExercise.prompt.split(' (')[0]; // Remove disambiguation like "(明天)"
 
       if (state.currentSession.playMode === 'speed-drill' && updatedRemainingWords) {
         // For speed-drill: only remove if answer was correct AND meets threshold
-        if (wasCorrect) {
-          const threshold = calculateSpeedThreshold(wordCount);
-          const perWordThreshold = wordCount > 0 ? threshold / wordCount : threshold;
-          const perWordTime = wordCount > 0 ? responseTimeMs / wordCount : responseTimeMs;
+        // Use session-specific thresholds if configured
+        const config = state.currentSession.speedDrillConfig || { baseThresholdMs: 3000, incrementPerWordMs: 1000 };
+        const threshold = config.baseThresholdMs + Math.max(0, wordCount - 1) * config.incrementPerWordMs;
+        const perWordThreshold = wordCount > 0 ? threshold / wordCount : threshold;
+        const perWordTime = wordCount > 0 ? responseTimeMs / wordCount : responseTimeMs;
 
-          if (perWordTime <= perWordThreshold) {
-            // Met threshold - remove from training list
-            updatedRemainingWords = updatedRemainingWords.filter(id => id !== currentVocabId);
-          } else {
-            // Didn't meet threshold - keep in list but move to back
-            updatedRemainingWords = updatedRemainingWords.slice(1);
-            if (updatedRemainingWords.length > 0) {
-              const insertPosition = Math.floor(Math.random() * updatedRemainingWords.length);
-              updatedRemainingWords = [
-                ...updatedRemainingWords.slice(0, insertPosition),
-                currentVocabId,
-                ...updatedRemainingWords.slice(insertPosition)
-              ];
-            } else {
-              updatedRemainingWords = [currentVocabId];
-            }
-          }
+        if (wasCorrect && perWordTime <= perWordThreshold) {
+          // Met threshold - remove from training list
+          updatedRemainingWords = updatedRemainingWords.slice(1);
         } else {
-          // Incorrect answer - keep in list but move to back
+          // Didn't meet threshold or incorrect - keep in list but move to back
           updatedRemainingWords = updatedRemainingWords.slice(1);
           if (updatedRemainingWords.length > 0) {
             const insertPosition = Math.floor(Math.random() * updatedRemainingWords.length);
             updatedRemainingWords = [
               ...updatedRemainingWords.slice(0, insertPosition),
-              currentVocabId,
+              currentPrompt,
               ...updatedRemainingWords.slice(insertPosition)
             ];
           } else {
-            updatedRemainingWords = [currentVocabId];
+            updatedRemainingWords = [currentPrompt];
           }
         }
       } else if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords) {
-        // Remove current word (always move forward)
+        // Remove current prompt (always move forward)
         updatedRemainingWords = updatedRemainingWords.slice(1);
       } else if (state.currentSession.playMode === 'drill' && updatedRemainingWords) {
-        // Remove current word first
+        // Remove current prompt first
         updatedRemainingWords = updatedRemainingWords.slice(1);
 
         // If answer was incorrect, shuffle it back into the remaining words
         if (attempt.score.correct !== attempt.score.total) {
+          // Re-insert the ACTUAL prompt that was shown, not just the word
           const insertPosition = Math.floor(Math.random() * (updatedRemainingWords.length + 1));
           updatedRemainingWords = [
             ...updatedRemainingWords.slice(0, insertPosition),
-            currentWord,
+            currentPrompt,
             ...updatedRemainingWords.slice(insertPosition)
           ];
         }
@@ -343,8 +320,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         state.currentSession.exerciseType,
         state.currentSession.playMode,
         recentIds,
-        state.currentSession.remainingWords || [],
-        state.responseDatabase
+        state.currentSession.remainingWords || []
       );
 
       // Resume timer
@@ -441,6 +417,58 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         screen: 'view-vocabulary'
+      };
+    }
+
+    case 'SHOW_SPEED_DRILL_CONFIG': {
+      return {
+        ...state,
+        pendingSpeedDrillExercise: action.payload.exerciseType,
+        screen: 'speed-drill-config'
+      };
+    }
+
+    case 'START_SPEED_DRILL': {
+      if (!state.vocabulary) return state;
+
+      const { exerciseType, baseThresholdMs, incrementPerWordMs } = action.payload;
+
+      // Create remaining words list (same as drill mode)
+      let remainingWords: string[] | undefined;
+
+      if (exerciseType === 'shuffled') {
+        const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
+        remainingWords = shuffleArray(allEntries);
+      } else if (exerciseType === 'shuffled-to-english') {
+        const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.pinyin]);
+        remainingWords = shuffleArray(allEntries);
+      } else if (exerciseType === 'english-to-pinyin') {
+        remainingWords = shuffleArray(state.vocabulary.active.map(v => v.meaning));
+      } else if (exerciseType === 'pinyin-to-english') {
+        remainingWords = shuffleArray(state.vocabulary.active.map(v => v.pinyin));
+      } else {
+        remainingWords = shuffleArray(state.vocabulary.active.map(v => v.word));
+      }
+
+      const session = createNewSession(exerciseType, 'speed-drill', state.vocabulary.active.length);
+      session.remainingWords = remainingWords;
+      session.speedDrillConfig = { baseThresholdMs, incrementPerWordMs };
+
+      const exercise = generateNewExercise(
+        state.vocabulary,
+        exerciseType,
+        'speed-drill',
+        [],
+        remainingWords || []
+      );
+
+      return {
+        ...state,
+        currentSession: session,
+        currentExercise: exercise,
+        currentAttempt: null,
+        pendingSpeedDrillExercise: undefined,
+        screen: 'exercise'
       };
     }
 

@@ -10,6 +10,7 @@ import { ViewVocabulary } from './components/ViewVocabulary';
 import { VocabularyUploader } from './components/VocabularyUploader';
 import { ThemeToggle } from './components/ThemeToggle';
 import { ToneSequenceTrainer } from './components/ToneSequenceTrainer';
+import { SpeedDrillConfig } from './components/SpeedDrillConfig';
 
 function AppContent() {
   const { state, dispatch } = useExercise();
@@ -55,6 +56,7 @@ function AppContent() {
           {state.screen === 'feedback' && <FeedbackScreen />}
           {state.screen === 'report' && <ReportScreen />}
           {state.screen === 'view-vocabulary' && <ViewVocabulary />}
+          {state.screen === 'speed-drill-config' && <SpeedDrillConfig />}
           {state.screen === 'tone-sequence' && (
             <ToneSequenceTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
           )}

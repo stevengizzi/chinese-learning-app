@@ -30,10 +30,19 @@ export function MainMenu() {
   }, [state.screen]); // Reload when screen changes (e.g., returning from report)
 
   const handleStartExercise = (exerciseType: ExerciseType, playMode: PlayMode) => {
-    dispatch({
-      type: 'START_SESSION_WITH_CONFIG',
-      payload: { exerciseType, playMode }
-    });
+    if (playMode === 'speed-drill') {
+      // Show config screen for speed drill
+      dispatch({
+        type: 'SHOW_SPEED_DRILL_CONFIG',
+        payload: { exerciseType }
+      });
+    } else {
+      // Start other play modes directly
+      dispatch({
+        type: 'START_SESSION_WITH_CONFIG',
+        payload: { exerciseType, playMode }
+      });
+    }
   };
 
   const handleViewVocabulary = () => {

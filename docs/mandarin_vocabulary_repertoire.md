@@ -208,7 +208,7 @@ notes:
 | 干什么 | gan4 shen2 me | what are you doing?; what's he up to? |
 | 早上 | zao3 shang | early morning |
 | 最 | zui4 | the most |
-| 她们 | ta1 men | they; them (for females) |
+| 她们 | ta1 men | they; them (female) |
 | 身体 | shen1 ti3 | the body |
 | 面 | mian4 | face; surface; noodles |
 | 师 | shi1 | master; expert |

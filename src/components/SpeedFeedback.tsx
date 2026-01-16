@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loadResponseDatabase, getVocabularyStats, calculateSpeedThreshold } from '../lib/responseTracking/storage';
+import { loadResponseDatabase, getVocabularyStats } from '../lib/responseTracking/storage';
 import {
   formatResponseTime
 } from '../lib/responseTracking/analytics';
@@ -10,9 +10,13 @@ interface SpeedFeedbackProps {
   wordCount: number;
   vocabularyId: string;
   wasCorrect: boolean;
+  speedDrillConfig?: {
+    baseThresholdMs: number;
+    incrementPerWordMs: number;
+  };
 }
 
-export function SpeedFeedback({ responseTimeMs, wordCount, vocabularyId, wasCorrect }: SpeedFeedbackProps) {
+export function SpeedFeedback({ responseTimeMs, wordCount, vocabularyId, wasCorrect, speedDrillConfig }: SpeedFeedbackProps) {
   const [vocabStats, setVocabStats] = useState<VocabularySpeedStats | null>(null);
 
   useEffect(() => {
@@ -30,7 +34,9 @@ export function SpeedFeedback({ responseTimeMs, wordCount, vocabularyId, wasCorr
   const perWordTimeMs = wordCount > 0 ? responseTimeMs / wordCount : responseTimeMs;
 
   // Calculate threshold for this vocabulary term
-  const threshold = calculateSpeedThreshold(wordCount);
+  // Use provided config or defaults
+  const config = speedDrillConfig || { baseThresholdMs: 3000, incrementPerWordMs: 1000 };
+  const threshold = config.baseThresholdMs + Math.max(0, wordCount - 1) * config.incrementPerWordMs;
   const perWordThreshold = wordCount > 0 ? threshold / wordCount : threshold;
 
   // Determine if this meets the threshold

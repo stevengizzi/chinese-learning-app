@@ -200,6 +200,7 @@ export function FeedbackScreen() {
                     ]?.vocabularyId || ''
                   }
                   wasCorrect={isCorrect}
+                  speedDrillConfig={state.currentSession.speedDrillConfig}
                 />
               </div>
             )}

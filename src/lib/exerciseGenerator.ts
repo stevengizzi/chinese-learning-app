@@ -1,8 +1,7 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
-import type { ResponseDatabase, PromptType } from '../types/responseTracking';
+import type { PromptType } from '../types/responseTracking';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
-import { generateVocabularyId, getEntriesNeedingSpeedTraining } from './responseTracking/storage';
 
 /**
  * Determine the prompt type based on what was shown to the user
@@ -36,8 +35,7 @@ export function generateExercise(
   exerciseType: ExerciseType,
   playMode: PlayMode,
   recentExerciseIds: string[] = [],
-  remainingWords: string[] = [],
-  responseDatabase?: ResponseDatabase
+  remainingWords: string[] = []
 ): Exercise {
   if (vocabulary.length === 0) {
     throw new Error('No vocabulary available for exercises');
@@ -46,48 +44,8 @@ export function generateExercise(
   let selectedEntry: VocabularyEntry | undefined;
   let prompt: string;
 
-  // Speed Drill mode: select from entries needing training (no data or above threshold)
-  if (playMode === 'speed-drill' && responseDatabase) {
-    // Get all vocabulary IDs
-    const allVocabIds = vocabulary.map(v => generateVocabularyId(v.word, v.pinyin, v.meaning));
-
-    // Get entries that need training
-    const needsTrainingIds = getEntriesNeedingSpeedTraining(responseDatabase, allVocabIds);
-
-    // Filter vocabulary to only those needing training
-    const targetPool = needsTrainingIds.length > 0
-      ? vocabulary.filter(v => needsTrainingIds.includes(generateVocabularyId(v.word, v.pinyin, v.meaning)))
-      : [];
-
-    // If we have entries needing training, select randomly from them
-    if (targetPool.length > 0) {
-      selectedEntry = targetPool[Math.floor(Math.random() * targetPool.length)];
-    } else {
-      // All entries meet threshold - speed drill is complete!
-      // For now, just select a random entry
-      selectedEntry = vocabulary[Math.floor(Math.random() * vocabulary.length)];
-    }
-
-    // Safety check
-    if (!selectedEntry) {
-      throw new Error('Failed to select vocabulary entry for speed-drill mode');
-    }
-
-    // Determine prompt based on exercise type for speed-drill mode
-    if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
-      prompt = selectedEntry.word;
-    } else if (exerciseType === 'english-to-pinyin') {
-      prompt = selectedEntry.meaning;
-    } else if (exerciseType === 'pinyin-to-english') {
-      prompt = selectedEntry.pinyin;
-    } else if (exerciseType === 'shuffled') {
-      // shuffled (to pinyin): randomly choose between character or meaning
-      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
-    } else {
-      // shuffled-to-english: randomly choose between character or pinyin
-      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.pinyin;
-    }
-  } else if ((playMode === 'complete-all' || playMode === 'drill') && remainingWords.length > 0) {
+  // Speed Drill, Complete-All, and Drill modes: use remainingWords
+  if ((playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') && remainingWords.length > 0) {
     // Pick from remaining words (could be word, meaning, or pinyin)
     const promptToUse = remainingWords[0];
     // Try to find by word first, then by meaning, then by pinyin

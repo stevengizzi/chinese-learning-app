@@ -9,7 +9,7 @@ export interface Session {
   endTime?: number;
   attempts: ExerciseAttempt[];
   statistics: SessionStatistics;
-  remainingWords?: string[];  // For complete-all mode
+  remainingWords?: string[];  // For complete-all, drill, and speed-drill modes
   accumulatedTimeMs?: number;  // Total active time (excluding feedback screens)
   lastResumeTime?: number;  // Timestamp when timer last resumed
   exerciseStartTime?: number;  // When current exercise was shown
@@ -23,6 +23,10 @@ export interface Session {
     wordCount: number;  // Number of words in correct answer
     wasCorrect: boolean;
   }>;
+  speedDrillConfig?: {
+    baseThresholdMs: number;  // Base threshold (default 3000ms)
+    incrementPerWordMs: number;  // Additional ms per word (default 1000ms)
+  };
 }
 
 export interface SessionStatistics {
