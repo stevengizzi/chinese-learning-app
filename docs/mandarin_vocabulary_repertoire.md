@@ -259,12 +259,12 @@ notes:
 | 常 | chang2 | often; frequently; common |
 | 日期 | ri4 qi1 | date (calendar) |
 | 体 | ti3 | body; substance; system |
-| 儿 | er2 | child; "legs" radical; used to indicate "rhotacization" in Beijing dialect |
+| 儿 | er2 | child; "legs" radical; indicates rhotacization in Beijing dialect |
 | 南 | nan2 | south |
 | 新 | xin1 | new |
 | 国家 | guo2 jia1 | country; nation |
 | 再 | zai4 | again; once more |
-| 吗 | ma | marker at the end of a sentence indicating a question |
+| 吗 | ma | question indicator |
 | 牛 | niu2 | cow; ox |
 | 这 | zhe4 | this; these |
 | 上班 | shang4 ban1 | to go to work; to go to the office |
@@ -286,3 +286,24 @@ notes:
 | 电影院 | dian4 ying3 yuan4 | movie theater; cinema |
 | 弟 | di4 | younger brother |
 | 商场 | shang1 chang3 | shopping mall; department store |
+| 男生 | nan2 sheng1 | male student; young adult male |
+| 校 | xiao4 | school |
+| 老师 | lao3 shi1 | teacher |
+| 国 | guo2 | country; nation |
+| 跟 | gen1 | with; and; to follow |
+| 坏 | huai4 | bad; spoiled; broken |
+| 今年 | jin1 nian2 | this year |
+| 第 | di4 | prefix indicating order (first, number two, etc) |
+| 读 | du2 | to read |
+| 下雨 | xia4 yu3 | to rain |
+| 回家 | hui2 jia1 | to return home |
+| 非 | fei1 | to not be; non- |
+| 米饭 | mi3 fan4 | (cooked) rice |
+| 看 | kan4 | to look at; to see |
+| 识 | shi2 | to know; to recognize; knowledge |
+| 快 | kuai4 | fast; quick; (to happen) soon |
+| 外国 | wai4 guo2 | foreign (country) |
+| 的 | de | of (indicating possession) |
+| 渴 | ke3 | thirsty |
+| 后天 | hou4 tian1 | the day after tomorrow |
+| 北边 | bei3 bian1 | north side; northern part |

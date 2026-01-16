@@ -2112,3 +2112,171 @@ english: The shopping mall is very big.
 mandarin: 商场很大。
 pinyin: Shāngchǎng hěn dà.
 --
+english: He is a male student.
+mandarin: 他是男生。
+pinyin: Tā shì nánshēng.
+--
+english: That male student is very tall.
+mandarin: 那个男生很高。
+pinyin: Nà ge nánshēng hěn gāo.
+--
+english: This school is big.
+mandarin: 这个校很大。
+pinyin: Zhè ge xiào hěn dà.
+--
+english: He goes to school.
+mandarin: 他去校。
+pinyin: Tā qù xiào.
+--
+english: She is a teacher.
+mandarin: 她是老师。
+pinyin: Tā shì lǎoshī.
+--
+english: The teacher is in the classroom.
+mandarin: 老师在教室。
+pinyin: Lǎoshī zài jiàoshì.
+--
+english: China is a country.
+mandarin: 中国是国。
+pinyin: Zhōngguó shì guó.
+--
+english: He loves his country.
+mandarin: 他爱国。
+pinyin: Tā ài guó.
+--
+english: I go with him.
+mandarin: 我跟他去。
+pinyin: Wǒ gēn tā qù.
+--
+english: She studies with her friend.
+mandarin: 她跟朋友学习。
+pinyin: Tā gēn péngyou xuéxí.
+--
+english: This phone is broken.
+mandarin: 这个电话坏。
+pinyin: Zhè ge diànhuà huài.
+--
+english: The weather is bad today.
+mandarin: 今天天气坏。
+pinyin: Jīntiān tiānqì huài.
+--
+english: I am very busy this year.
+mandarin: 我今年很忙。
+pinyin: Wǒ jīnnián hěn máng.
+--
+english: This year he studies Chinese.
+mandarin: 今年他学汉语。
+pinyin: Jīnnián tā xué Hànyǔ.
+--
+english: This is the first lesson.
+mandarin: 这是第一课。
+pinyin: Zhè shì dì yī kè.
+--
+english: He is number two.
+mandarin: 他是第二。
+pinyin: Tā shì dì èr.
+--
+english: I read a book.
+mandarin: 我读书。
+pinyin: Wǒ dú shū.
+--
+english: He reads this page.
+mandarin: 他读这一页。
+pinyin: Tā dú zhè yí yè.
+--
+english: It is raining today.
+mandarin: 今天下雨。
+pinyin: Jīntiān xiàyǔ.
+--
+english: When it rains, we stay home.
+mandarin: 下雨我们在家。
+pinyin: Xiàyǔ wǒmen zài jiā.
+--
+english: I go home now.
+mandarin: 我现在回家。
+pinyin: Wǒ xiànzài huíjiā.
+--
+english: He goes home in the evening.
+mandarin: 他晚上回家。
+pinyin: Tā wǎnshang huíjiā.
+--
+english: This is not correct.
+mandarin: 这是非对。
+pinyin: Zhè shì fēi duì.
+--
+english: That answer is wrong.
+mandarin: 那个是非。
+pinyin: Nà ge shì fēi.
+--
+english: I eat rice.
+mandarin: 我吃米饭。
+pinyin: Wǒ chī mǐfàn.
+--
+english: Rice is tasty.
+mandarin: 米饭好吃。
+pinyin: Mǐfàn hǎochī.
+--
+english: I watch TV.
+mandarin: 我看电视机。
+pinyin: Wǒ kàn diànshìjī.
+--
+english: He looks at this book.
+mandarin: 他看这本书。
+pinyin: Tā kàn zhè běn shū.
+--
+english: I know this character.
+mandarin: 我识这个字。
+pinyin: Wǒ shí zhè ge zì.
+--
+english: He does not recognize her.
+mandarin: 他不识她。
+pinyin: Tā bù shí tā.
+--
+english: He walks fast.
+mandarin: 他走得快。
+pinyin: Tā zǒu de kuài.
+--
+english: Class will start soon.
+mandarin: 快上课了。
+pinyin: Kuài shàngkè le.
+--
+english: He is from a foreign country.
+mandarin: 他是外国人。
+pinyin: Tā shì wàiguórén.
+--
+english: I want to go abroad.
+mandarin: 我想去外国。
+pinyin: Wǒ xiǎng qù wàiguó.
+--
+english: This is my book.
+mandarin: 这是我的书。
+pinyin: Zhè shì wǒ de shū.
+--
+english: Her phone is new.
+mandarin: 她的电话是新的。
+pinyin: Tā de diànhuà shì xīn de.
+--
+english: I am thirsty.
+mandarin: 我渴。
+pinyin: Wǒ kě.
+--
+english: He is thirsty and wants water.
+mandarin: 他渴，想喝水。
+pinyin: Tā kě, xiǎng hē shuǐ.
+--
+english: We meet the day after tomorrow.
+mandarin: 后天见面。
+pinyin: Hòutiān jiànmiàn.
+--
+english: The day after tomorrow I go to work.
+mandarin: 后天我上班。
+pinyin: Hòutiān wǒ shàngbān.
+--
+english: The school is on the north side.
+mandarin: 学校在北边。
+pinyin: Xuéxiào zài běibiān.
+--
+english: He lives on the north side of the city.
+mandarin: 他住在北边。
+pinyin: Tā zhù zài běibiān.
+--
