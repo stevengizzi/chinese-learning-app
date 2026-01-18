@@ -7,7 +7,6 @@ import { ExerciseScreen } from './components/ExerciseScreen';
 import { FeedbackScreen } from './components/FeedbackScreen';
 import { ReportScreen } from './components/ReportScreen';
 import { ViewVocabulary } from './components/ViewVocabulary';
-import { VocabularyUploader } from './components/VocabularyUploader';
 import { ThemeToggle } from './components/ThemeToggle';
 import { ToneSequenceTrainer } from './components/ToneSequenceTrainer';
 import { SpeedDrillConfig } from './components/SpeedDrillConfig';
@@ -36,7 +35,10 @@ function AppContent() {
   if (state.isLoading && !state.vocabulary) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="text-gray-600 dark:text-gray-300 text-lg">Loading...</div>
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+          <div className="text-gray-600 dark:text-gray-300 text-lg" role="status">Loading vocabulary...</div>
+        </div>
       </div>
     );
   }
@@ -59,15 +61,6 @@ function AppContent() {
           {state.screen === 'speed-drill-config' && <SpeedDrillConfig />}
           {state.screen === 'tone-sequence' && (
             <ToneSequenceTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
-          )}
-
-          {/* Floating vocabulary update button - show only on menu and report screens */}
-          {(state.screen === 'menu' || state.screen === 'report') && (
-            <div className="fixed bottom-6 right-6 z-50">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3">
-                <VocabularyUploader />
-              </div>
-            </div>
           )}
         </>
       )}
