@@ -131,10 +131,10 @@ export function MainMenu() {
           </div>
 
           {/* Centered Content Container */}
-          <div className="flex flex-col items-center">
+          <div className="max-w-2xl mx-auto">
             {/* Vocabulary Info */}
             {state.vocabulary && (
-              <div className="mb-8 w-1/2 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
+              <div className="mb-8 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
                 <p className="text-center text-sm text-blue-800 dark:text-blue-200">
                   <span className="font-semibold">Active vocabulary:</span> {state.vocabulary.active.length} words
                   {state.vocabulary.metadata.lastUpdated && (
@@ -146,23 +146,19 @@ export function MainMenu() {
               </div>
             )}
 
-            {/* View Vocabulary Button */}
-            <div className="mb-4 w-1/4">
+            {/* View Vocabulary & Update Buttons */}
+            <div className="mb-8 flex justify-center gap-4">
               <button
                 onClick={handleViewVocabulary}
-                className="w-full bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 my-1"
+                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
               >
-                📋 View Active Vocabulary
+                📋 View Vocabulary
               </button>
-            </div>
-
-            {/* Update Vocabulary Button */}
-            <div className="mb-4 w-1/4">
               <VocabularyUploader />
             </div>
 
             {/* Tone Sequence Trainer Button */}
-            <div className="mb-8 w-1/2">
+            <div className="mb-8">
               <button
                 onClick={() => dispatch({ type: 'START_TONE_SEQUENCE' })}
                 className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
@@ -176,7 +172,7 @@ export function MainMenu() {
             </div>
 
             {/* Exercise Types */}
-            <div className="mb-8 w-1/2">
+            <div className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Exercise Types</h2>
               <div className="grid grid-cols-1 gap-4">
               {exercises.map((exercise) => (
@@ -223,7 +219,7 @@ export function MainMenu() {
           </div>
 
             {/* Play Mode Info */}
-            <div className="w-1/2 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
+            <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Play Modes</h3>
               <div className="space-y-2 pl-3">
                 {playModes.map((playMode) => (

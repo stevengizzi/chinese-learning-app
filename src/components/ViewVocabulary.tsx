@@ -85,8 +85,8 @@ export function ViewVocabulary() {
           </div>
 
           {/* Search Field */}
-          <div className="mb-6 flex justify-center">
-            <div className="w-1/2">
+          <div className="mb-6">
+            <div className="max-w-md mx-auto">
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 text-center">
                 Prefix search with <span className="font-mono font-semibold">hz:</span> (characters), <span className="font-mono font-semibold">py:</span> (pinyin), or <span className="font-mono font-semibold">en:</span> (meaning)
               </p>

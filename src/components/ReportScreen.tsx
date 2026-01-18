@@ -82,9 +82,9 @@ export function ReportScreen() {
       <div className="w-full max-w-4xl">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Centered Content Container */}
-          <div className="flex flex-col items-center">
+          <div className="max-w-2xl mx-auto">
             {/* Back Button */}
-            <div className="w-1/2 flex justify-end mb-4">
+            <div className="flex justify-end mb-4">
               <button
                 onClick={handleBackToMenu}
                 className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm font-medium"
@@ -105,7 +105,7 @@ export function ReportScreen() {
               <>
                 {/* New High Score Banner */}
                 {isNewHighScore && statistics.averageTimePerCorrectAnswer !== undefined && (
-                  <div className="w-1/2 mb-6">
+                  <div className="mb-6">
                     <div className="bg-gradient-to-r from-yellow-100 to-yellow-50 dark:from-yellow-900/50 dark:to-yellow-800/30 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl p-4 text-center">
                       <div className="flex items-center justify-center gap-2 text-yellow-800 dark:text-yellow-200 font-bold text-lg">
                         <span className="text-2xl">🏆</span>
@@ -120,7 +120,7 @@ export function ReportScreen() {
                 )}
 
                 {/* Key Metrics */}
-                <div className="w-1/2 grid grid-cols-3 gap-3 mb-8">
+                <div className="grid grid-cols-3 gap-3 mb-8">
                   <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-6 text-center">
                     <div className="text-sm text-blue-600 dark:text-blue-300 font-medium mb-2">
                       Exercises Completed
@@ -149,7 +149,7 @@ export function ReportScreen() {
 
                 {/* Timing Metrics */}
                 {statistics.totalTimeMs !== undefined && (
-                  <div className="w-1/2 mb-8">
+                  <div className="mb-8">
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Timing Metrics</h2>
                     <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
                       <div className="space-y-4">
@@ -174,7 +174,7 @@ export function ReportScreen() {
 
                 {/* Speed Performance */}
                 {speedReport && speedReport.entriesPracticed > 0 && (
-                  <div className="w-1/2 mb-8">
+                  <div className="mb-8">
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Speed Performance</h2>
                     <div className="grid grid-cols-3 gap-4 mb-4">
                       <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4 text-center">
@@ -230,7 +230,7 @@ export function ReportScreen() {
                 )}
 
                 {/* Error Breakdown */}
-                <div className="w-1/2 mb-8">
+                <div className="mb-8">
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Error Breakdown</h2>
                   <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
                     <div className="space-y-4">
@@ -252,7 +252,7 @@ export function ReportScreen() {
 
                 {/* Common Mistakes */}
                 {sortedMistakes.length > 0 && (
-                  <div className="w-1/2 mb-8">
+                  <div className="mb-8">
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Common Mistakes</h2>
                     <div className="bg-yellow-50 dark:bg-yellow-900/30 border-2 border-yellow-200 dark:border-yellow-700 rounded-xl p-6">
                     <ul className="space-y-2">
@@ -273,7 +273,7 @@ export function ReportScreen() {
                 )}
 
                 {/* Suggestions */}
-                <div className="w-1/2 mb-12">
+                <div className="mb-12">
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     <span>💡</span>
                     <span>Suggestions</span>
@@ -302,7 +302,7 @@ export function ReportScreen() {
             )}
 
             {/* Action Buttons */}
-            <div className="w-1/4 flex flex-col sm:flex-row gap-4 my-2">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 my-2">
               <button
                 onClick={handleBackToMenu}
                 className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"

@@ -66,7 +66,7 @@ export function ExerciseScreen() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Header - aligned to prompt field width */}
           <div className="mb-8 flex justify-center">
-            <div className="w-1/2 flex justify-between items-center">
+            <div className="max-w-2xl w-full flex justify-between items-center">
               <h2 className="text-gray-500 dark:text-gray-400 text-sm font-medium">
                 Exercise {exerciseNumber + 1}
                 {showRemainingCount && ` • ${remainingWords} remaining`}
@@ -82,7 +82,7 @@ export function ExerciseScreen() {
 
           {/* Prompt Display */}
           <div className="mb-8 flex justify-center">
-            <div className="w-1/2 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-12 text-center">
+            <div className="max-w-2xl w-full bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-12 text-center">
               <div className={`${useLargeFont ? 'text-[80px] md:text-[120px]' : 'text-[40px] md:text-[60px]'} leading-tight font-normal text-gray-900 dark:text-white break-words`}>
                 {state.currentExercise?.prompt}
               </div>
@@ -104,7 +104,7 @@ export function ExerciseScreen() {
                 type="text"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
-                className="w-1/4 px-6 py-4 text-lg border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all font-mono"
+                className="w-full max-w-sm px-6 py-4 text-lg border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all font-mono"
                 placeholder="e.g., wo3 ming2 bai2"
                 autoComplete="off"
                 spellCheck="false"
@@ -114,7 +114,7 @@ export function ExerciseScreen() {
 
             {/* Action Buttons */}
             <div className="flex justify-center mt-6">
-              <div className="flex flex-col sm:flex-row gap-4 w-1/4">
+              <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
                 <button
                   type="submit"
                   className="flex-1 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg disabled:opacity-50 disabled:cursor-not-allowed my-1"

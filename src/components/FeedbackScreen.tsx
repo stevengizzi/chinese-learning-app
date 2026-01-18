@@ -80,9 +80,9 @@ export function FeedbackScreen() {
       <div className="w-full max-w-4xl">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Centered Content Container */}
-          <div className="flex flex-col items-center">
+          <div className="max-w-2xl mx-auto">
             {/* Score Badge */}
-            <div className="w-1/2 flex justify-end mb-4">
+            <div className="flex justify-end mb-4">
               <button
                 onClick={handleBackToMenu}
                 className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm font-medium"
@@ -106,7 +106,7 @@ export function FeedbackScreen() {
             </div>
 
             {/* Comparison View */}
-            <div className="mb-8 w-1/2">
+            <div className="mb-8">
               <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg">Comparison:</h3>
               <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 font-mono text-lg">
               <div className="mb-2">
@@ -130,7 +130,7 @@ export function FeedbackScreen() {
 
             {/* Error Details */}
             {errors.length > 0 && (
-              <div className="mb-8 w-1/2">
+              <div className="mb-8">
                 <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg flex items-center gap-2">
                   <span>⚠️</span>
                   <span>Corrections needed:</span>
@@ -171,7 +171,7 @@ export function FeedbackScreen() {
 
             {/* Success Message */}
             {isCorrect && (
-              <div className="mb-8 w-1/2">
+              <div className="mb-8">
                 <div className="bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 text-center">
                   <p className="text-green-800 dark:text-green-200 text-lg font-medium">
                     Excellent work! All syllables and tones are correct.
@@ -182,7 +182,7 @@ export function FeedbackScreen() {
 
             {/* Speed Feedback */}
             {state.currentSession && state.currentSession.responseTimings.length > 0 && (
-              <div className="mb-8 w-1/2">
+              <div className="mb-8">
                 <SpeedFeedback
                   responseTimeMs={
                     state.currentSession.responseTimings[
@@ -207,7 +207,7 @@ export function FeedbackScreen() {
 
             {/* Example Sentences */}
             {exampleSentences.length > 0 && (
-              <div className="mb-8 w-1/2">
+              <div className="mb-8">
                 <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-4 text-lg text-center">Example Sentences:</h3>
                 <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 space-y-6">
                   {exampleSentences.map((sentence, index) => (
@@ -223,10 +223,10 @@ export function FeedbackScreen() {
             )}
 
             {/* Next Button */}
-            <div className="w-1/4">
+            <div className="flex justify-center">
               <button
                 onClick={handleNext}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
+                className="w-full max-w-sm bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
               >
                 Next Exercise
               </button>

@@ -15,10 +15,10 @@ export function WelcomeScreen() {
             </p>
           </div>
 
-          {/* Centered Content Container */}
-          <div className="flex flex-col items-center">
+          {/* Content Container */}
+          <div className="max-w-2xl mx-auto">
             {/* Instructions */}
-            <div className="w-1/2 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-6 mb-8">
+            <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-6 mb-8">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">How it works:</h2>
             <ol className="space-y-3 text-gray-700 dark:text-gray-300">
               <li className="flex items-start gap-3">
@@ -41,7 +41,7 @@ export function WelcomeScreen() {
             </div>
 
             {/* Features */}
-            <div className="w-1/2 mb-8">
+            <div className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Features:</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -76,12 +76,12 @@ export function WelcomeScreen() {
             </div>
 
             {/* Upload Button */}
-            <div className="w-1/4 mb-6">
+            <div className="flex justify-center mb-6">
               <VocabularyUploader />
             </div>
 
             {/* Format Info */}
-            <div className="w-1/2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl p-4">
+            <div className="bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl p-4">
               <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
                 <span className="font-semibold">Note:</span> Your vocabulary file should be a Markdown file
                 with an "Active Vocabulary" section containing a table with columns: Word, Pinyin, Meaning
