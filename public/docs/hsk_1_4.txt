@@ -2280,3 +2280,170 @@ english: He lives on the north side of the city.
 mandarin: 他住在北边。
 pinyin: Tā zhù zài běibiān.
 --
+english: There are four people.
+mandarin: 有四个人。
+pinyin: Yǒu sì ge rén.
+--
+english: I have four books.
+mandarin: 我有四本书。
+pinyin: Wǒ yǒu sì běn shū.
+--
+english: This room is not very big.
+mandarin: 这个房间不大。
+pinyin: Zhè ge fángjiān bù dà.
+--
+english: That problem is not too big.
+mandarin: 那个问题不大。
+pinyin: Nà ge wèntí bù dà.
+--
+english: He is my classmate.
+mandarin: 他是我的同学。
+pinyin: Tā shì wǒ de tóngxué.
+--
+english: My classmates study Chinese.
+mandarin: 我的同学学汉语。
+pinyin: Wǒ de tóngxué xué Hànyǔ.
+--
+english: I eat noodles.
+mandarin: 我吃面条儿。
+pinyin: Wǒ chī miàntiáor.
+--
+english: The noodles are very good.
+mandarin: 面条儿很好。
+pinyin: Miàntiáor hěn hǎo.
+--
+english: Sunday is a day.
+mandarin: 星期日是一天。
+pinyin: Xīngqīrì shì yì tiān.
+--
+english: This character means “sun.”
+mandarin: 这个字是日。
+pinyin: Zhè ge zì shì rì.
+--
+english: I drink one cup of water.
+mandarin: 我喝一杯水。
+pinyin: Wǒ hē yì bēi shuǐ.
+--
+english: This cup is big.
+mandarin: 这个杯很大。
+pinyin: Zhè ge bēi hěn dà.
+--
+english: I get up now.
+mandarin: 我现在起来。
+pinyin: Wǒ xiànzài qǐlái.
+--
+english: Please stand up.
+mandarin: 请起来。
+pinyin: Qǐng qǐlái.
+--
+english: Today is very busy.
+mandarin: 今天很忙。
+pinyin: Jīntiān hěn máng.
+--
+english: Today I go to work.
+mandarin: 今天我上班。
+pinyin: Jīntiān wǒ shàngbān.
+--
+english: This house is big.
+mandarin: 这个家很大。
+pinyin: Zhè ge jiā hěn dà.
+--
+english: That school is big.
+mandarin: 那个学校很大。
+pinyin: Nà ge xuéxiào hěn dà.
+--
+english: He lives upstairs.
+mandarin: 他住在楼上。
+pinyin: Tā zhù zài lóushàng.
+--
+english: The teacher is upstairs.
+mandarin: 老师在楼上。
+pinyin: Lǎoshī zài lóushàng.
+--
+english: I study Chinese characters.
+mandarin: 我学汉字。
+pinyin: Wǒ xué hànzì.
+--
+english: This Chinese character is hard.
+mandarin: 这个汉字很难。
+pinyin: Zhè ge hànzì hěn nán.
+--
+english: I wait for you.
+mandarin: 我等你。
+pinyin: Wǒ děng nǐ.
+--
+english: Please wait a moment.
+mandarin: 请等一下。
+pinyin: Qǐng děng yíxià.
+--
+english: I watch television.
+mandarin: 我看电视。
+pinyin: Wǒ kàn diànshì.
+--
+english: The television is upstairs.
+mandarin: 电视在楼上。
+pinyin: Diànshì zài lóushàng.
+--
+english: Which ones are yours?
+mandarin: 哪些是你的？
+pinyin: Nǎxiē shì nǐ de?
+--
+english: Which classmates are here?
+mandarin: 哪些同学在这儿？
+pinyin: Nǎxiē tóngxué zài zhèr?
+--
+english: I study in the library.
+mandarin: 我在图书馆学习。
+pinyin: Wǒ zài túshūguǎn xuéxí.
+--
+english: The library is big.
+mandarin: 图书馆很大。
+pinyin: Túshūguǎn hěn dà.
+--
+english: Next year I go abroad.
+mandarin: 明年我去外国。
+pinyin: Míngnián wǒ qù wàiguó.
+--
+english: Next year he studies Chinese.
+mandarin: 明年他学汉语。
+pinyin: Míngnián tā xué Hànyǔ.
+--
+english: The door is open.
+mandarin: 门开着。
+pinyin: Mén kāizhe.
+--
+english: Please close the door.
+mandarin: 请关门。
+pinyin: Qǐng guān mén.
+--
+english: I go out now.
+mandarin: 我现在出去。
+pinyin: Wǒ xiànzài chūqù.
+--
+english: He goes out after work.
+mandarin: 他下班以后出去。
+pinyin: Tā xiàbān yǐhòu chūqù.
+--
+english: I ask the teacher.
+mandarin: 我问老师。
+pinyin: Wǒ wèn lǎoshī.
+--
+english: She asks a question.
+mandarin: 她问一个问题。
+pinyin: Tā wèn yí ge wèntí.
+--
+english: He is inside the room.
+mandarin: 他在房间里。
+pinyin: Tā zài fángjiān lǐ.
+--
+english: The book is in the bag.
+mandarin: 书在包里。
+pinyin: Shū zài bāo lǐ.
+--
+english: That man is Mister Wang.
+mandarin: 那位先生是王先生。
+pinyin: Nà wèi xiānsheng shì Wáng xiānsheng.
+--
+english: Good morning, sir.
+mandarin: 早上好，先生。
+pinyin: Zǎoshang hǎo, xiānsheng.

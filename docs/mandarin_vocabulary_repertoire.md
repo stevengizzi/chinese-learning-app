@@ -307,3 +307,24 @@ notes:
 | 渴 | ke3 | thirsty |
 | 后天 | hou4 tian1 | the day after tomorrow |
 | 北边 | bei3 bian1 | north side; northern part |
+| 四 | si4 | four |
+| 不大 | bu4 da4 | not very; not too; not often |
+| 同学 | tong2 xue2 | classmate |
+| 面条儿 | mian4 tiao2 r | noodles |
+| 日 | ri4 | day; sun |
+| 杯 | bei1 | cup; glass |
+| 起来 | qi3 lai | to stand up; to get up |
+| 今天 | jin1 tian1 | today |
+| 大 | da4 | big |
+| 楼上 | lou2 shang4 | upstairs |
+| 汉字 | han4 zi4 | Chinese character |
+| 等 | deng3 | to wait |
+| 电视 | dian4 shi4 | television |
+| 哪些 | na3 xie1 | which ones?; who?; what? |
+| 图书馆 | tu2 shu1 guan3 | library |
+| 明年 | ming2 nian2 | next year |
+| 门 | men2 | door; gate |
+| 出去 | chu1 qu4 | to go out |
+| 问 | wen4 | to ask |
+| 里 | li3 | inside; "village" radical |
+| 先生 | xian1 sheng | Mister (Mr.) |
