@@ -35,8 +35,8 @@ function AppContent() {
   // Show loading state
   if (state.isLoading && !state.vocabulary) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-gray-600 text-lg">Loading...</div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+        <div className="text-gray-600 dark:text-gray-300 text-lg">Loading...</div>
       </div>
     );
   }

@@ -129,22 +129,22 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
   const isValid = activeTones.size > 0 && difficultyMin <= difficultyMax;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
               Tone Sequence Trainer
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Configure your tone practice session
             </p>
           </div>
 
           {/* Tone Selection */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Select Active Tones
             </h2>
             <div className="grid grid-cols-5 gap-3">
@@ -155,7 +155,7 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                   className={`p-4 rounded-lg border-2 transition-all relative ${
                     activeTones.has(tone.number)
                       ? 'bg-blue-500 border-blue-600 text-white shadow-lg scale-105'
-                      : 'bg-white border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-600'
                   }`}
                 >
                   {activeTones.has(tone.number) && (
@@ -171,12 +171,12 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
 
           {/* Difficulty Range */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Syllable Difficulty Range (1-5)
             </h2>
             <div className="flex items-center gap-4">
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                   Minimum: {difficultyMin}
                 </label>
                 <input
@@ -189,7 +189,7 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                 />
               </div>
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                   Maximum: {difficultyMax}
                 </label>
                 <input
@@ -202,7 +202,7 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                 />
               </div>
             </div>
-            <p className="text-sm text-gray-600 mt-2">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
               Difficulty factors: retroflex initials (zh, ch, sh, r), alveolo-palatals (j, q, x),
               complex finals, tight vowel articulation
             </p>
@@ -210,7 +210,7 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
 
           {/* Excluded Syllables */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Excluded Syllables (Optional)
             </h2>
             <input
@@ -218,20 +218,20 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
               value={excludedSyllablesText}
               onChange={e => setExcludedSyllablesText(e.target.value)}
               placeholder="e.g., zhi, chi, ri (comma or space separated)"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
             />
           </div>
 
           {/* Sandhi Rules */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Tone Sandhi Rules
             </h2>
             <div className="space-y-3">
               {sandhiRules.map(rule => (
                 <label
                   key={rule.id}
-                  className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                 >
                   <input
                     type="checkbox"
@@ -240,8 +240,8 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                     className="mt-1"
                   />
                   <div className="flex-1">
-                    <div className="font-medium text-gray-900">{rule.name}</div>
-                    <div className="text-sm text-gray-600">{rule.description}</div>
+                    <div className="font-medium text-gray-900 dark:text-white">{rule.name}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300">{rule.description}</div>
                   </div>
                 </label>
               ))}
@@ -250,12 +250,12 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
 
           {/* Exercise Parameters */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               Exercise Parameters
             </h2>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                   Sequence Length: {sequenceLength} syllables
                 </label>
                 <input
@@ -268,7 +268,7 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                   Metronome BPM: {bpm}
                 </label>
                 <input
@@ -287,7 +287,7 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
           <div className="flex gap-4">
             <button
               onClick={onBack}
-              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+              className="flex-1 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-200 font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
             >
               ← Back to Menu
             </button>

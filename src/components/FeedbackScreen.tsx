@@ -76,16 +76,16 @@ export function FeedbackScreen() {
   const paddedUser = userAnswer.padEnd(maxLength);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Centered Content Container */}
           <div className="flex flex-col items-center">
             {/* Score Badge */}
             <div className="w-1/2 flex justify-end mb-4">
               <button
                 onClick={handleBackToMenu}
-                className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm font-medium"
               >
                 ← Back to Menu
               </button>
@@ -93,12 +93,12 @@ export function FeedbackScreen() {
 
             <div className="text-center mb-8">
             {isCorrect ? (
-              <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-6 py-3 rounded-full text-lg font-semibold">
+              <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 px-6 py-3 rounded-full text-lg font-semibold">
                 <span className="text-2xl">✅</span>
                 <span>Perfect! {score.correct} / {score.total} correct</span>
               </div>
             ) : (
-              <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-6 py-3 rounded-full text-lg font-semibold">
+              <div className="inline-flex items-center gap-2 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 px-6 py-3 rounded-full text-lg font-semibold">
                 <span className="text-2xl">📊</span>
                 <span>Score: {score.correct} / {score.total} ({percentage}%)</span>
               </div>
@@ -107,21 +107,21 @@ export function FeedbackScreen() {
 
             {/* Comparison View */}
             <div className="mb-8 w-1/2">
-              <h3 className="text-gray-700 font-semibold mb-3 text-lg">Comparison:</h3>
-              <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 font-mono text-lg">
+              <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg">Comparison:</h3>
+              <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 font-mono text-lg">
               <div className="mb-2">
-                <span className={`${isCorrect ? 'text-green-700' : 'text-gray-700'} font-medium`}>
-                  Correct Answer: 
+                <span className={`${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-gray-700 dark:text-gray-300'} font-medium`}>
+                  Correct Answer:
                 </span>
-                <span className={`ml-4 ${isCorrect ? 'text-green-700' : 'text-gray-900'}`}>
+                <span className={`ml-4 ${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-gray-900 dark:text-gray-100'}`}>
                   {paddedCorrect}
                 </span>
               </div>
               <div>
-                <span className={`${isCorrect ? 'text-green-700' : 'text-red-700'} font-medium`}>
-                  Your Response : 
+                <span className={`${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'} font-medium`}>
+                  Your Response :
                 </span>
-                <span className={`ml-7 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
+                <span className={`ml-7 ${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>
                   {paddedUser}
                 </span>
               </div>
@@ -131,11 +131,11 @@ export function FeedbackScreen() {
             {/* Error Details */}
             {errors.length > 0 && (
               <div className="mb-8 w-1/2">
-                <h3 className="text-gray-700 font-semibold mb-3 text-lg flex items-center gap-2">
+                <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg flex items-center gap-2">
                   <span>⚠️</span>
                   <span>Corrections needed:</span>
                 </h3>
-                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6">
+                <div className="bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-700 rounded-xl p-6">
                 <ul className="space-y-3">
                   {errors.map((error, index) => {
                     let message = '';
@@ -158,8 +158,8 @@ export function FeedbackScreen() {
                     }
 
                     return (
-                      <li key={index} className="text-red-800 flex items-start gap-2">
-                        <span className="text-red-600 mt-1">•</span>
+                      <li key={index} className="text-red-800 dark:text-red-200 flex items-start gap-2">
+                        <span className="text-red-600 dark:text-red-400 mt-1">•</span>
                         <span>{message}</span>
                       </li>
                     );
@@ -172,8 +172,8 @@ export function FeedbackScreen() {
             {/* Success Message */}
             {isCorrect && (
               <div className="mb-8 w-1/2">
-                <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
-                  <p className="text-green-800 text-lg font-medium">
+                <div className="bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 text-center">
+                  <p className="text-green-800 dark:text-green-200 text-lg font-medium">
                     Excellent work! All syllables and tones are correct.
                   </p>
                 </div>
@@ -208,13 +208,13 @@ export function FeedbackScreen() {
             {/* Example Sentences */}
             {exampleSentences.length > 0 && (
               <div className="mb-8 w-1/2">
-                <h3 className="text-gray-700 font-semibold mb-4 text-lg text-center">Example Sentences:</h3>
-                <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6 space-y-6">
+                <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-4 text-lg text-center">Example Sentences:</h3>
+                <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 space-y-6">
                   {exampleSentences.map((sentence, index) => (
                     <div key={index} className="space-y-1 text-center">
-                      <div className="text-xl font-extrabold text-gray-900">{sentence.hanzi}</div>
-                      <div className="text-base text-gray-600 font-mono">{sentence.pinyin}</div>
-                      <div className="text-base text-gray-700">{sentence.meaning}</div>
+                      <div className="text-xl font-extrabold text-gray-900 dark:text-white">{sentence.hanzi}</div>
+                      <div className="text-base text-gray-600 dark:text-gray-300 font-mono">{sentence.pinyin}</div>
+                      <div className="text-base text-gray-700 dark:text-gray-200">{sentence.meaning}</div>
                       <div className="my-2">&nbsp;</div>
                     </div>
                   ))}
@@ -263,7 +263,7 @@ export function FeedbackScreen() {
 
               return (
                 <div className="mt-6 text-center">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
                     {showOutOfTotal
                       ? `Exercises completed: ${successfulCompletions} out of ${totalPrompts}`
                       : `Exercises completed: ${successfulCompletions}`

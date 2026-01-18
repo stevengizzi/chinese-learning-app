@@ -78,16 +78,16 @@ export function ReportScreen() {
   const hasExercises = statistics.totalExercises > 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Centered Content Container */}
           <div className="flex flex-col items-center">
             {/* Back Button */}
             <div className="w-1/2 flex justify-end mb-4">
               <button
                 onClick={handleBackToMenu}
-                className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm font-medium"
               >
                 ← Back to Menu
               </button>
@@ -95,7 +95,7 @@ export function ReportScreen() {
 
             {/* Header */}
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center justify-center gap-3">
                 <span className="text-4xl">📊</span>
                 <span>Session Report</span>
               </h1>
@@ -106,13 +106,13 @@ export function ReportScreen() {
                 {/* New High Score Banner */}
                 {isNewHighScore && statistics.averageTimePerCorrectAnswer !== undefined && (
                   <div className="w-1/2 mb-6">
-                    <div className="bg-gradient-to-r from-yellow-100 to-yellow-50 border-2 border-yellow-400 rounded-xl p-4 text-center">
-                      <div className="flex items-center justify-center gap-2 text-yellow-800 font-bold text-lg">
+                    <div className="bg-gradient-to-r from-yellow-100 to-yellow-50 dark:from-yellow-900/50 dark:to-yellow-800/30 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl p-4 text-center">
+                      <div className="flex items-center justify-center gap-2 text-yellow-800 dark:text-yellow-200 font-bold text-lg">
                         <span className="text-2xl">🏆</span>
                         <span>New High Score!</span>
                         <span className="text-2xl">🏆</span>
                       </div>
-                      <div className="text-yellow-700 text-sm mt-1">
+                      <div className="text-yellow-700 dark:text-yellow-300 text-sm mt-1">
                         Best average time per correct answer for this mode
                       </div>
                     </div>
@@ -121,27 +121,27 @@ export function ReportScreen() {
 
                 {/* Key Metrics */}
                 <div className="w-1/2 grid grid-cols-3 gap-3 mb-8">
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
-                    <div className="text-sm text-blue-600 font-medium mb-2">
+                  <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-6 text-center">
+                    <div className="text-sm text-blue-600 dark:text-blue-300 font-medium mb-2">
                       Exercises Completed
                     </div>
-                    <div className="text-xl font-bold text-blue-700">
+                    <div className="text-xl font-bold text-blue-700 dark:text-blue-200">
                       {statistics.totalExercises}
                     </div>
                   </div>
-                  <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
-                    <div className="text-sm text-green-600 font-medium mb-2">
+                  <div className="bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 text-center">
+                    <div className="text-sm text-green-600 dark:text-green-300 font-medium mb-2">
                       Average Accuracy
                     </div>
-                    <div className="text-xl font-bold text-green-700">
+                    <div className="text-xl font-bold text-green-700 dark:text-green-200">
                       {statistics.averageAccuracy}%
                     </div>
                   </div>
-                  <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-6 text-center">
-                    <div className="text-sm text-purple-600 font-medium mb-2">
+                  <div className="bg-purple-50 dark:bg-purple-900/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-6 text-center">
+                    <div className="text-sm text-purple-600 dark:text-purple-300 font-medium mb-2">
                       Characters Tested
                     </div>
-                    <div className="text-xl font-bold text-purple-700">
+                    <div className="text-xl font-bold text-purple-700 dark:text-purple-200">
                       {statistics.totalCharacters}
                     </div>
                   </div>
@@ -150,19 +150,19 @@ export function ReportScreen() {
                 {/* Timing Metrics */}
                 {statistics.totalTimeMs !== undefined && (
                   <div className="w-1/2 mb-8">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Timing Metrics</h2>
-                    <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Timing Metrics</h2>
+                    <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
                       <div className="space-y-4">
-                        <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                          <span className="text-gray-700 font-medium">Total Time</span>
-                          <span className="text-2xl font-bold text-blue-600">
+                        <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-600 rounded-lg">
+                          <span className="text-gray-700 dark:text-gray-200 font-medium">Total Time</span>
+                          <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                             {formatTime(statistics.totalTimeMs)}
                           </span>
                         </div>
                         {statistics.averageTimePerCorrectAnswer !== undefined && (
-                          <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                            <span className="text-gray-700 font-medium">Avg Time / Correct Answer</span>
-                            <span className="text-2xl font-bold text-green-600">
+                          <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-600 rounded-lg">
+                            <span className="text-gray-700 dark:text-gray-200 font-medium">Avg Time / Correct Answer</span>
+                            <span className="text-2xl font-bold text-green-600 dark:text-green-400">
                               {formatTime(statistics.averageTimePerCorrectAnswer)}
                             </span>
                           </div>
@@ -175,7 +175,7 @@ export function ReportScreen() {
                 {/* Speed Performance */}
                 {speedReport && speedReport.entriesPracticed > 0 && (
                   <div className="w-1/2 mb-8">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Speed Performance</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Speed Performance</h2>
                     <div className="grid grid-cols-3 gap-4 mb-4">
                       <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4 text-center">
                         <div className="text-sm text-blue-600 dark:text-blue-300 font-medium mb-1">
@@ -231,18 +231,18 @@ export function ReportScreen() {
 
                 {/* Error Breakdown */}
                 <div className="w-1/2 mb-8">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Error Breakdown</h2>
-                  <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
+                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Error Breakdown</h2>
+                  <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                        <span className="text-gray-700 font-medium">Tone Errors</span>
-                        <span className="text-2xl font-bold text-red-600">
+                      <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-600 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-200 font-medium">Tone Errors</span>
+                        <span className="text-2xl font-bold text-red-600 dark:text-red-400">
                           {statistics.toneErrors}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                        <span className="text-gray-700 font-medium">Syllable Errors</span>
-                        <span className="text-2xl font-bold text-orange-600">
+                      <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-600 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-200 font-medium">Syllable Errors</span>
+                        <span className="text-2xl font-bold text-orange-600 dark:text-orange-400">
                           {statistics.syllableErrors}
                         </span>
                       </div>
@@ -253,16 +253,16 @@ export function ReportScreen() {
                 {/* Common Mistakes */}
                 {sortedMistakes.length > 0 && (
                   <div className="w-1/2 mb-8">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Common Mistakes</h2>
-                    <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6">
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Common Mistakes</h2>
+                    <div className="bg-yellow-50 dark:bg-yellow-900/30 border-2 border-yellow-200 dark:border-yellow-700 rounded-xl p-6">
                     <ul className="space-y-2">
                       {sortedMistakes.map(([mistake, count], index) => (
                         <li key={index} className="flex items-start gap-3">
-                          <span className="text-yellow-700 font-bold">{index + 1}.</span>
-                          <span className="text-gray-800 font-mono text-sm flex-1">
+                          <span className="text-yellow-700 dark:text-yellow-300 font-bold">{index + 1}.</span>
+                          <span className="text-gray-800 dark:text-gray-200 font-mono text-sm flex-1">
                             {mistake}
                           </span>
-                          <span className="text-yellow-700 font-semibold">
+                          <span className="text-yellow-700 dark:text-yellow-300 font-semibold">
                             ×{count}
                           </span>
                         </li>
@@ -274,16 +274,16 @@ export function ReportScreen() {
 
                 {/* Suggestions */}
                 <div className="w-1/2 mb-12">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     <span>💡</span>
                     <span>Suggestions</span>
                   </h2>
-                  <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6">
+                  <div className="bg-indigo-50 dark:bg-indigo-900/30 border-2 border-indigo-200 dark:border-indigo-700 rounded-xl p-6">
                     <ul className="space-y-3">
                       {suggestions.map((suggestion, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <span className="text-indigo-600 mt-1">•</span>
-                          <span className="text-gray-800">{suggestion}</span>
+                          <span className="text-indigo-600 dark:text-indigo-400 mt-1">•</span>
+                          <span className="text-gray-800 dark:text-gray-200">{suggestion}</span>
                         </li>
                       ))}
                     </ul>
@@ -292,10 +292,10 @@ export function ReportScreen() {
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-600 text-lg mb-4">
+              <p className="text-gray-600 dark:text-gray-300 text-lg mb-4">
                 No exercises completed yet.
               </p>
-              <p className="text-gray-500">
+              <p className="text-gray-500 dark:text-gray-400">
                 Complete some exercises to see your performance report!
               </p>
             </div>
@@ -320,7 +320,7 @@ export function ReportScreen() {
               {hasExercises && (
                 <button
                   onClick={handleExportData}
-                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
+                  className="flex-1 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-200 font-semibold py-4 px-8 rounded-xl transition-colors duration-200 text-lg my-1"
                 >
                   Export Data
                 </button>
