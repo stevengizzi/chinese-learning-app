@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import type { ExerciseType, PlayMode } from '../types/exercise';
 import { VocabularyUploader } from './VocabularyUploader';
-import { getAllHighScores, formatTime, formatDate } from '../lib/highScores';
+import { getAllHighScores, formatTime } from '../lib/highScores';
 
 export function MainMenu() {
   const { state, dispatch } = useExercise();
@@ -54,41 +54,45 @@ export function MainMenu() {
     return highScores[key];
   };
 
-  const exercises = [
+  // Exercises grouped by answer type
+  const pinyinExercises = [
     {
       type: 'character-to-pinyin' as ExerciseType,
       title: 'Character → Pinyin',
-      description: 'View Chinese characters and type their pinyin with tone numbers',
+      shortTitle: '字 → 拼音',
       icon: '字'
     },
     {
       type: 'english-to-pinyin' as ExerciseType,
       title: 'English → Pinyin',
-      description: 'View English meanings and type their pinyin with tone numbers',
+      shortTitle: 'EN → 拼音',
       icon: '📖'
     },
     {
       type: 'shuffled' as ExerciseType,
-      title: 'Shuffled (Characters & English) → Pinyin',
-      description: 'Random mix of Chinese characters and English meanings',
+      title: 'Shuffled → Pinyin',
+      shortTitle: '🔀 → 拼音',
       icon: '🔀'
-    },
+    }
+  ];
+
+  const englishExercises = [
     {
       type: 'character-to-english' as ExerciseType,
       title: 'Character → English',
-      description: 'View Chinese characters and type their English meanings',
+      shortTitle: '字 → EN',
       icon: '字'
     },
     {
       type: 'pinyin-to-english' as ExerciseType,
       title: 'Pinyin → English',
-      description: 'View pinyin and type their English meanings',
+      shortTitle: '拼音 → EN',
       icon: '🔤'
     },
     {
       type: 'shuffled-to-english' as ExerciseType,
-      title: 'Shuffled (Characters & Pinyin) → English',
-      description: 'Random mix of Chinese characters and pinyin',
+      title: 'Shuffled → English',
+      shortTitle: '🔀 → EN',
       icon: '🔀'
     }
   ];
@@ -171,52 +175,79 @@ export function MainMenu() {
               </p>
             </div>
 
-            {/* Exercise Types */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Exercise Types</h2>
-              <div className="grid grid-cols-1 gap-4">
-              {exercises.map((exercise) => (
-                <div
-                  key={exercise.type}
-                  className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
-                >
-                  <div className="text-4xl mb-3 text-center">{exercise.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
-                    {exercise.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm text-center mb-4">
-                    {exercise.description}
-                  </p>
-
-                  {/* Play Mode Buttons */}
-                  <div className="space-y-2">
-                    {playModes.map((playMode) => {
-                      const highScore = getHighScoreForMode(exercise.type, playMode.mode);
-                      return (
-                        <div key={playMode.mode}>
-                          <button
-                            onClick={() => handleStartExercise(exercise.type, playMode.mode)}
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-sm my-1"
-                          >
-                            {playMode.name}
-                          </button>
-                          {highScore && (
-                            <div className="text-xs text-gray-600 dark:text-gray-400 text-center mt-1 mb-2">
-                              <span className="font-semibold">🏆 Best Average: </span>
-                              {formatTime(highScore.averageTimePerCorrectAnswer)}
-                              <span className="text-gray-500 dark:text-gray-500 ml-1">
-                                ({formatDate(highScore.date)})
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
+            {/* Exercise Types - Pinyin Answers */}
+            <div className="mb-6">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Pinyin Answers</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {pinyinExercises.map((exercise) => (
+                  <div
+                    key={exercise.type}
+                    className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
+                  >
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3 text-center">
+                      {exercise.shortTitle}
+                    </h3>
+                    <div className="space-y-1">
+                      {playModes.map((playMode) => {
+                        const highScore = getHighScoreForMode(exercise.type, playMode.mode);
+                        return (
+                          <div key={playMode.mode}>
+                            <button
+                              onClick={() => handleStartExercise(exercise.type, playMode.mode)}
+                              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200 text-xs"
+                            >
+                              {playMode.name}
+                            </button>
+                            {highScore && (
+                              <div className="text-xs text-gray-500 dark:text-gray-400 text-center mt-0.5 mb-1">
+                                🏆 {formatTime(highScore.averageTimePerCorrectAnswer)}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+
+            {/* Exercise Types - English Answers */}
+            <div className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">English Answers</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {englishExercises.map((exercise) => (
+                  <div
+                    key={exercise.type}
+                    className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 hover:border-green-400 dark:hover:border-green-500 transition-colors"
+                  >
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3 text-center">
+                      {exercise.shortTitle}
+                    </h3>
+                    <div className="space-y-1">
+                      {playModes.map((playMode) => {
+                        const highScore = getHighScoreForMode(exercise.type, playMode.mode);
+                        return (
+                          <div key={playMode.mode}>
+                            <button
+                              onClick={() => handleStartExercise(exercise.type, playMode.mode)}
+                              className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200 text-xs"
+                            >
+                              {playMode.name}
+                            </button>
+                            {highScore && (
+                              <div className="text-xs text-gray-500 dark:text-gray-400 text-center mt-0.5 mb-1">
+                                🏆 {formatTime(highScore.averageTimePerCorrectAnswer)}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* Play Mode Info */}
             <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6">
