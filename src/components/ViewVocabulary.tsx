@@ -175,15 +175,6 @@ export function ViewVocabulary() {
             </table>
           </div>
 
-          {/* Back button at bottom */}
-          <div className="mt-8 flex justify-center">
-            <button
-              onClick={handleBackToMenu}
-              className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 my-1"
-            >
-              Back to Menu
-            </button>
-          </div>
         </div>
       </div>
     </div>

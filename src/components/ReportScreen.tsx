@@ -83,16 +83,6 @@ export function ReportScreen() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Centered Content Container */}
           <div className="max-w-2xl mx-auto">
-            {/* Back Button */}
-            <div className="flex justify-end mb-4">
-              <button
-                onClick={handleBackToMenu}
-                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm font-medium"
-              >
-                ← Back to Menu
-              </button>
-            </div>
-
             {/* Header */}
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center justify-center gap-3">
