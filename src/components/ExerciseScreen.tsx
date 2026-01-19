@@ -53,22 +53,24 @@ export function ExerciseScreen() {
     return /[\u4e00-\u9fff]/.test(prompt);
   };
 
-  // Check if prompt has parentheses (disambiguation text)
-  const hasParentheses = (prompt: string | undefined): boolean => {
+  // Check if prompt has Chinese characters followed by parentheses (disambiguation text)
+  // Only shrink parenthetical text when Chinese characters come before it
+  const hasChineseThenParentheses = (prompt: string | undefined): boolean => {
     if (!prompt) return false;
-    return /\([^\)]+\)/.test(prompt);
+    // Match: Chinese character(s) followed by optional space and parentheses
+    return /[\u4e00-\u9fff]\s*\([^\)]+\)/.test(prompt);
   };
 
-  // Format prompt with smaller parenthetical text
+  // Format prompt with smaller parenthetical text (only when Chinese precedes it)
   const formatPromptWithParentheses = (prompt: string): React.ReactNode => {
-    // Match pattern: text before parens, parens with content, text after
-    const match = prompt.match(/^(.+?)(\s*\([^\)]+\))(.*)$/);
+    // Match pattern: text with Chinese before parens, parens with content, text after
+    const match = prompt.match(/^(.+?)([\u4e00-\u9fff])(\s*\([^\)]+\))(.*)$/);
     if (!match) return prompt;
 
-    const [, before, parens, after] = match;
+    const [, beforeChinese, lastChinese, parens, after] = match;
     return (
       <>
-        {before}
+        {beforeChinese}{lastChinese}
         <span className="text-[0.6em] text-gray-500 dark:text-gray-400">{parens}</span>
         {after}
       </>
@@ -77,7 +79,7 @@ export function ExerciseScreen() {
 
   const prompt = state.currentExercise?.prompt;
   const useLargeFont = isChinesePrompt(prompt);
-  const promptHasParentheses = hasParentheses(prompt);
+  const promptHasChineseThenParentheses = hasChineseThenParentheses(prompt);
 
   // Calculate font size based on prompt length for non-Chinese prompts
   const getPromptFontSize = (): string => {
@@ -120,7 +122,7 @@ export function ExerciseScreen() {
           <div className="mb-8 flex justify-center">
             <div className="max-w-2xl w-full bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-12 text-center">
               <div className={`${getPromptFontSize()} leading-tight font-normal text-gray-900 dark:text-white break-words`}>
-                {promptHasParentheses && prompt ? formatPromptWithParentheses(prompt) : state.currentExercise?.prompt}
+                {promptHasChineseThenParentheses && prompt ? formatPromptWithParentheses(prompt) : state.currentExercise?.prompt}
               </div>
             </div>
           </div>
