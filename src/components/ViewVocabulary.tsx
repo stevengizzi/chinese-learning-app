@@ -118,13 +118,13 @@ export function ViewVocabulary() {
             <table className="w-full border-collapse text-sm table-fixed">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
-                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-20">Character</th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-24">Character</th>
                   <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-36">Pinyin</th>
                   <th className="text-left p-3 font-semibold text-gray-900 dark:text-white">Meaning</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16" title="Character → Pinyin average speed">字→拼</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16" title="Character → English average speed">字→英</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16" title="Pinyin → English average speed">拼→英</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16" title="English → Pinyin average speed">英→拼</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="Character → Pinyin average speed">字→拼</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="Character → English average speed">字→英</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="Pinyin → English average speed">拼→英</th>
+                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="English → Pinyin average speed">英→拼</th>
                 </tr>
               </thead>
               <tbody>

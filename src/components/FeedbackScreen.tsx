@@ -119,7 +119,7 @@ export function FeedbackScreen() {
               </div>
               <div>
                 <span className={`${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'} font-medium`}>
-                  Your Response:
+                  Your Response :
                 </span>
                 <span className={`ml-4 ${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>
                   {paddedUser}
