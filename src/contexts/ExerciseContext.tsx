@@ -360,35 +360,39 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       // Save response time data to database synchronously
       if (state.currentSession.responseTimings && state.currentSession.responseTimings.length > 0) {
-        // Load current database synchronously from localStorage
-        const cachedData = localStorage.getItem('response-tracking-cache');
-        let db;
-        if (cachedData) {
-          try {
-            db = JSON.parse(cachedData);
-          } catch {
+        try {
+          // Load current database synchronously from localStorage
+          const cachedData = localStorage.getItem('response-tracking-cache');
+          let db;
+          if (cachedData) {
+            try {
+              db = JSON.parse(cachedData);
+            } catch {
+              db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+            }
+          } else {
             db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
           }
-        } else {
-          db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+
+          const records = state.currentSession.responseTimings.map(timing => ({
+            vocabularyId: timing.vocabularyId,
+            character: timing.character,
+            pinyin: timing.pinyin,
+            meaning: timing.meaning,
+            exerciseType: state.currentSession!.exerciseType,
+            promptType: timing.promptType,
+            responseTimeMs: timing.responseTimeMs,
+            wordCount: timing.wordCount,
+            wasCorrect: timing.wasCorrect
+          }));
+
+          const updatedDb = addResponseRecords(db, records);
+          saveResponseDatabase(updatedDb);
+
+          console.log(`Saved ${records.length} response time records`);
+        } catch (error) {
+          console.error('Failed to save response time records:', error);
         }
-
-        const records = state.currentSession.responseTimings.map(timing => ({
-          vocabularyId: timing.vocabularyId,
-          character: timing.character,
-          pinyin: timing.pinyin,
-          meaning: timing.meaning,
-          exerciseType: state.currentSession!.exerciseType,
-          promptType: timing.promptType,
-          responseTimeMs: timing.responseTimeMs,
-          wordCount: timing.wordCount,
-          wasCorrect: timing.wasCorrect
-        }));
-
-        const updatedDb = addResponseRecords(db, records);
-        saveResponseDatabase(updatedDb);
-
-        console.log(`Saved ${records.length} response time records`);
       }
 
       return {
@@ -512,7 +516,23 @@ export function ExerciseProvider({ children }: { children: ReactNode }) {
   // Save session to localStorage whenever it updates
   useEffect(() => {
     if (state.currentSession && state.currentSession.attempts.length > 0) {
-      localStorage.setItem('currentSession', JSON.stringify(state.currentSession));
+      try {
+        // Only save essential session data, not the full responseTimings array
+        const sessionToSave = {
+          ...state.currentSession,
+          // Limit responseTimings to last 50 entries to prevent localStorage overflow
+          responseTimings: state.currentSession.responseTimings?.slice(-50) || []
+        };
+        localStorage.setItem('currentSession', JSON.stringify(sessionToSave));
+      } catch (error) {
+        // localStorage quota exceeded - clear old data and try again
+        console.warn('localStorage quota exceeded, clearing session cache:', error);
+        try {
+          localStorage.removeItem('currentSession');
+        } catch {
+          // Ignore if removal also fails
+        }
+      }
     }
   }, [state.currentSession]);
 

@@ -115,13 +115,17 @@ export function gradeAnswer(
     }
   }
 
+  // Count extra syllables as errors that affect the score
+  const extraSyllableCount = errors.filter(e => e.errorType === 'extra').length;
+
   return {
     exerciseId,
     userAnswer: normalizedUser,
     correctAnswer: normalizedCorrect,
     score: {
-      correct: correctCount,
-      total: correctSyllables.length
+      // Only fully correct if no errors at all (including extra syllables)
+      correct: errors.length === 0 ? correctSyllables.length : correctCount,
+      total: correctSyllables.length + extraSyllableCount
     },
     errors,
     timestamp: Date.now()
