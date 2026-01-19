@@ -91,14 +91,14 @@ export function FeedbackScreen() {
               </button>
             </div>
 
-            <div className="text-center mb-8">
+            <div className="text-center mb-4">
             {isCorrect ? (
-              <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 px-6 py-3 rounded-full text-lg font-semibold">
+              <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 px-6 py-2 rounded-full text-lg font-semibold">
                 <span className="text-2xl">✅</span>
                 <span>Perfect! {score.correct} / {score.total} correct</span>
               </div>
             ) : (
-              <div className="inline-flex items-center gap-2 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 px-6 py-3 rounded-full text-lg font-semibold">
+              <div className="inline-flex items-center gap-2 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 px-6 py-2 rounded-full text-lg font-semibold">
                 <span className="text-2xl">📊</span>
                 <span>Score: {score.correct} / {score.total} ({percentage}%)</span>
               </div>
@@ -106,9 +106,9 @@ export function FeedbackScreen() {
             </div>
 
             {/* Comparison View */}
-            <div className="mb-8">
-              <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg">Comparison:</h3>
-              <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 font-mono text-lg">
+            <div className="mb-4">
+              <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-2 text-lg">Comparison:</h3>
+              <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 font-mono text-lg">
               <div className="mb-2">
                 <span className={`${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-gray-700 dark:text-gray-300'} font-medium`}>
                   Correct Answer:
@@ -119,9 +119,9 @@ export function FeedbackScreen() {
               </div>
               <div>
                 <span className={`${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'} font-medium`}>
-                  Your Response :
+                  Your Response:
                 </span>
-                <span className={`ml-7 ${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>
+                <span className={`ml-4 ${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>
                   {paddedUser}
                 </span>
               </div>
@@ -130,12 +130,12 @@ export function FeedbackScreen() {
 
             {/* Error Details */}
             {errors.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg flex items-center gap-2">
+              <div className="mb-4">
+                <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-2 text-lg flex items-center gap-2">
                   <span>⚠️</span>
                   <span>Corrections needed:</span>
                 </h3>
-                <div className="bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-700 rounded-xl p-6">
+                <div className="bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-700 rounded-xl p-4">
                 <ul className="space-y-3">
                   {errors.map((error, index) => {
                     let message = '';
@@ -171,8 +171,8 @@ export function FeedbackScreen() {
 
             {/* Success Message */}
             {isCorrect && (
-              <div className="mb-8">
-                <div className="bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 text-center">
+              <div className="mb-4">
+                <div className="bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-700 rounded-xl p-4 text-center">
                   <p className="text-green-800 dark:text-green-200 text-lg font-medium">
                     Excellent work! All syllables and tones are correct.
                   </p>
@@ -182,7 +182,7 @@ export function FeedbackScreen() {
 
             {/* Speed Feedback */}
             {state.currentSession && state.currentSession.responseTimings.length > 0 && (
-              <div className="mb-8">
+              <div className="mb-4">
                 <SpeedFeedback
                   responseTimeMs={
                     state.currentSession.responseTimings[
@@ -207,9 +207,9 @@ export function FeedbackScreen() {
 
             {/* Example Sentences */}
             {exampleSentences.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-4 text-lg text-center">Example Sentences:</h3>
-                <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 space-y-6">
+              <div className="mb-4">
+                <h3 className="text-gray-700 dark:text-gray-200 font-semibold mb-2 text-lg text-center">Example Sentences:</h3>
+                <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 space-y-4">
                   {exampleSentences.map((sentence, index) => (
                     <div key={index} className="space-y-1 text-center">
                       <div className="text-xl font-extrabold text-gray-900 dark:text-white">{sentence.hanzi}</div>

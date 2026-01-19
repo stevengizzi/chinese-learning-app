@@ -53,8 +53,44 @@ export function ExerciseScreen() {
     return /[\u4e00-\u9fff]/.test(prompt);
   };
 
+  // Check if prompt has disambiguation (parentheses with Chinese characters)
+  const hasDisambiguation = (prompt: string | undefined): boolean => {
+    if (!prompt) return false;
+    return /\([^\)]*[\u4e00-\u9fff][^\)]*\)/.test(prompt);
+  };
+
+  // Format prompt with smaller disambiguation text
+  const formatPromptWithDisambiguation = (prompt: string): React.ReactNode => {
+    // Match pattern: text before parens, parens with content, text after
+    const match = prompt.match(/^(.+?)(\s*\([^\)]+\))(.*)$/);
+    if (!match) return prompt;
+
+    const [, before, parens, after] = match;
+    return (
+      <>
+        {before}
+        <span className="text-[0.6em] text-gray-500 dark:text-gray-400">{parens}</span>
+        {after}
+      </>
+    );
+  };
+
   const prompt = state.currentExercise?.prompt;
   const useLargeFont = isChinesePrompt(prompt);
+  const promptHasDisambiguation = hasDisambiguation(prompt);
+
+  // Calculate font size based on prompt length for non-Chinese prompts
+  const getPromptFontSize = (): string => {
+    if (!prompt) return 'text-[40px] md:text-[60px]';
+    if (useLargeFont) return 'text-[80px] md:text-[120px]';
+
+    // For non-Chinese prompts, scale down based on length
+    const length = prompt.length;
+    if (length <= 20) return 'text-[40px] md:text-[60px]';
+    if (length <= 35) return 'text-[32px] md:text-[48px]';
+    if (length <= 50) return 'text-[26px] md:text-[38px]';
+    return 'text-[22px] md:text-[32px]';
+  };
   const isEnglishExercise = state.currentSession?.exerciseType?.endsWith('-english');
   const instructionText = isEnglishExercise
     ? '👉 Type the English meaning:'
@@ -83,8 +119,8 @@ export function ExerciseScreen() {
           {/* Prompt Display */}
           <div className="mb-8 flex justify-center">
             <div className="max-w-2xl w-full bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-12 text-center">
-              <div className={`${useLargeFont ? 'text-[80px] md:text-[120px]' : 'text-[40px] md:text-[60px]'} leading-tight font-normal text-gray-900 dark:text-white break-words`}>
-                {state.currentExercise?.prompt}
+              <div className={`${getPromptFontSize()} leading-tight font-normal text-gray-900 dark:text-white break-words`}>
+                {promptHasDisambiguation && prompt ? formatPromptWithDisambiguation(prompt) : state.currentExercise?.prompt}
               </div>
             </div>
           </div>
@@ -146,7 +182,7 @@ export function ExerciseScreen() {
                   'Shuffled (Characters & Pinyin) → English'
                 }
                 {' • '}
-                {state.currentSession.playMode === 'endless' ? 'Endless Practice' : state.currentSession.playMode === 'complete-all' ? 'Complete All' : 'Drill Mode'}
+                {state.currentSession.playMode === 'endless' ? 'Endless Practice' : state.currentSession.playMode === 'complete-all' ? 'Complete All' : state.currentSession.playMode === 'speed-drill' ? 'Speed Drill Mode' : 'Drill Mode'}
               </p>
             </div>
           )}
