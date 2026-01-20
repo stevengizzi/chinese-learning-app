@@ -231,9 +231,11 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       // Handle remaining words based on play mode
       let updatedRemainingWords = state.currentSession.remainingWords;
 
-      // Get the actual prompt that was shown (could be word, meaning, or pinyin)
-      // Need to extract the base prompt without disambiguation text
-      const currentPrompt = state.currentExercise.prompt.split(' (')[0]; // Remove disambiguation like "(明天)"
+      // Use the ORIGINAL prompt from remainingWords[0], not the displayed prompt
+      // This ensures we re-insert the exact same value that was in remainingWords
+      // The displayed prompt may have disambiguation added (e.g., "哥哥 (older brother)")
+      // but remainingWords contains the raw value (e.g., "哥哥" or "older brother")
+      const originalPrompt = updatedRemainingWords?.[0] || state.currentExercise.prompt.split(' (')[0];
 
       if (state.currentSession.playMode === 'speed-drill' && updatedRemainingWords) {
         // For speed-drill: only remove if answer was correct AND meets threshold
@@ -253,11 +255,11 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
             const insertPosition = Math.floor(Math.random() * updatedRemainingWords.length);
             updatedRemainingWords = [
               ...updatedRemainingWords.slice(0, insertPosition),
-              currentPrompt,
+              originalPrompt,
               ...updatedRemainingWords.slice(insertPosition)
             ];
           } else {
-            updatedRemainingWords = [currentPrompt];
+            updatedRemainingWords = [originalPrompt];
           }
         }
       } else if (state.currentSession.playMode === 'complete-all' && updatedRemainingWords) {
@@ -269,11 +271,11 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
         // If answer was incorrect, shuffle it back into the remaining words
         if (attempt.score.correct !== attempt.score.total) {
-          // Re-insert the ACTUAL prompt that was shown, not just the word
+          // Re-insert the ORIGINAL prompt value, ensuring it matches vocabulary fields
           const insertPosition = Math.floor(Math.random() * (updatedRemainingWords.length + 1));
           updatedRemainingWords = [
             ...updatedRemainingWords.slice(0, insertPosition),
-            currentPrompt,
+            originalPrompt,
             ...updatedRemainingWords.slice(insertPosition)
           ];
         }

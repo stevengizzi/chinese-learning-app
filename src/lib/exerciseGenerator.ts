@@ -48,13 +48,13 @@ export function generateExercise(
   if ((playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') && remainingWords.length > 0) {
     // Pick from remaining words (could be word, meaning, or pinyin)
     const promptToUse = remainingWords[0];
-    // Try to find by word first, then by meaning, then by pinyin
+
+    // Find matching vocabulary entry using multiple strategies
     let entry = vocabulary.find(v => v.word === promptToUse || v.meaning === promptToUse || v.pinyin === promptToUse);
 
     // If not found directly, try partial matching for cases where disambiguation was added
     // e.g., prompt might be "哥哥 (older brother)" but we need to match "哥哥"
     if (!entry) {
-      // Try matching if promptToUse starts with the word/meaning/pinyin followed by space or paren
       entry = vocabulary.find(v =>
         promptToUse.startsWith(v.word + ' ') ||
         promptToUse.startsWith(v.word + '(') ||
@@ -65,17 +65,22 @@ export function generateExercise(
       );
     }
 
+    // Also try matching if the vocabulary entry contains the prompt (for partial meanings)
     if (!entry) {
-      // Last resort: skip this prompt and try the next one if available
-      console.warn('Entry not found in vocabulary for prompt:', promptToUse);
-      if (remainingWords.length > 1) {
-        // Recursively try with remaining words (skip the problematic one)
-        return generateExercise(vocabulary, exerciseType, playMode, recentExerciseIds, remainingWords.slice(1));
-      }
-      // If no more words, fall back to random selection
+      entry = vocabulary.find(v =>
+        v.meaning.toLowerCase().includes(promptToUse.toLowerCase()) ||
+        v.meaning.toLowerCase().startsWith(promptToUse.toLowerCase())
+      );
+    }
+
+    if (!entry) {
+      // If still not found, log warning but DON'T skip - pick random entry to avoid sync issues
+      // The session will still properly remove this prompt from remainingWords
+      console.warn('Entry not found in vocabulary for prompt:', promptToUse, '- using random fallback');
       const randomIndex = Math.floor(Math.random() * vocabulary.length);
       entry = vocabulary[randomIndex];
     }
+
     selectedEntry = entry;
     // For shuffled modes in complete-all/drill, use the exact prompt from remainingWords
     prompt = promptToUse;
