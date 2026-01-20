@@ -66,11 +66,17 @@ export function generateExercise(
     }
 
     // Also try matching if the vocabulary entry contains the prompt (for partial meanings)
+    // This handles cases where cached vocabulary has different meaning lengths than remainingWords
     if (!entry) {
-      entry = vocabulary.find(v =>
-        v.meaning.toLowerCase().includes(promptToUse.toLowerCase()) ||
-        v.meaning.toLowerCase().startsWith(promptToUse.toLowerCase())
-      );
+      const promptLower = promptToUse.toLowerCase();
+      entry = vocabulary.find(v => {
+        const meaningLower = v.meaning.toLowerCase();
+        // Try both directions: prompt contains meaning OR meaning contains prompt
+        return meaningLower.includes(promptLower) ||
+               promptLower.includes(meaningLower) ||
+               meaningLower.startsWith(promptLower) ||
+               promptLower.startsWith(meaningLower);
+      });
     }
 
     if (!entry) {
