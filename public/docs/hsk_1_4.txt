@@ -2447,3 +2447,164 @@ pinyin: Nà wèi xiānsheng shì Wáng xiānsheng.
 english: Good morning, sir.
 mandarin: 早上好，先生。
 pinyin: Zǎoshang hǎo, xiānsheng.
+--
+english: My bag is big.
+mandarin: 我的包很大。
+pinyin: Wǒ de bāo hěn dà.
+--
+english: The book is in the bag.
+mandarin: 书在包里。
+pinyin: Shū zài bāo lǐ.
+--
+english: I eat chicken.
+mandarin: 我吃鸡。
+pinyin: Wǒ chī jī.
+--
+english: This chicken is tasty.
+mandarin: 这个鸡很好吃。
+pinyin: Zhè ge jī hěn hǎochī.
+--
+english: I take a taxi to go home.
+mandarin: 我打车回家。
+pinyin: Wǒ dǎ chē huí jiā.
+--
+english: It’s raining, let’s take a taxi.
+mandarin: 下雨了，我们打车吧。
+pinyin: Xiàyǔ le, wǒmen dǎ chē ba.
+--
+english: I sleep at night.
+mandarin: 我晚上睡觉。
+pinyin: Wǒ wǎnshang shuìjiào.
+--
+english: He wants to sleep now.
+mandarin: 他现在想睡觉。
+pinyin: Tā xiànzài xiǎng shuìjiào.
+--
+english: I practice every day.
+mandarin: 我每天练习。
+pinyin: Wǒ měitiān liànxí.
+--
+english: Studying is a good habit.
+mandarin: 学习是好习惯。
+pinyin: Xuéxí shì hǎo xíguàn.
+--
+english: I buy some fruit.
+mandarin: 我买一些水果。
+pinyin: Wǒ mǎi yìxiē shuǐguǒ.
+--
+english: There are some students here.
+mandarin: 这儿有一些学生。
+pinyin: Zhèr yǒu yìxiē xuéshēng.
+--
+english: She is a middle school student.
+mandarin: 她是中学生。
+pinyin: Tā shì zhōngxuéshēng.
+--
+english: Those students are middle school students.
+mandarin: 那些学生是中学生。
+pinyin: Nàxiē xuéshēng shì zhōngxuéshēng.
+--
+english: This weather is too hot.
+mandarin: 天气太热了。
+pinyin: Tiānqì tài rè le.
+--
+english: That movie is very good.
+mandarin: 那个电影太好看了。
+pinyin: Nà ge diànyǐng tài hǎokàn le.
+--
+english: This answer is wrong.
+mandarin: 这个答案错了。
+pinyin: Zhè ge dá’àn cuò le.
+--
+english: I made a mistake.
+mandarin: 我错了。
+pinyin: Wǒ cuò le.
+--
+english: I don’t have time.
+mandarin: 我没有时间。
+pinyin: Wǒ méiyǒu shíjiān.
+--
+english: There is no water.
+mandarin: 没有水。
+pinyin: Méiyǒu shuǐ.
+--
+english: This action is hard.
+mandarin: 这个动作很难。
+pinyin: Zhè ge dòngzuò hěn nán.
+--
+english: Watch his movements.
+mandarin: 看他的动作。
+pinyin: Kàn tā de dòngzuò.
+--
+english: My grandpa is old.
+mandarin: 我爷爷老了。
+pinyin: Wǒ yéye lǎo le.
+--
+english: That teacher is not old.
+mandarin: 那个老师不老。
+pinyin: Nà ge lǎoshī bù lǎo.
+--
+english: I see him on the road.
+mandarin: 我在路上看见他。
+pinyin: Wǒ zài lùshang kànjiàn tā.
+--
+english: It’s raining on the road.
+mandarin: 路上下雨了。
+pinyin: Lùshang xiàyǔ le.
+--
+english: He is inside.
+mandarin: 他在里边。
+pinyin: Tā zài lǐbian.
+--
+english: The fruit is inside the bag.
+mandarin: 水果在包里边。
+pinyin: Shuǐguǒ zài bāo lǐbian.
+--
+english: I return home after work.
+mandarin: 我下班回家。
+pinyin: Wǒ xiàbān huí jiā.
+--
+english: He comes back tomorrow.
+mandarin: 他明天回。
+pinyin: Tā míngtiān huí.
+--
+english: Thank you, teacher.
+mandarin: 谢谢老师。
+pinyin: Xièxie lǎoshī.
+--
+english: Thanks, you’re welcome.
+mandarin: 谢谢，不客气。
+pinyin: Xièxie, bú kèqi.
+--
+english: Today is very cold.
+mandarin: 今天很冷。
+pinyin: Jīntiān hěn lěng.
+--
+english: I feel cold.
+mandarin: 我觉得冷。
+pinyin: Wǒ juéde lěng.
+--
+english: I have two cups of tea.
+mandarin: 我有二杯茶。
+pinyin: Wǒ yǒu èr bēi chá.
+--
+english: There are two students.
+mandarin: 有二个学生。
+pinyin: Yǒu èr ge xuéshēng.
+--
+english: I like fruit.
+mandarin: 我喜欢水果。
+pinyin: Wǒ xǐhuan shuǐguǒ.
+--
+english: This fruit is fresh.
+mandarin: 这个水果很新。
+pinyin: Zhè ge shuǐguǒ hěn xīn.
+--
+english: We are the same.
+mandarin: 我们是同的。
+pinyin: Wǒmen shì tóng de.
+--
+english: They study together.
+mandarin: 他们一同学习。
+pinyin: Tāmen yìtóng xuéxí.
+--

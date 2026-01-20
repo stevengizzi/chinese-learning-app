@@ -328,3 +328,23 @@ notes:
 | 问 | wen4 | to ask |
 | 里 | li3 | inside; "village" radical |
 | 先生 | xian1 sheng | Mister (Mr.) |
+| 包 | bao1 | to wrap; bag |
+| 鸡 | ji1 | chicken |
+| 打车 | da3 che1 | to take a taxi |
+| 睡觉 | shui4 jiao4 | to sleep |
+| 习 | xi2 | to practice; to study; habit |
+| 一些 | yi1 xie1 | some; a few |
+| 中学生 | zhong1 xue2 sheng1 | middle school student; high school student |
+| 太 | tai4 | too (much); very; extremely |
+| 错 | cuo4 | mistake; wrong |
+| 没有 | mei2 you3 | there are not; to not have |
+| 动作 | dong4 zuo4 | movement; motion; action |
+| 老 | lao3 | old (of people) |
+| 路上 | lu4 shang | on the road; on a journey; road surface |
+| 里边 | li3 bian | inside |
+| 回 | hui2 | to return |
+| 谢 | xie4 | to thank; to wither (of flowers, leaves, etc) |
+| 冷 | leng3 | cold |
+| 二 | er4 | two |
+| 水果 | shui3 guo3 | fruit |
+| 同 | tong2 | be the same; together |
