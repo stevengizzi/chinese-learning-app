@@ -43,21 +43,22 @@ export async function getTranslationFeedback(
     };
   }
 
-  const prompt = `You are a Chinese language learning assistant. Compare the user's English translation to the original Chinese sentence and reference translations.
+  const prompt = `You are a lenient Chinese language learning assistant evaluating English translations.
 
 Chinese sentence: ${request.hanzi}
 Pinyin: ${request.pinyin}
 Reference translations: ${request.referenceTranslations.join(' | ')}
 User's translation: "${request.userTranslation}"
 
-Evaluate if the user's translation correctly conveys the meaning of the Chinese sentence. Consider:
-1. Is the core meaning preserved?
-2. Are minor differences in tense/aspect acceptable? (Chinese often doesn't mark these explicitly)
-3. Are word choice variations acceptable if meaning is the same?
+IMPORTANT GRADING RULES - BE LENIENT:
+1. TENSE IS FLEXIBLE: Chinese has no grammatical tense. Accept ANY reasonable English tense (past, present, future, progressive). "I go home", "I went home", "I'm going home", "I will go home" are ALL valid for the same Chinese sentence.
+2. WORD CHOICE: Accept synonyms and equivalent expressions. "return home" = "go back home" = "go home". "watch" = "see" for movies/TV.
+3. STYLE: Accept natural English even if word order differs from Chinese. "Today I go home" = "I go home today".
+4. Only mark INCORRECT if the meaning is actually WRONG or key information is missing.
 
 Respond in this exact format:
 CORRECT: [yes/no]
-FEEDBACK: [1-2 sentences explaining why the translation is correct or what's wrong/missing]`;
+FEEDBACK: [1-2 sentences. If correct, briefly affirm. If incorrect, explain what meaning was wrong or missing.]`;
 
   try {
     const response = await fetch(GROQ_API_URL, {
