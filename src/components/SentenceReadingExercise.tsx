@@ -33,7 +33,7 @@ export function SentenceReadingExercise({
   const [apiKeyInput, setApiKeyInput] = useState('');
 
   const pinyinInputRef = useRef<HTMLInputElement>(null);
-  const meaningButtonRef = useRef<HTMLButtonElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   // Focus pinyin input on mount
   useEffect(() => {
@@ -42,31 +42,68 @@ export function SentenceReadingExercise({
     }
   }, [phase, sentence.id]);
 
-  // Focus first button in feedback phase
+  // Focus next button when AI feedback completes
   useEffect(() => {
-    if (phase === 'feedback') {
-      meaningButtonRef.current?.focus();
+    if (phase === 'feedback' && aiFeedback && !aiLoading) {
+      nextButtonRef.current?.focus();
     }
-  }, [phase]);
+  }, [phase, aiFeedback, aiLoading]);
 
   // Calculate progress
   const currentIndex = session.currentIndex;
   const totalSentences = session.sentenceOrder.length;
   const progressPercent = ((currentIndex) / totalSentences) * 100;
 
+  const fetchAiFeedback = async (translation: string) => {
+    if (!translation.trim()) {
+      setAiFeedback({ isCorrect: false, feedback: 'No translation provided.' });
+      return;
+    }
+
+    // Check if API key exists
+    if (!getGroqApiKey()) {
+      setShowApiKeyInput(true);
+      return;
+    }
+
+    setAiLoading(true);
+    setAiError(null);
+    setAiFeedback(null);
+
+    const result = await getTranslationFeedback({
+      hanzi: sentence.hanzi,
+      pinyin: sentence.pinyin,
+      userTranslation: translation,
+      referenceTranslations: sentence.translations,
+    });
+
+    setAiLoading(false);
+
+    if (result.error) {
+      setAiError(result.error);
+      if (result.error.includes('API key')) {
+        setShowApiKeyInput(true);
+      }
+    } else {
+      setAiFeedback({ isCorrect: result.isCorrect, feedback: result.feedback });
+    }
+  };
+
   const handleCheckAnswer = () => {
     const result = comparePinyinDetailed(pinyinInput, sentence.pinyin);
     setPinyinResult(result);
     setPhase('feedback');
+    // Automatically fetch AI feedback for translation
+    fetchAiFeedback(translationInput);
   };
 
-  const handleMeaningAssessment = (gotIt: boolean) => {
+  const handleNext = (meaningCorrect: boolean) => {
     const attempt: SentenceAttempt = {
       sentenceId: sentence.id,
       userPinyin: pinyinInput,
       userTranslation: translationInput,
       pinyinCorrect: pinyinResult?.isCorrect ?? false,
-      meaningCorrect: gotIt,
+      meaningCorrect,
       timeMs: Date.now() - startTime,
     };
     onSubmitAttempt(attempt);
@@ -88,36 +125,6 @@ export function SentenceReadingExercise({
     }
   };
 
-  const handleAskAI = async () => {
-    // Check if API key exists
-    if (!getGroqApiKey()) {
-      setShowApiKeyInput(true);
-      return;
-    }
-
-    setAiLoading(true);
-    setAiError(null);
-    setAiFeedback(null);
-
-    const result = await getTranslationFeedback({
-      hanzi: sentence.hanzi,
-      pinyin: sentence.pinyin,
-      userTranslation: translationInput,
-      referenceTranslations: sentence.translations,
-    });
-
-    setAiLoading(false);
-
-    if (result.error) {
-      setAiError(result.error);
-      if (result.error.includes('API key')) {
-        setShowApiKeyInput(true);
-      }
-    } else {
-      setAiFeedback({ isCorrect: result.isCorrect, feedback: result.feedback });
-    }
-  };
-
   const handleSaveApiKey = () => {
     if (apiKeyInput.trim()) {
       setGroqApiKey(apiKeyInput.trim());
@@ -125,7 +132,7 @@ export function SentenceReadingExercise({
       setShowApiKeyInput(false);
       setAiError(null);
       // Automatically trigger AI feedback after saving key
-      handleAskAI();
+      fetchAiFeedback(translationInput);
     }
   };
 
@@ -280,9 +287,38 @@ export function SentenceReadingExercise({
                 </div>
 
                 {/* Translation Feedback */}
-                <div className="p-6 rounded-xl border-2 bg-blue-50 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700">
-                  <div className="font-semibold text-gray-900 dark:text-white mb-3">
-                    Translation
+                <div className={`p-6 rounded-xl border-2 ${
+                  aiLoading
+                    ? 'bg-gray-50 dark:bg-gray-900/30 border-gray-300 dark:border-gray-700'
+                    : aiFeedback?.isCorrect
+                    ? 'bg-green-50 dark:bg-green-900/30 border-green-300 dark:border-green-700'
+                    : aiFeedback
+                    ? 'bg-red-50 dark:bg-red-900/30 border-red-300 dark:border-red-700'
+                    : 'bg-blue-50 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700'
+                }`}>
+                  {/* AI Assessment Header */}
+                  <div className="flex items-center gap-2 mb-3">
+                    {aiLoading ? (
+                      <>
+                        <span className="w-5 h-5 border-2 border-purple-600 border-t-transparent rounded-full animate-spin" />
+                        <span className="font-semibold text-gray-700 dark:text-gray-300">
+                          AI is evaluating your translation...
+                        </span>
+                      </>
+                    ) : aiFeedback ? (
+                      <>
+                        <span className={`text-2xl ${aiFeedback.isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                          {aiFeedback.isCorrect ? '✓' : '✗'}
+                        </span>
+                        <span className="font-semibold text-gray-900 dark:text-white">
+                          Translation {aiFeedback.isCorrect ? 'Correct!' : 'Incorrect'}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="font-semibold text-gray-900 dark:text-white">
+                        Translation
+                      </span>
+                    )}
                   </div>
 
                   <div className="space-y-2 mb-4">
@@ -291,6 +327,15 @@ export function SentenceReadingExercise({
                       {translationInput || '(empty)'}
                     </div>
                   </div>
+
+                  {/* AI Feedback */}
+                  {aiFeedback && (
+                    <div className="mb-4 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                      <div className="text-sm text-gray-700 dark:text-gray-300">
+                        {aiFeedback.feedback}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="space-y-2">
                     <div className="text-sm text-gray-600 dark:text-gray-400">Reference translations:</div>
@@ -303,34 +348,11 @@ export function SentenceReadingExercise({
                     </ul>
                   </div>
 
-                  {/* Ask AI Button */}
-                  {translationInput && !aiFeedback && !showApiKeyInput && (
-                    <div className="mt-4">
-                      <button
-                        onClick={handleAskAI}
-                        disabled={aiLoading}
-                        className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-                      >
-                        {aiLoading ? (
-                          <>
-                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                            Analyzing...
-                          </>
-                        ) : (
-                          <>
-                            <span>🤖</span>
-                            Ask AI: Is my translation correct?
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  )}
-
                   {/* API Key Input */}
                   {showApiKeyInput && (
                     <div className="mt-4 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-700">
                       <div className="text-sm text-purple-800 dark:text-purple-200 mb-2">
-                        Enter your Groq API key to use AI feedback:
+                        Enter your Groq API key to enable AI grading:
                       </div>
                       <div className="flex gap-2">
                         <input
@@ -346,12 +368,6 @@ export function SentenceReadingExercise({
                         >
                           Save
                         </button>
-                        <button
-                          onClick={() => setShowApiKeyInput(false)}
-                          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-200 text-sm font-medium rounded-lg"
-                        >
-                          Cancel
-                        </button>
                       </div>
                       <div className="text-xs text-purple-600 dark:text-purple-400 mt-2">
                         Get a free API key at <a href="https://console.groq.com" target="_blank" rel="noopener noreferrer" className="underline">console.groq.com</a>
@@ -365,51 +381,57 @@ export function SentenceReadingExercise({
                       <div className="text-sm text-red-700 dark:text-red-300">{aiError}</div>
                     </div>
                   )}
-
-                  {/* AI Feedback Result */}
-                  {aiFeedback && (
-                    <div className={`mt-4 p-4 rounded-lg border ${
-                      aiFeedback.isCorrect
-                        ? 'bg-green-50 dark:bg-green-900/30 border-green-300 dark:border-green-700'
-                        : 'bg-yellow-50 dark:bg-yellow-900/30 border-yellow-300 dark:border-yellow-700'
-                    }`}>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xl">{aiFeedback.isCorrect ? '✓' : '⚠️'}</span>
-                        <span className={`font-semibold ${
-                          aiFeedback.isCorrect
-                            ? 'text-green-700 dark:text-green-300'
-                            : 'text-yellow-700 dark:text-yellow-300'
-                        }`}>
-                          AI Assessment: {aiFeedback.isCorrect ? 'Correct!' : 'Needs Review'}
-                        </span>
-                      </div>
-                      <div className="text-sm text-gray-700 dark:text-gray-300">
-                        {aiFeedback.feedback}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="mt-6 pt-4 border-t border-blue-200 dark:border-blue-600">
-                    <div className="text-center text-gray-700 dark:text-gray-300 mb-4">
-                      Did you get the meaning correct?
-                    </div>
-                    <div className="flex gap-4 justify-center">
-                      <button
-                        ref={meaningButtonRef}
-                        onClick={() => handleMeaningAssessment(true)}
-                        className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors duration-200"
-                      >
-                        Yes, I got it
-                      </button>
-                      <button
-                        onClick={() => handleMeaningAssessment(false)}
-                        className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-colors duration-200"
-                      >
-                        No, I missed it
-                      </button>
-                    </div>
-                  </div>
                 </div>
+
+                {/* Action Buttons */}
+                {!aiLoading && !showApiKeyInput && (
+                  <div className="mt-6 flex gap-4">
+                    {aiFeedback?.isCorrect ? (
+                      // AI says correct - show Next button
+                      <button
+                        ref={nextButtonRef}
+                        onClick={() => handleNext(true)}
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+                      >
+                        Next Sentence
+                      </button>
+                    ) : aiFeedback ? (
+                      // AI says incorrect - show Next (accept) and Override buttons
+                      <>
+                        <button
+                          ref={nextButtonRef}
+                          onClick={() => handleNext(false)}
+                          className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+                        >
+                          Next Sentence
+                        </button>
+                        <button
+                          onClick={() => handleNext(true)}
+                          className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+                        >
+                          Override: I was correct
+                        </button>
+                      </>
+                    ) : (
+                      // No AI feedback yet (error or no API key) - manual grading
+                      <>
+                        <button
+                          ref={nextButtonRef}
+                          onClick={() => handleNext(true)}
+                          className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+                        >
+                          I got it correct
+                        </button>
+                        <button
+                          onClick={() => handleNext(false)}
+                          className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200"
+                        >
+                          I got it wrong
+                        </button>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             </>
           )}
