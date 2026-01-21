@@ -80,7 +80,7 @@ export function parseSentenceCorpus(content: string): Sentence[] {
  */
 export async function loadSentences(): Promise<Sentence[]> {
   try {
-    const response = await fetch('/docs/sentences.txt');
+    const response = await fetch(`${import.meta.env.BASE_URL}docs/sentences.txt`);
     if (!response.ok) {
       console.warn('Sentence corpus not found');
       return [];
