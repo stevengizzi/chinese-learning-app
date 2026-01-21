@@ -174,16 +174,21 @@ export function convertDiacriticToToneNumber(pinyin: string): string {
 /**
  * Extracts tone numbers from a tone-number pinyin string.
  * e.g., "wo3 de5 ai4 hao4" -> [3, 5, 4, 4]
+ * Syllables without a tone number are treated as neutral tone (5).
+ * e.g., "mei2 guan1 xi" -> [2, 1, 5]
  */
 export function extractTonesFromNumberedPinyin(pinyin: string): number[] {
   const tones: number[] = [];
-  const syllables = pinyin.split(/\s+/);
+  const syllables = pinyin.split(/\s+/).filter(s => s.length > 0);
 
   for (const syllable of syllables) {
     // Find the tone number at the end of the syllable
     const match = syllable.match(/(\d)$/);
     if (match) {
       tones.push(parseInt(match[1], 10));
+    } else {
+      // No tone number = neutral tone (5)
+      tones.push(5);
     }
   }
 
