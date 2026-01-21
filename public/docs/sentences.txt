@@ -1,0 +1,270 @@
+# Sentence Reading Corpus
+#
+# Format: Each sentence block contains 4 lines:
+#   1. HANZI: The Chinese sentence
+#   2. PINYIN: Tone-number pinyin (e.g., wo3 for 我)
+#   3. TRANSLATIONS: English translations separated by | (pipe)
+#   4. DIFFICULTY: Number 1-5
+#
+# Blank lines separate sentence blocks.
+# Lines starting with # are comments.
+#
+# Example:
+#
+# HANZI: 我今天打车回家。
+# PINYIN: wo3 jin1 tian1 da3 che1 hui2 jia1
+# TRANSLATIONS: I took a taxi home today. | Today I went home by taxi.
+# DIFFICULTY: 2
+#
+# Add your sentences below this line:
+# ============================================================
+
+HANZI: 我今天回家。
+PINYIN: wo3 jin1 tian1 hui2 jia1
+TRANSLATIONS: I go home today. | I'm going home today.
+DIFFICULTY: 1
+
+HANZI: 我今天上班。
+PINYIN: wo3 jin1 tian1 shang4 ban1
+TRANSLATIONS: I go to work today.
+DIFFICULTY: 1
+
+HANZI: 我今天不上班。
+PINYIN: wo3 jin1 tian1 bu4 shang4 ban1
+TRANSLATIONS: I'm not going to work today.
+DIFFICULTY: 1
+
+HANZI: 我今天休息。
+PINYIN: wo3 jin1 tian1 xiu1 xi
+TRANSLATIONS: I rest today. | I'm taking a break today.
+DIFFICULTY: 1
+
+HANZI: 我在家里。
+PINYIN: wo3 zai4 jia1 li3
+TRANSLATIONS: I'm at home.
+DIFFICULTY: 1
+
+HANZI: 我在楼上。
+PINYIN: wo3 zai4 lou2 shang4
+TRANSLATIONS: I'm upstairs.
+DIFFICULTY: 1
+
+HANZI: 我在楼下。
+PINYIN: wo3 zai4 lou2 xia4
+TRANSLATIONS: I'm downstairs.
+DIFFICULTY: 1
+
+HANZI: 我喝茶。
+PINYIN: wo3 he1 cha2
+TRANSLATIONS: I drink tea.
+DIFFICULTY: 1
+
+HANZI: 我吃米饭。
+PINYIN: wo3 chi1 mi3 fan4
+TRANSLATIONS: I eat rice.
+DIFFICULTY: 1
+
+HANZI: 我看电影。
+PINYIN: wo3 kan4 dian4 ying3
+TRANSLATIONS: I watch a movie.
+DIFFICULTY: 1
+
+HANZI: 我今天看电影。
+PINYIN: wo3 jin1 tian1 kan4 dian4 ying3
+TRANSLATIONS: I watch a movie today.
+DIFFICULTY: 2
+
+HANZI: 我昨天回家。
+PINYIN: wo3 zuo2 tian1 hui2 jia1
+TRANSLATIONS: I went home yesterday.
+DIFFICULTY: 2
+
+HANZI: 我明年去北京。
+PINYIN: wo3 ming2 nian2 qu4 bei3 jing1
+TRANSLATIONS: I'll go to Beijing next year.
+DIFFICULTY: 2
+
+HANZI: 我今天打车回家。
+PINYIN: wo3 jin1 tian1 da3 che1 hui2 jia1
+TRANSLATIONS: I took a taxi home today. | Today I went home by taxi.
+DIFFICULTY: 2
+
+HANZI: 我在商店买水果。
+PINYIN: wo3 zai4 shang1 dian4 mai3 shui3 guo3
+TRANSLATIONS: I buy fruit at the store.
+DIFFICULTY: 2
+
+HANZI: 我在商场看电影。
+PINYIN: wo3 zai4 shang1 chang3 kan4 dian4 ying3
+TRANSLATIONS: I watch a movie at the mall.
+DIFFICULTY: 2
+
+HANZI: 我上午上课。
+PINYIN: wo3 shang4 wu3 shang4 ke4
+TRANSLATIONS: I attend class in the morning.
+DIFFICULTY: 2
+
+HANZI: 我在教学楼上课。
+PINYIN: wo3 zai4 jiao4 xue2 lou2 shang4 ke4
+TRANSLATIONS: I have class in the teaching building.
+DIFFICULTY: 2
+
+HANZI: 我喜欢汉语。
+PINYIN: wo3 xi3 huan1 han4 yu3
+TRANSLATIONS: I like Chinese.
+DIFFICULTY: 2
+
+HANZI: 我学汉语。
+PINYIN: wo3 xue2 han4 yu3
+TRANSLATIONS: I study Chinese.
+DIFFICULTY: 2
+
+HANZI: 我今天上班吗？
+PINYIN: wo3 jin1 tian1 shang4 ban1 ma
+TRANSLATIONS: Am I going to work today?
+DIFFICULTY: 3
+
+HANZI: 我现在在家里吗？
+PINYIN: wo3 xian4 zai4 zai4 jia1 li3 ma
+TRANSLATIONS: Am I at home now?
+DIFFICULTY: 3
+
+HANZI: 我喝茶还是喝水？
+PINYIN: wo3 he1 cha2 hai2 shi4 he1 shui3
+TRANSLATIONS: Do I drink tea or water?
+DIFFICULTY: 3
+
+HANZI: 我想看电影。
+PINYIN: wo3 xiang3 kan4 dian4 ying3
+TRANSLATIONS: I want to watch a movie.
+DIFFICULTY: 3
+
+HANZI: 我不想上班。
+PINYIN: wo3 bu4 xiang3 shang4 ban1
+TRANSLATIONS: I don't want to go to work.
+DIFFICULTY: 3
+
+HANZI: 我觉得电影好看。
+PINYIN: wo3 jue2 de dian4 ying3 hao3 kan4
+TRANSLATIONS: I think the movie is good.
+DIFFICULTY: 3
+
+HANZI: 我觉得汉语很难。
+PINYIN: wo3 jue2 de han4 yu3 hen3 nan2
+TRANSLATIONS: I think Chinese is difficult.
+DIFFICULTY: 3
+
+HANZI: 我今天很忙。
+PINYIN: wo3 jin1 tian1 hen3 mang2
+TRANSLATIONS: I'm very busy today.
+DIFFICULTY: 3
+
+HANZI: 我现在很冷。
+PINYIN: wo3 xian4 zai4 hen3 leng3
+TRANSLATIONS: I'm very cold right now.
+DIFFICULTY: 3
+
+HANZI: 我现在很渴。
+PINYIN: wo3 xian4 zai4 hen3 ke3
+TRANSLATIONS: I'm very thirsty right now.
+DIFFICULTY: 3
+
+HANZI: 我今天在家里看电视。
+PINYIN: wo3 jin1 tian1 zai4 jia1 li3 kan4 dian4 shi4
+TRANSLATIONS: I watch TV at home today.
+DIFFICULTY: 4
+
+HANZI: 我昨天在图书馆学习。
+PINYIN: wo3 zuo2 tian1 zai4 tu2 shu1 guan3 xue2 xi2
+TRANSLATIONS: I studied at the library yesterday.
+DIFFICULTY: 4
+
+HANZI: 我今天上网看电影。
+PINYIN: wo3 jin1 tian1 shang4 wang3 kan4 dian4 ying3
+TRANSLATIONS: I go online to watch a movie today.
+DIFFICULTY: 4
+
+HANZI: 我在路上打车回家。
+PINYIN: wo3 zai4 lu4 shang da3 che1 hui2 jia1
+TRANSLATIONS: I take a taxi home on the road.
+DIFFICULTY: 4
+
+HANZI: 我觉得这家商店东西贵。
+PINYIN: wo3 jue2 de zhe4 jia1 shang1 dian4 dong1 xi gui4
+TRANSLATIONS: I think this store's things are expensive.
+DIFFICULTY: 4
+
+HANZI: 我哥哥在国外工作。
+PINYIN: wo3 ge1 ge zai4 guo2 wai4 gong1 zuo4
+TRANSLATIONS: My older brother works abroad.
+DIFFICULTY: 4
+
+HANZI: 我姐姐今年去北京。
+PINYIN: wo3 jie3 jie jin1 nian2 qu4 bei3 jing1
+TRANSLATIONS: My older sister is going to Beijing this year.
+DIFFICULTY: 4
+
+HANZI: 我们在电影院见面。
+PINYIN: wo3 men zai4 dian4 ying3 yuan4 jian4 mian4
+TRANSLATIONS: We meet at the movie theater.
+DIFFICULTY: 4
+
+HANZI: 我觉得天气不大好。
+PINYIN: wo3 jue2 de tian1 qi4 bu4 da4 hao3
+TRANSLATIONS: I think the weather isn't very good.
+DIFFICULTY: 4
+
+HANZI: 我今天下雨不出门。
+PINYIN: wo3 jin1 tian1 xia4 yu3 bu4 chu1 men2
+TRANSLATIONS: It’s raining today so I’m not going out.
+DIFFICULTY: 4
+
+HANZI: 我觉得今天在家里看电影比较好。
+PINYIN: wo3 jue2 de jin1 tian1 zai4 jia1 li3 kan4 dian4 ying3 bi3 jiao4 hao3
+TRANSLATIONS: I think watching a movie at home today is better.
+DIFFICULTY: 5
+
+HANZI: 我哥哥下班以后回家睡觉。
+PINYIN: wo3 ge1 ge xia4 ban1 yi3 hou4 hui2 jia1 shui4 jiao4
+TRANSLATIONS: After work my older brother goes home to sleep.
+DIFFICULTY: 5
+
+HANZI: 我觉得汉语很难但是很好看。
+PINYIN: wo3 jue2 de han4 yu3 hen3 nan2 dan4 shi4 hen3 hao3 kan4
+TRANSLATIONS: I think Chinese is hard but very interesting.
+DIFFICULTY: 5
+
+HANZI: 我今天在商场买水果和茶。
+PINYIN: wo3 jin1 tian1 zai4 shang1 chang3 mai3 shui3 guo3 he2 cha2
+TRANSLATIONS: I bought fruit and tea at the mall today.
+DIFFICULTY: 5
+
+HANZI: 我觉得在北京生活很贵。
+PINYIN: wo3 jue2 de zai4 bei3 jing1 sheng1 huo2 hen3 gui4
+TRANSLATIONS: I think living in Beijing is expensive.
+DIFFICULTY: 5
+
+HANZI: 我现在不想上网只想休息。
+PINYIN: wo3 xian4 zai4 bu4 xiang3 shang4 wang3 zhi3 xiang3 xiu1 xi
+TRANSLATIONS: I don't want to go online now, I just want to rest.
+DIFFICULTY: 5
+
+HANZI: 我觉得我今年工作很多很忙。
+PINYIN: wo3 jue2 de wo3 jin1 nian2 gong1 zuo4 hen3 duo1 hen3 mang2
+TRANSLATIONS: I think I have a lot of work this year and I'm very busy.
+DIFFICULTY: 5
+
+HANZI: 我昨天在家里一边喝茶一边看电视。
+PINYIN: wo3 zuo2 tian1 zai4 jia1 li3 yi1 bian1 he1 cha2 yi1 bian1 kan4 dian4 shi4
+TRANSLATIONS: Yesterday I drank tea and watched TV at home.
+DIFFICULTY: 5
+
+HANZI: 我觉得跟同学在图书馆学习很好。
+PINYIN: wo3 jue2 de gen1 tong2 xue2 zai4 tu2 shu1 guan3 xue2 xi2 hen3 hao3
+TRANSLATIONS: I think studying with classmates in the library is good.
+DIFFICULTY: 5
+
+HANZI: 我现在在路上等车回家。
+PINYIN: wo3 xian4 zai4 zai4 lu4 shang deng3 che1 hui2 jia1
+TRANSLATIONS: I'm on the road waiting for a car to go home.
+DIFFICULTY: 5

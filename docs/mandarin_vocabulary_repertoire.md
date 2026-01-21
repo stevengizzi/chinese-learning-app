@@ -348,3 +348,23 @@ notes:
 | 二 | er4 | two |
 | 水果 | shui3 guo3 | fruit |
 | 同 | tong2 | be the same; together |
+| 玩儿 | wan2 r | to play; to have fun; to hang out |
+| 来 | lai2 | to come |
+| 三 | san1 | three |
+| 语 | yu3 | language; speech |
+| 笑 | xiao4 | laugh; smile |
+| 机场 | ji1 chang3 | airport |
+| 家里 | jia1 li3 | home |
+| 上边 | shang4 bian | above; overhead |
+| 学院 | xue2 yuan4 | college; school |
+| 西边 | xi1 bian1 | west side; western part |
+| 进 | jin4 | to enter; to go forward |
+| 着 | zhe / zhao2 / zhou2 / zhao1 | to catch fire; to contact; to wear (clothes); marker following a verb to indicate action is in progress |
+| 吧 | ba1 | ...right?; ...ok?; particle used to indicate suggestion |
+| 贵 | gui4 | expensive; (honorific) your |
+| 上车 | shang4 che1 | to get on or into (a bus, train, car, etc) |
+| 坐 | zuo4 | to sit; to take (a bus, airplane, etc) |
+| 没什么 | mei2 shen2 me | nothing; it doesn't matter |
+| 答 | da2 | to answer; to agree |
+| 前边 | qian2 bian | the front side; in front of |
+| 课本 | ke4 ben3 | textbook |

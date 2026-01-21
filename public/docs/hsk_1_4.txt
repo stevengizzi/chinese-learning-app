@@ -2608,3 +2608,162 @@ english: They study together.
 mandarin: 他们一同学习。
 pinyin: Tāmen yìtóng xuéxí.
 --
+english: The kids are playing.
+mandarin: 小朋友在玩儿。
+pinyin: Xiǎopéngyou zài wánr.
+--
+english: We go out to have fun on Sunday.
+mandarin: 星期日我们出去玩儿。
+pinyin: Xīngqírì wǒmen chūqù wánr.
+--
+english: He comes today.
+mandarin: 他今天来。
+pinyin: Tā jīntiān lái.
+--
+english: Come here.
+mandarin: 来这儿。
+pinyin: Lái zhèr.
+--
+english: I have three books.
+mandarin: 我有三本书。
+pinyin: Wǒ yǒu sān běn shū.
+--
+english: Three students are here.
+mandarin: 这儿有三个学生。
+pinyin: Zhèr yǒu sān ge xuéshēng.
+--
+english: He studies Chinese.
+mandarin: 他学汉语。
+pinyin: Tā xué Hànyǔ.
+--
+english: Chinese is a language.
+mandarin: 汉语是语言。
+pinyin: Hànyǔ shì yǔyán.
+--
+english: She is smiling.
+mandarin: 她在笑。
+pinyin: Tā zài xiào.
+--
+english: The kids laugh happily.
+mandarin: 小朋友笑得很高兴。
+pinyin: Xiǎopéngyou xiào de hěn gāoxìng.
+--
+english: We go to the airport.
+mandarin: 我们去机场。
+pinyin: Wǒmen qù jīchǎng.
+--
+english: He is at the airport.
+mandarin: 他在机场。
+pinyin: Tā zài jīchǎng.
+--
+english: I am at home.
+mandarin: 我在家里。
+pinyin: Wǒ zài jiālǐ.
+--
+english: There are people at home.
+mandarin: 家里有人。
+pinyin: Jiālǐ yǒu rén.
+--
+english: The book is on top.
+mandarin: 书在上边。
+pinyin: Shū zài shàngbian.
+--
+english: There is a map above the table.
+mandarin: 地图在桌子上边。
+pinyin: Dìtú zài zhuōzi shàngbian.
+--
+english: She studies at the college.
+mandarin: 她在学院学习。
+pinyin: Tā zài xuéyuàn xuéxí.
+--
+english: This school has a college.
+mandarin: 这个学校有学院。
+pinyin: Zhè ge xuéxiào yǒu xuéyuàn.
+--
+english: The store is on the west side.
+mandarin: 商店在西边。
+pinyin: Shāngdiàn zài xībian.
+--
+english: The west side is outside.
+mandarin: 西边在外边。
+pinyin: Xībian zài wàibian.
+--
+english: Come in.
+mandarin: 进来。
+pinyin: Jìn lái.
+--
+english: He enters the room.
+mandarin: 他进房间。
+pinyin: Tā jìn fángjiān.
+--
+english: He is wearing clothes.
+mandarin: 他穿着衣。
+pinyin: Tā chuān zhe yī.
+--
+english: She is smiling.
+mandarin: 她笑着。
+pinyin: Tā xiào zhe.
+--
+english: Let’s go.
+mandarin: 我们走吧。
+pinyin: Wǒmen zǒu ba.
+--
+english: Eat some fruit, ok?
+mandarin: 吃一些水果吧。
+pinyin: Chī yìxiē shuǐguǒ ba.
+--
+english: This is too expensive.
+mandarin: 这个太贵了。
+pinyin: Zhè ge tài guì le.
+--
+english: That store is expensive.
+mandarin: 那个商店很贵。
+pinyin: Nà ge shāngdiàn hěn guì.
+--
+english: Get in the car.
+mandarin: 上车。
+pinyin: Shàng chē.
+--
+english: We get on the bus.
+mandarin: 我们上车去学校。
+pinyin: Wǒmen shàng chē qù xuéxiào.
+--
+english: Sit here.
+mandarin: 坐这儿。
+pinyin: Zuò zhèr.
+--
+english: He takes the train.
+mandarin: 他坐火车。
+pinyin: Tā zuò huǒchē.
+--
+english: It’s nothing.
+mandarin: 没什么。
+pinyin: Méishénme.
+--
+english: Thanks — it’s nothing.
+mandarin: 谢谢，没什么。
+pinyin: Xièxie, méishénme.
+--
+english: Please answer.
+mandarin: 请答。
+pinyin: Qǐng dá.
+--
+english: He answered correctly.
+mandarin: 他答对了。
+pinyin: Tā dá duì le.
+--
+english: He is in front.
+mandarin: 他在前边。
+pinyin: Tā zài qiánbian.
+--
+english: The teacher is in front.
+mandarin: 老师在前边。
+pinyin: Lǎoshī zài qiánbian.
+--
+english: This is my textbook.
+mandarin: 这是我的课本。
+pinyin: Zhè shì wǒ de kèběn.
+--
+english: The textbook is on the table.
+mandarin: 课本在桌子上。
+pinyin: Kèběn zài zhuōzi shàng.
