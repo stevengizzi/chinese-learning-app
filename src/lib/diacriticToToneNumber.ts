@@ -82,15 +82,33 @@ function splitPinyinIntoSyllables(pinyin: string): string[] {
 }
 
 /**
- * Attempts to split a compound syllable like "àihào" into ["ài", "hào"].
- * Uses pinyin syllable patterns to identify boundaries.
+ * Checks if a character has a tone diacritic (and thus marks the tone-bearing vowel of a syllable).
  */
-function splitCompoundSyllable(compound: string): string[] {
-  if (!compound) return [];
+function hasToneDiacritic(char: string): boolean {
+  const mapping = diacriticMap[char] || diacriticMap[char.toLowerCase()];
+  // Has a diacritic if it maps to something AND tone is not 5 (neutral/unmarked)
+  return mapping !== undefined && mapping.tone !== 5;
+}
 
-  // Common pinyin initials (consonant clusters that start syllables)
+/**
+ * Checks if a character is a plain (non-diacritical) a, e, or o.
+ * These are the only vowels that can start a new syllable in compounds.
+ */
+function isPlainVowelStarter(char: string): boolean {
+  const c = char.toLowerCase();
+  // Must be exactly a, e, or o - NOT a diacritical version
+  return ['a', 'e', 'o'].includes(c) && !diacriticMap[char] && !diacriticMap[char.toLowerCase()];
+}
+
+/**
+ * Checks if a string starts with a pinyin initial consonant (case-insensitive).
+ * Returns the length of the initial if found, 0 otherwise.
+ */
+function startsWithInitial(str: string): number {
+  const lower = str.toLowerCase();
+  // Check longer initials first
   const initials = [
-    'zh', 'ch', 'sh', 'ng',
+    'zh', 'ch', 'sh',
     'b', 'p', 'm', 'f',
     'd', 't', 'n', 'l',
     'g', 'k', 'h',
@@ -99,42 +117,87 @@ function splitCompoundSyllable(compound: string): string[] {
     'r', 'y', 'w'
   ];
 
+  for (const initial of initials) {
+    if (lower.startsWith(initial)) {
+      return initial.length;
+    }
+  }
+  return 0;
+}
+
+/**
+ * Checks if a character is a consonant (not a vowel).
+ */
+function isConsonant(char: string): boolean {
+  return !isVowelChar(char);
+}
+
+/**
+ * Attempts to split a compound syllable like "àihào" into ["ài", "hào"].
+ * Uses pinyin syllable patterns to identify boundaries.
+ *
+ * Strategy: A syllable is complete when we've seen its tone-marked vowel
+ * AND we encounter a consonant that starts a new syllable (followed by a vowel).
+ * Vowels following the tone-marked vowel are part of the same syllable's final.
+ */
+function splitCompoundSyllable(compound: string): string[] {
+  if (!compound) return [];
+
   const result: string[] = [];
   let remaining = compound;
 
   while (remaining.length > 0) {
-    // Find where the next syllable starts
+    // Find where the next syllable ends
     let syllableEnd = remaining.length;
 
-    // Look for the start of another syllable after the first character
-    for (let i = 1; i < remaining.length; i++) {
-      const substring = remaining.substring(i).toLowerCase();
+    // Track if we've seen the tone-marked vowel in this potential syllable
+    let seenToneMarker = false;
+    // Track if we've seen a consonant AFTER the tone marker (potential new syllable)
+    let seenConsonantAfterTone = false;
 
-      // Check if this position starts with an initial
-      for (const initial of initials) {
-        if (substring.startsWith(initial)) {
-          // Make sure there's more after the initial (a vowel)
-          const afterInitial = substring.substring(initial.length);
-          if (afterInitial.length > 0 && isVowelChar(afterInitial[0])) {
-            syllableEnd = i;
-            break;
-          }
-        }
+    // Skip the initial consonant(s) at the start of this syllable
+    const initialLen = startsWithInitial(remaining);
+    const startSearch = Math.max(1, initialLen);
+
+    // Look for the start of another syllable
+    for (let i = startSearch; i < remaining.length; i++) {
+      const currChar = remaining[i];
+      const prevChar = remaining[i - 1];
+
+      // Track if we've passed a tone-marked vowel
+      if (hasToneDiacritic(prevChar)) {
+        seenToneMarker = true;
       }
 
-      // Also check for vowel-starting syllables (a, e, o can start syllables in compounds)
-      // but only if preceded by a vowel (syllable boundary)
-      if (syllableEnd === remaining.length && i > 0) {
-        const prevChar = remaining[i - 1].toLowerCase();
-        const currChar = remaining[i].toLowerCase();
-        // If previous is vowel and current is 'a', 'e', or 'o', likely a boundary
-        if (isVowelChar(prevChar) && ['a', 'e', 'o'].includes(getNormalizedVowel(currChar))) {
+      // Track if we've seen a consonant after the tone marker
+      if (seenToneMarker && isConsonant(currChar)) {
+        seenConsonantAfterTone = true;
+      }
+
+      // Only look for syllable boundaries AFTER we've seen BOTH the tone marker AND a consonant
+      // This ensures vowels like 'o' in 'hào' stay with their syllable
+      if (!seenToneMarker) continue;
+
+      // Check if this position starts with an initial followed by a vowel
+      // This is the primary way syllables are split
+      const restOfString = remaining.substring(i);
+      const nextInitialLen = startsWithInitial(restOfString);
+      if (nextInitialLen > 0) {
+        // Check if there's a vowel after the initial
+        const afterInitial = restOfString.substring(nextInitialLen);
+        if (afterInitial.length > 0 && isVowelChar(afterInitial[0])) {
           syllableEnd = i;
           break;
         }
       }
 
-      if (syllableEnd < remaining.length) break;
+      // For vowel-starting syllables (only plain a, e, o), we must have
+      // seen a consonant between the tone marker and this vowel
+      // This handles cases like "xī'ān" (西安) but not "hào" where 'o' follows 'à' directly
+      if (seenConsonantAfterTone && isPlainVowelStarter(currChar)) {
+        syllableEnd = i;
+        break;
+      }
     }
 
     result.push(remaining.substring(0, syllableEnd));
@@ -151,15 +214,6 @@ function isVowelChar(char: string): boolean {
   const c = char.toLowerCase();
   if ('aeiouü'.includes(c)) return true;
   return !!diacriticMap[c];
-}
-
-/**
- * Gets the normalized (no-diacritic) vowel for a character.
- */
-function getNormalizedVowel(char: string): string {
-  const mapping = diacriticMap[char] || diacriticMap[char.toLowerCase()];
-  if (mapping) return mapping.vowel;
-  return char.toLowerCase();
 }
 
 /**
