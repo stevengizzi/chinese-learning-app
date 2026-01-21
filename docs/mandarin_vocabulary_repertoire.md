@@ -359,7 +359,7 @@ notes:
 | 学院 | xue2 yuan4 | college; school |
 | 西边 | xi1 bian1 | west side; western part |
 | 进 | jin4 | to enter; to go forward |
-| 着 | zhe / zhao2 / zhou2 / zhao1 | to catch fire; to contact; to wear (clothes); marker following a verb to indicate action is in progress |
+| 着 | zhe / zhao2 / zhuo2 / zhao1 | to catch fire; to contact; to wear (clothes); marker following a verb to indicate action is in progress |
 | 吧 | ba1 | ...right?; ...ok?; particle used to indicate suggestion |
 | 贵 | gui4 | expensive; (honorific) your |
 | 上车 | shang4 che1 | to get on or into (a bus, train, car, etc) |

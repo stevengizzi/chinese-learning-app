@@ -6,7 +6,6 @@
  */
 
 import type { TonePatternItem, ToneSlotSelection } from '../types/tonePatternPractice';
-import { parseVocabularyMarkdown } from './vocabularyParser';
 import { parseSentenceCorpus } from './sentenceParser';
 import { convertDiacriticToToneNumber, extractTonesFromNumberedPinyin } from './diacriticToToneNumber';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
@@ -102,36 +101,41 @@ export async function loadAllTonePatternItems(): Promise<TonePatternItem[]> {
   const items: TonePatternItem[] = [];
   const baseUrl = import.meta.env.BASE_URL || '/';
 
-  // Load from all three sources in parallel
-  const [vocabResponse, hskResponse, sentencesResponse] = await Promise.all([
-    fetch(`${baseUrl}docs/mandarin_vocabulary_repertoire.md`).catch(() => null),
+  // Load vocabulary from localStorage (uploaded by user)
+  // and other sources from public/docs/ in parallel
+  const [hskResponse, sentencesResponse] = await Promise.all([
     fetch(`${baseUrl}docs/hsk_1_4.txt`).catch(() => null),
     fetch(`${baseUrl}docs/sentences.txt`).catch(() => null),
   ]);
 
-  // Process vocabulary file
-  if (vocabResponse?.ok) {
-    const content = await vocabResponse.text();
-    const vocabData = parseVocabularyMarkdown(content);
+  // Process vocabulary from localStorage (user-uploaded file)
+  try {
+    const savedVocab = localStorage.getItem('vocabulary');
+    if (savedVocab) {
+      const vocabData = JSON.parse(savedVocab);
+      if (vocabData?.active) {
+        for (let i = 0; i < vocabData.active.length; i++) {
+          const entry = vocabData.active[i];
+          const syllables = extractSyllables(entry.pinyin);
+          const originalTones = extractTones(entry.pinyin);
+          const pronouncedTones = getPronouncedTones(originalTones, syllables);
 
-    for (let i = 0; i < vocabData.active.length; i++) {
-      const entry = vocabData.active[i];
-      const syllables = extractSyllables(entry.pinyin);
-      const originalTones = extractTones(entry.pinyin);
-      const pronouncedTones = getPronouncedTones(originalTones, syllables);
-
-      items.push({
-        id: `vocab_${i}`,
-        source: 'vocabulary',
-        hanzi: entry.word,
-        pinyin: entry.pinyin,
-        pinyinWithMarks: convertPinyinStringToToneMarks(entry.pinyin),
-        meaning: entry.meaning,
-        pronouncedTones,
-        originalTones,
-        sandhiApplied: !arraysEqual(originalTones, pronouncedTones),
-      });
+          items.push({
+            id: `vocab_${i}`,
+            source: 'vocabulary',
+            hanzi: entry.word,
+            pinyin: entry.pinyin,
+            pinyinWithMarks: convertPinyinStringToToneMarks(entry.pinyin),
+            meaning: entry.meaning,
+            pronouncedTones,
+            originalTones,
+            sandhiApplied: !arraysEqual(originalTones, pronouncedTones),
+          });
+        }
+      }
     }
+  } catch (error) {
+    console.error('Failed to load vocabulary from localStorage:', error);
   }
 
   // Process HSK file (diacritical pinyin - needs conversion)
