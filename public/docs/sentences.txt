@@ -268,3 +268,203 @@ HANZI: 我现在在路上等车回家。
 PINYIN: wo3 xian4 zai4 zai4 lu4 shang deng3 che1 hui2 jia1
 TRANSLATIONS: I'm on the road waiting for a car to go home.
 DIFFICULTY: 5
+
+HANZI: 今天下雨。
+PINYIN: jin1 tian1 xia4 yu3
+TRANSLATIONS: It is raining today.
+DIFFICULTY: 1
+
+HANZI: 明年去北京。
+PINYIN: ming2 nian2 qu4 bei3 jing1
+TRANSLATIONS: Go to Beijing next year.
+DIFFICULTY: 1
+
+HANZI: 现在上班。
+PINYIN: xian4 zai4 shang4 ban1
+TRANSLATIONS: Go to work now.
+DIFFICULTY: 1
+
+HANZI: 下班回家。
+PINYIN: xia4 ban1 hui2 jia1
+TRANSLATIONS: Get off work and go home.
+DIFFICULTY: 1
+
+HANZI: 在家里休息。
+PINYIN: zai4 jia1 li3 xiu1 xi
+TRANSLATIONS: Rest at home.
+DIFFICULTY: 1
+
+HANZI: 上网看电影。
+PINYIN: shang4 wang3 kan4 dian4 ying3
+TRANSLATIONS: Go online to watch a movie.
+DIFFICULTY: 1
+
+HANZI: 图书馆上课。
+PINYIN: tu2 shu1 guan3 shang4 ke4
+TRANSLATIONS: Have class at the library.
+DIFFICULTY: 1
+
+HANZI: 商场买水果。
+PINYIN: shang1 chang3 mai3 shui3 guo3
+TRANSLATIONS: Buy fruit at the mall.
+DIFFICULTY: 1
+
+HANZI: 商店买米饭。
+PINYIN: shang1 dian4 mai3 mi3 fan4
+TRANSLATIONS: Buy rice at the store.
+DIFFICULTY: 1
+
+HANZI: 路上打车。
+PINYIN: lu4 shang da3 che1
+TRANSLATIONS: Take a taxi on the road.
+DIFFICULTY: 1
+
+HANZI: 在电影院见面。
+PINYIN: zai4 dian4 ying3 yuan4 jian4 mian4
+TRANSLATIONS: Meet at the movie theater.
+DIFFICULTY: 2
+
+HANZI: 昨天在家里。
+PINYIN: zuo2 tian1 zai4 jia1 li3
+TRANSLATIONS: Was at home yesterday.
+DIFFICULTY: 2
+
+HANZI: 今天在教学楼。
+PINYIN: jin1 tian1 zai4 jiao4 xue2 lou2
+TRANSLATIONS: At the teaching building today.
+DIFFICULTY: 2
+
+HANZI: 哥哥在国外。
+PINYIN: ge1 ge zai4 guo2 wai4
+TRANSLATIONS: Older brother is abroad.
+DIFFICULTY: 2
+
+HANZI: 姐姐回家。
+PINYIN: jie3 jie hui2 jia1
+TRANSLATIONS: Older sister goes home.
+DIFFICULTY: 2
+
+HANZI: 弟在楼下。
+PINYIN: di4 zai4 lou2 xia4
+TRANSLATIONS: Younger brother is downstairs.
+DIFFICULTY: 2
+
+HANZI: 老师在学院。
+PINYIN: lao3 shi1 zai4 xue2 yuan4
+TRANSLATIONS: The teacher is at the college.
+DIFFICULTY: 2
+
+HANZI: 学生在上课。
+PINYIN: xue2 sheng zai4 shang4 ke4
+TRANSLATIONS: Students are in class.
+DIFFICULTY: 2
+
+HANZI: 男生在上网。
+PINYIN: nan2 sheng zai4 shang4 wang3
+TRANSLATIONS: The male student is online.
+DIFFICULTY: 2
+
+HANZI: 女生看电影。
+PINYIN: nü3 sheng kan4 dian4 ying3
+TRANSLATIONS: The female student watches a movie.
+DIFFICULTY: 2
+
+HANZI: 谁在家里？
+PINYIN: shei2 zai4 jia1 li3
+TRANSLATIONS: Who is at home?
+DIFFICULTY: 3
+
+HANZI: 哪些学生上课？
+PINYIN: na3 xie1 xue2 sheng shang4 ke4
+TRANSLATIONS: Which students are in class?
+DIFFICULTY: 3
+
+HANZI: 现在在哪儿？
+PINYIN: xian4 zai4 zai4 na3 r
+TRANSLATIONS: Where are you now?
+DIFFICULTY: 3
+
+HANZI: 北京在北边。
+PINYIN: bei3 jing1 zai4 bei3 bian1
+TRANSLATIONS: Beijing is on the north side.
+DIFFICULTY: 3
+
+HANZI: 商场在西边。
+PINYIN: shang1 chang3 zai4 xi1 bian1
+TRANSLATIONS: The mall is on the west side.
+DIFFICULTY: 3
+
+HANZI: 洗手间在外边。
+PINYIN: xi3 shou3 jian1 zai4 wai4 bian
+TRANSLATIONS: The bathroom is outside.
+DIFFICULTY: 3
+
+HANZI: 电影院在那边。
+PINYIN: dian4 ying3 yuan4 zai4 na4 bian1
+TRANSLATIONS: The cinema is over there.
+DIFFICULTY: 3
+
+HANZI: 图书馆在这边。
+PINYIN: tu2 shu1 guan3 zai4 zhe4 bian1
+TRANSLATIONS: The library is on this side.
+DIFFICULTY: 3
+
+HANZI: 上车去机场。
+PINYIN: shang4 che1 qu4 ji1 chang3
+TRANSLATIONS: Get in the car and go to the airport.
+DIFFICULTY: 3
+
+HANZI: 坐车回家。
+PINYIN: zuo4 che1 hui2 jia1
+TRANSLATIONS: Take a car home.
+DIFFICULTY: 3
+
+HANZI: 早上上课，下午休息。
+PINYIN: zao3 shang shang4 ke4 xia4 wu3 xiu1 xi
+TRANSLATIONS: Have class in the morning, rest in the afternoon.
+DIFFICULTY: 4
+
+HANZI: 今天在家里看电视。
+PINYIN: jin1 tian1 zai4 jia1 li3 kan4 dian4 shi4
+TRANSLATIONS: Watch TV at home today.
+DIFFICULTY: 4
+
+HANZI: 昨天在图书馆学习汉语。
+PINYIN: zuo2 tian1 zai4 tu2 shu1 guan3 xue2 xi2 han4 yu3
+TRANSLATIONS: Studied Chinese at the library yesterday.
+DIFFICULTY: 4
+
+HANZI: 路上上车回家睡觉。
+PINYIN: lu4 shang shang4 che1 hui2 jia1 shui4 jiao4
+TRANSLATIONS: Get in the car on the road and go home to sleep.
+DIFFICULTY: 4
+
+HANZI: 在商场买水果和茶。
+PINYIN: zai4 shang1 chang3 mai3 shui3 guo3 he2 cha2
+TRANSLATIONS: Buy fruit and tea at the mall.
+DIFFICULTY: 4
+
+HANZI: 姐姐跟同学见面。
+PINYIN: jie3 jie gen1 tong2 xue2 jian4 mian4
+TRANSLATIONS: Older sister meets with classmates.
+DIFFICULTY: 4
+
+HANZI: 哥哥在网上工作。
+PINYIN: ge1 ge zai4 wang3 shang4 gong1 zuo4
+TRANSLATIONS: Older brother works online.
+DIFFICULTY: 4
+
+HANZI: 学生在教学楼上课。
+PINYIN: xue2 sheng zai4 jiao4 xue2 lou2 shang4 ke4
+TRANSLATIONS: Students have class in the teaching building.
+DIFFICULTY: 4
+
+HANZI: 星期日在家里休息。
+PINYIN: xing1 qi1 ri4 zai4 jia1 li3 xiu1 xi
+TRANSLATIONS: Rest at home on Sunday.
+DIFFICULTY: 4
+
+HANZI: 明年在国外学习汉语。
+PINYIN: ming2 nian2 zai4 guo2 wai4 xue2 xi2 han4 yu3
+TRANSLATIONS: Study Chinese abroad next year.
+DIFFICULTY: 4
