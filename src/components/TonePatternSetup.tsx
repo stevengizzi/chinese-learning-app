@@ -104,27 +104,40 @@ export function TonePatternSetup({ onStart, onBack }: TonePatternSetupProps) {
   }, []);
 
   // Toggle a specific tone in a slot
-  const toggleToneInSlot = useCallback((slotIndex: number, tone: 1 | 2 | 3 | 4 | 5) => {
+  // - Normal click: exclusive select (replaces current selection)
+  // - Cmd/Ctrl+click: multi-select (adds to or removes from current selection)
+  const toggleToneInSlot = useCallback((slotIndex: number, tone: 1 | 2 | 3 | 4 | 5, multiSelect: boolean) => {
     setPattern(prev => {
       const newPattern = [...prev];
       const currentSlot = newPattern[slotIndex];
 
-      if (currentSlot === 'any') {
-        // Switching from 'any' to a specific tone
-        newPattern[slotIndex] = new Set([tone]);
-      } else {
-        const newSet = new Set(currentSlot);
-        if (newSet.has(tone)) {
-          newSet.delete(tone);
-          // If empty, revert to 'any'
-          if (newSet.size === 0) {
-            newPattern[slotIndex] = 'any';
+      if (multiSelect) {
+        // Multi-select mode: toggle the tone in the set
+        if (currentSlot === 'any') {
+          // Switching from 'any' to a specific tone
+          newPattern[slotIndex] = new Set([tone]);
+        } else {
+          const newSet = new Set(currentSlot);
+          if (newSet.has(tone)) {
+            newSet.delete(tone);
+            // If empty, revert to 'any'
+            if (newSet.size === 0) {
+              newPattern[slotIndex] = 'any';
+            } else {
+              newPattern[slotIndex] = newSet;
+            }
           } else {
+            newSet.add(tone);
             newPattern[slotIndex] = newSet;
           }
+        }
+      } else {
+        // Exclusive select mode: replace with just this tone
+        // If clicking the only selected tone, deselect it (revert to 'any')
+        if (currentSlot !== 'any' && currentSlot.size === 1 && currentSlot.has(tone)) {
+          newPattern[slotIndex] = 'any';
         } else {
-          newSet.add(tone);
-          newPattern[slotIndex] = newSet;
+          newPattern[slotIndex] = new Set([tone]);
         }
       }
 
@@ -217,7 +230,7 @@ export function TonePatternSetup({ onStart, onBack }: TonePatternSetupProps) {
               Tone Pattern
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              Select allowed tones for each position. Multiple tones can be selected per position.
+              Click to select a tone exclusively. <strong>⌘/Ctrl+click</strong> to multi-select.
               "Any" allows all tones. Patterns match <strong>pronounced</strong> tones (after sandhi).
             </p>
 
@@ -231,9 +244,9 @@ export function TonePatternSetup({ onStart, onBack }: TonePatternSetupProps) {
                     {toneLabels.map(({ tone, label }) => (
                       <button
                         key={tone}
-                        onClick={() => toggleToneInSlot(slotIndex, tone)}
+                        onClick={(e) => toggleToneInSlot(slotIndex, tone, e.metaKey || e.ctrlKey)}
                         className={getToneButtonClass(slotIndex, tone)}
-                        title={`Tone ${tone}`}
+                        title={`Tone ${tone} (⌘/Ctrl+click to multi-select)`}
                       >
                         {label}
                       </button>
