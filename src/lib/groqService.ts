@@ -43,22 +43,48 @@ export async function getTranslationFeedback(
     };
   }
 
-  const prompt = `You are a lenient Chinese language learning assistant evaluating English translations.
+  const prompt = `
+You are a lenient Chinese language learning assistant evaluating English translations.
 
 Chinese sentence: ${request.hanzi}
 Pinyin: ${request.pinyin}
 Reference translations: ${request.referenceTranslations.join(' | ')}
 User's translation: "${request.userTranslation}"
 
-IMPORTANT GRADING RULES - BE LENIENT:
-1. TENSE IS FLEXIBLE: Chinese has no grammatical tense. Accept ANY reasonable English tense (past, present, future, progressive). "I go home", "I went home", "I'm going home", "I will go home" are ALL valid for the same Chinese sentence.
-2. WORD CHOICE: Accept synonyms and equivalent expressions. "return home" = "go back home" = "go home". "watch" = "see" for movies/TV.
-3. STYLE: Accept natural English even if word order differs from Chinese. "Today I go home" = "I go home today".
-4. Only mark INCORRECT if the meaning is actually WRONG or key information is missing.
+IMPORTANT GRADING RULES - BE VERY LENIENT:
+
+1. TENSE & ASPECT ARE FLEXIBLE:
+Chinese does not mark tense or aspect. Accept ANY reasonable English tense or aspect:
+- present, past, future
+- progressive, habitual, perfect
+Do NOT penalize for differences like "I watch" vs "I'm watching".
+
+2. IGNORE PRAGMATIC NUANCE:
+Do NOT penalize for differences in:
+- general vs specific
+- habitual vs one-time
+- ongoing vs neutral
+If the core action is the same, it is correct.
+
+3. WORD CHOICE:
+Accept synonyms and equivalent expressions.
+Examples:
+"return home" = "go back home" = "go home"
+"watch" = "see" (for movies/TV)
+
+4. STYLE:
+Accept natural English even if word order or phrasing differs from Chinese.
+
+5. ONLY MARK INCORRECT IF:
+The translation changes the core meaning:
+- wrong subject or object
+- wrong main verb/action
+- missing or added key semantic content
 
 Respond in this exact format:
 CORRECT: [yes/no]
-FEEDBACK: [1-2 sentences. If correct, briefly affirm. If incorrect, explain what meaning was wrong or missing.]`;
+FEEDBACK: [1-2 sentences. If correct, briefly affirm. If incorrect, explain what core meaning was wrong or missing.]
+`;
 
   try {
     const response = await fetch(GROQ_API_URL, {
