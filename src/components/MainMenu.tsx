@@ -3,6 +3,7 @@ import { useExercise } from '../contexts/ExerciseContext';
 import type { ExerciseType, PlayMode } from '../types/exercise';
 import { VocabularyUploader } from './VocabularyUploader';
 import { getAllHighScores, formatTime } from '../lib/highScores';
+import { TrainingModeToggle } from './TrainingModeToggle';
 
 export function MainMenu() {
   const { state, dispatch } = useExercise();
@@ -151,7 +152,7 @@ export function MainMenu() {
             )}
 
             {/* View Vocabulary & Update Buttons */}
-            <div className="mb-8 flex justify-center gap-4">
+            <div className="mb-4 flex justify-center gap-4">
               <button
                 onClick={handleViewVocabulary}
                 className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
@@ -160,6 +161,18 @@ export function MainMenu() {
               </button>
               <VocabularyUploader />
             </div>
+
+            {/* Focus on Weaknesses Toggle */}
+            {state.vocabulary && (
+              <div className="mb-8">
+                <TrainingModeToggle
+                  enabled={state.focusOnWeaknesses}
+                  onChange={(enabled) => dispatch({ type: 'SET_FOCUS_MODE', payload: enabled })}
+                  vocabulary={state.vocabulary.active}
+                  database={state.responseDatabase}
+                />
+              </div>
+            )}
 
             {/* Tone Training Section */}
             <div className="mb-4 bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4">

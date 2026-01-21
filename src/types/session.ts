@@ -28,6 +28,7 @@ export interface Session {
     baseThresholdMs: number;  // Base threshold (default 3000ms)
     incrementPerWordMs: number;  // Additional ms per word (default 1000ms)
   };
+  focusOnWeaknesses?: boolean;  // Whether this session is using focus mode
 }
 
 export interface SessionStatistics {

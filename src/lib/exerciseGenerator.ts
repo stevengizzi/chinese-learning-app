@@ -1,7 +1,9 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
-import type { PromptType } from '../types/responseTracking';
+import type { PromptType, ResponseDatabase } from '../types/responseTracking';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
+import { rankVocabularyByPriority, selectWeightedByPriority, type TrainingPriorityScore } from './trainingPriority';
+import { generateVocabularyId } from './responseTracking/storage';
 
 /**
  * Determine the prompt type based on what was shown to the user
@@ -30,12 +32,65 @@ function determinePromptType(
   }
 }
 
+/**
+ * Get the prompt type for a given exercise type (for priority calculation)
+ */
+function getPromptTypeForExercise(exerciseType: ExerciseType): PromptType {
+  switch (exerciseType) {
+    case 'character-to-pinyin':
+      return 'character-to-pinyin';
+    case 'character-to-english':
+      return 'character-to-english';
+    case 'english-to-pinyin':
+      return 'english-to-pinyin';
+    case 'pinyin-to-english':
+      return 'pinyin-to-english';
+    case 'shuffled':
+      // For shuffled pinyin exercises, use character-to-pinyin as representative
+      return 'character-to-pinyin';
+    case 'shuffled-to-english':
+      // For shuffled English exercises, use character-to-english as representative
+      return 'character-to-english';
+    default:
+      return 'character-to-pinyin';
+  }
+}
+
+/**
+ * Get the prompt string for a vocabulary entry based on exercise type
+ */
+function getPromptForEntry(entry: VocabularyEntry, exerciseType: ExerciseType): string {
+  if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
+    return entry.word;
+  } else if (exerciseType === 'english-to-pinyin') {
+    return entry.meaning;
+  } else if (exerciseType === 'pinyin-to-english') {
+    return entry.pinyin;
+  } else if (exerciseType === 'shuffled') {
+    // shuffled (to pinyin): randomly choose between character or meaning
+    return Math.random() < 0.5 ? entry.word : entry.meaning;
+  } else {
+    // shuffled-to-english: randomly choose between character or pinyin
+    return Math.random() < 0.5 ? entry.word : entry.pinyin;
+  }
+}
+
+/**
+ * Options for focus-on-weaknesses mode
+ */
+interface FocusModeOptions {
+  enabled: boolean;
+  responseDatabase: ResponseDatabase;
+  rankedItems?: TrainingPriorityScore[];  // Pre-computed rankings (optional, for performance)
+}
+
 export function generateExercise(
   vocabulary: VocabularyEntry[],
   exerciseType: ExerciseType,
   playMode: PlayMode,
   recentExerciseIds: string[] = [],
-  remainingWords: string[] = []
+  remainingWords: string[] = [],
+  focusMode?: FocusModeOptions
 ): Exercise {
   if (vocabulary.length === 0) {
     throw new Error('No vocabulary available for exercises');
@@ -90,8 +145,40 @@ export function generateExercise(
     selectedEntry = entry;
     // For shuffled modes in complete-all/drill, use the exact prompt from remainingWords
     prompt = promptToUse;
+  } else if (focusMode?.enabled && focusMode.responseDatabase) {
+    // Focus on Weaknesses mode: use priority-based selection
+    const promptType = getPromptTypeForExercise(exerciseType);
+
+    // Use pre-computed rankings if available, otherwise compute them
+    const rankedItems = focusMode.rankedItems ||
+      rankVocabularyByPriority(vocabulary, promptType, focusMode.responseDatabase);
+
+    // Convert recent exercise IDs to vocabulary IDs for exclusion
+    const recentVocabIds = recentExerciseIds.map(word => {
+      const entry = vocabulary.find(v => v.word === word);
+      return entry ? generateVocabularyId(entry.word, entry.pinyin, entry.meaning) : '';
+    }).filter(id => id !== '');
+
+    // Select using weighted priority
+    const selectedVocabId = selectWeightedByPriority(rankedItems, recentVocabIds);
+
+    if (selectedVocabId) {
+      // Find the vocabulary entry matching this ID
+      selectedEntry = vocabulary.find(v =>
+        generateVocabularyId(v.word, v.pinyin, v.meaning) === selectedVocabId
+      );
+    }
+
+    // Fallback to random if priority selection failed
+    if (!selectedEntry) {
+      const randomIndex = Math.floor(Math.random() * vocabulary.length);
+      selectedEntry = vocabulary[randomIndex];
+    }
+
+    // Determine prompt based on exercise type
+    prompt = getPromptForEntry(selectedEntry, exerciseType);
   } else {
-    // Random selection (endless mode)
+    // Random selection (endless mode without focus)
     let attempts = 0;
     const maxAttempts = 50;
 
@@ -107,19 +194,7 @@ export function generateExercise(
     } while (recentExerciseIds.includes(selectedEntry.word) && vocabulary.length > 1);
 
     // Determine prompt based on exercise type for endless mode
-    if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
-      prompt = selectedEntry.word;
-    } else if (exerciseType === 'english-to-pinyin') {
-      prompt = selectedEntry.meaning;
-    } else if (exerciseType === 'pinyin-to-english') {
-      prompt = selectedEntry.pinyin;
-    } else if (exerciseType === 'shuffled') {
-      // shuffled (to pinyin): randomly choose between character or meaning
-      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.meaning;
-    } else {
-      // shuffled-to-english: randomly choose between character or pinyin
-      prompt = Math.random() < 0.5 ? selectedEntry.word : selectedEntry.pinyin;
-    }
+    prompt = getPromptForEntry(selectedEntry, exerciseType);
   }
 
   // Check if we need to disambiguate pinyin and convert to tone marks

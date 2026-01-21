@@ -40,3 +40,12 @@ export interface ExerciseAttempt {
   errors: ErrorDetail[];
   timestamp: number;
 }
+
+/**
+ * Session configuration including training mode options
+ */
+export interface SessionConfig {
+  exerciseType: ExerciseType;
+  playMode: PlayMode;
+  focusOnWeaknesses: boolean;
+}

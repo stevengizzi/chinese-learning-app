@@ -22,6 +22,7 @@ interface ExerciseState {
   error: string | null;
   responseDatabase: ResponseDatabase | null;
   pendingSpeedDrillExercise?: ExerciseType; // Exercise type pending speed drill config
+  focusOnWeaknesses: boolean; // Whether to prioritize weak vocabulary items
 }
 
 type ExerciseAction =
@@ -39,7 +40,18 @@ type ExerciseAction =
   | { type: 'START_SENTENCE_READING' }
   | { type: 'START_TONE_PATTERN' }
   | { type: 'SET_ERROR'; payload: string }
-  | { type: 'FINISH_LOADING' };
+  | { type: 'FINISH_LOADING' }
+  | { type: 'SET_FOCUS_MODE'; payload: boolean };
+
+// Load saved focus mode preference from localStorage
+function loadFocusModePreference(): boolean {
+  try {
+    const saved = localStorage.getItem('focusOnWeaknesses');
+    return saved ? JSON.parse(saved) : false;
+  } catch {
+    return false;
+  }
+}
 
 const initialState: ExerciseState = {
   vocabulary: null,
@@ -49,7 +61,8 @@ const initialState: ExerciseState = {
   screen: 'menu',
   isLoading: true,
   error: null,
-  responseDatabase: null
+  responseDatabase: null,
+  focusOnWeaknesses: loadFocusModePreference()
 };
 
 function generateNewExercise(
@@ -57,14 +70,22 @@ function generateNewExercise(
   exerciseType: ExerciseType,
   playMode: PlayMode,
   recentIds: string[],
-  remainingWords: string[]
+  remainingWords: string[],
+  focusOnWeaknesses: boolean = false,
+  responseDatabase: ResponseDatabase | null = null
 ): Exercise {
+  // Build focus mode options if enabled and we have a response database
+  const focusMode = focusOnWeaknesses && responseDatabase
+    ? { enabled: true, responseDatabase }
+    : undefined;
+
   return generateExercise(
     vocabulary.active,
     exerciseType,
     playMode,
     recentIds,
-    remainingWords
+    remainingWords,
+    focusMode
   );
 }
 
@@ -156,12 +177,17 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         exerciseType,
         playMode,
         [],
-        remainingWords || []
+        remainingWords || [],
+        state.focusOnWeaknesses,
+        state.responseDatabase
       );
 
       return {
         ...state,
-        currentSession: session,
+        currentSession: {
+          ...session,
+          focusOnWeaknesses: state.focusOnWeaknesses  // Store in session for display
+        },
         currentExercise: exercise,
         currentAttempt: null,
         screen: 'exercise'
@@ -325,7 +351,9 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         state.currentSession.exerciseType,
         state.currentSession.playMode,
         recentIds,
-        state.currentSession.remainingWords || []
+        state.currentSession.remainingWords || [],
+        state.currentSession.focusOnWeaknesses || false,
+        state.responseDatabase
       );
 
       // Resume timer
@@ -515,6 +543,15 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         isLoading: false
+      };
+    }
+
+    case 'SET_FOCUS_MODE': {
+      // Persist to localStorage
+      localStorage.setItem('focusOnWeaknesses', JSON.stringify(action.payload));
+      return {
+        ...state,
+        focusOnWeaknesses: action.payload
       };
     }
 
