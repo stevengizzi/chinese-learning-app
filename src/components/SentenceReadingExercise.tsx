@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import type { Sentence, SentenceAttempt, SentenceReadingSession } from '../types/sentenceReading';
 import { comparePinyinDetailed } from '../lib/pinyinNormalizer';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { getTranslationFeedback, getGroqApiKey, setGroqApiKey } from '../lib/groqService';
 
 interface SentenceReadingExerciseProps {
   sentence: Sentence;
@@ -23,6 +24,13 @@ export function SentenceReadingExercise({
   const [translationInput, setTranslationInput] = useState('');
   const [startTime] = useState(Date.now());
   const [pinyinResult, setPinyinResult] = useState<ReturnType<typeof comparePinyinDetailed> | null>(null);
+
+  // AI feedback state
+  const [aiFeedback, setAiFeedback] = useState<{ isCorrect: boolean; feedback: string } | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
+  const [showApiKeyInput, setShowApiKeyInput] = useState(false);
+  const [apiKeyInput, setApiKeyInput] = useState('');
 
   const pinyinInputRef = useRef<HTMLInputElement>(null);
   const meaningButtonRef = useRef<HTMLButtonElement>(null);
@@ -67,6 +75,9 @@ export function SentenceReadingExercise({
     setPinyinInput('');
     setTranslationInput('');
     setPinyinResult(null);
+    setAiFeedback(null);
+    setAiError(null);
+    setShowApiKeyInput(false);
     setPhase('input');
   };
 
@@ -74,6 +85,47 @@ export function SentenceReadingExercise({
     if (e.key === 'Enter' && phase === 'input') {
       e.preventDefault();
       handleCheckAnswer();
+    }
+  };
+
+  const handleAskAI = async () => {
+    // Check if API key exists
+    if (!getGroqApiKey()) {
+      setShowApiKeyInput(true);
+      return;
+    }
+
+    setAiLoading(true);
+    setAiError(null);
+    setAiFeedback(null);
+
+    const result = await getTranslationFeedback({
+      hanzi: sentence.hanzi,
+      pinyin: sentence.pinyin,
+      userTranslation: translationInput,
+      referenceTranslations: sentence.translations,
+    });
+
+    setAiLoading(false);
+
+    if (result.error) {
+      setAiError(result.error);
+      if (result.error.includes('API key')) {
+        setShowApiKeyInput(true);
+      }
+    } else {
+      setAiFeedback({ isCorrect: result.isCorrect, feedback: result.feedback });
+    }
+  };
+
+  const handleSaveApiKey = () => {
+    if (apiKeyInput.trim()) {
+      setGroqApiKey(apiKeyInput.trim());
+      setApiKeyInput('');
+      setShowApiKeyInput(false);
+      setAiError(null);
+      // Automatically trigger AI feedback after saving key
+      handleAskAI();
     }
   };
 
@@ -250,6 +302,92 @@ export function SentenceReadingExercise({
                       ))}
                     </ul>
                   </div>
+
+                  {/* Ask AI Button */}
+                  {translationInput && !aiFeedback && !showApiKeyInput && (
+                    <div className="mt-4">
+                      <button
+                        onClick={handleAskAI}
+                        disabled={aiLoading}
+                        className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                      >
+                        {aiLoading ? (
+                          <>
+                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            Analyzing...
+                          </>
+                        ) : (
+                          <>
+                            <span>🤖</span>
+                            Ask AI: Is my translation correct?
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  )}
+
+                  {/* API Key Input */}
+                  {showApiKeyInput && (
+                    <div className="mt-4 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-700">
+                      <div className="text-sm text-purple-800 dark:text-purple-200 mb-2">
+                        Enter your Groq API key to use AI feedback:
+                      </div>
+                      <div className="flex gap-2">
+                        <input
+                          type="password"
+                          value={apiKeyInput}
+                          onChange={e => setApiKeyInput(e.target.value)}
+                          placeholder="gsk_..."
+                          className="flex-1 px-3 py-2 text-sm border border-purple-300 dark:border-purple-600 rounded-lg focus:outline-none focus:border-purple-500 dark:bg-gray-700 dark:text-white"
+                        />
+                        <button
+                          onClick={handleSaveApiKey}
+                          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg"
+                        >
+                          Save
+                        </button>
+                        <button
+                          onClick={() => setShowApiKeyInput(false)}
+                          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-200 text-sm font-medium rounded-lg"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                      <div className="text-xs text-purple-600 dark:text-purple-400 mt-2">
+                        Get a free API key at <a href="https://console.groq.com" target="_blank" rel="noopener noreferrer" className="underline">console.groq.com</a>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* AI Error */}
+                  {aiError && !showApiKeyInput && (
+                    <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/30 rounded-lg border border-red-200 dark:border-red-700">
+                      <div className="text-sm text-red-700 dark:text-red-300">{aiError}</div>
+                    </div>
+                  )}
+
+                  {/* AI Feedback Result */}
+                  {aiFeedback && (
+                    <div className={`mt-4 p-4 rounded-lg border ${
+                      aiFeedback.isCorrect
+                        ? 'bg-green-50 dark:bg-green-900/30 border-green-300 dark:border-green-700'
+                        : 'bg-yellow-50 dark:bg-yellow-900/30 border-yellow-300 dark:border-yellow-700'
+                    }`}>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xl">{aiFeedback.isCorrect ? '✓' : '⚠️'}</span>
+                        <span className={`font-semibold ${
+                          aiFeedback.isCorrect
+                            ? 'text-green-700 dark:text-green-300'
+                            : 'text-yellow-700 dark:text-yellow-300'
+                        }`}>
+                          AI Assessment: {aiFeedback.isCorrect ? 'Correct!' : 'Needs Review'}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-700 dark:text-gray-300">
+                        {aiFeedback.feedback}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="mt-6 pt-4 border-t border-blue-200 dark:border-blue-600">
                     <div className="text-center text-gray-700 dark:text-gray-300 mb-4">

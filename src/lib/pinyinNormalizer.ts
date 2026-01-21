@@ -49,6 +49,9 @@ export function normalizePinyin(input: string): string {
   // Convert to lowercase
   let normalized = input.toLowerCase().trim();
 
+  // Strip trailing punctuation (period, question mark, exclamation, comma, etc.)
+  normalized = normalized.replace(/[.,!?;:。，！？；：]+$/g, '');
+
   // Split into syllables (by spaces or lack thereof for diacritics)
   // First, normalize spaces
   normalized = normalized.replace(/\s+/g, ' ');
