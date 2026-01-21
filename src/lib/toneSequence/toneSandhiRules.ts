@@ -134,3 +134,44 @@ export function applySandhiRules(
   // No sandhi applies
   return 'Pronounce tones as written.';
 }
+
+/**
+ * Transforms written tones to pronounced tones after applying sandhi rules.
+ * This is the actual tone sequence that should be spoken.
+ *
+ * @param tones - Array of written tone numbers (1-5)
+ * @param syllables - Array of syllables (without tone numbers) for context
+ * @returns Array of pronounced tone numbers (1-5)
+ */
+export function getPronouncedTones(tones: number[], syllables: string[]): number[] {
+  const result = [...tones];
+
+  for (let i = 0; i < result.length - 1; i++) {
+    const syllable = syllables[i]?.toLowerCase() || '';
+
+    // Third tone sandhi: 3-3 → 2-3
+    // When two third tones appear in sequence, the first becomes second tone
+    if (result[i] === 3 && result[i + 1] === 3) {
+      result[i] = 2;
+    }
+
+    // 不 (bù) sandhi: bu4 + 4 → bu2 + 4
+    // When 不 precedes a fourth tone, it becomes second tone
+    if (syllable === 'bu' && result[i] === 4 && result[i + 1] === 4) {
+      result[i] = 2;
+    }
+
+    // 一 (yī) sandhi:
+    // yi1 + 4 → yi2 (before fourth tone, becomes second tone)
+    // yi1 + (1|2|3) → yi4 (before 1st/2nd/3rd tone, becomes fourth tone)
+    if (syllable === 'yi' && result[i] === 1) {
+      if (result[i + 1] === 4) {
+        result[i] = 2;
+      } else if ([1, 2, 3].includes(result[i + 1])) {
+        result[i] = 4;
+      }
+    }
+  }
+
+  return result;
+}

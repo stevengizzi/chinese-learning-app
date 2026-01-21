@@ -11,6 +11,7 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { ToneSequenceTrainer } from './components/ToneSequenceTrainer';
 import { SpeedDrillConfig } from './components/SpeedDrillConfig';
 import { SentenceReadingTrainer } from './components/SentenceReadingTrainer';
+import { TonePatternTrainer } from './components/TonePatternTrainer';
 
 function AppContent() {
   const { state, dispatch } = useExercise();
@@ -65,6 +66,9 @@ function AppContent() {
           )}
           {state.screen === 'sentence-reading' && (
             <SentenceReadingTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
+          )}
+          {state.screen === 'tone-pattern' && (
+            <TonePatternTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
           )}
         </>
       )}

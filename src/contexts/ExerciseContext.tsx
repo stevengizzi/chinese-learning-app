@@ -10,7 +10,7 @@ import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -37,6 +37,7 @@ type ExerciseAction =
   | { type: 'VIEW_VOCABULARY' }
   | { type: 'START_TONE_SEQUENCE' }
   | { type: 'START_SENTENCE_READING' }
+  | { type: 'START_TONE_PATTERN' }
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' };
 
@@ -492,6 +493,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         screen: 'sentence-reading'
+      };
+    }
+
+    case 'START_TONE_PATTERN': {
+      return {
+        ...state,
+        screen: 'tone-pattern'
       };
     }
 

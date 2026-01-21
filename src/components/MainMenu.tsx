@@ -161,18 +161,37 @@ export function MainMenu() {
               <VocabularyUploader />
             </div>
 
-            {/* Tone Sequence Trainer Button */}
-            <div className="mb-4">
-              <button
-                onClick={() => dispatch({ type: 'START_TONE_SEQUENCE' })}
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
-              >
-                <span className="text-2xl mr-2">🎵</span>
-                <span className="text-lg">Tone Sequence Trainer</span>
-              </button>
-              <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
-                Practice tone pronunciation with random syllable sequences
-              </p>
+            {/* Tone Training Section */}
+            <div className="mb-4 bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4">
+              <h2 className="text-lg font-bold text-purple-900 dark:text-purple-100 mb-3 text-center">
+                Tone Training
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <button
+                    onClick={() => dispatch({ type: 'START_TONE_SEQUENCE' })}
+                    className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="text-xl mr-2">🎵</span>
+                    <span>Tone Sequence</span>
+                  </button>
+                  <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    Random syllable sequences
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={() => dispatch({ type: 'START_TONE_PATTERN' })}
+                    className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="text-xl mr-2">🎯</span>
+                    <span>Tone Pattern</span>
+                  </button>
+                  <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    Practice specific tone patterns
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Sentence Reading Button */}
