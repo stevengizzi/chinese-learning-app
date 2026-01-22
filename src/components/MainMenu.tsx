@@ -207,6 +207,25 @@ export function MainMenu() {
               </div>
             </div>
 
+            {/* Character Recognition Section */}
+            <div className="mb-4 bg-cyan-50 dark:bg-cyan-900/20 border-2 border-cyan-200 dark:border-cyan-700 rounded-xl p-4">
+              <h2 className="text-lg font-bold text-cyan-900 dark:text-cyan-100 mb-3 text-center">
+                Character Recognition
+              </h2>
+              <div>
+                <button
+                  onClick={() => dispatch({ type: 'START_SIMILAR_CHARACTERS' })}
+                  className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span className="text-xl mr-2">👁️</span>
+                  <span>Similar Characters</span>
+                </button>
+                <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  Distinguish visually similar characters
+                </p>
+              </div>
+            </div>
+
             {/* Sentence Reading Button */}
             <div className="mb-8">
               <button

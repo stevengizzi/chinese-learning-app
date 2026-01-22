@@ -12,6 +12,7 @@ import { ToneSequenceTrainer } from './components/ToneSequenceTrainer';
 import { SpeedDrillConfig } from './components/SpeedDrillConfig';
 import { SentenceReadingTrainer } from './components/SentenceReadingTrainer';
 import { TonePatternTrainer } from './components/TonePatternTrainer';
+import { SimilarCharactersTrainer } from './components/SimilarCharactersTrainer';
 
 function AppContent() {
   const { state, dispatch } = useExercise();
@@ -69,6 +70,9 @@ function AppContent() {
           )}
           {state.screen === 'tone-pattern' && (
             <TonePatternTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
+          )}
+          {state.screen === 'similar-characters' && (
+            <SimilarCharactersTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
           )}
         </>
       )}

@@ -1,0 +1,744 @@
+{
+  "version": 1,
+  "lastUpdated": "2024-01-22",
+  "groups": [
+    {
+      "id": "group_001",
+      "name": "Person stroke variants",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "人", "pinyin": "ren2", "meaning": "person", "hskLevel": 1 },
+        { "character": "入", "pinyin": "ru4", "meaning": "to enter", "hskLevel": 2 },
+        { "character": "八", "pinyin": "ba1", "meaning": "eight", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "人", "b": "入", "difficulty": "hard" },
+        { "a": "人", "b": "八", "difficulty": "medium" },
+        { "a": "入", "b": "八", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_002",
+      "name": "Mouth and sun radicals",
+      "category": "radical-based",
+      "characters": [
+        { "character": "口", "pinyin": "kou3", "meaning": "mouth", "hskLevel": 1 },
+        { "character": "日", "pinyin": "ri4", "meaning": "sun/day", "hskLevel": 1 },
+        { "character": "目", "pinyin": "mu4", "meaning": "eye", "hskLevel": 2 },
+        { "character": "田", "pinyin": "tian2", "meaning": "field", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "口", "b": "日", "difficulty": "easy" },
+        { "a": "日", "b": "目", "difficulty": "medium" },
+        { "a": "日", "b": "田", "difficulty": "easy" },
+        { "a": "目", "b": "田", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_003",
+      "name": "Pronoun variants (ta)",
+      "category": "radical-based",
+      "characters": [
+        { "character": "他", "pinyin": "ta1", "meaning": "he/him", "hskLevel": 1 },
+        { "character": "她", "pinyin": "ta1", "meaning": "she/her", "hskLevel": 1 },
+        { "character": "它", "pinyin": "ta1", "meaning": "it", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "他", "b": "她", "difficulty": "medium" },
+        { "a": "他", "b": "它", "difficulty": "medium" },
+        { "a": "她", "b": "它", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_004",
+      "name": "Earth and scholar",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "土", "pinyin": "tu3", "meaning": "earth/soil", "hskLevel": 2 },
+        { "character": "士", "pinyin": "shi4", "meaning": "scholar/soldier", "hskLevel": 3 },
+        { "character": "工", "pinyin": "gong1", "meaning": "work/worker", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "土", "b": "士", "difficulty": "hard" },
+        { "a": "土", "b": "工", "difficulty": "easy" },
+        { "a": "士", "b": "工", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_005",
+      "name": "Big and heaven",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "大", "pinyin": "da4", "meaning": "big/large", "hskLevel": 1 },
+        { "character": "天", "pinyin": "tian1", "meaning": "sky/day", "hskLevel": 1 },
+        { "character": "太", "pinyin": "tai4", "meaning": "too/very", "hskLevel": 1 },
+        { "character": "夫", "pinyin": "fu1", "meaning": "husband/man", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "大", "b": "天", "difficulty": "easy" },
+        { "a": "大", "b": "太", "difficulty": "medium" },
+        { "a": "天", "b": "夫", "difficulty": "medium" },
+        { "a": "太", "b": "夫", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_006",
+      "name": "Wood variants",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "木", "pinyin": "mu4", "meaning": "wood/tree", "hskLevel": 2 },
+        { "character": "本", "pinyin": "ben3", "meaning": "origin/this", "hskLevel": 2 },
+        { "character": "末", "pinyin": "mo4", "meaning": "end/tip", "hskLevel": 4 },
+        { "character": "未", "pinyin": "wei4", "meaning": "not yet", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "木", "b": "本", "difficulty": "easy" },
+        { "a": "本", "b": "末", "difficulty": "hard" },
+        { "a": "末", "b": "未", "difficulty": "hard" },
+        { "a": "木", "b": "未", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_007",
+      "name": "Noon and cow",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "午", "pinyin": "wu3", "meaning": "noon", "hskLevel": 1 },
+        { "character": "牛", "pinyin": "niu2", "meaning": "cow/ox", "hskLevel": 2 },
+        { "character": "年", "pinyin": "nian2", "meaning": "year", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "午", "b": "牛", "difficulty": "hard" },
+        { "a": "午", "b": "年", "difficulty": "medium" },
+        { "a": "牛", "b": "年", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_008",
+      "name": "Buy and sell",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "买", "pinyin": "mai3", "meaning": "to buy", "hskLevel": 2 },
+        { "character": "卖", "pinyin": "mai4", "meaning": "to sell", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "买", "b": "卖", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_009",
+      "name": "Water radical family (qing)",
+      "category": "component-shared",
+      "characters": [
+        { "character": "清", "pinyin": "qing1", "meaning": "clear/pure", "hskLevel": 3 },
+        { "character": "请", "pinyin": "qing3", "meaning": "please/invite", "hskLevel": 1 },
+        { "character": "情", "pinyin": "qing2", "meaning": "feeling/emotion", "hskLevel": 3 },
+        { "character": "晴", "pinyin": "qing2", "meaning": "sunny/clear", "hskLevel": 3 },
+        { "character": "睛", "pinyin": "jing1", "meaning": "eye (in 眼睛)", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "清", "b": "请", "difficulty": "medium" },
+        { "a": "清", "b": "情", "difficulty": "medium" },
+        { "a": "情", "b": "晴", "difficulty": "hard" },
+        { "a": "晴", "b": "睛", "difficulty": "hard" },
+        { "a": "请", "b": "情", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_010",
+      "name": "Mouth radical compounds",
+      "category": "radical-based",
+      "characters": [
+        { "character": "吧", "pinyin": "ba5", "meaning": "particle", "hskLevel": 1 },
+        { "character": "把", "pinyin": "ba3", "meaning": "to hold/measure word", "hskLevel": 2 },
+        { "character": "爸", "pinyin": "ba4", "meaning": "father", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "吧", "b": "把", "difficulty": "medium" },
+        { "a": "吧", "b": "爸", "difficulty": "medium" },
+        { "a": "把", "b": "爸", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_011",
+      "name": "Enclosure characters",
+      "category": "component-shared",
+      "characters": [
+        { "character": "回", "pinyin": "hui2", "meaning": "to return", "hskLevel": 1 },
+        { "character": "国", "pinyin": "guo2", "meaning": "country", "hskLevel": 1 },
+        { "character": "图", "pinyin": "tu2", "meaning": "picture/map", "hskLevel": 3 },
+        { "character": "围", "pinyin": "wei2", "meaning": "to surround", "hskLevel": 4 }
+      ],
+      "confusionPairs": [
+        { "a": "回", "b": "国", "difficulty": "easy" },
+        { "a": "国", "b": "图", "difficulty": "medium" },
+        { "a": "图", "b": "围", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_012",
+      "name": "Moon/flesh radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "月", "pinyin": "yue4", "meaning": "moon/month", "hskLevel": 1 },
+        { "character": "明", "pinyin": "ming2", "meaning": "bright", "hskLevel": 2 },
+        { "character": "朋", "pinyin": "peng2", "meaning": "friend", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "明", "b": "朋", "difficulty": "medium" },
+        { "a": "月", "b": "明", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_013",
+      "name": "Door radical",
+      "category": "component-shared",
+      "characters": [
+        { "character": "门", "pinyin": "men2", "meaning": "door/gate", "hskLevel": 1 },
+        { "character": "们", "pinyin": "men5", "meaning": "plural marker", "hskLevel": 1 },
+        { "character": "问", "pinyin": "wen4", "meaning": "to ask", "hskLevel": 1 },
+        { "character": "闻", "pinyin": "wen2", "meaning": "to hear/smell", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "门", "b": "们", "difficulty": "easy" },
+        { "a": "问", "b": "闻", "difficulty": "hard" },
+        { "a": "们", "b": "问", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_014",
+      "name": "Drink and thirsty",
+      "category": "radical-based",
+      "characters": [
+        { "character": "喝", "pinyin": "he1", "meaning": "to drink", "hskLevel": 1 },
+        { "character": "渴", "pinyin": "ke3", "meaning": "thirsty", "hskLevel": 2 },
+        { "character": "渴", "pinyin": "he4", "meaning": "to shout (alt.)", "hskLevel": null }
+      ],
+      "confusionPairs": [
+        { "a": "喝", "b": "渴", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_015",
+      "name": "Bad and cup",
+      "category": "component-shared",
+      "characters": [
+        { "character": "坏", "pinyin": "huai4", "meaning": "bad/broken", "hskLevel": 2 },
+        { "character": "杯", "pinyin": "bei1", "meaning": "cup/glass", "hskLevel": 2 },
+        { "character": "怀", "pinyin": "huai2", "meaning": "to embrace/chest", "hskLevel": 4 }
+      ],
+      "confusionPairs": [
+        { "a": "坏", "b": "杯", "difficulty": "hard" },
+        { "a": "坏", "b": "怀", "difficulty": "hard" },
+        { "a": "杯", "b": "怀", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_016",
+      "name": "Package/wrap variants",
+      "category": "component-shared",
+      "characters": [
+        { "character": "包", "pinyin": "bao1", "meaning": "bag/to wrap", "hskLevel": 2 },
+        { "character": "饱", "pinyin": "bao3", "meaning": "full (after eating)", "hskLevel": 3 },
+        { "character": "抱", "pinyin": "bao4", "meaning": "to hug/hold", "hskLevel": 3 },
+        { "character": "跑", "pinyin": "pao3", "meaning": "to run", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "包", "b": "饱", "difficulty": "medium" },
+        { "a": "包", "b": "抱", "difficulty": "medium" },
+        { "a": "包", "b": "跑", "difficulty": "medium" },
+        { "a": "饱", "b": "抱", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_017",
+      "name": "Speech radical family",
+      "category": "radical-based",
+      "characters": [
+        { "character": "说", "pinyin": "shuo1", "meaning": "to speak/say", "hskLevel": 1 },
+        { "character": "话", "pinyin": "hua4", "meaning": "speech/words", "hskLevel": 1 },
+        { "character": "读", "pinyin": "du2", "meaning": "to read", "hskLevel": 2 },
+        { "character": "课", "pinyin": "ke4", "meaning": "class/lesson", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "说", "b": "话", "difficulty": "easy" },
+        { "a": "说", "b": "读", "difficulty": "medium" },
+        { "a": "读", "b": "课", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_018",
+      "name": "Rest and body",
+      "category": "component-shared",
+      "characters": [
+        { "character": "休", "pinyin": "xiu1", "meaning": "to rest", "hskLevel": 2 },
+        { "character": "体", "pinyin": "ti3", "meaning": "body", "hskLevel": 2 },
+        { "character": "作", "pinyin": "zuo4", "meaning": "to do/make", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "休", "b": "体", "difficulty": "hard" },
+        { "a": "休", "b": "作", "difficulty": "medium" },
+        { "a": "体", "b": "作", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_019",
+      "name": "Grass radical family",
+      "category": "radical-based",
+      "characters": [
+        { "character": "花", "pinyin": "hua1", "meaning": "flower", "hskLevel": 2 },
+        { "character": "草", "pinyin": "cao3", "meaning": "grass", "hskLevel": 3 },
+        { "character": "茶", "pinyin": "cha2", "meaning": "tea", "hskLevel": 1 },
+        { "character": "菜", "pinyin": "cai4", "meaning": "vegetable/dish", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "花", "b": "草", "difficulty": "easy" },
+        { "a": "茶", "b": "菜", "difficulty": "medium" },
+        { "a": "草", "b": "茶", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_020",
+      "name": "Already and self",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "已", "pinyin": "yi3", "meaning": "already", "hskLevel": 2 },
+        { "character": "己", "pinyin": "ji3", "meaning": "self", "hskLevel": 2 },
+        { "character": "巳", "pinyin": "si4", "meaning": "6th earthly branch", "hskLevel": null }
+      ],
+      "confusionPairs": [
+        { "a": "已", "b": "己", "difficulty": "hard" },
+        { "a": "己", "b": "巳", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_021",
+      "name": "Hand radical actions",
+      "category": "radical-based",
+      "characters": [
+        { "character": "打", "pinyin": "da3", "meaning": "to hit/make", "hskLevel": 1 },
+        { "character": "找", "pinyin": "zhao3", "meaning": "to find/look for", "hskLevel": 2 },
+        { "character": "拿", "pinyin": "na2", "meaning": "to take/hold", "hskLevel": 2 },
+        { "character": "换", "pinyin": "huan4", "meaning": "to change/exchange", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "打", "b": "找", "difficulty": "medium" },
+        { "a": "找", "b": "拿", "difficulty": "medium" },
+        { "a": "拿", "b": "换", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_022",
+      "name": "Water radical actions",
+      "category": "radical-based",
+      "characters": [
+        { "character": "没", "pinyin": "mei2", "meaning": "not have", "hskLevel": 1 },
+        { "character": "洗", "pinyin": "xi3", "meaning": "to wash", "hskLevel": 2 },
+        { "character": "游", "pinyin": "you2", "meaning": "to swim/travel", "hskLevel": 2 },
+        { "character": "海", "pinyin": "hai3", "meaning": "sea/ocean", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "没", "b": "洗", "difficulty": "medium" },
+        { "a": "洗", "b": "游", "difficulty": "medium" },
+        { "a": "游", "b": "海", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_023",
+      "name": "Similar finals (ao)",
+      "category": "phonetic-similar",
+      "characters": [
+        { "character": "好", "pinyin": "hao3", "meaning": "good", "hskLevel": 1 },
+        { "character": "号", "pinyin": "hao4", "meaning": "number", "hskLevel": 2 },
+        { "character": "毛", "pinyin": "mao2", "meaning": "hair/fur", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "好", "b": "号", "difficulty": "medium" },
+        { "a": "好", "b": "毛", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_024",
+      "name": "Today and order",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "今", "pinyin": "jin1", "meaning": "today/now", "hskLevel": 1 },
+        { "character": "令", "pinyin": "ling4", "meaning": "order/command", "hskLevel": 4 },
+        { "character": "全", "pinyin": "quan2", "meaning": "whole/complete", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "今", "b": "令", "difficulty": "hard" },
+        { "a": "今", "b": "全", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_025",
+      "name": "See and shell",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "见", "pinyin": "jian4", "meaning": "to see", "hskLevel": 1 },
+        { "character": "贝", "pinyin": "bei4", "meaning": "shell/money radical", "hskLevel": 3 },
+        { "character": "员", "pinyin": "yuan2", "meaning": "member", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "见", "b": "贝", "difficulty": "hard" },
+        { "a": "贝", "b": "员", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_026",
+      "name": "Nine and several",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "九", "pinyin": "jiu3", "meaning": "nine", "hskLevel": 1 },
+        { "character": "几", "pinyin": "ji3", "meaning": "how many/several", "hskLevel": 1 },
+        { "character": "七", "pinyin": "qi1", "meaning": "seven", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "九", "b": "几", "difficulty": "hard" },
+        { "a": "九", "b": "七", "difficulty": "medium" },
+        { "a": "几", "b": "七", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_027",
+      "name": "Heart radical emotions",
+      "category": "radical-based",
+      "characters": [
+        { "character": "想", "pinyin": "xiang3", "meaning": "to think/want", "hskLevel": 1 },
+        { "character": "忙", "pinyin": "mang2", "meaning": "busy", "hskLevel": 2 },
+        { "character": "忘", "pinyin": "wang4", "meaning": "to forget", "hskLevel": 3 },
+        { "character": "怕", "pinyin": "pa4", "meaning": "to fear", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "忙", "b": "忘", "difficulty": "hard" },
+        { "a": "想", "b": "忙", "difficulty": "easy" },
+        { "a": "忙", "b": "怕", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_028",
+      "name": "Foot radical movement",
+      "category": "radical-based",
+      "characters": [
+        { "character": "跑", "pinyin": "pao3", "meaning": "to run", "hskLevel": 2 },
+        { "character": "跳", "pinyin": "tiao4", "meaning": "to jump", "hskLevel": 3 },
+        { "character": "路", "pinyin": "lu4", "meaning": "road/path", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "跑", "b": "跳", "difficulty": "medium" },
+        { "a": "跑", "b": "路", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_029",
+      "name": "Fire radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "火", "pinyin": "huo3", "meaning": "fire", "hskLevel": 2 },
+        { "character": "灯", "pinyin": "deng1", "meaning": "light/lamp", "hskLevel": 3 },
+        { "character": "烧", "pinyin": "shao1", "meaning": "to burn/cook", "hskLevel": 4 }
+      ],
+      "confusionPairs": [
+        { "a": "火", "b": "灯", "difficulty": "easy" },
+        { "a": "灯", "b": "烧", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_030",
+      "name": "King and jade",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "王", "pinyin": "wang2", "meaning": "king", "hskLevel": 2 },
+        { "character": "玉", "pinyin": "yu4", "meaning": "jade", "hskLevel": 4 },
+        { "character": "主", "pinyin": "zhu3", "meaning": "main/host", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "王", "b": "玉", "difficulty": "hard" },
+        { "a": "王", "b": "主", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_031",
+      "name": "Hand/finger actions",
+      "category": "component-shared",
+      "characters": [
+        { "character": "指", "pinyin": "zhi3", "meaning": "finger/point", "hskLevel": 3 },
+        { "character": "持", "pinyin": "chi2", "meaning": "to hold/maintain", "hskLevel": 4 },
+        { "character": "待", "pinyin": "dai4", "meaning": "to wait/treat", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "指", "b": "持", "difficulty": "hard" },
+        { "a": "持", "b": "待", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_032",
+      "name": "Look variants",
+      "category": "component-shared",
+      "characters": [
+        { "character": "看", "pinyin": "kan4", "meaning": "to look/watch", "hskLevel": 1 },
+        { "character": "着", "pinyin": "zhe5", "meaning": "particle", "hskLevel": 1 },
+        { "character": "眼", "pinyin": "yan3", "meaning": "eye", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "看", "b": "着", "difficulty": "medium" },
+        { "a": "看", "b": "眼", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_033",
+      "name": "Vehicle radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "车", "pinyin": "che1", "meaning": "vehicle/car", "hskLevel": 1 },
+        { "character": "轻", "pinyin": "qing1", "meaning": "light (weight)", "hskLevel": 3 },
+        { "character": "转", "pinyin": "zhuan3", "meaning": "to turn", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "车", "b": "轻", "difficulty": "easy" },
+        { "a": "轻", "b": "转", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_034",
+      "name": "Silk radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "红", "pinyin": "hong2", "meaning": "red", "hskLevel": 2 },
+        { "character": "绿", "pinyin": "lv4", "meaning": "green", "hskLevel": 3 },
+        { "character": "给", "pinyin": "gei3", "meaning": "to give", "hskLevel": 1 },
+        { "character": "经", "pinyin": "jing1", "meaning": "to pass through", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "红", "b": "绿", "difficulty": "easy" },
+        { "a": "红", "b": "给", "difficulty": "medium" },
+        { "a": "给", "b": "经", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_035",
+      "name": "Food radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "饭", "pinyin": "fan4", "meaning": "rice/meal", "hskLevel": 1 },
+        { "character": "饿", "pinyin": "e4", "meaning": "hungry", "hskLevel": 3 },
+        { "character": "馆", "pinyin": "guan3", "meaning": "building/hall", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "饭", "b": "饿", "difficulty": "medium" },
+        { "a": "饭", "b": "馆", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_036",
+      "name": "White and hundred",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "白", "pinyin": "bai2", "meaning": "white", "hskLevel": 2 },
+        { "character": "百", "pinyin": "bai3", "meaning": "hundred", "hskLevel": 1 },
+        { "character": "自", "pinyin": "zi4", "meaning": "self", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "白", "b": "百", "difficulty": "hard" },
+        { "a": "白", "b": "自", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_037",
+      "name": "Knife radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "分", "pinyin": "fen1", "meaning": "minute/divide", "hskLevel": 1 },
+        { "character": "切", "pinyin": "qie1", "meaning": "to cut", "hskLevel": 3 },
+        { "character": "别", "pinyin": "bie2", "meaning": "don't/other", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "分", "b": "切", "difficulty": "medium" },
+        { "a": "分", "b": "别", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_038",
+      "name": "Female radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "女", "pinyin": "nv3", "meaning": "female/woman", "hskLevel": 1 },
+        { "character": "好", "pinyin": "hao3", "meaning": "good", "hskLevel": 1 },
+        { "character": "妈", "pinyin": "ma1", "meaning": "mother", "hskLevel": 1 },
+        { "character": "姐", "pinyin": "jie3", "meaning": "older sister", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "女", "b": "好", "difficulty": "easy" },
+        { "a": "妈", "b": "姐", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_039",
+      "name": "Child radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "子", "pinyin": "zi3", "meaning": "child/suffix", "hskLevel": 1 },
+        { "character": "字", "pinyin": "zi4", "meaning": "character/word", "hskLevel": 1 },
+        { "character": "学", "pinyin": "xue2", "meaning": "to learn", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "子", "b": "字", "difficulty": "medium" },
+        { "a": "字", "b": "学", "difficulty": "easy" }
+      ]
+    },
+    {
+      "id": "group_040",
+      "name": "Ear radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "耳", "pinyin": "er3", "meaning": "ear", "hskLevel": 3 },
+        { "character": "闻", "pinyin": "wen2", "meaning": "to hear/smell", "hskLevel": 3 },
+        { "character": "聪", "pinyin": "cong1", "meaning": "clever", "hskLevel": 4 }
+      ],
+      "confusionPairs": [
+        { "a": "耳", "b": "闻", "difficulty": "medium" },
+        { "a": "闻", "b": "聪", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_041",
+      "name": "Mountain radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "山", "pinyin": "shan1", "meaning": "mountain", "hskLevel": 2 },
+        { "character": "出", "pinyin": "chu1", "meaning": "to go out", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "山", "b": "出", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_042",
+      "name": "Stand radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "站", "pinyin": "zhan4", "meaning": "station/stand", "hskLevel": 2 },
+        { "character": "章", "pinyin": "zhang1", "meaning": "chapter/badge", "hskLevel": 4 },
+        { "character": "童", "pinyin": "tong2", "meaning": "child", "hskLevel": 4 }
+      ],
+      "confusionPairs": [
+        { "a": "站", "b": "章", "difficulty": "medium" },
+        { "a": "章", "b": "童", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_043",
+      "name": "Rain radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "雨", "pinyin": "yu3", "meaning": "rain", "hskLevel": 2 },
+        { "character": "雪", "pinyin": "xue3", "meaning": "snow", "hskLevel": 2 },
+        { "character": "零", "pinyin": "ling2", "meaning": "zero", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "雨", "b": "雪", "difficulty": "easy" },
+        { "a": "雪", "b": "零", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_044",
+      "name": "Metal radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "钱", "pinyin": "qian2", "meaning": "money", "hskLevel": 1 },
+        { "character": "铁", "pinyin": "tie3", "meaning": "iron", "hskLevel": 3 },
+        { "character": "银", "pinyin": "yin2", "meaning": "silver", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "钱", "b": "铁", "difficulty": "medium" },
+        { "a": "铁", "b": "银", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_045",
+      "name": "Walking radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "走", "pinyin": "zou3", "meaning": "to walk", "hskLevel": 1 },
+        { "character": "起", "pinyin": "qi3", "meaning": "to rise/get up", "hskLevel": 1 },
+        { "character": "超", "pinyin": "chao1", "meaning": "to exceed/super", "hskLevel": 4 }
+      ],
+      "confusionPairs": [
+        { "a": "走", "b": "起", "difficulty": "easy" },
+        { "a": "起", "b": "超", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_046",
+      "name": "Left and right",
+      "category": "mirror-image",
+      "characters": [
+        { "character": "左", "pinyin": "zuo3", "meaning": "left", "hskLevel": 2 },
+        { "character": "右", "pinyin": "you4", "meaning": "right", "hskLevel": 2 },
+        { "character": "友", "pinyin": "you3", "meaning": "friend", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "左", "b": "右", "difficulty": "medium" },
+        { "a": "右", "b": "友", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_047",
+      "name": "East and vehicle",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "东", "pinyin": "dong1", "meaning": "east", "hskLevel": 1 },
+        { "character": "车", "pinyin": "che1", "meaning": "vehicle", "hskLevel": 1 }
+      ],
+      "confusionPairs": [
+        { "a": "东", "b": "车", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_048",
+      "name": "Clothes radical",
+      "category": "radical-based",
+      "characters": [
+        { "character": "衣", "pinyin": "yi1", "meaning": "clothes", "hskLevel": 2 },
+        { "character": "衬", "pinyin": "chen4", "meaning": "lining", "hskLevel": 4 },
+        { "character": "裤", "pinyin": "ku4", "meaning": "pants", "hskLevel": 3 }
+      ],
+      "confusionPairs": [
+        { "a": "衣", "b": "衬", "difficulty": "medium" },
+        { "a": "衬", "b": "裤", "difficulty": "medium" }
+      ]
+    },
+    {
+      "id": "group_049",
+      "name": "Stone and right",
+      "category": "stroke-similar",
+      "characters": [
+        { "character": "石", "pinyin": "shi2", "meaning": "stone/rock", "hskLevel": 3 },
+        { "character": "右", "pinyin": "you4", "meaning": "right", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "石", "b": "右", "difficulty": "hard" }
+      ]
+    },
+    {
+      "id": "group_050",
+      "name": "Same and question",
+      "category": "component-shared",
+      "characters": [
+        { "character": "同", "pinyin": "tong2", "meaning": "same/together", "hskLevel": 1 },
+        { "character": "问", "pinyin": "wen4", "meaning": "to ask", "hskLevel": 1 },
+        { "character": "向", "pinyin": "xiang4", "meaning": "toward/direction", "hskLevel": 2 }
+      ],
+      "confusionPairs": [
+        { "a": "同", "b": "问", "difficulty": "medium" },
+        { "a": "同", "b": "向", "difficulty": "hard" }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalGroups": 50,
+    "totalCharacters": 175,
+    "categories": ["radical-based", "stroke-similar", "component-shared", "mirror-image", "phonetic-similar"]
+  }
+}
