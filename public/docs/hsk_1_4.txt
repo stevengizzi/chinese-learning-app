@@ -2767,3 +2767,164 @@ pinyin: Zhè shì wǒ de kèběn.
 english: The textbook is on the table.
 mandarin: 课本在桌子上。
 pinyin: Kèběn zài zhuōzi shàng.
+--
+english: Mom is at work.
+mandarin: 妈妈在上班。
+pinyin: Ma1 ma zai4 shang4 ban1.
+--
+english: Mom drinks tea at home.
+mandarin: 妈妈在家里喝茶。
+pinyin: Ma1 ma zai4 jia1 li3 he1 cha2.
+--
+english: The patient is very tired.
+mandarin: 病人很累。
+pinyin: Bing4 ren2 hen3 lei4.
+--
+english: The patient is resting.
+mandarin: 病人在休息。
+pinyin: Bing4 ren2 zai4 xiu1 xi.
+--
+english: There are eggs on the table.
+mandarin: 桌子上有鸡蛋。
+pinyin: Zhuo1 zi shang4 you3 ji1 dan4.
+--
+english: I eat eggs and rice.
+mandarin: 我吃鸡蛋和米饭。
+pinyin: Wo3 chi1 ji1 dan4 he2 mi3 fan4.
+--
+english: I stay at home for half the day.
+mandarin: 我在家里半天。
+pinyin: Wo3 zai4 jia1 li3 ban4 tian1.
+--
+english: He studies for half the day.
+mandarin: 他学习半天。
+pinyin: Ta1 xue2 xi2 ban4 tian1.
+--
+english: Go upstairs.
+mandarin: 上楼上。
+pinyin: Shang4 lou2 shang4.
+--
+english: Get on the bus.
+mandarin: 上车。
+pinyin: Shang4 che1.
+--
+english: The library is on the left.
+mandarin: 图书馆在左边。
+pinyin: Tu2 shu1 guan3 zai4 zuo3 bian.
+--
+english: The bathroom is on the left side.
+mandarin: 洗手间在左边。
+pinyin: Xi3 shou3 jian1 zai4 zuo3 bian.
+--
+english: Remember to go home.
+mandarin: 记得回家。
+pinyin: Ji4 de hui2 jia1.
+--
+english: Remember to bring the book.
+mandarin: 记得带书。
+pinyin: Ji4 de dai4 shu1.
+--
+english: Dad goes to work.
+mandarin: 爸上班。
+pinyin: Ba4 shang4 ban1.
+--
+english: Dad is at home today.
+mandarin: 爸今天在家里。
+pinyin: Ba4 jin1 tian1 zai4 jia1 li3.
+--
+english: Is this okay?
+mandarin: 这样行吗？
+pinyin: Zhe4 yang4 xing2 ma.
+--
+english: Going tomorrow is okay.
+mandarin: 明天去行。
+pinyin: Ming2 tian1 qu4 xing2.
+--
+english: The ticket is expensive.
+mandarin: 票很贵。
+pinyin: Piao4 hen3 gui4.
+--
+english: I have the ticket.
+mandarin: 我有票。
+pinyin: Wo3 you3 piao4.
+--
+english: The backpack is heavy.
+mandarin: 书包很重。
+pinyin: Shu1 bao1 hen3 zhong4.
+--
+english: The backpack is in the room.
+mandarin: 书包在房间里。
+pinyin: Shu1 bao1 zai4 fang2 jian1 li3.
+--
+english: I call my dad.
+mandarin: 我给爸打电话。
+pinyin: Wo3 gei3 ba4 da3 dian4 hua4.
+--
+english: She is making a phone call.
+mandarin: 她在打电话。
+pinyin: Ta1 zai4 da3 dian4 hua4.
+--
+english: I know this teacher.
+mandarin: 我认识这个老师。
+pinyin: Wo3 ren4 shi zhe4 ge lao3 shi1.
+--
+english: They know each other.
+mandarin: 他们认识。
+pinyin: Ta1 men ren4 shi.
+--
+english: There are few people.
+mandarin: 人少。
+pinyin: Ren2 shao3.
+--
+english: There is little money.
+mandarin: 钱少。
+pinyin: Qian2 shao3.
+--
+english: After school, I go home.
+mandarin: 放学我回家。
+pinyin: Fang4 xue2 wo3 hui2 jia1.
+--
+english: After school, they play.
+mandarin: 放学他们玩儿。
+pinyin: Fang4 xue2 ta1 men wan2 r.
+--
+english: The table is big.
+mandarin: 桌很大。
+pinyin: Zhuo1 hen3 da4.
+--
+english: The table is downstairs.
+mandarin: 桌在楼下。
+pinyin: Zhuo1 zai4 lou2 xia4.
+--
+english: And you?
+mandarin: 你呢？
+pinyin: Ni3 ne.
+--
+english: Where is mom?
+mandarin: 妈妈呢？
+pinyin: Ma1 ma ne.
+--
+english: The entrance ticket is expensive.
+mandarin: 门票很贵。
+pinyin: Men2 piao4 hen3 gui4.
+--
+english: I buy two tickets.
+mandarin: 我买两张门票。
+pinyin: Wo3 mai3 liang3 zhang1 men2 piao4.
+--
+english: I drink milk.
+mandarin: 我喝牛奶。
+pinyin: Wo3 he1 niu2 nai3.
+--
+english: He drinks tea in the morning.
+mandarin: 他早上喝茶。
+pinyin: Ta1 zao3 shang he1 cha2.
+--
+english: The steamed buns are tasty.
+mandarin: 包子很好吃。
+pinyin: Bao1 zi hen3 hao3 chi1.
+--
+english: I buy steamed buns.
+mandarin: 我买包子。
+pinyin: Wo3 mai3 bao1 zi.
+--

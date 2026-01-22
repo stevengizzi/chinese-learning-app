@@ -368,3 +368,23 @@ notes:
 | 答 | da2 | to answer; to agree |
 | 前边 | qian2 bian | the front side; in front of |
 | 课本 | ke4 ben3 | textbook |
+| 妈妈 | ma1 ma | mom |
+| 病人 | bing4 ren2 | sick person; a patient |
+| 蛋 | dan4 | egg |
+| 半天 | ban4 tian1 | half of the day; quite a while |
+| 上 | shang4 | up; above; to go (colloquial) |
+| 左边 | zuo3 bian | the left side |
+| 记得 | ji4 de | to remember |
+| 爸 | ba4 | father; papa |
+| 行 | xing2 | to walk; "OK" |
+| 票 | piao4 | ticket |
+| 书包 | shu1 bao1 | bookbag; backpack |
+| 打电话 | da3 dian4 hua4 | to make a telephone call |
+| 认识 | ren4 shi | to know (someone); to be familiar with |
+| 少 | shao3 | few |
+| 放学 | fang4 xue2 | to dismiss students at the end of the school day |
+| 桌 | zhuo1 | table; desk |
+| 呢 | ne | particle indicating a question |
+| 门票 | men2 piao4 | ticket (for theater, cinema, etc) |
+| 喝 | he1 | to drink |
+| 包子 | bao1 zi | steamed bun |
