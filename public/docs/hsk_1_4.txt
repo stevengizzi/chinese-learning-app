@@ -2928,3 +2928,163 @@ english: I buy steamed buns.
 mandarin: 我买包子。
 pinyin: Wo3 mai3 bao1 zi.
 --
+english: I take the book.
+mandarin: 我拿书。
+pinyin: Wo3 na2 shu1.
+--
+english: He takes the bag.
+mandarin: 他拿书包。
+pinyin: Ta1 na2 shu1 bao1.
+--
+english: You don’t need to go.
+mandarin: 你不用去。
+pinyin: Ni3 bu4 yong4 qu4.
+--
+english: No need to drink water.
+mandarin: 不用喝水。
+pinyin: Bu4 yong4 he1 shui3.
+--
+english: I eat rice.
+mandarin: 我吃米。
+pinyin: Wo3 chi1 mi3.
+--
+english: There is rice at home.
+mandarin: 家里有米。
+pinyin: Jia1 li3 you3 mi3.
+--
+english: That is my dad.
+mandarin: 那是我爸。
+pinyin: Na4 shi4 wo3 ba4.
+--
+english: Then I go home.
+mandarin: 那我回家。
+pinyin: Na4 wo3 hui2 jia1.
+--
+english: The table is in the middle.
+mandarin: 桌在中间。
+pinyin: Zhuo1 zai4 zhong1 jian1.
+--
+english: He sits in the middle.
+mandarin: 他在中间。
+pinyin: Ta1 zai4 zhong1 jian1.
+--
+english: I eat food.
+mandarin: 我吃饭。
+pinyin: Wo3 chi1 fan4.
+--
+english: Mom makes food.
+mandarin: 妈妈做饭。
+pinyin: Ma1 ma zuo4 fan4.
+--
+english: Grandma is at home.
+mandarin: 奶奶在家里。
+pinyin: Nai3 nai zai4 jia1 li3.
+--
+english: I call grandma.
+mandarin: 我给奶奶打电话。
+pinyin: Wo3 gei3 nai3 nai da3 dian4 hua4.
+--
+english: I look at the picture.
+mandarin: 我看图。
+pinyin: Wo3 kan4 tu2.
+--
+english: There is a picture on the table.
+mandarin: 桌上有图。
+pinyin: Zhuo1 shang4 you3 tu2.
+--
+english: I read a book.
+mandarin: 我看书。
+pinyin: Wo3 kan4 shu1.
+--
+english: The book is in the bag.
+mandarin: 书在书包里。
+pinyin: Shu1 zai4 shu1 bao1 li3.
+--
+english: Don’t go.
+mandarin: 别去。
+pinyin: Bie2 qu4.
+--
+english: Don’t drink water.
+mandarin: 别喝水。
+pinyin: Bie2 he1 shui3.
+--
+english: I drink water.
+mandarin: 我喝水。
+pinyin: Wo3 he1 shui3.
+--
+english: There is water on the table.
+mandarin: 桌上有水。
+pinyin: Zhuo1 shang4 you3 shui3.
+--
+english: I am still at home.
+mandarin: 我还在家里。
+pinyin: Wo3 hai2 zai4 jia1 li3.
+--
+english: He hasn’t gone yet.
+mandarin: 他还没去。
+pinyin: Ta1 hai2 mei2 qu4.
+--
+english: There are many people.
+mandarin: 人多。
+pinyin: Ren2 duo1.
+--
+english: There is a lot of water.
+mandarin: 水多。
+pinyin: Shui3 duo1.
+--
+english: Is it okay or not?
+mandarin: 行不行？
+pinyin: Xing2 bu4 xing2?
+--
+english: Is he your dad?
+mandarin: 他是不是你爸？
+pinyin: Ta1 shi4 bu4 shi4 ni3 ba4.
+--
+english: I hear him.
+mandarin: 我听到他。
+pinyin: Wo3 ting1 dao4 ta1.
+--
+english: Did you hear mom?
+mandarin: 你听到妈妈吗？
+pinyin: Ni3 ting1 dao4 ma1 ma ma?
+--
+english: I see grandma.
+mandarin: 我见奶奶。
+pinyin: Wo3 jian4 nai3 nai.
+--
+english: He sees the teacher.
+mandarin: 他见老师。
+pinyin: Ta1 jian4 lao3 shi1.
+--
+english: I buy clothes.
+mandarin: 我买衣服。
+pinyin: Wo3 mai3 yi1 fu.
+--
+english: The clothes are at home.
+mandarin: 衣服在家里。
+pinyin: Yi1 fu zai4 jia1 li3.
+--
+english: The road crossing is on the left.
+mandarin: 路口在左边。
+pinyin: Lu4 kou3 zai4 zuo3 bian.
+--
+english: We meet at the crossing.
+mandarin: 我们在路口见。
+pinyin: Wo3 men zai4 lu4 kou3 jian4.
+--
+english: He goes to university.
+mandarin: 他上大学。
+pinyin: Ta1 shang4 da4 xue2.
+--
+english: The university is big.
+mandarin: 大学很大。
+pinyin: Da4 xue2 hen3 da4.
+--
+english: I go home.
+mandarin: 我去家里。
+pinyin: Wo3 qu4 jia1 li3.
+--
+english: We go to school.
+mandarin: 我们去学校。
+pinyin: Wo3 men qu4 xue2 xiao4.
+--

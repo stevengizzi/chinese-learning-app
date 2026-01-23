@@ -388,3 +388,23 @@ notes:
 | 门票 | men2 piao4 | ticket (for theater, cinema, etc) |
 | 喝 | he1 | to drink |
 | 包子 | bao1 zi | steamed bun |
+| 拿 | na2 | to hold; to take |
+| 不用 | bu4 yong4 | need not |
+| 米 | mi3 | rice; meter (unit of length) |
+| 那 | na4 | that; then (in that case) |
+| 中间 | zhong1 jian1 | between |
+| 饭 | fan4 | food; meal; cooked rice |
+| 奶奶 | nai3 nai | grandma (paternal side) |
+| 图 | tu2 | picture; to attempt; to seek |
+| 书 | shu1 | book |
+| 别 | bie2 | do not; another; other |
+| 水 | shui3 | water |
+| 还 | hai2 / huan2 | still; not yet; in addition; to return (something) |
+| 多 | duo1 | many |
+| 是不是 | shi4 bu4 shi4 | is or isn't; whether or not |
+| 听到 | ting1 dao4 | to hear |
+| 见 | jian4 | to see |
+| 衣服 | yi1 fu | clothes |
+| 路口 | lu4 kou3 | crossing; intersection (of roads) |
+| 大学 | da4 xue2 | university; college |
+| 去 | qu4 | to go |

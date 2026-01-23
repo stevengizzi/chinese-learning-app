@@ -468,3 +468,203 @@ HANZI: 明年在国外学习汉语。
 PINYIN: ming2 nian2 zai4 guo2 wai4 xue2 xi2 han4 yu3
 TRANSLATIONS: Study Chinese abroad next year.
 DIFFICULTY: 4
+
+HANZI: 妈妈在家里。
+PINYIN: ma1 ma zai4 jia1 li3
+TRANSLATIONS: Mom is at home.
+DIFFICULTY: 1
+
+HANZI: 妈妈在商店买水果。
+PINYIN: ma1 ma zai4 shang1 dian4 mai3 shui3 guo3
+TRANSLATIONS: Mom buys fruit at the store.
+DIFFICULTY: 2
+
+HANZI: 病人在家里休息。
+PINYIN: bing4 ren2 zai4 jia1 li3 xiu1 xi
+TRANSLATIONS: The patient rests at home.
+DIFFICY: 2
+
+HANZI: 病人在医院吗？
+PINYIN: bing4 ren2 zai4 yi1 yuan4 ma
+TRANSLATIONS: Is the patient in the hospital?
+DIFFICULTY: 3
+
+HANZI: 鸡蛋在桌子上。
+PINYIN: ji1 dan4 zai4 zhuo1 zi shang4
+TRANSLATIONS: The egg is on the table.
+DIFFICULTY: 2
+
+HANZI: 买蛋和米饭。
+PINYIN: mai3 dan4 he2 mi3 fan4
+TRANSLATIONS: Buy eggs and rice.
+DIFFICULTY: 2
+
+HANZI: 在家里半天。
+PINYIN: zai4 jia1 li3 ban4 tian1
+TRANSLATIONS: Stay at home for half the day.
+DIFFICULTY: 2
+
+HANZI: 半天在图书馆。
+PINYIN: ban4 tian1 zai4 tu2 shu1 guan3
+TRANSLATIONS: Spend half the day at the library.
+DIFFICULTY: 2
+
+HANZI: 上车回家。
+PINYIN: shang4 che1 hui2 jia1
+TRANSLATIONS: Get in the car and go home.
+DIFFICULTY: 1
+
+HANZI: 上楼上课。
+PINYIN: shang4 lou2 shang4 ke4
+TRANSLATIONS: Go upstairs to attend class.
+DIFFICULTY: 2
+
+HANZI: 商店在左边。
+PINYIN: shang1 dian4 zai4 zuo3 bian
+TRANSLATIONS: The store is on the left.
+DIFFICULTY: 2
+
+HANZI: 洗手间在左边。
+PINYIN: xi3 shou3 jian1 zai4 zuo3 bian
+TRANSLATIONS: The bathroom is on the left.
+DIFFICULTY: 2
+
+HANZI: 记得明天上课。
+PINYIN: ji4 de ming2 tian1 shang4 ke4
+TRANSLATIONS: Remember to go to class tomorrow.
+DIFFICULTY: 3
+
+HANZI: 记得打电话。
+PINYIN: ji4 de da3 dian4 hua4
+TRANSLATIONS: Remember to make a phone call.
+DIFFICULTY: 3
+
+HANZI: 爸在上班。
+PINYIN: ba4 zai4 shang4 ban1
+TRANSLATIONS: Dad is at work.
+DIFFICULTY: 1
+
+HANZI: 爸在家里看电视。
+PINYIN: ba4 zai4 jia1 li3 kan4 dian4 shi4
+TRANSLATIONS: Dad watches TV at home.
+DIFFICULTY: 2
+
+HANZI: 这样行吗？
+PINYIN: zhe4 yang4 xing2 ma
+TRANSLATIONS: Is this okay?
+DIFFICULTY: 3
+
+HANZI: 去北京行。
+PINYIN: qu4 bei3 jing1 xing2
+TRANSLATIONS: Going to Beijing is okay.
+DIFFICULTY: 2
+
+HANZI: 买车票。
+PINYIN: mai3 che1 piao4
+TRANSLATIONS: Buy a ticket.
+DIFFICULTY: 1
+
+HANZI: 票在书包里。
+PINYIN: piao4 zai4 shu1 bao1 li3
+TRANSLATIONS: The ticket is in the backpack.
+DIFFICULTY: 2
+
+HANZI: 书包在桌子上。
+PINYIN: shu1 bao1 zai4 zhuo1 zi shang4
+TRANSLATIONS: The backpack is on the table.
+DIFFICULTY: 2
+
+HANZI: 书包在楼下。
+PINYIN: shu1 bao1 zai4 lou2 xia4
+TRANSLATIONS: The backpack is downstairs.
+DIFFICULTY: 2
+
+HANZI: 给妈妈打电话。
+PINYIN: gei3 ma1 ma da3 dian4 hua4
+TRANSLATIONS: Call mom.
+DIFFICULTY: 2
+
+HANZI: 在家里打电话。
+PINYIN: zai4 jia1 li3 da3 dian4 hua4
+TRANSLATIONS: Make a phone call at home.
+DIFFICULTY: 2
+
+HANZI: 认识老师。
+PINYIN: ren4 shi lao3 shi1
+TRANSLATIONS: Know the teacher.
+DIFFICULTY: 2
+
+HANZI: 认识北京人。
+PINYIN: ren4 shi bei3 jing1 ren2
+TRANSLATIONS: Know people from Beijing.
+DIFFICULTY: 3
+
+HANZI: 水果少。
+PINYIN: shui3 guo3 shao3
+TRANSLATIONS: There is little fruit.
+DIFFICULTY: 1
+
+HANZI: 学生少。
+PINYIN: xue2 sheng shao3
+TRANSLATIONS: There are few students.
+DIFFICULTY: 1
+
+HANZI: 放学回家。
+PINYIN: fang4 xue2 hui2 jia1
+TRANSLATIONS: Go home after school.
+DIFFICULTY: 1
+
+HANZI: 放学打球。
+PINYIN: fang4 xue2 da3 qiu2
+TRANSLATIONS: Play ball after school.
+DIFFICULTY: 2
+
+HANZI: 桌在房间里。
+PINYIN: zhuo1 zai4 fang2 jian1 li3
+TRANSLATIONS: The table is in the room.
+DIFFICULTY: 2
+
+HANZI: 桌在右边。
+PINYIN: zhuo1 zai4 you4 bian
+TRANSLATIONS: The table is on the right.
+DIFFICULTY: 2
+
+HANZI: 你呢？
+PINYIN: ni3 ne
+TRANSLATIONS: And you?
+DIFFICULTY: 1
+
+HANZI: 爸呢？
+PINYIN: ba4 ne
+TRANSLATIONS: Where is dad?
+DIFFICULTY: 2
+
+HANZI: 买门票。
+PINYIN: mai3 men2 piao4
+TRANSLATIONS: Buy an entrance ticket.
+DIFFICULTY: 1
+
+HANZI: 门票在包里。
+PINYIN: men2 piao4 zai4 bao1 li3
+TRANSLATIONS: The ticket is in the bag.
+DIFFICULTY: 2
+
+HANZI: 喝水。
+PINYIN: he1 shui3
+TRANSLATIONS: Drink water.
+DIFFICULTY: 1
+
+HANZI: 喝茶。
+PINYIN: he1 cha2
+TRANSLATIONS: Drink tea.
+DIFFICULTY: 1
+
+HANZI: 吃包子。
+PINYIN: chi1 bao1 zi
+TRANSLATIONS: Eat steamed buns.
+DIFFICULTY: 1
+
+HANZI: 买包子和面条儿。
+PINYIN: mai3 bao1 zi he2 mian4 tiao2 r
+TRANSLATIONS: Buy steamed buns and noodles.
+DIFFICULTY: 2
