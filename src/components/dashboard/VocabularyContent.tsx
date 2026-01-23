@@ -1,0 +1,486 @@
+import { useState, useEffect, useMemo } from 'react';
+import { useExercise } from '../../contexts/ExerciseContext';
+import { loadResponseDatabase, generateVocabularyId } from '../../lib/responseTracking/storage';
+import { formatResponseTime } from '../../lib/responseTracking/analytics';
+import { getVocabularyMasteryInfo } from '../../lib/dashboard/mastery';
+import type { ResponseDatabase, VocabularySpeedStats } from '../../types/responseTracking';
+import type { VocabularyEntry } from '../../types/vocabulary';
+import type { MasteryLevel, VocabularyMasteryInfo } from '../../types/dashboard';
+import { ALL_PROMPT_TYPES, PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../../types/dashboard';
+
+type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'promptTypes' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
+type SortDirection = 'asc' | 'desc';
+
+interface SortState {
+  field: SortField;
+  direction: SortDirection;
+}
+
+interface VocabularyWithStats extends VocabularyEntry {
+  vocabId: string;
+  stats: VocabularySpeedStats | null;
+  accuracy: number;
+  totalAttempts: number;
+  lastPracticed: number | null;
+  masteryInfo: VocabularyMasteryInfo;
+  totalMasteryPercent: number;
+}
+
+/**
+ * Get accuracy color class
+ */
+function getAccuracyColor(accuracy: number): string {
+  if (accuracy >= 80) return 'text-green-600 dark:text-green-400';
+  if (accuracy >= 60) return 'text-yellow-600 dark:text-yellow-400';
+  if (accuracy >= 40) return 'text-orange-600 dark:text-orange-400';
+  return 'text-red-600 dark:text-red-400';
+}
+
+/**
+ * Get the dot color for a prompt type mastery level
+ */
+function getPromptTypeDotColor(level: MasteryLevel): string {
+  return MASTERY_COLORS[level];
+}
+
+/**
+ * Prompt type mastery dots component
+ */
+function PromptTypeDots({ masteryInfo }: { masteryInfo: VocabularyMasteryInfo }) {
+  return (
+    <div className="flex items-center gap-1.5">
+      {ALL_PROMPT_TYPES.map((pt) => {
+        const info = masteryInfo.byPromptType[pt];
+        const config = PROMPT_TYPE_CONFIG[pt];
+        const dotColor = getPromptTypeDotColor(info.masteryLevel);
+
+        return (
+          <div
+            key={pt}
+            className="w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 cursor-help"
+            style={{
+              backgroundColor: dotColor,
+              boxShadow: info.masteryLevel === 'mastered' ? `0 0 6px ${dotColor}` : 'none'
+            }}
+            title={`${config.label}: ${info.masteryLevel} (${Math.round(info.accuracy)}% accuracy, ${info.totalAttempts} attempts)`}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+/**
+ * Format last practiced time
+ */
+function formatLastPracticed(timestamp: number | null): string {
+  if (!timestamp) return '—';
+
+  const now = Date.now();
+  const diff = now - timestamp;
+  const minutes = Math.floor(diff / 60000);
+  const hours = Math.floor(diff / 3600000);
+  const days = Math.floor(diff / 86400000);
+
+  if (minutes < 1) return 'Just now';
+  if (minutes < 60) return `${minutes}m ago`;
+  if (hours < 24) return `${hours}h ago`;
+  if (days === 1) return 'Yesterday';
+  if (days < 7) return `${days}d ago`;
+  if (days < 30) return `${Math.floor(days / 7)}w ago`;
+
+  const date = new Date(timestamp);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+/**
+ * Sort icon component
+ */
+function SortIcon({ active, direction }: { active: boolean; direction: SortDirection }) {
+  return (
+    <span className={`ml-1 inline-block transition-colors ${active ? 'text-blue-500 dark:text-blue-400' : 'text-gray-400 dark:text-gray-500'}`}>
+      {active ? (
+        direction === 'asc' ? '↑' : '↓'
+      ) : (
+        '↕'
+      )}
+    </span>
+  );
+}
+
+export function VocabularyContent() {
+  const { state } = useExercise();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [responseDatabase, setResponseDatabase] = useState<ResponseDatabase | null>(null);
+  const [sort, setSort] = useState<SortState>({ field: 'pinyin', direction: 'asc' });
+
+  // Reload database whenever this component is shown
+  useEffect(() => {
+    loadResponseDatabase().then(db => {
+      setResponseDatabase(db);
+    });
+  }, []);
+
+  const handleSort = (field: SortField) => {
+    setSort(prev => ({
+      field,
+      direction: prev.field === field && prev.direction === 'asc' ? 'desc' : 'asc'
+    }));
+  };
+
+  // Compute vocabulary with stats
+  const vocabularyWithStats = useMemo<VocabularyWithStats[]>(() => {
+    if (!state.vocabulary) return [];
+
+    return state.vocabulary.active.map(entry => {
+      const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
+      const stats = responseDatabase?.statistics[vocabId] || null;
+
+      // Get full mastery info including per-prompt-type mastery
+      const masteryInfo = getVocabularyMasteryInfo(entry, responseDatabase);
+
+      // Calculate total mastery percent: sum of all 4 skill mastery percentages
+      const totalMasteryPercent = ALL_PROMPT_TYPES.reduce((sum, pt) => {
+        const level = masteryInfo.byPromptType[pt].masteryLevel;
+        const levelValue = level === 'mastered' ? 100 : level === 'learning' ? 50 : level === 'struggling' ? 10 : 0;
+        return sum + levelValue;
+      }, 0);
+
+      return {
+        ...entry,
+        vocabId,
+        stats,
+        accuracy: masteryInfo.accuracy,
+        totalAttempts: masteryInfo.totalAttempts,
+        lastPracticed: masteryInfo.lastPracticed,
+        masteryInfo,
+        totalMasteryPercent
+      };
+    });
+  }, [state.vocabulary, responseDatabase]);
+
+  // Filter vocabulary based on search query
+  const filteredVocabulary = useMemo(() => {
+    if (!searchQuery) return vocabularyWithStats;
+
+    let query = searchQuery.toLowerCase();
+    const endsWithHyphen = query.endsWith('-');
+
+    // Check for prefix-based filtering
+    if (query.startsWith('hz:')) {
+      const searchTerm = query.slice(3);
+      return vocabularyWithStats.filter(entry => {
+        const word = entry.word.toLowerCase();
+        return word.startsWith(searchTerm);
+      });
+    } else if (query.startsWith('py:')) {
+      let searchTerm = query.slice(3);
+      const exactMatch = searchTerm.endsWith('-');
+      if (exactMatch) searchTerm = searchTerm.slice(0, -1);
+
+      return vocabularyWithStats.filter(entry => {
+        const pinyin = entry.pinyin.toLowerCase();
+        if (exactMatch) {
+          const syllables = pinyin.split(/\s+/);
+          return syllables.some(s => s === searchTerm || s.match(new RegExp(`^${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d*$`)));
+        }
+        return pinyin.startsWith(searchTerm) ||
+               new RegExp(`[\\s,]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+      });
+    } else if (query.startsWith('en:')) {
+      const searchTerm = query.slice(3);
+      return vocabularyWithStats.filter(entry => {
+        const meaning = entry.meaning.toLowerCase();
+        return meaning.startsWith(searchTerm) ||
+               new RegExp(`[\\s;]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+      });
+    }
+
+    // General search with optional exact syllable matching for pinyin
+    if (endsWithHyphen) {
+      const searchTerm = query.slice(0, -1);
+      return vocabularyWithStats.filter(entry => {
+        const word = entry.word.toLowerCase();
+        const pinyin = entry.pinyin.toLowerCase();
+        const meaning = entry.meaning.toLowerCase();
+
+        const syllables = pinyin.split(/\s+/);
+        const pinyinMatch = syllables.some(s => s === searchTerm || s.match(new RegExp(`^${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d*$`)));
+
+        const wordMatch = word.startsWith(searchTerm);
+        const meaningMatch = meaning.startsWith(searchTerm) ||
+                            new RegExp(`[\\s;]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+
+        return wordMatch || pinyinMatch || meaningMatch;
+      });
+    }
+
+    // Default search without hyphen
+    return vocabularyWithStats.filter(entry => {
+      const word = entry.word.toLowerCase();
+      const pinyin = entry.pinyin.toLowerCase();
+      const meaning = entry.meaning.toLowerCase();
+
+      const wordMatch = word.startsWith(query);
+      const pinyinMatch = pinyin.startsWith(query) ||
+                         new RegExp(`[\\s]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+      const meaningMatch = meaning.startsWith(query) ||
+                          new RegExp(`[\\s;]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+
+      return wordMatch || pinyinMatch || meaningMatch;
+    });
+  }, [vocabularyWithStats, searchQuery]);
+
+  // Sort vocabulary
+  const sortedVocabulary = useMemo(() => {
+    const sorted = [...filteredVocabulary];
+
+    sorted.sort((a, b) => {
+      let comparison = 0;
+
+      switch (sort.field) {
+        case 'pinyin':
+          comparison = a.pinyin.localeCompare(b.pinyin);
+          break;
+        case 'accuracy':
+          if (a.totalAttempts === 0 && b.totalAttempts === 0) comparison = 0;
+          else if (a.totalAttempts === 0) comparison = 1;
+          else if (b.totalAttempts === 0) comparison = -1;
+          else comparison = a.accuracy - b.accuracy;
+          break;
+        case 'attempts':
+          comparison = a.totalAttempts - b.totalAttempts;
+          break;
+        case 'promptTypes': {
+          comparison = a.totalMasteryPercent - b.totalMasteryPercent;
+          break;
+        }
+        case 'lastPracticed':
+          if (a.lastPracticed === null && b.lastPracticed === null) comparison = 0;
+          else if (a.lastPracticed === null) comparison = 1;
+          else if (b.lastPracticed === null) comparison = -1;
+          else comparison = a.lastPracticed - b.lastPracticed;
+          break;
+        case 'char-to-pinyin':
+        case 'char-to-english':
+        case 'pinyin-to-english':
+        case 'english-to-pinyin': {
+          const promptTypeMap: Record<string, string> = {
+            'char-to-pinyin': 'character-to-pinyin',
+            'char-to-english': 'character-to-english',
+            'pinyin-to-english': 'pinyin-to-english',
+            'english-to-pinyin': 'english-to-pinyin'
+          };
+          const promptType = promptTypeMap[sort.field] as keyof VocabularySpeedStats['byPromptType'];
+          const aStats = a.stats?.byPromptType?.[promptType];
+          const bStats = b.stats?.byPromptType?.[promptType];
+          const aHasData = (aStats?.correctAttempts ?? 0) > 0;
+          const bHasData = (bStats?.correctAttempts ?? 0) > 0;
+
+          if (!aHasData && !bHasData) comparison = 0;
+          else if (!aHasData) comparison = 1;
+          else if (!bHasData) comparison = -1;
+          else comparison = (aStats?.averageResponseTimeMs ?? 0) - (bStats?.averageResponseTimeMs ?? 0);
+          break;
+        }
+      }
+
+      return sort.direction === 'asc' ? comparison : -comparison;
+    });
+
+    return sorted;
+  }, [filteredVocabulary, sort]);
+
+  if (!state.vocabulary) {
+    return null;
+  }
+
+  const totalWords = vocabularyWithStats.length;
+
+  return (
+    <>
+      {/* Title */}
+      <div className="mb-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+          <span className="text-3xl">📋</span>
+          Active Vocabulary
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">
+          Browse and search your vocabulary list
+        </p>
+      </div>
+
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
+        {/* Search Field */}
+        <div className="mb-6">
+          <div className="max-w-md mx-auto">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 text-center">
+              Prefix with <span className="font-mono font-semibold">hz:</span> <span className="font-mono font-semibold">py:</span> <span className="font-mono font-semibold">en:</span> • Add <span className="font-mono font-semibold">-</span> for exact syllable match
+            </p>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by character, pinyin, or meaning..."
+              className="w-full px-4 py-3 text-lg border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all"
+              autoComplete="off"
+              spellCheck="false"
+            />
+          </div>
+        </div>
+
+        {/* Vocabulary count */}
+        <div className="mb-6 flex justify-center">
+          <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
+            <p className="text-center text-sm text-blue-800 dark:text-blue-200">
+              <span className="font-semibold">
+                {searchQuery ? `Showing ${sortedVocabulary.length} of ${totalWords} words` : `Total words: ${totalWords}`}
+              </span>
+            </p>
+          </div>
+        </div>
+
+        {/* Vocabulary Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
+                <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-28">Character</th>
+                <th
+                  className="text-left p-3 font-semibold text-gray-900 dark:text-white w-32 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('pinyin')}
+                >
+                  Pinyin
+                  <SortIcon active={sort.field === 'pinyin'} direction={sort.direction} />
+                </th>
+                <th className="text-left p-3 font-semibold text-gray-900 dark:text-white min-w-[140px]">Meaning</th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('promptTypes')}
+                  title="Per-skill mastery: 字→拼 | 英→拼 | 字→英 | 拼→英"
+                >
+                  Mastery
+                  <SortIcon active={sort.field === 'promptTypes'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('accuracy')}
+                  title="Average accuracy across all attempts"
+                >
+                  Acc.
+                  <SortIcon active={sort.field === 'accuracy'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('attempts')}
+                  title="Total number of attempts"
+                >
+                  #
+                  <SortIcon active={sort.field === 'attempts'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('lastPracticed')}
+                  title="Last practiced"
+                >
+                  Last
+                  <SortIcon active={sort.field === 'lastPracticed'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('char-to-pinyin')}
+                  title="Character → Pinyin average speed"
+                >
+                  字→拼
+                  <SortIcon active={sort.field === 'char-to-pinyin'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('english-to-pinyin')}
+                  title="English → Pinyin average speed"
+                >
+                  英→拼
+                  <SortIcon active={sort.field === 'english-to-pinyin'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('char-to-english')}
+                  title="Character → English average speed"
+                >
+                  字→英
+                  <SortIcon active={sort.field === 'char-to-english'} direction={sort.direction} />
+                </th>
+                <th
+                  className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                  onClick={() => handleSort('pinyin-to-english')}
+                  title="Pinyin → English average speed"
+                >
+                  拼→英
+                  <SortIcon active={sort.field === 'pinyin-to-english'} direction={sort.direction} />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedVocabulary.length > 0 ? (
+                sortedVocabulary.map((entry, index) => {
+                  const { stats, accuracy, totalAttempts, lastPracticed } = entry;
+
+                  return (
+                    <tr
+                      key={index}
+                      className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    >
+                      <td className="p-3 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
+                      <td className="p-3 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
+                      <td className="p-3 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                      <td className="p-3">
+                        <div className="flex justify-center">
+                          <PromptTypeDots masteryInfo={entry.masteryInfo} />
+                        </div>
+                      </td>
+                      <td className={`p-3 text-center font-semibold ${totalAttempts > 0 ? getAccuracyColor(accuracy) : 'text-gray-400 dark:text-gray-500'}`}>
+                        {totalAttempts > 0 ? `${Math.round(accuracy)}%` : '—'}
+                      </td>
+                      <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                        {totalAttempts > 0 ? totalAttempts : '—'}
+                      </td>
+                      <td className="p-3 text-center text-gray-500 dark:text-gray-400 text-xs">
+                        {formatLastPracticed(lastPracticed)}
+                      </td>
+                      <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                        {(stats?.byPromptType?.['character-to-pinyin']?.correctAttempts ?? 0) > 0
+                          ? formatResponseTime(stats?.byPromptType?.['character-to-pinyin']?.averageResponseTimeMs ?? 0)
+                          : '—'}
+                      </td>
+                      <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                        {(stats?.byPromptType?.['english-to-pinyin']?.correctAttempts ?? 0) > 0
+                          ? formatResponseTime(stats?.byPromptType?.['english-to-pinyin']?.averageResponseTimeMs ?? 0)
+                          : '—'}
+                      </td>
+                      <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                        {(stats?.byPromptType?.['character-to-english']?.correctAttempts ?? 0) > 0
+                          ? formatResponseTime(stats?.byPromptType?.['character-to-english']?.averageResponseTimeMs ?? 0)
+                          : '—'}
+                      </td>
+                      <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                        {(stats?.byPromptType?.['pinyin-to-english']?.correctAttempts ?? 0) > 0
+                          ? formatResponseTime(stats?.byPromptType?.['pinyin-to-english']?.averageResponseTimeMs ?? 0)
+                          : '—'}
+                      </td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <tr>
+                  <td colSpan={11} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    No matching vocabulary found
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+}

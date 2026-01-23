@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import type { ExerciseType, PlayMode } from '../types/exercise';
-import { VocabularyUploader } from './VocabularyUploader';
 import { getAllHighScores, formatTime } from '../lib/highScores';
 import { TrainingModeToggle } from './TrainingModeToggle';
 
@@ -44,10 +43,6 @@ export function MainMenu() {
         payload: { exerciseType, playMode }
       });
     }
-  };
-
-  const handleViewVocabulary = () => {
-    dispatch({ type: 'VIEW_VOCABULARY' });
   };
 
   const handleViewDashboard = () => {
@@ -169,16 +164,6 @@ export function MainMenu() {
               </p>
             </div>
 
-            {/* View Vocabulary & Update Buttons */}
-            <div className="mb-4 flex justify-center gap-4">
-              <button
-                onClick={handleViewVocabulary}
-                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-              >
-                📋 View Vocabulary
-              </button>
-              <VocabularyUploader />
-            </div>
 
             {/* Focus on Weaknesses Toggle */}
             {state.vocabulary && (
