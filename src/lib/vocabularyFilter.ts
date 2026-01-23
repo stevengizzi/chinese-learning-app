@@ -66,20 +66,16 @@ export function clearFilterForExercise(exerciseKey: string): void {
 }
 
 /**
- * Check if a vocabulary entry passes the mastery level filter
- * @param entry The vocabulary entry to check
- * @param masteryLevels The allowed mastery levels
- * @param promptType The prompt type to check mastery for
- * @param database The response database
+ * Check if a vocabulary entry passes the mastery level filter for a single prompt type
  */
-function entryPassesMasteryFilter(
+function entryPassesSingleMasteryFilter(
   entry: VocabularyEntry,
   masteryLevels: typeof DEFAULT_MASTERY_LEVELS,
-  promptType: PromptType | 'any',
+  promptType: PromptType,
   database: ResponseDatabase | null
 ): boolean {
-  // If all levels selected or no specific prompt type, pass
-  if (masteryLevels.length === 4 || promptType === 'any') {
+  // If all levels selected, pass
+  if (masteryLevels.length === 4) {
     return true;
   }
 
@@ -87,6 +83,54 @@ function entryPassesMasteryFilter(
   const entryMastery = masteryInfo.byPromptType[promptType].masteryLevel;
 
   return masteryLevels.includes(entryMastery);
+}
+
+/**
+ * Check if a vocabulary entry passes mastery filters
+ * For single prompt type exercises: entry must match selected levels
+ * For multi prompt type exercises: entry must match selected levels for ALL prompt types
+ */
+function entryPassesMasteryFilter(
+  config: VocabularyFilterConfig,
+  entry: VocabularyEntry,
+  database: ResponseDatabase | null
+): boolean {
+  // If we have per-prompt-type filters, check each one
+  if (config.masteryLevelsByPromptType) {
+    const promptTypes = Object.keys(config.masteryLevelsByPromptType) as PromptType[];
+    for (const pt of promptTypes) {
+      const levels = config.masteryLevelsByPromptType[pt] || DEFAULT_MASTERY_LEVELS;
+      if (!entryPassesSingleMasteryFilter(entry, levels, pt, database)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Single prompt type filter (legacy)
+  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
+  const promptType = config.promptType;
+
+  if (!promptType || promptType === 'any' || masteryLevels.length === 4) {
+    return true;
+  }
+
+  return entryPassesSingleMasteryFilter(entry, masteryLevels, promptType, database);
+}
+
+/**
+ * Check if a mastery filter is active (has non-default selections)
+ */
+function hasMasteryFilterActive(config: VocabularyFilterConfig): boolean {
+  if (config.masteryLevelsByPromptType) {
+    return Object.values(config.masteryLevelsByPromptType).some(
+      levels => levels && levels.length < 4
+    );
+  }
+  return config.masteryLevels !== undefined &&
+         config.masteryLevels.length < 4 &&
+         config.promptType !== undefined &&
+         config.promptType !== 'any';
 }
 
 /**
@@ -100,10 +144,7 @@ function entryPassesFilter(
   database: ResponseDatabase | null
 ): boolean {
   // Check mastery level filter first (works independently of other filters)
-  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
-  const promptType = config.promptType || 'any';
-
-  if (!entryPassesMasteryFilter(entry, masteryLevels, promptType, database)) {
+  if (!entryPassesMasteryFilter(config, entry, database)) {
     return false;
   }
 
@@ -111,6 +152,8 @@ function entryPassesFilter(
   if (config.type === 'all') {
     return true;
   }
+
+  const promptType = config.promptType || 'any';
 
   const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
   const stats = database?.statistics[vocabId];
@@ -214,12 +257,8 @@ export function filterVocabulary(
   config: VocabularyFilterConfig,
   database: ResponseDatabase | null
 ): VocabularyEntry[] {
-  // Check if mastery filter is active (not all levels selected)
-  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
-  const hasMasteryFilter = masteryLevels.length < 4 && config.promptType && config.promptType !== 'any';
-
   // Short-circuit only if type is 'all' AND no mastery filter
-  if (config.type === 'all' && !hasMasteryFilter) {
+  if (config.type === 'all' && !hasMasteryFilterActive(config)) {
     return vocabulary;
   }
 
@@ -236,12 +275,8 @@ export function countFilteredVocabulary(
   config: VocabularyFilterConfig,
   database: ResponseDatabase | null
 ): number {
-  // Check if mastery filter is active (not all levels selected)
-  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
-  const hasMasteryFilter = masteryLevels.length < 4 && config.promptType && config.promptType !== 'any';
-
   // Short-circuit only if type is 'all' AND no mastery filter
-  if (config.type === 'all' && !hasMasteryFilter) {
+  if (config.type === 'all' && !hasMasteryFilterActive(config)) {
     return vocabulary.length;
   }
 
@@ -286,21 +321,43 @@ export function getAllFilterCounts(
 }
 
 /**
- * Map exercise type to prompt type for filtering
+ * Map exercise key to prompt type(s) for filtering
+ * Exercise key format: "${exerciseType}-${playMode}" or just "${exerciseType}"
+ * Returns array of prompt types relevant to the exercise
  */
-export function getPromptTypeForExercise(exerciseType: string): PromptType | 'any' {
+export function getPromptTypesForExercise(exerciseKey: string): PromptType[] {
+  // Extract exercise type from key (remove playMode suffix if present)
+  const exerciseType = exerciseKey
+    .replace(/-standard$/, '')
+    .replace(/-endless$/, '')
+    .replace(/-complete-all$/, '')
+    .replace(/-drill$/, '')
+    .replace(/-speed-drill$/, '');
+
   switch (exerciseType) {
     case 'character-to-pinyin':
-      return 'character-to-pinyin';
+      return ['character-to-pinyin'];
     case 'character-to-english':
-      return 'character-to-english';
+      return ['character-to-english'];
     case 'pinyin-to-english':
-      return 'pinyin-to-english';
+      return ['pinyin-to-english'];
     case 'english-to-pinyin':
-      return 'english-to-pinyin';
+      return ['english-to-pinyin'];
     case 'shuffled':
+      // Shuffled pinyin: word→pinyin and meaning→pinyin
+      return ['character-to-pinyin', 'english-to-pinyin'];
     case 'shuffled-to-english':
+      // Shuffled English: word→English and pinyin→English
+      return ['character-to-english', 'pinyin-to-english'];
     default:
-      return 'any';
+      return [];
   }
+}
+
+/**
+ * Map exercise type to prompt type for filtering (legacy, returns single type or 'any')
+ */
+export function getPromptTypeForExercise(exerciseKey: string): PromptType | 'any' {
+  const types = getPromptTypesForExercise(exerciseKey);
+  return types.length === 1 ? types[0] : 'any';
 }

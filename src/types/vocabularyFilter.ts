@@ -21,7 +21,6 @@ export type VocabularyFilterType =
 
 /**
  * Mastery levels to include in filter (all selected by default)
- * This applies to the single prompt type relevant to the current exercise
  */
 export type MasteryLevelFilter = MasteryLevel[];
 
@@ -29,6 +28,11 @@ export type MasteryLevelFilter = MasteryLevel[];
  * Default mastery level filter (all levels selected)
  */
 export const DEFAULT_MASTERY_LEVELS: MasteryLevelFilter = ['mastered', 'learning', 'struggling', 'new'];
+
+/**
+ * Per-prompt-type mastery level filters (for exercises with multiple prompt types)
+ */
+export type MasteryLevelsByPromptType = Partial<Record<PromptType, MasteryLevelFilter>>;
 
 /**
  * Configuration for a vocabulary filter
@@ -51,9 +55,13 @@ export interface VocabularyFilterConfig {
   // Optional: filter by specific prompt type (e.g., only character-to-pinyin)
   promptType?: PromptType | 'any';
 
-  // Mastery levels to include (applies to the exercise's prompt type)
+  // Mastery levels to include (applies to exercises with single prompt type)
   // Works independently - filters vocabulary even when type is 'all'
   masteryLevels?: MasteryLevelFilter;
+
+  // Per-prompt-type mastery levels (for exercises with multiple prompt types like shuffled)
+  // Entry passes if it matches ANY of the selected levels for EACH prompt type
+  masteryLevelsByPromptType?: MasteryLevelsByPromptType;
 }
 
 /**

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { ResponseDatabase, PromptType } from '../types/responseTracking';
-import type { VocabularyFilterConfig, VocabularyFilterType } from '../types/vocabularyFilter';
+import type { VocabularyFilterConfig, VocabularyFilterType, MasteryLevelsByPromptType } from '../types/vocabularyFilter';
 import { FILTER_LABELS, FILTER_DESCRIPTIONS, DEFAULT_FILTER_CONFIGS, DEFAULT_MASTERY_LEVELS } from '../types/vocabularyFilter';
-import { countFilteredVocabulary, getFilterForExercise, saveFilterForExercise, clearFilterForExercise, getPromptTypeForExercise } from '../lib/vocabularyFilter';
+import { countFilteredVocabulary, getFilterForExercise, saveFilterForExercise, clearFilterForExercise, getPromptTypesForExercise } from '../lib/vocabularyFilter';
 import { PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
 import type { MasteryLevel } from '../types/dashboard';
 
@@ -22,16 +22,24 @@ export function VocabularyFilter({
   onFilterChange,
   showRememberOption = true,
 }: VocabularyFilterProps) {
-  // Get the prompt type for this exercise
-  const exercisePromptType = getPromptTypeForExercise(exerciseKey);
-  const hasSpecificPromptType = exercisePromptType !== 'any';
+  // Get the prompt types for this exercise (may be 1 or 2)
+  const exercisePromptTypes = getPromptTypesForExercise(exerciseKey);
+  const hasPromptTypes = exercisePromptTypes.length > 0;
+
+  // Build initial mastery levels by prompt type
+  const buildDefaultMasteryByPT = (): MasteryLevelsByPromptType => {
+    const result: MasteryLevelsByPromptType = {};
+    for (const pt of exercisePromptTypes) {
+      result[pt] = [...DEFAULT_MASTERY_LEVELS];
+    }
+    return result;
+  };
 
   const [selectedFilter, setSelectedFilter] = useState<VocabularyFilterType>('all');
-  const [config, setConfig] = useState<VocabularyFilterConfig>({
+  const [config, setConfig] = useState<VocabularyFilterConfig>(() => ({
     type: 'all',
-    promptType: exercisePromptType,
-    masteryLevels: [...DEFAULT_MASTERY_LEVELS]
-  });
+    masteryLevelsByPromptType: buildDefaultMasteryByPT()
+  }));
   const [rememberFilter, setRememberFilter] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -40,18 +48,19 @@ export function VocabularyFilter({
     const savedConfig = getFilterForExercise(exerciseKey);
     if (savedConfig) {
       setSelectedFilter(savedConfig.type);
+      // Migrate old format or use saved masteryLevelsByPromptType
+      const masteryByPT = savedConfig.masteryLevelsByPromptType || buildDefaultMasteryByPT();
       setConfig({
         ...savedConfig,
-        promptType: exercisePromptType,
-        masteryLevels: savedConfig.masteryLevels || [...DEFAULT_MASTERY_LEVELS]
+        masteryLevelsByPromptType: masteryByPT
       });
       setRememberFilter(true);
       onFilterChange({
         ...savedConfig,
-        promptType: exercisePromptType
+        masteryLevelsByPromptType: masteryByPT
       });
     }
-  }, [exerciseKey, exercisePromptType]);
+  }, [exerciseKey]);
 
   // Calculate counts for each filter type
   const filterCounts: Record<VocabularyFilterType, number> = {
@@ -72,9 +81,8 @@ export function VocabularyFilter({
       staleDays: config.staleDays ?? DEFAULT_FILTER_CONFIGS[type].staleDays,
       speedThresholdMs: config.speedThresholdMs ?? DEFAULT_FILTER_CONFIGS[type].speedThresholdMs,
       newItemCount: config.newItemCount ?? DEFAULT_FILTER_CONFIGS[type].newItemCount,
-      // Preserve prompt type and mastery levels
-      promptType: exercisePromptType,
-      masteryLevels: config.masteryLevels,
+      // Preserve mastery levels by prompt type
+      masteryLevelsByPromptType: config.masteryLevelsByPromptType,
     };
 
     setSelectedFilter(type);
@@ -87,7 +95,7 @@ export function VocabularyFilter({
   };
 
   const handleConfigChange = (updates: Partial<VocabularyFilterConfig>) => {
-    const newConfig = { ...config, ...updates, promptType: exercisePromptType };
+    const newConfig = { ...config, ...updates };
     setConfig(newConfig);
     onFilterChange(newConfig);
 
@@ -105,13 +113,19 @@ export function VocabularyFilter({
     }
   };
 
-  const handleMasteryToggle = (level: MasteryLevel) => {
-    const currentLevels = config.masteryLevels || [...DEFAULT_MASTERY_LEVELS];
+  const handleMasteryToggle = (promptType: PromptType, level: MasteryLevel) => {
+    const currentByPT = config.masteryLevelsByPromptType || buildDefaultMasteryByPT();
+    const currentLevels = currentByPT[promptType] || [...DEFAULT_MASTERY_LEVELS];
     const newLevels = currentLevels.includes(level)
       ? currentLevels.filter(l => l !== level)
       : [...currentLevels, level];
 
-    const newConfig = { ...config, masteryLevels: newLevels, promptType: exercisePromptType };
+    const newMasteryByPT: MasteryLevelsByPromptType = {
+      ...currentByPT,
+      [promptType]: newLevels
+    };
+
+    const newConfig = { ...config, masteryLevelsByPromptType: newMasteryByPT };
     setConfig(newConfig);
     onFilterChange(newConfig);
 
@@ -121,7 +135,8 @@ export function VocabularyFilter({
   };
 
   // Check if mastery filter has any non-default selections
-  const hasActiveMasteryFilter = config.masteryLevels && config.masteryLevels.length < 4;
+  const hasActiveMasteryFilter = config.masteryLevelsByPromptType &&
+    Object.values(config.masteryLevelsByPromptType).some(levels => levels && levels.length < 4);
 
   const currentCount = countFilteredVocabulary(vocabulary, config, database);
 
@@ -256,58 +271,69 @@ export function VocabularyFilter({
             </div>
           )}
 
-          {/* Mastery Level Filter - only show for exercises with specific prompt types */}
-          {hasSpecificPromptType && (
+          {/* Mastery Level Filter - show for each prompt type this exercise uses */}
+          {hasPromptTypes && (
             <div className="border-t border-gray-200 dark:border-gray-600 pt-3">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Mastery Level
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Mastery Level
+                </span>
+                {hasActiveMasteryFilter && (
+                  <span className="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 px-2 py-0.5 rounded-full">
+                    Active
                   </span>
-                  <span
-                    className="text-xs font-medium px-1.5 py-0.5 rounded"
-                    style={{
-                      color: PROMPT_TYPE_CONFIG[exercisePromptType as PromptType].color,
-                      backgroundColor: `${PROMPT_TYPE_CONFIG[exercisePromptType as PromptType].color}20`
-                    }}
-                  >
-                    {PROMPT_TYPE_CONFIG[exercisePromptType as PromptType].label}
-                  </span>
-                  {hasActiveMasteryFilter && (
-                    <span className="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 px-2 py-0.5 rounded-full">
-                      Active
-                    </span>
-                  )}
-                </div>
+                )}
               </div>
-              <div className="flex flex-wrap gap-2">
-                {(['mastered', 'learning', 'struggling', 'new'] as MasteryLevel[]).map(level => {
-                  const currentLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
-                  const isSelected = currentLevels.includes(level);
-                  const color = MASTERY_COLORS[level];
+              <div className="space-y-3">
+                {exercisePromptTypes.map(pt => {
+                  const currentByPT = config.masteryLevelsByPromptType || {};
+                  const currentLevels = currentByPT[pt] || DEFAULT_MASTERY_LEVELS;
+                  const ptConfig = PROMPT_TYPE_CONFIG[pt];
+
                   return (
-                    <button
-                      key={level}
-                      onClick={() => handleMasteryToggle(level)}
-                      className={`
-                        px-3 py-1.5 text-sm rounded-lg border-2 transition-all
-                        ${isSelected
-                          ? 'border-current shadow-sm'
-                          : 'border-gray-300 dark:border-gray-600 opacity-40'
-                        }
-                      `}
-                      style={{
-                        color: isSelected ? color : undefined,
-                        backgroundColor: isSelected ? `${color}20` : undefined
-                      }}
-                    >
-                      {level.charAt(0).toUpperCase() + level.slice(1)}
-                    </button>
+                    <div key={pt} className="bg-white dark:bg-gray-800 rounded-lg p-3">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className="text-xs font-medium px-1.5 py-0.5 rounded"
+                          style={{
+                            color: ptConfig.color,
+                            backgroundColor: `${ptConfig.color}20`
+                          }}
+                        >
+                          {ptConfig.label}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {(['mastered', 'learning', 'struggling', 'new'] as MasteryLevel[]).map(level => {
+                          const isSelected = currentLevels.includes(level);
+                          const color = MASTERY_COLORS[level];
+                          return (
+                            <button
+                              key={level}
+                              onClick={() => handleMasteryToggle(pt, level)}
+                              className={`
+                                px-3 py-1.5 text-sm rounded-lg border-2 transition-all
+                                ${isSelected
+                                  ? 'border-current shadow-sm'
+                                  : 'border-gray-300 dark:border-gray-600 opacity-40'
+                                }
+                              `}
+                              style={{
+                                color: isSelected ? color : undefined,
+                                backgroundColor: isSelected ? `${color}20` : undefined
+                              }}
+                            >
+                              {level.charAt(0).toUpperCase() + level.slice(1)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
                   );
                 })}
               </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                Filter vocabulary by your mastery level for this skill
+                Filter vocabulary by your mastery level for {exercisePromptTypes.length > 1 ? 'these skills' : 'this skill'}
               </p>
             </div>
           )}
