@@ -107,8 +107,24 @@ export function generateExercise(
     // Find matching vocabulary entry using multiple strategies
     let entry = vocabulary.find(v => v.word === promptToUse || v.meaning === promptToUse || v.pinyin === promptToUse);
 
-    // If not found directly, try partial matching for cases where disambiguation was added
-    // e.g., prompt might be "哥哥 (older brother)" but we need to match "哥哥"
+    // If not found directly, try matching disambiguated prompts
+    // e.g., prompt might be "yesterday (昨)" or "哥哥 (older brother)"
+    // Extract both the main part and the parenthetical for precise matching
+    if (!entry) {
+      const parenMatch = promptToUse.match(/^(.+?)\s*\((.+)\)$/);
+      if (parenMatch) {
+        const [, mainPart, disambiguator] = parenMatch;
+        // Find entry where both parts match (main + disambiguator)
+        entry = vocabulary.find(v =>
+          (v.meaning === mainPart && v.word === disambiguator) ||
+          (v.word === mainPart && v.meaning === disambiguator) ||
+          (v.word === mainPart && convertPinyinStringToToneMarks(v.pinyin) === disambiguator) ||
+          (convertPinyinStringToToneMarks(v.pinyin) === mainPart && v.word === disambiguator)
+        );
+      }
+    }
+
+    // Fallback: try simple partial matching
     if (!entry) {
       entry = vocabulary.find(v =>
         promptToUse.startsWith(v.word + ' ') ||

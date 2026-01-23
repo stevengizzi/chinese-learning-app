@@ -12,8 +12,126 @@ import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
 import { filterVocabulary } from '../lib/vocabularyFilter';
 import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
+import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard';
+
+/**
+ * Create disambiguated prompts for remainingWords
+ * Adds character/pinyin in parentheses when duplicates exist
+ */
+function createDisambiguatedPrompts(
+  vocabulary: VocabularyEntry[],
+  exerciseType: ExerciseType
+): string[] {
+  if (exerciseType === 'english-to-pinyin') {
+    // Group by meaning to find duplicates
+    const meaningCounts = new Map<string, number>();
+    vocabulary.forEach(v => {
+      meaningCounts.set(v.meaning, (meaningCounts.get(v.meaning) || 0) + 1);
+    });
+
+    return vocabulary.map(v => {
+      if (meaningCounts.get(v.meaning)! > 1) {
+        return `${v.meaning} (${v.word})`;
+      }
+      return v.meaning;
+    });
+  }
+
+  if (exerciseType === 'pinyin-to-english') {
+    // Group by pinyin to find duplicates
+    const pinyinCounts = new Map<string, number>();
+    vocabulary.forEach(v => {
+      pinyinCounts.set(v.pinyin, (pinyinCounts.get(v.pinyin) || 0) + 1);
+    });
+
+    return vocabulary.map(v => {
+      const pinyinWithTones = convertPinyinStringToToneMarks(v.pinyin);
+      if (pinyinCounts.get(v.pinyin)! > 1) {
+        return `${pinyinWithTones} (${v.word})`;
+      }
+      return pinyinWithTones;
+    });
+  }
+
+  if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
+    // Group by word to find duplicates
+    const wordCounts = new Map<string, number>();
+    vocabulary.forEach(v => {
+      wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
+    });
+
+    return vocabulary.map(v => {
+      if (wordCounts.get(v.word)! > 1) {
+        if (exerciseType === 'character-to-pinyin') {
+          return `${v.word} (${v.meaning})`;
+        } else {
+          const pinyinWithTones = convertPinyinStringToToneMarks(v.pinyin);
+          return `${v.word} (${pinyinWithTones})`;
+        }
+      }
+      return v.word;
+    });
+  }
+
+  // For shuffled modes, handle both word and meaning prompts
+  if (exerciseType === 'shuffled') {
+    const meaningCounts = new Map<string, number>();
+    const wordCounts = new Map<string, number>();
+    vocabulary.forEach(v => {
+      meaningCounts.set(v.meaning, (meaningCounts.get(v.meaning) || 0) + 1);
+      wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
+    });
+
+    const prompts: string[] = [];
+    vocabulary.forEach(v => {
+      // Add word prompt (with meaning disambiguation if needed)
+      if (wordCounts.get(v.word)! > 1) {
+        prompts.push(`${v.word} (${v.meaning})`);
+      } else {
+        prompts.push(v.word);
+      }
+      // Add meaning prompt (with character disambiguation if needed)
+      if (meaningCounts.get(v.meaning)! > 1) {
+        prompts.push(`${v.meaning} (${v.word})`);
+      } else {
+        prompts.push(v.meaning);
+      }
+    });
+    return prompts;
+  }
+
+  if (exerciseType === 'shuffled-to-english') {
+    const pinyinCounts = new Map<string, number>();
+    const wordCounts = new Map<string, number>();
+    vocabulary.forEach(v => {
+      pinyinCounts.set(v.pinyin, (pinyinCounts.get(v.pinyin) || 0) + 1);
+      wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
+    });
+
+    const prompts: string[] = [];
+    vocabulary.forEach(v => {
+      // Add word prompt (with pinyin disambiguation if needed)
+      const pinyinWithTones = convertPinyinStringToToneMarks(v.pinyin);
+      if (wordCounts.get(v.word)! > 1) {
+        prompts.push(`${v.word} (${pinyinWithTones})`);
+      } else {
+        prompts.push(v.word);
+      }
+      // Add pinyin prompt (with character disambiguation if needed)
+      if (pinyinCounts.get(v.pinyin)! > 1) {
+        prompts.push(`${pinyinWithTones} (${v.word})`);
+      } else {
+        prompts.push(pinyinWithTones);
+      }
+    });
+    return prompts;
+  }
+
+  // Default: just return words
+  return vocabulary.map(v => v.word);
+}
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -164,28 +282,11 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       }
 
       // Create remaining words list based on exercise type and play mode
+      // Uses disambiguation for duplicate meanings/pinyin/characters
       let remainingWords: string[] | undefined;
 
       if (playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') {
-        // All these modes work through all vocabulary prompts
-        if (exerciseType === 'shuffled') {
-          // Create array with both word and meaning for each vocabulary entry
-          const allEntries = activeVocabulary.flatMap(v => [v.word, v.meaning]);
-          remainingWords = shuffleArray(allEntries);
-        } else if (exerciseType === 'shuffled-to-english') {
-          // Create array with both word and pinyin for each vocabulary entry
-          const allEntries = activeVocabulary.flatMap(v => [v.word, v.pinyin]);
-          remainingWords = shuffleArray(allEntries);
-        } else if (exerciseType === 'english-to-pinyin') {
-          // For English → Pinyin, use meanings as prompts
-          remainingWords = shuffleArray(activeVocabulary.map(v => v.meaning));
-        } else if (exerciseType === 'pinyin-to-english') {
-          // For Pinyin → English, use pinyin as prompts
-          remainingWords = shuffleArray(activeVocabulary.map(v => v.pinyin));
-        } else {
-          // For character-based exercises (character-to-pinyin, character-to-english)
-          remainingWords = shuffleArray(activeVocabulary.map(v => v.word));
-        }
+        remainingWords = shuffleArray(createDisambiguatedPrompts(activeVocabulary, exerciseType));
       }
 
       const session = createNewSession(exerciseType, playMode, activeVocabulary.length);
@@ -525,22 +626,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         };
       }
 
-      // Create remaining words list (same as drill mode)
-      let remainingWords: string[] | undefined;
-
-      if (exerciseType === 'shuffled') {
-        const allEntries = activeVocabulary.flatMap(v => [v.word, v.meaning]);
-        remainingWords = shuffleArray(allEntries);
-      } else if (exerciseType === 'shuffled-to-english') {
-        const allEntries = activeVocabulary.flatMap(v => [v.word, v.pinyin]);
-        remainingWords = shuffleArray(allEntries);
-      } else if (exerciseType === 'english-to-pinyin') {
-        remainingWords = shuffleArray(activeVocabulary.map(v => v.meaning));
-      } else if (exerciseType === 'pinyin-to-english') {
-        remainingWords = shuffleArray(activeVocabulary.map(v => v.pinyin));
-      } else {
-        remainingWords = shuffleArray(activeVocabulary.map(v => v.word));
-      }
+      // Create remaining words list with disambiguation for duplicates
+      const remainingWords = shuffleArray(createDisambiguatedPrompts(activeVocabulary, exerciseType));
 
       const session = createNewSession(exerciseType, 'speed-drill', activeVocabulary.length);
       session.remainingWords = remainingWords;
