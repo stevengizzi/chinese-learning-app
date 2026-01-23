@@ -3,7 +3,7 @@ import { useExercise } from '../contexts/ExerciseContext';
 import type { ExerciseType, PlayMode } from '../types/exercise';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { VocabularyFilter } from './VocabularyFilter';
-import { countFilteredVocabulary, getFilterForExercise } from '../lib/vocabularyFilter';
+import { countFilteredVocabulary, getFilterForExercise, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 
 const EXERCISE_LABELS: Record<ExerciseType, string> = {
   'character-to-pinyin': 'Character → Pinyin',
@@ -51,12 +51,14 @@ export function ExerciseConfigScreen() {
   const filteredCount = countFilteredVocabulary(vocabulary, filter, database);
 
   const handleStart = () => {
+    // Include filter if type is not 'all' OR if mastery filter is active
+    const shouldIncludeFilter = filter.type !== 'all' || hasMasteryFilterActive(filter);
     dispatch({
       type: 'START_SESSION_WITH_CONFIG',
       payload: {
         exerciseType,
         playMode,
-        vocabularyFilter: filter.type === 'all' ? undefined : filter
+        vocabularyFilter: shouldIncludeFilter ? filter : undefined
       }
     });
   };

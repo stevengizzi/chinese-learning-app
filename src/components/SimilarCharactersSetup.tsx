@@ -10,7 +10,7 @@ import type { ResponseDatabase } from '../types/responseTracking';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { countAvailableItems } from '../lib/similarCharactersLoader';
 import { VocabularyFilter } from './VocabularyFilter';
-import { filterVocabulary } from '../lib/vocabularyFilter';
+import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 
 interface SimilarCharactersSetupProps {
   database: SimilarCharactersDatabase;
@@ -41,10 +41,11 @@ export function SimilarCharactersSetup({
   const [itemCount, setItemCount] = useState(0);
   const [vocabFilter, setVocabFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
 
-  // Get filtered vocabulary based on filter config
-  const filteredVocabulary = vocabFilter.type === 'all'
-    ? vocabulary
-    : filterVocabulary(vocabulary, vocabFilter, responseDatabase);
+  // Get filtered vocabulary based on filter config (including mastery filter)
+  const shouldApplyFilter = vocabFilter.type !== 'all' || hasMasteryFilterActive(vocabFilter);
+  const filteredVocabulary = shouldApplyFilter
+    ? filterVocabulary(vocabulary, vocabFilter, responseDatabase)
+    : vocabulary;
 
   // Calculate available items when config changes
   useEffect(() => {
@@ -72,8 +73,8 @@ export function SimilarCharactersSetup({
       shuffle,
       categories: selectedCategories.length > 0 ? selectedCategories : undefined,
     };
-    // Pass filtered vocabulary if a filter is applied
-    onStart(config, vocabFilter.type !== 'all' ? filteredVocabulary : undefined);
+    // Pass filtered vocabulary if a filter is applied (including mastery filter)
+    onStart(config, shouldApplyFilter ? filteredVocabulary : undefined);
   };
 
   const allCategories = database.metadata.categories;

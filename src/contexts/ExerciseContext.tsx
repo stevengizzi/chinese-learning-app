@@ -10,7 +10,7 @@ import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
-import { filterVocabulary } from '../lib/vocabularyFilter';
+import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 
@@ -268,8 +268,10 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const { exerciseType, playMode, vocabularyFilter } = action.payload;
 
-      // Apply vocabulary filter if specified
-      const activeVocabulary: VocabularyEntry[] = vocabularyFilter && vocabularyFilter.type !== 'all'
+      // Apply vocabulary filter if specified (including when mastery filter is active)
+      const shouldApplyFilter = vocabularyFilter &&
+        (vocabularyFilter.type !== 'all' || hasMasteryFilterActive(vocabularyFilter));
+      const activeVocabulary: VocabularyEntry[] = shouldApplyFilter
         ? filterVocabulary(state.vocabulary.active, vocabularyFilter, state.responseDatabase)
         : state.vocabulary.active;
 
@@ -612,8 +614,10 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       const { exerciseType, baseThresholdMs, incrementPerWordMs, vocabularyFilter } = action.payload;
 
-      // Apply vocabulary filter if specified
-      const activeVocabulary: VocabularyEntry[] = vocabularyFilter && vocabularyFilter.type !== 'all'
+      // Apply vocabulary filter if specified (including when mastery filter is active)
+      const shouldApplyFilter = vocabularyFilter &&
+        (vocabularyFilter.type !== 'all' || hasMasteryFilterActive(vocabularyFilter));
+      const activeVocabulary: VocabularyEntry[] = shouldApplyFilter
         ? filterVocabulary(state.vocabulary.active, vocabularyFilter, state.responseDatabase)
         : state.vocabulary.active;
 

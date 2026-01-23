@@ -121,7 +121,7 @@ function entryPassesMasteryFilter(
 /**
  * Check if a mastery filter is active (has non-default selections)
  */
-function hasMasteryFilterActive(config: VocabularyFilterConfig): boolean {
+export function hasMasteryFilterActive(config: VocabularyFilterConfig): boolean {
   if (config.masteryLevelsByPromptType) {
     return Object.values(config.masteryLevelsByPromptType).some(
       levels => levels && levels.length < 4

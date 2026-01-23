@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { VocabularyFilter } from './VocabularyFilter';
-import { countFilteredVocabulary } from '../lib/vocabularyFilter';
+import { countFilteredVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 
 export function SpeedDrillConfig() {
   const { state, dispatch } = useExercise();
@@ -18,13 +18,15 @@ export function SpeedDrillConfig() {
 
   const handleStartExercise = () => {
     if (state.pendingSpeedDrillExercise) {
+      // Include filter if type is not 'all' OR if mastery filter is active
+      const shouldIncludeFilter = vocabFilter.type !== 'all' || hasMasteryFilterActive(vocabFilter);
       dispatch({
         type: 'START_SPEED_DRILL',
         payload: {
           exerciseType: state.pendingSpeedDrillExercise,
           baseThresholdMs: baseThreshold * 1000,
           incrementPerWordMs: incrementPerWord * 1000,
-          vocabularyFilter: vocabFilter.type !== 'all' ? vocabFilter : undefined
+          vocabularyFilter: shouldIncludeFilter ? vocabFilter : undefined
         }
       });
     }
