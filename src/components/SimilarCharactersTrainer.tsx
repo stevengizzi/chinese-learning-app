@@ -6,14 +6,11 @@ import type {
   SimilarCharactersSession,
   SimilarCharactersScreen,
   SimilarCharactersAttempt,
-  SimilarCharactersItem,
   MultipleChoiceItem,
-  PairDistinctionItem,
 } from '../types/similarCharacters';
 import {
   loadSimilarCharactersDatabase,
   generateMultipleChoiceItems,
-  generatePairDistinctionItems,
 } from '../lib/similarCharactersLoader';
 import {
   loadSimilarCharactersStats,
@@ -22,7 +19,6 @@ import {
 } from '../lib/similarCharactersStats';
 import { SimilarCharactersSetup } from './SimilarCharactersSetup';
 import { MultipleChoiceExercise } from './MultipleChoiceExercise';
-import { PairDistinctionExercise } from './PairDistinctionExercise';
 import { SimilarCharactersComplete } from './SimilarCharactersComplete';
 
 interface SimilarCharactersTrainerProps {
@@ -62,13 +58,8 @@ export function SimilarCharactersTrainer({ onBack }: SimilarCharactersTrainerPro
   const handleStart = useCallback((config: SimilarCharactersConfig) => {
     if (!database) return;
 
-    // Generate items based on mode
-    let items: SimilarCharactersItem[];
-    if (config.mode === 'multiple-choice') {
-      items = generateMultipleChoiceItems(database, vocabulary, config);
-    } else {
-      items = generatePairDistinctionItems(database, vocabulary, config);
-    }
+    // Both modes use multiple choice items (same generation, different prompt display)
+    const items = generateMultipleChoiceItems(database, vocabulary, config);
 
     if (items.length === 0) {
       setError('No items available for practice with current settings.');
@@ -96,14 +87,12 @@ export function SimilarCharactersTrainer({ onBack }: SimilarCharactersTrainerPro
   ) => {
     if (!session) return;
 
-    const currentItem = session.items[session.currentIndex];
+    const currentItem = session.items[session.currentIndex] as MultipleChoiceItem;
 
     const attempt: SimilarCharactersAttempt = {
       itemId: currentItem.id,
       selectedCharacter,
-      correctCharacter: session.config.mode === 'multiple-choice'
-        ? (currentItem as MultipleChoiceItem).targetCharacter
-        : (currentItem as PairDistinctionItem).targetCharacter,
+      correctCharacter: currentItem.targetCharacter,
       wasCorrect,
       responseTimeMs,
       timestamp: Date.now(),
@@ -130,21 +119,11 @@ export function SimilarCharactersTrainer({ onBack }: SimilarCharactersTrainerPro
     // Save statistics
     const stats = loadSimilarCharactersStats();
     const attemptRecords = session.attempts.map(attempt => {
-      const item = session.items.find(i => i.id === attempt.itemId);
-      let characterA: string, characterB: string;
-
-      if (session.config.mode === 'multiple-choice') {
-        // For multiple choice, pair is target vs selected
-        characterA = attempt.correctCharacter;
-        characterB = attempt.selectedCharacter !== attempt.correctCharacter
-          ? attempt.selectedCharacter
-          : attempt.correctCharacter;
-      } else {
-        // For pair distinction, use the actual pair
-        const pdItem = item as PairDistinctionItem;
-        characterA = pdItem.characterA;
-        characterB = pdItem.characterB;
-      }
+      // For multiple choice, pair is target vs selected
+      const characterA = attempt.correctCharacter;
+      const characterB = attempt.selectedCharacter !== attempt.correctCharacter
+        ? attempt.selectedCharacter
+        : attempt.correctCharacter;
 
       return { attempt, characterA, characterB };
     });
@@ -226,29 +205,16 @@ export function SimilarCharactersTrainer({ onBack }: SimilarCharactersTrainerPro
     case 'exercise':
       if (!session) return null;
 
-      if (session.config.mode === 'multiple-choice') {
-        return (
-          <MultipleChoiceExercise
-            items={session.items as MultipleChoiceItem[]}
-            config={session.config}
-            currentIndex={session.currentIndex}
-            onAnswer={handleAnswer}
-            onNext={handleNext}
-            onEnd={handleEnd}
-          />
-        );
-      } else {
-        return (
-          <PairDistinctionExercise
-            items={session.items as PairDistinctionItem[]}
-            config={session.config}
-            currentIndex={session.currentIndex}
-            onAnswer={handleAnswer}
-            onNext={handleNext}
-            onEnd={handleEnd}
-          />
-        );
-      }
+      return (
+        <MultipleChoiceExercise
+          items={session.items as MultipleChoiceItem[]}
+          config={session.config}
+          currentIndex={session.currentIndex}
+          onAnswer={handleAnswer}
+          onNext={handleNext}
+          onEnd={handleEnd}
+        />
+      );
 
     case 'complete':
       if (!session) return null;

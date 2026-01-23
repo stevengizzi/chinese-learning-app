@@ -138,9 +138,7 @@ export function SimilarCharactersComplete({
 
           {/* Session Info */}
           <div className="mb-8 text-center text-sm text-gray-500 dark:text-gray-400">
-            Mode: {config.mode === 'multiple-choice' ? 'Multiple Choice' : 'Pair Distinction'}
-            {' • '}
-            Prompt: {config.promptType === 'both' ? 'Pinyin & Meaning' : config.promptType}
+            Mode: {config.mode === 'pinyin-to-character' ? 'Pinyin → Character' : 'English → Character'}
           </div>
 
           {/* Action Buttons */}

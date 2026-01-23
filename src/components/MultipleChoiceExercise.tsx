@@ -86,16 +86,21 @@ export function MultipleChoiceExercise({
   // Format pinyin for display
   const displayPinyin = convertPinyinStringToToneMarks(currentItem.targetPinyin);
 
-  // Build prompt text
+  // Build prompt text based on mode
   const getPromptText = () => {
-    switch (config.promptType) {
-      case 'pinyin':
-        return displayPinyin;
-      case 'meaning':
-        return currentItem.targetMeaning;
-      case 'both':
-      default:
-        return `${displayPinyin} (${currentItem.targetMeaning})`;
+    if (config.mode === 'pinyin-to-character') {
+      return displayPinyin;
+    } else {
+      return currentItem.targetMeaning;
+    }
+  };
+
+  // Get the prompt label based on mode
+  const getPromptLabel = () => {
+    if (config.mode === 'pinyin-to-character') {
+      return 'Which character has this pinyin?';
+    } else {
+      return 'Which character means:';
     }
   };
 
@@ -141,7 +146,7 @@ export function MultipleChoiceExercise({
           {/* Prompt */}
           <div className="text-center mb-8">
             <h2 className="text-lg text-gray-600 dark:text-gray-400 mb-2">
-              Which character is:
+              {getPromptLabel()}
             </h2>
             <div className="text-3xl font-bold text-gray-900 dark:text-white">
               {getPromptText()}

@@ -7,7 +7,6 @@ import type {
   SimilarCharactersDatabase,
   SimilarCharactersConfig,
   MultipleChoiceItem,
-  PairDistinctionItem,
   SimilarCharacterGroup,
 } from '../types/similarCharacters';
 
@@ -161,91 +160,17 @@ export function generateMultipleChoiceItems(
 }
 
 /**
- * Generate exercise items for Pair Distinction mode (Mode B).
- * Uses explicit confusion pairs from the database.
- */
-export function generatePairDistinctionItems(
-  database: SimilarCharactersDatabase,
-  vocabulary: VocabularyEntry[],
-  config: SimilarCharactersConfig
-): PairDistinctionItem[] {
-  const vocabChars = new Set<string>();
-  for (const entry of vocabulary) {
-    const chars = extractCharacters(entry.word);
-    chars.forEach(c => vocabChars.add(c));
-  }
-
-  const items: PairDistinctionItem[] = [];
-  const usedPairs = new Set<string>();
-
-  for (const group of database.groups) {
-    // Filter by category if specified
-    if (config.categories && !config.categories.includes(group.category)) {
-      continue;
-    }
-
-    for (const pair of group.confusionPairs) {
-      // Skip if neither character is in vocabulary
-      const aInVocab = vocabChars.has(pair.a);
-      const bInVocab = vocabChars.has(pair.b);
-      if (!aInVocab && !bInVocab) continue;
-
-      // Create a unique key for this pair (sorted to avoid duplicates)
-      const pairKey = [pair.a, pair.b].sort().join(':');
-      if (usedPairs.has(pairKey)) continue;
-      usedPairs.add(pairKey);
-
-      // Get character data
-      const dataA = group.characters.find(c => c.character === pair.a);
-      const dataB = group.characters.find(c => c.character === pair.b);
-      if (!dataA || !dataB) continue;
-
-      // Randomly select which character is the target (prefer vocab characters)
-      let targetChar: string;
-      if (aInVocab && !bInVocab) {
-        targetChar = pair.a;
-      } else if (bInVocab && !aInVocab) {
-        targetChar = pair.b;
-      } else {
-        targetChar = Math.random() < 0.5 ? pair.a : pair.b;
-      }
-
-      const targetData = targetChar === pair.a ? dataA : dataB;
-
-      items.push({
-        id: `pd-${pair.a}-${pair.b}-${Date.now()}-${Math.random().toString(36).slice(2)}`,
-        characterA: pair.a,
-        characterB: pair.b,
-        dataA,
-        dataB,
-        targetCharacter: targetChar,
-        targetPinyin: targetData.pinyin,
-        targetMeaning: targetData.meaning,
-        difficulty: pair.difficulty,
-        groupId: group.id,
-        isFromVocabulary: aInVocab || bInVocab,
-      });
-    }
-  }
-
-  // Shuffle items if configured
-  return config.shuffle ? shuffleArray(items) : items;
-}
-
-/**
  * Count available items for a given configuration.
  */
 export function countAvailableItems(
   database: SimilarCharactersDatabase,
   vocabulary: VocabularyEntry[],
   config: SimilarCharactersConfig
-): { multipleChoice: number; pairDistinction: number } {
+): { multipleChoice: number } {
   const mcItems = generateMultipleChoiceItems(database, vocabulary, config);
-  const pdItems = generatePairDistinctionItems(database, vocabulary, config);
 
   return {
     multipleChoice: mcItems.length,
-    pairDistinction: pdItems.length,
   };
 }
 

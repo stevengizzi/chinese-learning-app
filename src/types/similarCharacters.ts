@@ -4,8 +4,10 @@
 
 /**
  * Exercise mode selection
+ * - 'pinyin-to-character': Show pinyin, select the correct character from options
+ * - 'english-to-character': Show English meaning, select the correct character from options
  */
-export type SimilarCharactersMode = 'multiple-choice' | 'pair-distinction';
+export type SimilarCharactersMode = 'pinyin-to-character' | 'english-to-character';
 
 /**
  * Difficulty level for confusion pairs
@@ -72,7 +74,6 @@ export interface SimilarCharactersDatabase {
  */
 export interface SimilarCharactersConfig {
   mode: SimilarCharactersMode;
-  promptType: 'pinyin' | 'meaning' | 'both';
   shuffle: boolean;
   categories?: SimilarityCategory[];
 }
