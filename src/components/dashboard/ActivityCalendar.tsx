@@ -1,16 +1,24 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type { CalendarDay } from '../../types/dashboard';
 import { INTENSITY_COLORS } from '../../types/dashboard';
-import { getMonthLabels, getDayLabels, getCalendarTooltip } from '../../lib/dashboard/calendar';
+import { getMonthLabels, getDayLabels, formatCalendarDate } from '../../lib/dashboard/calendar';
 
 interface ActivityCalendarProps {
   data: CalendarDay[][];
   weeks?: number;
 }
 
+interface TooltipState {
+  visible: boolean;
+  day: CalendarDay | null;
+  x: number;
+  y: number;
+}
+
 export function ActivityCalendar({ data, weeks = 52 }: ActivityCalendarProps) {
   const monthLabels = useMemo(() => getMonthLabels(weeks), [weeks]);
   const dayLabels = getDayLabels();
+  const [tooltip, setTooltip] = useState<TooltipState>({ visible: false, day: null, x: 0, y: 0 });
 
   // Calculate total exercises in the period
   const totalExercises = useMemo(() => {
@@ -76,7 +84,16 @@ export function ActivityCalendar({ data, weeks = 52 }: ActivityCalendarProps) {
                         ? 'ring-2 ring-blue-500 dark:ring-blue-400'
                         : ''
                     } hover:ring-2 hover:ring-gray-400 dark:hover:ring-gray-500`}
-                    title={getCalendarTooltip(day)}
+                    onMouseEnter={(e) => {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      setTooltip({
+                        visible: true,
+                        day,
+                        x: rect.left + rect.width / 2,
+                        y: rect.top - 8
+                      });
+                    }}
+                    onMouseLeave={() => setTooltip({ visible: false, day: null, x: 0, y: 0 })}
                   />
                 ))}
               </div>
@@ -96,7 +113,27 @@ export function ActivityCalendar({ data, weeks = 52 }: ActivityCalendarProps) {
         <span>More</span>
       </div>
 
-      {/* Tooltip - using native title for simplicity */}
+      {/* Custom tooltip */}
+      {tooltip.visible && tooltip.day && (
+        <div
+          className="fixed z-50 px-3 py-2 text-sm bg-gray-900 dark:bg-gray-700 text-white rounded-lg shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full"
+          style={{ left: tooltip.x, top: tooltip.y }}
+        >
+          <div className="font-medium">{formatCalendarDate(tooltip.day.date)}</div>
+          {tooltip.day.isFuture ? (
+            <div className="text-gray-400">Future</div>
+          ) : tooltip.day.exercises === 0 ? (
+            <div className="text-gray-400">No activity</div>
+          ) : (
+            <div className="text-green-400">
+              {tooltip.day.exercises} {tooltip.day.exercises === 1 ? 'exercise' : 'exercises'}
+            </div>
+          )}
+          <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-full">
+            <div className="border-8 border-transparent border-t-gray-900 dark:border-t-gray-700" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

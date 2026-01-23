@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import type { SessionSummary } from '../../types/dashboard';
 import type { ExerciseType, PlayMode } from '../../types/exercise';
+import { SessionDetailModal } from './SessionDetailModal';
 
 interface RecentSessionsProps {
   sessions: SessionSummary[];
@@ -87,6 +89,7 @@ function getPlayModeStyle(mode: PlayMode): string {
 
 export function RecentSessions({ sessions, maxItems = 10 }: RecentSessionsProps) {
   const displaySessions = sessions.slice(0, maxItems);
+  const [selectedSession, setSelectedSession] = useState<SessionSummary | null>(null);
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
@@ -105,7 +108,8 @@ export function RecentSessions({ sessions, maxItems = 10 }: RecentSessionsProps)
           {displaySessions.map((session) => (
             <div
               key={session.id}
-              className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              onClick={() => setSelectedSession(session)}
+              className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
             >
               <div className="flex justify-between items-start">
                 <div className="flex-1 min-w-0">
@@ -125,10 +129,13 @@ export function RecentSessions({ sessions, maxItems = 10 }: RecentSessionsProps)
                   </div>
                 </div>
 
-                <div className="text-right ml-3">
+                <div className="text-right ml-3 flex items-center gap-2">
                   <div className={`text-lg font-bold ${getAccuracyColor(session.accuracy)}`}>
                     {Math.round(session.accuracy)}%
                   </div>
+                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -142,6 +149,14 @@ export function RecentSessions({ sessions, maxItems = 10 }: RecentSessionsProps)
             Showing {maxItems} of {sessions.length} sessions
           </span>
         </div>
+      )}
+
+      {/* Session detail modal */}
+      {selectedSession && (
+        <SessionDetailModal
+          session={selectedSession}
+          onClose={() => setSelectedSession(null)}
+        />
       )}
     </div>
   );

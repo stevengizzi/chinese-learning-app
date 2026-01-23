@@ -43,8 +43,13 @@ export interface SessionSummary {
   exerciseType: ExerciseType;
   playMode: PlayMode;
   totalExercises: number;
+  correctExercises: number;
   accuracy: number;  // 0-100
   averageResponseTimeMs: number;
+  totalTimeMs: number;  // Total session duration
+  fastestResponseMs?: number;
+  slowestResponseMs?: number;
+  vocabularyPracticed: number;  // Count of unique vocabulary items
 }
 
 /**

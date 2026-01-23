@@ -2,6 +2,16 @@ import type { DashboardStats, CalendarDay } from '../../types/dashboard';
 import { INTENSITY_THRESHOLDS } from '../../types/dashboard';
 
 /**
+ * Format a date as local YYYY-MM-DD string
+ */
+function formatLocalDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+/**
  * Get intensity level (0-4) based on exercise count
  */
 export function getIntensityLevel(exercises: number): 0 | 1 | 2 | 3 | 4 {
@@ -23,7 +33,7 @@ export function generateCalendarData(
 ): CalendarDay[][] {
   const calendar: CalendarDay[][] = [];
   const today = new Date();
-  const todayStr = today.toISOString().split('T')[0];
+  const todayStr = formatLocalDate(today);
 
   // Start from the Sunday of (weeks) weeks ago
   const startDate = new Date(today);
@@ -35,7 +45,7 @@ export function generateCalendarData(
     for (let day = 0; day < 7; day++) {
       const date = new Date(startDate);
       date.setDate(startDate.getDate() + (week * 7) + day);
-      const dateStr = date.toISOString().split('T')[0];
+      const dateStr = formatLocalDate(date);
 
       const activity = stats.dailyActivity[dateStr];
       const exercises = activity?.totalExercises || 0;
@@ -85,7 +95,9 @@ export function getActivitySummary(
  * Format date for tooltip display
  */
 export function formatCalendarDate(dateStr: string): string {
-  const date = new Date(dateStr);
+  // Parse YYYY-MM-DD as local date (not UTC)
+  const [year, month, day] = dateStr.split('-').map(Number);
+  const date = new Date(year, month - 1, day);
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'short',
     month: 'short',
@@ -165,7 +177,7 @@ export function getActivityForPeriod(
   for (let i = 0; i < days; i++) {
     const date = new Date(today);
     date.setDate(date.getDate() - i);
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = formatLocalDate(date);
 
     const activity = stats.dailyActivity[dateStr];
     if (activity && activity.totalExercises > 0) {

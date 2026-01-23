@@ -50,19 +50,30 @@ export function createEmptyDailyActivity(date: string): DailyActivity {
 }
 
 /**
- * Get today's date as ISO string (YYYY-MM-DD)
+ * Format a date as local YYYY-MM-DD string
+ * Uses local timezone instead of UTC to avoid date shifting issues
  */
-export function getTodayDate(): string {
-  return new Date().toISOString().split('T')[0];
+function formatLocalDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 /**
- * Get yesterday's date as ISO string
+ * Get today's date as local YYYY-MM-DD string
+ */
+export function getTodayDate(): string {
+  return formatLocalDate(new Date());
+}
+
+/**
+ * Get yesterday's date as local YYYY-MM-DD string
  */
 export function getYesterdayDate(): string {
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
-  return yesterday.toISOString().split('T')[0];
+  return formatLocalDate(yesterday);
 }
 
 /**
@@ -144,6 +155,12 @@ export function addSessionSummary(
   stats: DashboardStats,
   session: Session
 ): DashboardStats {
+  const responseTimes = session.responseTimings
+    .filter(t => t.wasCorrect)
+    .map(t => t.responseTimeMs);
+
+  const uniqueVocab = new Set(session.responseTimings.map(t => t.vocabularyId));
+
   const summary: SessionSummary = {
     id: session.id,
     startTime: session.startTime,
@@ -151,8 +168,13 @@ export function addSessionSummary(
     exerciseType: session.exerciseType,
     playMode: session.playMode,
     totalExercises: session.attempts.length,
+    correctExercises: session.attempts.filter(a => a.score.correct === a.score.total).length,
     accuracy: session.statistics.averageAccuracy,
-    averageResponseTimeMs: session.statistics.averageTimePerCorrectAnswer || 0
+    averageResponseTimeMs: session.statistics.averageTimePerCorrectAnswer || 0,
+    totalTimeMs: session.accumulatedTimeMs || (session.endTime || Date.now()) - session.startTime,
+    fastestResponseMs: responseTimes.length > 0 ? Math.min(...responseTimes) : undefined,
+    slowestResponseMs: responseTimes.length > 0 ? Math.max(...responseTimes) : undefined,
+    vocabularyPracticed: uniqueVocab.size
   };
 
   // Add to front of list and limit to MAX_RECENT_SESSIONS
@@ -263,11 +285,12 @@ export function migrateExistingData(responseDb: ResponseDatabase): DashboardStat
     return stats;
   }
 
-  // Group records by date
+  // Group records by date (using local timezone)
   const recordsByDate: Record<string, typeof responseDb.records> = {};
 
   for (const record of responseDb.records) {
-    const date = new Date(record.timestamp).toISOString().split('T')[0];
+    const recordDate = new Date(record.timestamp);
+    const date = formatLocalDate(recordDate);
     if (!recordsByDate[date]) {
       recordsByDate[date] = [];
     }
@@ -354,7 +377,7 @@ export function migrateExistingData(responseDb: ResponseDatabase): DashboardStat
       let checkDate = new Date(lastActiveDate);
       checkDate.setDate(checkDate.getDate() - 1);
 
-      while (stats.dailyActivity[checkDate.toISOString().split('T')[0]]) {
+      while (stats.dailyActivity[formatLocalDate(checkDate)]) {
         currentStreak += 1;
         checkDate.setDate(checkDate.getDate() - 1);
       }
