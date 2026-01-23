@@ -10,7 +10,7 @@ import type {
  * Mastery thresholds using rolling window
  */
 const THRESHOLDS = {
-  rollingWindow: 15,  // Number of recent attempts to consider
+  rollingWindow: 10,  // Number of recent attempts to consider
   mastered: {
     accuracyPercent: 80,  // Need 80% accuracy (12 out of 15)
     baseSpeedMs: 2500,    // Base threshold for 1-word answers
