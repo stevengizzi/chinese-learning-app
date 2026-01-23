@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import type { ExerciseType, PlayMode } from '../types/exercise';
+import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { VocabularyUploader } from './VocabularyUploader';
 import { getAllHighScores, formatTime } from '../lib/highScores';
 import { TrainingModeToggle } from './TrainingModeToggle';
+import { ExerciseConfigPanel } from './ExerciseConfigPanel';
 
 export function MainMenu() {
   const { state, dispatch } = useExercise();
   const [highScores, setHighScores] = useState(getAllHighScores());
+  const [showConfigPanel, setShowConfigPanel] = useState(false);
+  const [pendingExercise, setPendingExercise] = useState<{ type: ExerciseType; mode: PlayMode } | null>(null);
 
   // Reload high scores when component mounts or when returning from a session
   useEffect(() => {
@@ -38,12 +42,31 @@ export function MainMenu() {
         payload: { exerciseType }
       });
     } else {
-      // Start other play modes directly
-      dispatch({
-        type: 'START_SESSION_WITH_CONFIG',
-        payload: { exerciseType, playMode }
-      });
+      // Show config panel for filter selection
+      setPendingExercise({ type: exerciseType, mode: playMode });
+      setShowConfigPanel(true);
     }
+  };
+
+  const handleConfigStart = (filter?: VocabularyFilterConfig) => {
+    if (!pendingExercise) return;
+
+    dispatch({
+      type: 'START_SESSION_WITH_CONFIG',
+      payload: {
+        exerciseType: pendingExercise.type,
+        playMode: pendingExercise.mode,
+        vocabularyFilter: filter
+      }
+    });
+
+    setShowConfigPanel(false);
+    setPendingExercise(null);
+  };
+
+  const handleConfigCancel = () => {
+    setShowConfigPanel(false);
+    setPendingExercise(null);
   };
 
   const handleViewVocabulary = () => {
@@ -333,6 +356,16 @@ export function MainMenu() {
           </div>
         </div>
       </div>
+
+      {/* Exercise Config Panel */}
+      {showConfigPanel && pendingExercise && (
+        <ExerciseConfigPanel
+          exerciseType={pendingExercise.type}
+          playMode={pendingExercise.mode}
+          onStart={handleConfigStart}
+          onCancel={handleConfigCancel}
+        />
+      )}
     </div>
   );
 }

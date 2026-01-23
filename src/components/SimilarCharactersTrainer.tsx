@@ -8,6 +8,7 @@ import type {
   SimilarCharactersAttempt,
   MultipleChoiceItem,
 } from '../types/similarCharacters';
+import type { VocabularyEntry } from '../types/vocabulary';
 import {
   loadSimilarCharactersDatabase,
   generateMultipleChoiceItems,
@@ -55,11 +56,14 @@ export function SimilarCharactersTrainer({ onBack }: SimilarCharactersTrainerPro
   const vocabulary = state.vocabulary?.active || [];
 
   // Handle starting a session
-  const handleStart = useCallback((config: SimilarCharactersConfig) => {
+  const handleStart = useCallback((config: SimilarCharactersConfig, filteredVocab?: VocabularyEntry[]) => {
     if (!database) return;
 
+    // Use filtered vocabulary if provided, otherwise use full vocabulary
+    const vocabToUse = filteredVocab || vocabulary;
+
     // Both modes use multiple choice items (same generation, different prompt display)
-    const items = generateMultipleChoiceItems(database, vocabulary, config);
+    const items = generateMultipleChoiceItems(database, vocabToUse, config);
 
     if (items.length === 0) {
       setError('No items available for practice with current settings.');
@@ -197,6 +201,7 @@ export function SimilarCharactersTrainer({ onBack }: SimilarCharactersTrainerPro
         <SimilarCharactersSetup
           database={database}
           vocabulary={vocabulary}
+          responseDatabase={state.responseDatabase}
           onStart={handleStart}
           onBack={onBack}
         />

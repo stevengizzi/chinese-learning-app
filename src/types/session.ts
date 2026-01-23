@@ -1,5 +1,7 @@
 import type { ExerciseAttempt, ExerciseType, PlayMode } from './exercise';
 import type { PromptType } from './responseTracking';
+import type { VocabularyFilterConfig } from './vocabularyFilter';
+import type { VocabularyEntry } from './vocabulary';
 
 export interface Session {
   id: string;
@@ -29,6 +31,8 @@ export interface Session {
     incrementPerWordMs: number;  // Additional ms per word (default 1000ms)
   };
   focusOnWeaknesses?: boolean;  // Whether this session is using focus mode
+  vocabularyFilter?: VocabularyFilterConfig;  // Filter used to select vocabulary for this session
+  filteredVocabulary?: VocabularyEntry[];  // The filtered vocabulary entries used in this session
 }
 
 export interface SessionStatistics {

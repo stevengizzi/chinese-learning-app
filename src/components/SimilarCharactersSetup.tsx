@@ -6,12 +6,17 @@ import type {
   SimilarCharactersDatabase,
 } from '../types/similarCharacters';
 import type { VocabularyEntry } from '../types/vocabulary';
+import type { ResponseDatabase } from '../types/responseTracking';
+import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { countAvailableItems } from '../lib/similarCharactersLoader';
+import { VocabularyFilter } from './VocabularyFilter';
+import { filterVocabulary } from '../lib/vocabularyFilter';
 
 interface SimilarCharactersSetupProps {
   database: SimilarCharactersDatabase;
   vocabulary: VocabularyEntry[];
-  onStart: (config: SimilarCharactersConfig) => void;
+  responseDatabase: ResponseDatabase | null;
+  onStart: (config: SimilarCharactersConfig, filteredVocabulary?: VocabularyEntry[]) => void;
   onBack: () => void;
 }
 
@@ -26,6 +31,7 @@ const CATEGORY_LABELS: Record<SimilarityCategory, string> = {
 export function SimilarCharactersSetup({
   database,
   vocabulary,
+  responseDatabase,
   onStart,
   onBack,
 }: SimilarCharactersSetupProps) {
@@ -33,6 +39,12 @@ export function SimilarCharactersSetup({
   const [shuffle, setShuffle] = useState(true);
   const [selectedCategories, setSelectedCategories] = useState<SimilarityCategory[]>([]);
   const [itemCount, setItemCount] = useState(0);
+  const [vocabFilter, setVocabFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
+
+  // Get filtered vocabulary based on filter config
+  const filteredVocabulary = vocabFilter.type === 'all'
+    ? vocabulary
+    : filterVocabulary(vocabulary, vocabFilter, responseDatabase);
 
   // Calculate available items when config changes
   useEffect(() => {
@@ -41,10 +53,10 @@ export function SimilarCharactersSetup({
       shuffle,
       categories: selectedCategories.length > 0 ? selectedCategories : undefined,
     };
-    const counts = countAvailableItems(database, vocabulary, config);
+    const counts = countAvailableItems(database, filteredVocabulary, config);
     // Both modes use the same item generation logic now (multiple choice style)
     setItemCount(counts.multipleChoice);
-  }, [database, vocabulary, mode, shuffle, selectedCategories]);
+  }, [database, filteredVocabulary, mode, shuffle, selectedCategories]);
 
   const handleCategoryToggle = (category: SimilarityCategory) => {
     setSelectedCategories(prev =>
@@ -60,7 +72,8 @@ export function SimilarCharactersSetup({
       shuffle,
       categories: selectedCategories.length > 0 ? selectedCategories : undefined,
     };
-    onStart(config);
+    // Pass filtered vocabulary if a filter is applied
+    onStart(config, vocabFilter.type !== 'all' ? filteredVocabulary : undefined);
   };
 
   const allCategories = database.metadata.categories;
@@ -121,10 +134,21 @@ export function SimilarCharactersSetup({
             </div>
           </div>
 
+          {/* Vocabulary Filter */}
+          <div className="mb-6">
+            <VocabularyFilter
+              exerciseKey="similar-characters"
+              vocabulary={vocabulary}
+              database={responseDatabase}
+              onFilterChange={setVocabFilter}
+              showRememberOption={true}
+            />
+          </div>
+
           {/* Category Filter */}
           <div className="mb-6">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-              Categories
+              Similarity Categories
               <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
                 (select none for all)
               </span>

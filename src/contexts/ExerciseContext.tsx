@@ -1,14 +1,16 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { VocabularyData } from '../types/vocabulary';
+import type { VocabularyData, VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode } from '../types/exercise';
 import type { Session } from '../types/session';
 import type { ResponseDatabase } from '../types/responseTracking';
+import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
+import { filterVocabulary } from '../lib/vocabularyFilter';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters';
 
@@ -28,7 +30,7 @@ interface ExerciseState {
 type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
   | { type: 'SET_RESPONSE_DATABASE'; payload: ResponseDatabase }
-  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
+  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode; vocabularyFilter?: VocabularyFilterConfig } }
   | { type: 'SHOW_SPEED_DRILL_CONFIG'; payload: { exerciseType: ExerciseType } }
   | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
@@ -142,7 +144,20 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'START_SESSION_WITH_CONFIG': {
       if (!state.vocabulary) return state;
 
-      const { exerciseType, playMode } = action.payload;
+      const { exerciseType, playMode, vocabularyFilter } = action.payload;
+
+      // Apply vocabulary filter if specified
+      const activeVocabulary: VocabularyEntry[] = vocabularyFilter && vocabularyFilter.type !== 'all'
+        ? filterVocabulary(state.vocabulary.active, vocabularyFilter, state.responseDatabase)
+        : state.vocabulary.active;
+
+      // If filter results in empty vocabulary, return error state
+      if (activeVocabulary.length === 0) {
+        return {
+          ...state,
+          error: 'No vocabulary items match the selected filter. Try a different filter or add more vocabulary.'
+        };
+      }
 
       // Create remaining words list based on exercise type and play mode
       let remainingWords: string[] | undefined;
@@ -151,30 +166,36 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         // All these modes work through all vocabulary prompts
         if (exerciseType === 'shuffled') {
           // Create array with both word and meaning for each vocabulary entry
-          const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
+          const allEntries = activeVocabulary.flatMap(v => [v.word, v.meaning]);
           remainingWords = shuffleArray(allEntries);
         } else if (exerciseType === 'shuffled-to-english') {
           // Create array with both word and pinyin for each vocabulary entry
-          const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.pinyin]);
+          const allEntries = activeVocabulary.flatMap(v => [v.word, v.pinyin]);
           remainingWords = shuffleArray(allEntries);
         } else if (exerciseType === 'english-to-pinyin') {
           // For English → Pinyin, use meanings as prompts
-          remainingWords = shuffleArray(state.vocabulary.active.map(v => v.meaning));
+          remainingWords = shuffleArray(activeVocabulary.map(v => v.meaning));
         } else if (exerciseType === 'pinyin-to-english') {
           // For Pinyin → English, use pinyin as prompts
-          remainingWords = shuffleArray(state.vocabulary.active.map(v => v.pinyin));
+          remainingWords = shuffleArray(activeVocabulary.map(v => v.pinyin));
         } else {
           // For character-based exercises (character-to-pinyin, character-to-english)
-          remainingWords = shuffleArray(state.vocabulary.active.map(v => v.word));
+          remainingWords = shuffleArray(activeVocabulary.map(v => v.word));
         }
       }
 
-      const session = createNewSession(exerciseType, playMode, state.vocabulary.active.length);
+      const session = createNewSession(exerciseType, playMode, activeVocabulary.length);
       session.remainingWords = remainingWords;
       session.totalPrompts = remainingWords?.length; // Store initial total
 
+      // Create a filtered vocabulary data object for the session
+      const filteredVocabularyData: VocabularyData = {
+        ...state.vocabulary,
+        active: activeVocabulary
+      };
+
       const exercise = generateNewExercise(
-        state.vocabulary,
+        filteredVocabularyData,
         exerciseType,
         playMode,
         [],
@@ -187,11 +208,14 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         ...state,
         currentSession: {
           ...session,
-          focusOnWeaknesses: state.focusOnWeaknesses  // Store in session for display
+          focusOnWeaknesses: state.focusOnWeaknesses,  // Store in session for display
+          vocabularyFilter,  // Store filter config in session
+          filteredVocabulary: activeVocabulary  // Store filtered vocabulary for the session
         },
         currentExercise: exercise,
         currentAttempt: null,
-        screen: 'exercise'
+        screen: 'exercise',
+        error: null  // Clear any previous error
       };
     }
 
@@ -243,6 +267,39 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         wasCorrect
       };
       const updatedResponseTimings = [...(state.currentSession.responseTimings || []), newTiming];
+
+      // IMMEDIATELY save this response record to the database
+      // This ensures no data is lost even if the user exits without requesting a report
+      try {
+        const cachedData = localStorage.getItem('response-tracking-cache');
+        let db;
+        if (cachedData) {
+          try {
+            db = JSON.parse(cachedData);
+          } catch {
+            db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+          }
+        } else {
+          db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+        }
+
+        const record = {
+          vocabularyId: newTiming.vocabularyId,
+          character: newTiming.character,
+          pinyin: newTiming.pinyin,
+          meaning: newTiming.meaning,
+          exerciseType: state.currentSession.exerciseType,
+          promptType: newTiming.promptType,
+          responseTimeMs: newTiming.responseTimeMs,
+          wordCount: newTiming.wordCount,
+          wasCorrect: newTiming.wasCorrect
+        };
+
+        const updatedDb = addResponseRecords(db, [record]);
+        saveResponseDatabase(updatedDb);
+      } catch (error) {
+        console.error('Failed to save response record:', error);
+      }
 
       // Accumulate time: add time since last resume to accumulated time, then pause
       const timeElapsedSinceResume = state.currentSession.lastResumeTime
@@ -347,8 +404,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         .slice(-5)
         .map(a => a.exerciseId.split('-')[0]); // Extract word from exercise ID
 
+      // Use filtered vocabulary if available, otherwise use full vocabulary
+      const vocabularyToUse: VocabularyData = state.currentSession.filteredVocabulary
+        ? { ...state.vocabulary, active: state.currentSession.filteredVocabulary }
+        : state.vocabulary;
+
       const exercise = generateNewExercise(
-        state.vocabulary,
+        vocabularyToUse,
         state.currentSession.exerciseType,
         state.currentSession.playMode,
         recentIds,
@@ -391,42 +453,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         finalAccumulatedTime
       );
 
-      // Save response time data to database synchronously
-      if (state.currentSession.responseTimings && state.currentSession.responseTimings.length > 0) {
-        try {
-          // Load current database synchronously from localStorage
-          const cachedData = localStorage.getItem('response-tracking-cache');
-          let db;
-          if (cachedData) {
-            try {
-              db = JSON.parse(cachedData);
-            } catch {
-              db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
-            }
-          } else {
-            db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
-          }
-
-          const records = state.currentSession.responseTimings.map(timing => ({
-            vocabularyId: timing.vocabularyId,
-            character: timing.character,
-            pinyin: timing.pinyin,
-            meaning: timing.meaning,
-            exerciseType: state.currentSession!.exerciseType,
-            promptType: timing.promptType,
-            responseTimeMs: timing.responseTimeMs,
-            wordCount: timing.wordCount,
-            wasCorrect: timing.wasCorrect
-          }));
-
-          const updatedDb = addResponseRecords(db, records);
-          saveResponseDatabase(updatedDb);
-
-          console.log(`Saved ${records.length} response time records`);
-        } catch (error) {
-          console.error('Failed to save response time records:', error);
-        }
-      }
+      // Response records are now saved incrementally after each answer (in SUBMIT_ANSWER)
+      // No need to save them again here
 
       return {
         ...state,

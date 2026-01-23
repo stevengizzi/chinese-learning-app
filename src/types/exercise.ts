@@ -1,5 +1,6 @@
 import type { VocabularyEntry } from './vocabulary';
 import type { PromptType } from './responseTracking';
+import type { VocabularyFilterConfig } from './vocabularyFilter';
 
 export type ExerciseType =
   | 'character-to-pinyin'
@@ -48,4 +49,5 @@ export interface SessionConfig {
   exerciseType: ExerciseType;
   playMode: PlayMode;
   focusOnWeaknesses: boolean;
+  vocabularyFilter?: VocabularyFilterConfig;
 }
