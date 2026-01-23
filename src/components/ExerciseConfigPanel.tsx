@@ -5,13 +5,6 @@ import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { VocabularyFilter } from './VocabularyFilter';
 import { countFilteredVocabulary, getFilterForExercise } from '../lib/vocabularyFilter';
 
-interface ExerciseConfigPanelProps {
-  exerciseType: ExerciseType;
-  playMode: PlayMode;
-  onStart: (filter?: VocabularyFilterConfig) => void;
-  onCancel: () => void;
-}
-
 const EXERCISE_LABELS: Record<ExerciseType, string> = {
   'character-to-pinyin': 'Character → Pinyin',
   'character-to-english': 'Character → English',
@@ -28,14 +21,20 @@ const PLAY_MODE_LABELS: Record<PlayMode, string> = {
   'speed-drill': 'Speed Drill',
 };
 
-export function ExerciseConfigPanel({
-  exerciseType,
-  playMode,
-  onStart,
-  onCancel,
-}: ExerciseConfigPanelProps) {
-  const { state } = useExercise();
+const PLAY_MODE_DESCRIPTIONS: Record<PlayMode, string> = {
+  'endless': 'Continuous random prompts until you stop',
+  'complete-all': 'Go through each word once, then see your results',
+  'drill': 'Repeat each word until answered correctly',
+  'speed-drill': 'Focus on improving response speed',
+};
+
+export function ExerciseConfigScreen() {
+  const { state, dispatch } = useExercise();
   const [filter, setFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
+
+  const pendingConfig = state.pendingExerciseConfig;
+  const exerciseType = pendingConfig?.exerciseType || 'character-to-pinyin';
+  const playMode = pendingConfig?.playMode || 'endless';
 
   const exerciseKey = `${exerciseType}-${playMode}`;
   const vocabulary = state.vocabulary?.active || [];
@@ -52,64 +51,91 @@ export function ExerciseConfigPanel({
   const filteredCount = countFilteredVocabulary(vocabulary, filter, database);
 
   const handleStart = () => {
-    onStart(filter.type === 'all' ? undefined : filter);
+    dispatch({
+      type: 'START_SESSION_WITH_CONFIG',
+      payload: {
+        exerciseType,
+        playMode,
+        vocabularyFilter: filter.type === 'all' ? undefined : filter
+      }
+    });
+  };
+
+  const handleBack = () => {
+    dispatch({ type: 'BACK_TO_MENU' });
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
+      <div className="w-full max-w-2xl">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Header */}
-          <div className="mb-6">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Configure Exercise
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {EXERCISE_LABELS[exerciseType]} • {PLAY_MODE_LABELS[playMode]}
-            </p>
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+              {EXERCISE_LABELS[exerciseType]}
+            </h1>
+            <div className="inline-block bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-lg">
+              <span className="font-semibold">{PLAY_MODE_LABELS[playMode]}</span>
+              <span className="text-sm ml-2 opacity-80">— {PLAY_MODE_DESCRIPTIONS[playMode]}</span>
+            </div>
           </div>
 
-          {/* Vocabulary Filter */}
-          <div className="mb-6">
-            <VocabularyFilter
-              exerciseKey={exerciseKey}
-              vocabulary={vocabulary}
-              database={database}
-              onFilterChange={setFilter}
-              showRememberOption={true}
-            />
-          </div>
+          {/* Configuration */}
+          <div className="space-y-8">
+            {/* Vocabulary Filter */}
+            <div>
+              <VocabularyFilter
+                exerciseKey={exerciseKey}
+                vocabulary={vocabulary}
+                database={database}
+                onFilterChange={setFilter}
+                showRememberOption={true}
+              />
+            </div>
 
-          {/* Summary */}
-          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl">
-            <p className="text-center text-blue-800 dark:text-blue-200">
-              <span className="font-bold text-2xl">{filteredCount}</span>
-              <span className="text-sm ml-2">vocabulary items selected</span>
-            </p>
-          </div>
+            {/* Filtered Count */}
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
+                  {filteredCount}
+                </div>
+                <div className="text-gray-600 dark:text-gray-400 mt-1">
+                  vocabulary items selected
+                </div>
+              </div>
+            </div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-3">
-            <button
-              onClick={onCancel}
-              className="flex-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-semibold py-3 px-4 rounded-xl transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleStart}
-              disabled={filteredCount === 0}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-xl transition-colors"
-            >
-              Start Exercise
-            </button>
-          </div>
+            {/* Info Box */}
+            <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                <span className="font-semibold">Tip:</span> Use filters to focus your practice on specific vocabulary.
+                Select "Remember my filter" to save your preference for this exercise type.
+              </p>
+            </div>
 
-          {filteredCount === 0 && (
-            <p className="mt-3 text-center text-sm text-red-600 dark:text-red-400">
-              No vocabulary items match this filter. Try a different filter.
-            </p>
-          )}
+            {/* Action Buttons */}
+            <div className="flex gap-4 pt-4">
+              <button
+                onClick={handleBack}
+                className="flex-1 bg-gray-600 hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200"
+              >
+                ← Back to Menu
+              </button>
+              <button
+                onClick={handleStart}
+                disabled={filteredCount === 0}
+                className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:cursor-not-allowed"
+              >
+                {filteredCount === 0 ? 'No Vocabulary Selected' : 'Start Exercise →'}
+              </button>
+            </div>
+
+            {filteredCount === 0 && (
+              <p className="text-center text-sm text-red-600 dark:text-red-400">
+                No vocabulary items match this filter. Try a different filter.
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>

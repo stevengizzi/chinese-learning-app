@@ -12,7 +12,7 @@ import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
 import { filterVocabulary } from '../lib/vocabularyFilter';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -24,15 +24,17 @@ interface ExerciseState {
   error: string | null;
   responseDatabase: ResponseDatabase | null;
   pendingSpeedDrillExercise?: ExerciseType; // Exercise type pending speed drill config
+  pendingExerciseConfig?: { exerciseType: ExerciseType; playMode: PlayMode }; // Exercise pending config
   focusOnWeaknesses: boolean; // Whether to prioritize weak vocabulary items
 }
 
 type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
   | { type: 'SET_RESPONSE_DATABASE'; payload: ResponseDatabase }
+  | { type: 'SHOW_EXERCISE_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
   | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode; vocabularyFilter?: VocabularyFilterConfig } }
   | { type: 'SHOW_SPEED_DRILL_CONFIG'; payload: { exerciseType: ExerciseType } }
-  | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number } }
+  | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number; vocabularyFilter?: VocabularyFilterConfig } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
   | { type: 'NEXT_EXERCISE' }
   | { type: 'REQUEST_REPORT' }
@@ -486,6 +488,14 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       };
     }
 
+    case 'SHOW_EXERCISE_CONFIG': {
+      return {
+        ...state,
+        pendingExerciseConfig: action.payload,
+        screen: 'exercise-config'
+      };
+    }
+
     case 'SHOW_SPEED_DRILL_CONFIG': {
       return {
         ...state,
@@ -497,32 +507,52 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'START_SPEED_DRILL': {
       if (!state.vocabulary) return state;
 
-      const { exerciseType, baseThresholdMs, incrementPerWordMs } = action.payload;
+      const { exerciseType, baseThresholdMs, incrementPerWordMs, vocabularyFilter } = action.payload;
+
+      // Apply vocabulary filter if specified
+      const activeVocabulary: VocabularyEntry[] = vocabularyFilter && vocabularyFilter.type !== 'all'
+        ? filterVocabulary(state.vocabulary.active, vocabularyFilter, state.responseDatabase)
+        : state.vocabulary.active;
+
+      // If filter results in empty vocabulary, return error state
+      if (activeVocabulary.length === 0) {
+        return {
+          ...state,
+          error: 'No vocabulary items match the selected filter. Try a different filter or add more vocabulary.',
+          screen: 'menu'
+        };
+      }
 
       // Create remaining words list (same as drill mode)
       let remainingWords: string[] | undefined;
 
       if (exerciseType === 'shuffled') {
-        const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.meaning]);
+        const allEntries = activeVocabulary.flatMap(v => [v.word, v.meaning]);
         remainingWords = shuffleArray(allEntries);
       } else if (exerciseType === 'shuffled-to-english') {
-        const allEntries = state.vocabulary.active.flatMap(v => [v.word, v.pinyin]);
+        const allEntries = activeVocabulary.flatMap(v => [v.word, v.pinyin]);
         remainingWords = shuffleArray(allEntries);
       } else if (exerciseType === 'english-to-pinyin') {
-        remainingWords = shuffleArray(state.vocabulary.active.map(v => v.meaning));
+        remainingWords = shuffleArray(activeVocabulary.map(v => v.meaning));
       } else if (exerciseType === 'pinyin-to-english') {
-        remainingWords = shuffleArray(state.vocabulary.active.map(v => v.pinyin));
+        remainingWords = shuffleArray(activeVocabulary.map(v => v.pinyin));
       } else {
-        remainingWords = shuffleArray(state.vocabulary.active.map(v => v.word));
+        remainingWords = shuffleArray(activeVocabulary.map(v => v.word));
       }
 
-      const session = createNewSession(exerciseType, 'speed-drill', state.vocabulary.active.length);
+      const session = createNewSession(exerciseType, 'speed-drill', activeVocabulary.length);
       session.remainingWords = remainingWords;
       session.totalPrompts = remainingWords?.length; // Store initial total
       session.speedDrillConfig = { baseThresholdMs, incrementPerWordMs };
 
+      // Create a filtered vocabulary data object for the session
+      const filteredVocabularyData: VocabularyData = {
+        ...state.vocabulary,
+        active: activeVocabulary
+      };
+
       const exercise = generateNewExercise(
-        state.vocabulary,
+        filteredVocabularyData,
         exerciseType,
         'speed-drill',
         [],
@@ -531,7 +561,11 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       return {
         ...state,
-        currentSession: session,
+        currentSession: {
+          ...session,
+          vocabularyFilter,  // Store filter config in session
+          filteredVocabulary: activeVocabulary  // Store filtered vocabulary for the session
+        },
         currentExercise: exercise,
         currentAttempt: null,
         pendingSpeedDrillExercise: undefined,

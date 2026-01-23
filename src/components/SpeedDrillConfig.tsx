@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
+import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
+import { VocabularyFilter } from './VocabularyFilter';
+import { countFilteredVocabulary } from '../lib/vocabularyFilter';
 
 export function SpeedDrillConfig() {
   const { state, dispatch } = useExercise();
   const [baseThreshold, setBaseThreshold] = useState(3.0); // seconds
   const [incrementPerWord, setIncrementPerWord] = useState(1.0); // seconds
+  const [vocabFilter, setVocabFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
+
+  const vocabulary = state.vocabulary?.active || [];
+  const filteredCount = countFilteredVocabulary(vocabulary, vocabFilter, state.responseDatabase);
+  const exerciseKey = state.pendingSpeedDrillExercise
+    ? `${state.pendingSpeedDrillExercise}-speed-drill`
+    : 'speed-drill';
 
   const handleStartExercise = () => {
     if (state.pendingSpeedDrillExercise) {
@@ -13,7 +23,8 @@ export function SpeedDrillConfig() {
         payload: {
           exerciseType: state.pendingSpeedDrillExercise,
           baseThresholdMs: baseThreshold * 1000,
-          incrementPerWordMs: incrementPerWord * 1000
+          incrementPerWordMs: incrementPerWord * 1000,
+          vocabularyFilter: vocabFilter.type !== 'all' ? vocabFilter : undefined
         }
       });
     }
@@ -111,6 +122,29 @@ export function SpeedDrillConfig() {
               </div>
             </div>
 
+            {/* Vocabulary Filter */}
+            <div className="mb-2">
+              <VocabularyFilter
+                exerciseKey={exerciseKey}
+                vocabulary={vocabulary}
+                database={state.responseDatabase}
+                onFilterChange={setVocabFilter}
+                showRememberOption={true}
+              />
+            </div>
+
+            {/* Filtered Count */}
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 mb-2">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                  {filteredCount}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  vocabulary items selected
+                </div>
+              </div>
+            </div>
+
             {/* Info Box */}
             <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
               <p className="text-sm text-blue-800 dark:text-blue-200">
@@ -130,9 +164,10 @@ export function SpeedDrillConfig() {
               </button>
               <button
                 onClick={handleStartExercise}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                disabled={filteredCount === 0}
+                className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:cursor-not-allowed"
               >
-                Start Exercise →
+                {filteredCount === 0 ? 'No Vocabulary Selected' : 'Start Exercise →'}
               </button>
             </div>
           </div>

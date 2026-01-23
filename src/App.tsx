@@ -10,6 +10,7 @@ import { ViewVocabulary } from './components/ViewVocabulary';
 import { ThemeToggle } from './components/ThemeToggle';
 import { ToneSequenceTrainer } from './components/ToneSequenceTrainer';
 import { SpeedDrillConfig } from './components/SpeedDrillConfig';
+import { ExerciseConfigScreen } from './components/ExerciseConfigPanel';
 import { SentenceReadingTrainer } from './components/SentenceReadingTrainer';
 import { TonePatternTrainer } from './components/TonePatternTrainer';
 import { SimilarCharactersTrainer } from './components/SimilarCharactersTrainer';
@@ -62,6 +63,7 @@ function AppContent() {
           {state.screen === 'report' && <ReportScreen />}
           {state.screen === 'view-vocabulary' && <ViewVocabulary />}
           {state.screen === 'speed-drill-config' && <SpeedDrillConfig />}
+          {state.screen === 'exercise-config' && <ExerciseConfigScreen />}
           {state.screen === 'tone-sequence' && (
             <ToneSequenceTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
           )}
