@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
-import type { MasteryBreakdown as MasteryBreakdownData } from '../../types/dashboard';
-import { MASTERY_COLORS } from '../../types/dashboard';
+import { useMemo, useState } from 'react';
+import type { MasteryBreakdown as MasteryBreakdownData, MasteryLevel } from '../../types/dashboard';
+import { MASTERY_COLORS, MASTERY_THRESHOLDS } from '../../types/dashboard';
 
 interface MasteryBreakdownProps {
   data: MasteryBreakdownData;
@@ -11,6 +11,57 @@ interface DonutSegment {
   count: number;
   percentage: number;
   color: string;
+}
+
+interface TooltipState {
+  visible: boolean;
+  level: MasteryLevel | null;
+  x: number;
+  y: number;
+}
+
+/**
+ * Get description for each mastery level
+ */
+function getMasteryDescription(level: MasteryLevel): { title: string; criteria: string[] } {
+  const { rollingWindow, mastered, learning } = MASTERY_THRESHOLDS;
+
+  switch (level) {
+    case 'mastered':
+      return {
+        title: 'Mastered',
+        criteria: [
+          `${mastered.accuracyPercent}% accuracy in last ${rollingWindow} attempts`,
+          `Response time within threshold:`,
+          `• 1 word: ${(mastered.baseSpeedMs / 1000).toFixed(1)}s`,
+          `• 2 words: ${((mastered.baseSpeedMs + mastered.speedPerWordMs) / 1000).toFixed(2)}s`,
+          `• +${(mastered.speedPerWordMs / 1000).toFixed(2)}s per additional word`
+        ]
+      };
+    case 'learning':
+      return {
+        title: 'Learning',
+        criteria: [
+          `${learning.accuracyPercent}% accuracy in recent attempts`,
+          `At least ${learning.minAttempts} total attempts`
+        ]
+      };
+    case 'struggling':
+      return {
+        title: 'Struggling',
+        criteria: [
+          `Below ${learning.accuracyPercent}% accuracy`,
+          `Has been practiced at least once`
+        ]
+      };
+    case 'new':
+      return {
+        title: 'New',
+        criteria: [
+          'Not yet practiced'
+        ]
+      };
+  }
 }
 
 /**
@@ -79,6 +130,21 @@ function DonutChart({ segments, size = 160 }: { segments: DonutSegment[]; size?:
 export function MasteryBreakdown({ data }: MasteryBreakdownProps) {
   const { counts } = data;
   const total = counts.total;
+  const [tooltip, setTooltip] = useState<TooltipState>({ visible: false, level: null, x: 0, y: 0 });
+
+  const handleMouseEnter = (e: React.MouseEvent, level: MasteryLevel) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setTooltip({
+      visible: true,
+      level,
+      x: rect.left + rect.width / 2,
+      y: rect.top - 8
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTooltip({ visible: false, level: null, x: 0, y: 0 });
+  };
 
   const segments = useMemo<DonutSegment[]>(() => {
     if (total === 0) return [];
@@ -142,52 +208,72 @@ export function MasteryBreakdown({ data }: MasteryBreakdownProps) {
 
           {/* Legend */}
           <div className="mt-6 w-full space-y-2">
-            <div className="flex items-center justify-between">
+            <div
+              className="flex items-center justify-between cursor-help rounded-md px-1 -mx-1 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+              onMouseEnter={(e) => handleMouseEnter(e, 'mastered')}
+              onMouseLeave={handleMouseLeave}
+            >
               <div className="flex items-center gap-2">
                 <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: MASTERY_COLORS.mastered }}
                 />
                 <span className="text-sm text-gray-700 dark:text-gray-300">Mastered</span>
+                <span className="text-gray-400 text-xs">ⓘ</span>
               </div>
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
                 {counts.mastered}
               </span>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div
+              className="flex items-center justify-between cursor-help rounded-md px-1 -mx-1 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+              onMouseEnter={(e) => handleMouseEnter(e, 'learning')}
+              onMouseLeave={handleMouseLeave}
+            >
               <div className="flex items-center gap-2">
                 <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: MASTERY_COLORS.learning }}
                 />
                 <span className="text-sm text-gray-700 dark:text-gray-300">Learning</span>
+                <span className="text-gray-400 text-xs">ⓘ</span>
               </div>
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
                 {counts.learning}
               </span>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div
+              className="flex items-center justify-between cursor-help rounded-md px-1 -mx-1 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+              onMouseEnter={(e) => handleMouseEnter(e, 'struggling')}
+              onMouseLeave={handleMouseLeave}
+            >
               <div className="flex items-center gap-2">
                 <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: MASTERY_COLORS.struggling }}
                 />
                 <span className="text-sm text-gray-700 dark:text-gray-300">Struggling</span>
+                <span className="text-gray-400 text-xs">ⓘ</span>
               </div>
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
                 {counts.struggling}
               </span>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div
+              className="flex items-center justify-between cursor-help rounded-md px-1 -mx-1 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+              onMouseEnter={(e) => handleMouseEnter(e, 'new')}
+              onMouseLeave={handleMouseLeave}
+            >
               <div className="flex items-center gap-2">
                 <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: MASTERY_COLORS.new }}
                 />
                 <span className="text-sm text-gray-700 dark:text-gray-300">New</span>
+                <span className="text-gray-400 text-xs">ⓘ</span>
               </div>
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
                 {counts.new}
@@ -205,6 +291,33 @@ export function MasteryBreakdown({ data }: MasteryBreakdownProps) {
                 {total}
               </span>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mastery level tooltip */}
+      {tooltip.visible && tooltip.level && (
+        <div
+          className="fixed z-50 px-4 py-3 text-sm bg-gray-900 dark:bg-gray-700 text-white rounded-lg shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full max-w-xs"
+          style={{ left: tooltip.x, top: tooltip.y }}
+        >
+          {(() => {
+            const desc = getMasteryDescription(tooltip.level);
+            return (
+              <>
+                <div className="font-semibold mb-1" style={{ color: MASTERY_COLORS[tooltip.level] }}>
+                  {desc.title}
+                </div>
+                <ul className="text-xs text-gray-300 space-y-0.5">
+                  {desc.criteria.map((criterion, i) => (
+                    <li key={i}>{criterion}</li>
+                  ))}
+                </ul>
+              </>
+            );
+          })()}
+          <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-full">
+            <div className="border-8 border-transparent border-t-gray-900 dark:border-t-gray-700" />
           </div>
         </div>
       )}
