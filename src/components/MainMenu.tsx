@@ -50,6 +50,10 @@ export function MainMenu() {
     dispatch({ type: 'VIEW_VOCABULARY' });
   };
 
+  const handleViewDashboard = () => {
+    dispatch({ type: 'VIEW_DASHBOARD' });
+  };
+
   const getHighScoreForMode = (exerciseType: ExerciseType, playMode: PlayMode) => {
     const key = `${exerciseType}-${playMode}`;
     return highScores[key];
@@ -150,6 +154,20 @@ export function MainMenu() {
                 </p>
               </div>
             )}
+
+            {/* Dashboard Button - Prominent */}
+            <div className="mb-6">
+              <button
+                onClick={handleViewDashboard}
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                <span className="text-2xl mr-2">📊</span>
+                <span className="text-lg">Progress Dashboard</span>
+              </button>
+              <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Track your streaks, mastery, and learning progress
+              </p>
+            </div>
 
             {/* View Vocabulary & Update Buttons */}
             <div className="mb-4 flex justify-center gap-4">

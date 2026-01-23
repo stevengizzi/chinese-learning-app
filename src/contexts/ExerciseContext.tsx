@@ -12,7 +12,7 @@ import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
 import { filterVocabulary } from '../lib/vocabularyFilter';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard';
 
 interface ExerciseState {
   vocabulary: VocabularyData | null;
@@ -44,6 +44,7 @@ type ExerciseAction =
   | { type: 'START_SENTENCE_READING' }
   | { type: 'START_TONE_PATTERN' }
   | { type: 'START_SIMILAR_CHARACTERS' }
+  | { type: 'VIEW_DASHBOARD' }
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' }
   | { type: 'SET_FOCUS_MODE'; payload: boolean };
@@ -598,6 +599,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         screen: 'similar-characters'
+      };
+    }
+
+    case 'VIEW_DASHBOARD': {
+      return {
+        ...state,
+        screen: 'dashboard'
       };
     }
 
