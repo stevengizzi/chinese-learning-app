@@ -201,13 +201,14 @@ export const PROMPT_TYPE_CONFIG: Record<PromptType, { label: string; shortLabel:
 } as const;
 
 /**
- * All prompt types in order
+ * All prompt types in display order
+ * Order: 字→拼, EN→拼, 字→EN, 拼→EN
  */
 export const ALL_PROMPT_TYPES: PromptType[] = [
   'character-to-pinyin',
+  'english-to-pinyin',
   'character-to-english',
-  'pinyin-to-english',
-  'english-to-pinyin'
+  'pinyin-to-english'
 ] as const;
 
 /**

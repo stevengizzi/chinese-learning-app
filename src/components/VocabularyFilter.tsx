@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import type { VocabularyEntry } from '../types/vocabulary';
-import type { ResponseDatabase } from '../types/responseTracking';
-import type { VocabularyFilterConfig, VocabularyFilterType } from '../types/vocabularyFilter';
-import { FILTER_LABELS, FILTER_DESCRIPTIONS, DEFAULT_FILTER_CONFIGS } from '../types/vocabularyFilter';
+import type { ResponseDatabase, PromptType } from '../types/responseTracking';
+import type { VocabularyFilterConfig, VocabularyFilterType, SkillMasteryFilter } from '../types/vocabularyFilter';
+import { FILTER_LABELS, FILTER_DESCRIPTIONS, DEFAULT_FILTER_CONFIGS, DEFAULT_SKILL_MASTERY_FILTER } from '../types/vocabularyFilter';
 import { countFilteredVocabulary, getFilterForExercise, saveFilterForExercise, clearFilterForExercise } from '../lib/vocabularyFilter';
+import { ALL_PROMPT_TYPES, PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
+import type { MasteryLevel } from '../types/dashboard';
 
 interface VocabularyFilterProps {
   exerciseKey: string;
@@ -21,16 +23,23 @@ export function VocabularyFilter({
   showRememberOption = true,
 }: VocabularyFilterProps) {
   const [selectedFilter, setSelectedFilter] = useState<VocabularyFilterType>('all');
-  const [config, setConfig] = useState<VocabularyFilterConfig>({ type: 'all' });
+  const [config, setConfig] = useState<VocabularyFilterConfig>({
+    type: 'all',
+    skillMasteryFilter: { ...DEFAULT_SKILL_MASTERY_FILTER }
+  });
   const [rememberFilter, setRememberFilter] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isSkillFilterExpanded, setIsSkillFilterExpanded] = useState(false);
 
   // Load saved filter preference on mount
   useEffect(() => {
     const savedConfig = getFilterForExercise(exerciseKey);
     if (savedConfig) {
       setSelectedFilter(savedConfig.type);
-      setConfig(savedConfig);
+      setConfig({
+        ...savedConfig,
+        skillMasteryFilter: savedConfig.skillMasteryFilter || { ...DEFAULT_SKILL_MASTERY_FILTER }
+      });
       setRememberFilter(true);
       onFilterChange(savedConfig);
     }
@@ -84,6 +93,32 @@ export function VocabularyFilter({
       clearFilterForExercise(exerciseKey);
     }
   };
+
+  const handleSkillMasteryToggle = (promptType: PromptType, level: MasteryLevel) => {
+    const currentFilter = config.skillMasteryFilter || { ...DEFAULT_SKILL_MASTERY_FILTER };
+    const currentLevels = currentFilter[promptType];
+    const newLevels = currentLevels.includes(level)
+      ? currentLevels.filter(l => l !== level)
+      : [...currentLevels, level];
+
+    const newSkillFilter: SkillMasteryFilter = {
+      ...currentFilter,
+      [promptType]: newLevels
+    };
+
+    const newConfig = { ...config, skillMasteryFilter: newSkillFilter };
+    setConfig(newConfig);
+    onFilterChange(newConfig);
+
+    if (rememberFilter) {
+      saveFilterForExercise(exerciseKey, newConfig);
+    }
+  };
+
+  // Check if skill filter has any non-default selections
+  const hasActiveSkillFilter = config.skillMasteryFilter && ALL_PROMPT_TYPES.some(pt =>
+    config.skillMasteryFilter![pt].length < 4
+  );
 
   const currentCount = countFilteredVocabulary(vocabulary, config, database);
 
@@ -217,6 +252,79 @@ export function VocabularyFilter({
               <span className="text-sm text-gray-600 dark:text-gray-400">items in list</span>
             </div>
           )}
+
+          {/* Skill Mastery Filter */}
+          <div className="border-t border-gray-200 dark:border-gray-600 pt-3">
+            <button
+              onClick={() => setIsSkillFilterExpanded(!isSkillFilterExpanded)}
+              className="w-full flex items-center justify-between text-left"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Skill Mastery Filter
+                </span>
+                {hasActiveSkillFilter && (
+                  <span className="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 px-2 py-0.5 rounded-full">
+                    Active
+                  </span>
+                )}
+              </div>
+              <span className="text-gray-400 text-sm">
+                {isSkillFilterExpanded ? '▲' : '▼'}
+              </span>
+            </button>
+
+            {isSkillFilterExpanded && (
+              <div className="mt-3 space-y-3">
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Filter by mastery level for each skill. Deselect levels to exclude vocabulary.
+                </p>
+                {ALL_PROMPT_TYPES.map(pt => {
+                  const ptConfig = PROMPT_TYPE_CONFIG[pt];
+                  const currentLevels = config.skillMasteryFilter?.[pt] || ['mastered', 'learning', 'struggling', 'new'];
+                  const masteryLevels: MasteryLevel[] = ['mastered', 'learning', 'struggling', 'new'];
+
+                  return (
+                    <div key={pt} className="bg-white dark:bg-gray-800 rounded-lg p-3">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className="text-sm font-medium"
+                          style={{ color: ptConfig.color }}
+                        >
+                          {ptConfig.label}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {masteryLevels.map(level => {
+                          const isSelected = currentLevels.includes(level);
+                          const color = MASTERY_COLORS[level];
+                          return (
+                            <button
+                              key={level}
+                              onClick={() => handleSkillMasteryToggle(pt, level)}
+                              className={`
+                                px-2 py-1 text-xs rounded-full border-2 transition-all
+                                ${isSelected
+                                  ? 'border-current'
+                                  : 'border-gray-300 dark:border-gray-600 opacity-40'
+                                }
+                              `}
+                              style={{
+                                color: isSelected ? color : undefined,
+                                backgroundColor: isSelected ? `${color}20` : undefined
+                              }}
+                            >
+                              {level.charAt(0).toUpperCase() + level.slice(1)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
 
           {/* Remember filter checkbox */}
           {showRememberOption && (

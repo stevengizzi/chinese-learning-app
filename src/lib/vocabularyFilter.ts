@@ -6,8 +6,10 @@
 
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { ResponseDatabase, PromptType } from '../types/responseTracking';
-import type { VocabularyFilterConfig, VocabularyFilterType, SavedFilterPreferences } from '../types/vocabularyFilter';
+import type { VocabularyFilterConfig, VocabularyFilterType, SavedFilterPreferences, SkillMasteryFilter } from '../types/vocabularyFilter';
 import { generateVocabularyId, calculateSpeedThreshold } from './responseTracking/storage';
+import { getVocabularyMasteryInfo } from './dashboard/mastery';
+import { ALL_PROMPT_TYPES } from '../types/dashboard';
 
 const FILTER_PREFERENCES_KEY = 'vocabulary-filter-preferences';
 
@@ -64,6 +66,31 @@ export function clearFilterForExercise(exerciseKey: string): void {
 }
 
 /**
+ * Check if a vocabulary entry passes the skill mastery filter
+ */
+function entryPassesSkillMasteryFilter(
+  entry: VocabularyEntry,
+  skillFilter: SkillMasteryFilter,
+  database: ResponseDatabase | null
+): boolean {
+  const masteryInfo = getVocabularyMasteryInfo(entry, database);
+
+  // Check each prompt type - entry passes if it matches at least one selected level for each prompt type
+  for (const pt of ALL_PROMPT_TYPES) {
+    const ptMastery = masteryInfo.byPromptType[pt].masteryLevel;
+    const allowedLevels = skillFilter[pt];
+
+    // If no levels are selected for this prompt type, it means "don't filter by this"
+    // But if levels are selected and this entry's level isn't included, filter it out
+    if (allowedLevels.length > 0 && allowedLevels.length < 4 && !allowedLevels.includes(ptMastery)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
  * Check if a vocabulary entry passes the filter criteria
  */
 function entryPassesFilter(
@@ -73,6 +100,16 @@ function entryPassesFilter(
   config: VocabularyFilterConfig,
   database: ResponseDatabase | null
 ): boolean {
+  // First check skill mastery filter if present and not all selected
+  if (config.skillMasteryFilter) {
+    const isDefaultFilter = ALL_PROMPT_TYPES.every(pt =>
+      config.skillMasteryFilter![pt].length === 4
+    );
+    if (!isDefaultFilter && !entryPassesSkillMasteryFilter(entry, config.skillMasteryFilter, database)) {
+      return false;
+    }
+  }
+
   if (config.type === 'all') {
     return true;
   }

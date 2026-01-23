@@ -5,6 +5,7 @@
  */
 
 import type { PromptType } from './responseTracking';
+import type { MasteryLevel } from './dashboard';
 
 /**
  * Available filter types for vocabulary selection
@@ -17,6 +18,28 @@ export type VocabularyFilterType =
   | 'stale'                  // Not practiced in X days
   | 'slow'                   // Response time above threshold
   | 'new-additions';         // Items near end of vocabulary list (newer)
+
+/**
+ * Per-prompt-type mastery level filter
+ * Allows filtering by which mastery levels to include for each prompt type
+ */
+export interface SkillMasteryFilter {
+  // For each prompt type, which mastery levels to include (all selected by default)
+  'character-to-pinyin': MasteryLevel[];
+  'english-to-pinyin': MasteryLevel[];
+  'character-to-english': MasteryLevel[];
+  'pinyin-to-english': MasteryLevel[];
+}
+
+/**
+ * Default skill mastery filter (all levels selected for all prompt types)
+ */
+export const DEFAULT_SKILL_MASTERY_FILTER: SkillMasteryFilter = {
+  'character-to-pinyin': ['mastered', 'learning', 'struggling', 'new'],
+  'english-to-pinyin': ['mastered', 'learning', 'struggling', 'new'],
+  'character-to-english': ['mastered', 'learning', 'struggling', 'new'],
+  'pinyin-to-english': ['mastered', 'learning', 'struggling', 'new'],
+};
 
 /**
  * Configuration for a vocabulary filter
@@ -38,6 +61,9 @@ export interface VocabularyFilterConfig {
 
   // Optional: filter by specific prompt type (e.g., only character-to-pinyin)
   promptType?: PromptType | 'any';
+
+  // Per-prompt-type mastery level filter
+  skillMasteryFilter?: SkillMasteryFilter;
 }
 
 /**
