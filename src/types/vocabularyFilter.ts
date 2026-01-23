@@ -20,26 +20,15 @@ export type VocabularyFilterType =
   | 'new-additions';         // Items near end of vocabulary list (newer)
 
 /**
- * Per-prompt-type mastery level filter
- * Allows filtering by which mastery levels to include for each prompt type
+ * Mastery levels to include in filter (all selected by default)
+ * This applies to the single prompt type relevant to the current exercise
  */
-export interface SkillMasteryFilter {
-  // For each prompt type, which mastery levels to include (all selected by default)
-  'character-to-pinyin': MasteryLevel[];
-  'english-to-pinyin': MasteryLevel[];
-  'character-to-english': MasteryLevel[];
-  'pinyin-to-english': MasteryLevel[];
-}
+export type MasteryLevelFilter = MasteryLevel[];
 
 /**
- * Default skill mastery filter (all levels selected for all prompt types)
+ * Default mastery level filter (all levels selected)
  */
-export const DEFAULT_SKILL_MASTERY_FILTER: SkillMasteryFilter = {
-  'character-to-pinyin': ['mastered', 'learning', 'struggling', 'new'],
-  'english-to-pinyin': ['mastered', 'learning', 'struggling', 'new'],
-  'character-to-english': ['mastered', 'learning', 'struggling', 'new'],
-  'pinyin-to-english': ['mastered', 'learning', 'struggling', 'new'],
-};
+export const DEFAULT_MASTERY_LEVELS: MasteryLevelFilter = ['mastered', 'learning', 'struggling', 'new'];
 
 /**
  * Configuration for a vocabulary filter
@@ -62,8 +51,9 @@ export interface VocabularyFilterConfig {
   // Optional: filter by specific prompt type (e.g., only character-to-pinyin)
   promptType?: PromptType | 'any';
 
-  // Per-prompt-type mastery level filter
-  skillMasteryFilter?: SkillMasteryFilter;
+  // Mastery levels to include (applies to the exercise's prompt type)
+  // Works independently - filters vocabulary even when type is 'all'
+  masteryLevels?: MasteryLevelFilter;
 }
 
 /**

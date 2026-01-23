@@ -6,10 +6,10 @@
 
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { ResponseDatabase, PromptType } from '../types/responseTracking';
-import type { VocabularyFilterConfig, VocabularyFilterType, SavedFilterPreferences, SkillMasteryFilter } from '../types/vocabularyFilter';
+import type { VocabularyFilterConfig, VocabularyFilterType, SavedFilterPreferences } from '../types/vocabularyFilter';
+import { DEFAULT_MASTERY_LEVELS } from '../types/vocabularyFilter';
 import { generateVocabularyId, calculateSpeedThreshold } from './responseTracking/storage';
 import { getVocabularyMasteryInfo } from './dashboard/mastery';
-import { ALL_PROMPT_TYPES } from '../types/dashboard';
 
 const FILTER_PREFERENCES_KEY = 'vocabulary-filter-preferences';
 
@@ -66,28 +66,27 @@ export function clearFilterForExercise(exerciseKey: string): void {
 }
 
 /**
- * Check if a vocabulary entry passes the skill mastery filter
+ * Check if a vocabulary entry passes the mastery level filter
+ * @param entry The vocabulary entry to check
+ * @param masteryLevels The allowed mastery levels
+ * @param promptType The prompt type to check mastery for
+ * @param database The response database
  */
-function entryPassesSkillMasteryFilter(
+function entryPassesMasteryFilter(
   entry: VocabularyEntry,
-  skillFilter: SkillMasteryFilter,
+  masteryLevels: typeof DEFAULT_MASTERY_LEVELS,
+  promptType: PromptType | 'any',
   database: ResponseDatabase | null
 ): boolean {
-  const masteryInfo = getVocabularyMasteryInfo(entry, database);
-
-  // Check each prompt type - entry passes if it matches at least one selected level for each prompt type
-  for (const pt of ALL_PROMPT_TYPES) {
-    const ptMastery = masteryInfo.byPromptType[pt].masteryLevel;
-    const allowedLevels = skillFilter[pt];
-
-    // If no levels are selected for this prompt type, it means "don't filter by this"
-    // But if levels are selected and this entry's level isn't included, filter it out
-    if (allowedLevels.length > 0 && allowedLevels.length < 4 && !allowedLevels.includes(ptMastery)) {
-      return false;
-    }
+  // If all levels selected or no specific prompt type, pass
+  if (masteryLevels.length === 4 || promptType === 'any') {
+    return true;
   }
 
-  return true;
+  const masteryInfo = getVocabularyMasteryInfo(entry, database);
+  const entryMastery = masteryInfo.byPromptType[promptType].masteryLevel;
+
+  return masteryLevels.includes(entryMastery);
 }
 
 /**
@@ -100,16 +99,15 @@ function entryPassesFilter(
   config: VocabularyFilterConfig,
   database: ResponseDatabase | null
 ): boolean {
-  // First check skill mastery filter if present and not all selected
-  if (config.skillMasteryFilter) {
-    const isDefaultFilter = ALL_PROMPT_TYPES.every(pt =>
-      config.skillMasteryFilter![pt].length === 4
-    );
-    if (!isDefaultFilter && !entryPassesSkillMasteryFilter(entry, config.skillMasteryFilter, database)) {
-      return false;
-    }
+  // Check mastery level filter first (works independently of other filters)
+  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
+  const promptType = config.promptType || 'any';
+
+  if (!entryPassesMasteryFilter(entry, masteryLevels, promptType, database)) {
+    return false;
   }
 
+  // If type is 'all', mastery filter is the only filter
   if (config.type === 'all') {
     return true;
   }
@@ -117,8 +115,7 @@ function entryPassesFilter(
   const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
   const stats = database?.statistics[vocabId];
 
-  // Determine which prompt type stats to use
-  const promptType = config.promptType;
+  // Determine which prompt type stats to use (promptType already defined above)
   const useAnyPromptType = !promptType || promptType === 'any';
 
   switch (config.type) {
@@ -217,7 +214,12 @@ export function filterVocabulary(
   config: VocabularyFilterConfig,
   database: ResponseDatabase | null
 ): VocabularyEntry[] {
-  if (config.type === 'all') {
+  // Check if mastery filter is active (not all levels selected)
+  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
+  const hasMasteryFilter = masteryLevels.length < 4 && config.promptType && config.promptType !== 'any';
+
+  // Short-circuit only if type is 'all' AND no mastery filter
+  if (config.type === 'all' && !hasMasteryFilter) {
     return vocabulary;
   }
 
@@ -234,7 +236,12 @@ export function countFilteredVocabulary(
   config: VocabularyFilterConfig,
   database: ResponseDatabase | null
 ): number {
-  if (config.type === 'all') {
+  // Check if mastery filter is active (not all levels selected)
+  const masteryLevels = config.masteryLevels || DEFAULT_MASTERY_LEVELS;
+  const hasMasteryFilter = masteryLevels.length < 4 && config.promptType && config.promptType !== 'any';
+
+  // Short-circuit only if type is 'all' AND no mastery filter
+  if (config.type === 'all' && !hasMasteryFilter) {
     return vocabulary.length;
   }
 
