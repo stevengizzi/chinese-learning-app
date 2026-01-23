@@ -2,10 +2,12 @@ import { useState, useEffect, useMemo } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
 import { formatResponseTime } from '../lib/responseTracking/analytics';
-import type { ResponseDatabase, VocabularySpeedStats } from '../types/responseTracking';
+import { calculateMasteryLevel } from '../lib/dashboard/mastery';
+import type { ResponseDatabase, VocabularySpeedStats, ResponseRecord } from '../types/responseTracking';
 import type { VocabularyEntry } from '../types/vocabulary';
+import type { MasteryLevel } from '../types/dashboard';
 
-type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
+type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'mastery' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
 type SortDirection = 'asc' | 'desc';
 
 interface SortState {
@@ -19,6 +21,7 @@ interface VocabularyWithStats extends VocabularyEntry {
   accuracy: number;
   totalAttempts: number;
   lastPracticed: number | null;
+  masteryLevel: MasteryLevel;
 }
 
 /**
@@ -29,6 +32,32 @@ function getAccuracyColor(accuracy: number): string {
   if (accuracy >= 60) return 'text-yellow-600 dark:text-yellow-400';
   if (accuracy >= 40) return 'text-orange-600 dark:text-orange-400';
   return 'text-red-600 dark:text-red-400';
+}
+
+/**
+ * Get mastery level display info
+ */
+function getMasteryDisplay(level: MasteryLevel): { label: string; color: string; sortOrder: number } {
+  switch (level) {
+    case 'mastered':
+      return { label: 'Mastered', color: 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30', sortOrder: 0 };
+    case 'learning':
+      return { label: 'Learning', color: 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30', sortOrder: 1 };
+    case 'struggling':
+      return { label: 'Struggling', color: 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30', sortOrder: 2 };
+    case 'new':
+      return { label: 'New', color: 'text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/30', sortOrder: 3 };
+  }
+}
+
+/**
+ * Get recent attempts for a vocabulary item from records
+ */
+function getRecentAttempts(records: ResponseRecord[], vocabularyId: string, limit: number): ResponseRecord[] {
+  return records
+    .filter(r => r.vocabularyId === vocabularyId)
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .slice(0, limit);
 }
 
 /**
@@ -97,6 +126,8 @@ export function ViewVocabulary() {
   const vocabularyWithStats = useMemo<VocabularyWithStats[]>(() => {
     if (!state.vocabulary) return [];
 
+    const records = responseDatabase?.records || [];
+
     return state.vocabulary.active.map(entry => {
       const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
       const stats = responseDatabase?.statistics[vocabId] || null;
@@ -107,13 +138,18 @@ export function ViewVocabulary() {
         accuracy = (stats.correctAttempts / stats.totalAttempts) * 100;
       }
 
+      // Calculate mastery level
+      const recentAttempts = getRecentAttempts(records, vocabId, 15);
+      const masteryLevel = calculateMasteryLevel(stats, recentAttempts);
+
       return {
         ...entry,
         vocabId,
         stats,
         accuracy,
         totalAttempts: stats?.totalAttempts ?? 0,
-        lastPracticed: stats?.lastAttemptTimestamp ?? null
+        lastPracticed: stats?.lastAttemptTimestamp ?? null,
+        masteryLevel
       };
     });
   }, [state.vocabulary, responseDatabase]);
@@ -214,6 +250,12 @@ export function ViewVocabulary() {
         case 'attempts':
           comparison = a.totalAttempts - b.totalAttempts;
           break;
+        case 'mastery': {
+          const aMastery = getMasteryDisplay(a.masteryLevel);
+          const bMastery = getMasteryDisplay(b.masteryLevel);
+          comparison = aMastery.sortOrder - bMastery.sortOrder;
+          break;
+        }
         case 'lastPracticed':
           // Items never practiced go to the end
           if (a.lastPracticed === null && b.lastPracticed === null) comparison = 0;
@@ -318,6 +360,14 @@ export function ViewVocabulary() {
                   </th>
                   <th className="text-left p-3 font-semibold text-gray-900 dark:text-white min-w-[140px]">Meaning</th>
                   <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('mastery')}
+                    title="Mastery status"
+                  >
+                    Mastery
+                    <SortIcon active={sort.field === 'mastery'} direction={sort.direction} />
+                  </th>
+                  <th
                     className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
                     onClick={() => handleSort('accuracy')}
                     title="Average accuracy across all attempts"
@@ -378,7 +428,8 @@ export function ViewVocabulary() {
               <tbody>
                 {sortedVocabulary.length > 0 ? (
                   sortedVocabulary.map((entry, index) => {
-                    const { stats, accuracy, totalAttempts, lastPracticed } = entry;
+                    const { stats, accuracy, totalAttempts, lastPracticed, masteryLevel } = entry;
+                    const masteryDisplay = getMasteryDisplay(masteryLevel);
 
                     return (
                       <tr
@@ -388,6 +439,11 @@ export function ViewVocabulary() {
                         <td className="p-3 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                        <td className="p-3 text-center">
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${masteryDisplay.color}`}>
+                            {masteryDisplay.label}
+                          </span>
+                        </td>
                         <td className={`p-3 text-center font-semibold ${totalAttempts > 0 ? getAccuracyColor(accuracy) : 'text-gray-400 dark:text-gray-500'}`}>
                           {totalAttempts > 0 ? `${Math.round(accuracy)}%` : '—'}
                         </td>
@@ -422,7 +478,7 @@ export function ViewVocabulary() {
                   })
                 ) : (
                   <tr>
-                    <td colSpan={10} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    <td colSpan={11} className="p-8 text-center text-gray-500 dark:text-gray-400">
                       No matching vocabulary found
                     </td>
                   </tr>

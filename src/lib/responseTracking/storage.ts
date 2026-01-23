@@ -9,7 +9,7 @@ import type { ExerciseType } from '../../types/exercise';
 
 const DB_URL = `${import.meta.env.BASE_URL}data/response-tracking.json`;
 const CACHE_KEY = 'response-tracking-cache';
-const MAX_RECORDS = 1000;  // Keep last 1000 records
+const MAX_RECORDS = 10000;  // Keep last 10,000 records (~1.5-2MB in localStorage)
 
 /**
  * Generate unique vocabulary ID

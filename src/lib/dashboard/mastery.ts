@@ -55,13 +55,21 @@ export function calculateMasteryLevel(
   recentAttempts: ResponseRecord[]
 ): MasteryLevel {
   // No stats or no attempts = new vocabulary
-  if (!stats || stats.totalAttempts === 0 || recentAttempts.length === 0) {
+  if (!stats || stats.totalAttempts === 0) {
     return 'new';
   }
 
   const totalRecent = recentAttempts.length;
-  const correctRecent = recentAttempts.filter(r => r.wasCorrect).length;
-  const accuracyPercent = (correctRecent / totalRecent) * 100;
+
+  // Calculate accuracy - use rolling window if available, otherwise fall back to lifetime stats
+  let accuracyPercent: number;
+  if (totalRecent > 0) {
+    const correctRecent = recentAttempts.filter(r => r.wasCorrect).length;
+    accuracyPercent = (correctRecent / totalRecent) * 100;
+  } else {
+    // Records were trimmed - fall back to lifetime accuracy
+    accuracyPercent = (stats.correctAttempts / stats.totalAttempts) * 100;
+  }
 
   // Need a full rolling window to be considered for "mastered"
   if (totalRecent >= THRESHOLDS.rollingWindow) {
