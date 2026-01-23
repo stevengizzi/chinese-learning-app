@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx tailwindcss:*)",
-      "Bash(./node_modules/.bin/tailwindcss:*)"
+      "Bash(./node_modules/.bin/tailwindcss:*)",
+      "Bash(cd:*)"
     ]
   }
 }

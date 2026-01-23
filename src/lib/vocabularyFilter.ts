@@ -327,12 +327,13 @@ export function getAllFilterCounts(
  */
 export function getPromptTypesForExercise(exerciseKey: string): PromptType[] {
   // Extract exercise type from key (remove playMode suffix if present)
+  // Note: -speed-drill must be checked before -drill to avoid partial match
   const exerciseType = exerciseKey
     .replace(/-standard$/, '')
     .replace(/-endless$/, '')
     .replace(/-complete-all$/, '')
-    .replace(/-drill$/, '')
-    .replace(/-speed-drill$/, '');
+    .replace(/-speed-drill$/, '')
+    .replace(/-drill$/, '');
 
   switch (exerciseType) {
     case 'character-to-pinyin':
