@@ -11,6 +11,7 @@ import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
 import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
 import { filterVocabulary } from '../lib/vocabularyFilter';
+import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard';
 
@@ -684,6 +685,13 @@ export function ExerciseProvider({ children }: { children: ReactNode }) {
       console.error('Failed to load response database:', error);
     });
   }, []);
+
+  // Update dashboard stats when session completes (transitions to report screen)
+  useEffect(() => {
+    if (state.screen === 'report' && state.currentSession && state.currentSession.attempts.length > 0) {
+      updateDashboardOnSessionComplete(state.currentSession);
+    }
+  }, [state.screen, state.currentSession]);
 
   return (
     <ExerciseContext.Provider value={{ state, dispatch }}>
