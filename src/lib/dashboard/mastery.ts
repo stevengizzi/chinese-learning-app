@@ -17,8 +17,7 @@ const THRESHOLDS = {
     speedPerWordMs: 750   // Additional ms per extra word
   },
   learning: {
-    accuracyPercent: 60,  // Need 60% accuracy
-    minAttempts: 5        // Need at least 5 attempts to be "learning"
+    accuracyPercent: 60   // Need 60% accuracy
   }
 } as const;
 
@@ -88,11 +87,8 @@ export function calculateMasteryLevel(
     }
   }
 
-  // Check for learning: decent accuracy and some attempts
-  if (
-    accuracyPercent >= THRESHOLDS.learning.accuracyPercent &&
-    stats.totalAttempts >= THRESHOLDS.learning.minAttempts
-  ) {
+  // Check for learning: decent accuracy (no minimum attempts required)
+  if (accuracyPercent >= THRESHOLDS.learning.accuracyPercent) {
     return 'learning';
   }
 

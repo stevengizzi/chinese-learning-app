@@ -146,8 +146,7 @@ export const MASTERY_THRESHOLDS = {
     speedPerWordMs: 750     // Additional ms per extra word
   },
   learning: {
-    accuracyPercent: 60,    // Need 60% accuracy in rolling window
-    minAttempts: 5          // Need at least 5 attempts to be "learning"
+    accuracyPercent: 60     // Need 60% accuracy in rolling window
   },
   struggling: {
     accuracyPercent: 0,     // Any accuracy below learning threshold

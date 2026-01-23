@@ -42,8 +42,7 @@ function getMasteryDescription(level: MasteryLevel): { title: string; criteria: 
       return {
         title: 'Learning',
         criteria: [
-          `${learning.accuracyPercent}% accuracy in recent attempts`,
-          `At least ${learning.minAttempts} total attempts`
+          `${learning.accuracyPercent}%+ accuracy in recent attempts`
         ]
       };
     case 'struggling':
