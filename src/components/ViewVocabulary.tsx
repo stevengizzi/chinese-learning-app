@@ -1,13 +1,79 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
 import { formatResponseTime } from '../lib/responseTracking/analytics';
-import type { ResponseDatabase } from '../types/responseTracking';
+import type { ResponseDatabase, VocabularySpeedStats } from '../types/responseTracking';
+import type { VocabularyEntry } from '../types/vocabulary';
+
+type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
+type SortDirection = 'asc' | 'desc';
+
+interface SortState {
+  field: SortField;
+  direction: SortDirection;
+}
+
+interface VocabularyWithStats extends VocabularyEntry {
+  vocabId: string;
+  stats: VocabularySpeedStats | null;
+  accuracy: number;
+  totalAttempts: number;
+  lastPracticed: number | null;
+}
+
+/**
+ * Get accuracy color class
+ */
+function getAccuracyColor(accuracy: number): string {
+  if (accuracy >= 80) return 'text-green-600 dark:text-green-400';
+  if (accuracy >= 60) return 'text-yellow-600 dark:text-yellow-400';
+  if (accuracy >= 40) return 'text-orange-600 dark:text-orange-400';
+  return 'text-red-600 dark:text-red-400';
+}
+
+/**
+ * Format last practiced time
+ */
+function formatLastPracticed(timestamp: number | null): string {
+  if (!timestamp) return '—';
+
+  const now = Date.now();
+  const diff = now - timestamp;
+  const minutes = Math.floor(diff / 60000);
+  const hours = Math.floor(diff / 3600000);
+  const days = Math.floor(diff / 86400000);
+
+  if (minutes < 1) return 'Just now';
+  if (minutes < 60) return `${minutes}m ago`;
+  if (hours < 24) return `${hours}h ago`;
+  if (days === 1) return 'Yesterday';
+  if (days < 7) return `${days}d ago`;
+  if (days < 30) return `${Math.floor(days / 7)}w ago`;
+
+  const date = new Date(timestamp);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+/**
+ * Sort icon component
+ */
+function SortIcon({ active, direction }: { active: boolean; direction: SortDirection }) {
+  return (
+    <span className={`ml-1 inline-block transition-colors ${active ? 'text-blue-500 dark:text-blue-400' : 'text-gray-400 dark:text-gray-500'}`}>
+      {active ? (
+        direction === 'asc' ? '↑' : '↓'
+      ) : (
+        '↕'
+      )}
+    </span>
+  );
+}
 
 export function ViewVocabulary() {
   const { state, dispatch } = useExercise();
   const [searchQuery, setSearchQuery] = useState('');
   const [responseDatabase, setResponseDatabase] = useState<ResponseDatabase | null>(null);
+  const [sort, setSort] = useState<SortState>({ field: 'pinyin', direction: 'asc' });
 
   // Reload database whenever this component is shown
   useEffect(() => {
@@ -20,56 +86,180 @@ export function ViewVocabulary() {
     dispatch({ type: 'BACK_TO_MENU' });
   };
 
+  const handleSort = (field: SortField) => {
+    setSort(prev => ({
+      field,
+      direction: prev.field === field && prev.direction === 'asc' ? 'desc' : 'asc'
+    }));
+  };
+
+  // Compute vocabulary with stats
+  const vocabularyWithStats = useMemo<VocabularyWithStats[]>(() => {
+    if (!state.vocabulary) return [];
+
+    return state.vocabulary.active.map(entry => {
+      const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
+      const stats = responseDatabase?.statistics[vocabId] || null;
+
+      // Calculate accuracy from stats
+      let accuracy = 0;
+      if (stats && stats.totalAttempts > 0) {
+        accuracy = (stats.correctAttempts / stats.totalAttempts) * 100;
+      }
+
+      return {
+        ...entry,
+        vocabId,
+        stats,
+        accuracy,
+        totalAttempts: stats?.totalAttempts ?? 0,
+        lastPracticed: stats?.lastAttemptTimestamp ?? null
+      };
+    });
+  }, [state.vocabulary, responseDatabase]);
+
+  // Filter vocabulary based on search query
+  const filteredVocabulary = useMemo(() => {
+    if (!searchQuery) return vocabularyWithStats;
+
+    let query = searchQuery.toLowerCase();
+    const endsWithHyphen = query.endsWith('-');
+
+    // Check for prefix-based filtering
+    if (query.startsWith('hz:')) {
+      const searchTerm = query.slice(3);
+      return vocabularyWithStats.filter(entry => {
+        const word = entry.word.toLowerCase();
+        return word.startsWith(searchTerm);
+      });
+    } else if (query.startsWith('py:')) {
+      let searchTerm = query.slice(3);
+      const exactMatch = searchTerm.endsWith('-');
+      if (exactMatch) searchTerm = searchTerm.slice(0, -1);
+
+      return vocabularyWithStats.filter(entry => {
+        const pinyin = entry.pinyin.toLowerCase();
+        if (exactMatch) {
+          // Exact syllable match: match whole syllable at start or after space
+          const syllables = pinyin.split(/\s+/);
+          return syllables.some(s => s === searchTerm || s.match(new RegExp(`^${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d*$`)));
+        }
+        return pinyin.startsWith(searchTerm) ||
+               new RegExp(`[\\s,]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+      });
+    } else if (query.startsWith('en:')) {
+      const searchTerm = query.slice(3);
+      return vocabularyWithStats.filter(entry => {
+        const meaning = entry.meaning.toLowerCase();
+        return meaning.startsWith(searchTerm) ||
+               new RegExp(`[\\s;]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+      });
+    }
+
+    // General search with optional exact syllable matching for pinyin
+    if (endsWithHyphen) {
+      const searchTerm = query.slice(0, -1);
+      return vocabularyWithStats.filter(entry => {
+        const word = entry.word.toLowerCase();
+        const pinyin = entry.pinyin.toLowerCase();
+        const meaning = entry.meaning.toLowerCase();
+
+        // For pinyin: exact syllable match
+        const syllables = pinyin.split(/\s+/);
+        const pinyinMatch = syllables.some(s => s === searchTerm || s.match(new RegExp(`^${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d*$`)));
+
+        // For character and meaning: still do starts-with match
+        const wordMatch = word.startsWith(searchTerm);
+        const meaningMatch = meaning.startsWith(searchTerm) ||
+                            new RegExp(`[\\s;]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+
+        return wordMatch || pinyinMatch || meaningMatch;
+      });
+    }
+
+    // Default search without hyphen
+    return vocabularyWithStats.filter(entry => {
+      const word = entry.word.toLowerCase();
+      const pinyin = entry.pinyin.toLowerCase();
+      const meaning = entry.meaning.toLowerCase();
+
+      const wordMatch = word.startsWith(query);
+      const pinyinMatch = pinyin.startsWith(query) ||
+                         new RegExp(`[\\s]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
+      const meaningMatch = meaning.startsWith(query) ||
+                          new RegExp(`[\\s;]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
+
+      return wordMatch || pinyinMatch || meaningMatch;
+    });
+  }, [vocabularyWithStats, searchQuery]);
+
+  // Sort vocabulary
+  const sortedVocabulary = useMemo(() => {
+    const sorted = [...filteredVocabulary];
+
+    sorted.sort((a, b) => {
+      let comparison = 0;
+
+      switch (sort.field) {
+        case 'pinyin':
+          comparison = a.pinyin.localeCompare(b.pinyin);
+          break;
+        case 'accuracy':
+          // Items with no attempts go to the end
+          if (a.totalAttempts === 0 && b.totalAttempts === 0) comparison = 0;
+          else if (a.totalAttempts === 0) comparison = 1;
+          else if (b.totalAttempts === 0) comparison = -1;
+          else comparison = a.accuracy - b.accuracy;
+          break;
+        case 'attempts':
+          comparison = a.totalAttempts - b.totalAttempts;
+          break;
+        case 'lastPracticed':
+          // Items never practiced go to the end
+          if (a.lastPracticed === null && b.lastPracticed === null) comparison = 0;
+          else if (a.lastPracticed === null) comparison = 1;
+          else if (b.lastPracticed === null) comparison = -1;
+          else comparison = a.lastPracticed - b.lastPracticed;
+          break;
+        case 'char-to-pinyin':
+        case 'char-to-english':
+        case 'pinyin-to-english':
+        case 'english-to-pinyin': {
+          const promptTypeMap: Record<string, string> = {
+            'char-to-pinyin': 'character-to-pinyin',
+            'char-to-english': 'character-to-english',
+            'pinyin-to-english': 'pinyin-to-english',
+            'english-to-pinyin': 'english-to-pinyin'
+          };
+          const promptType = promptTypeMap[sort.field] as keyof VocabularySpeedStats['byPromptType'];
+          const aStats = a.stats?.byPromptType?.[promptType];
+          const bStats = b.stats?.byPromptType?.[promptType];
+          const aHasData = (aStats?.correctAttempts ?? 0) > 0;
+          const bHasData = (bStats?.correctAttempts ?? 0) > 0;
+
+          if (!aHasData && !bHasData) comparison = 0;
+          else if (!aHasData) comparison = 1;
+          else if (!bHasData) comparison = -1;
+          else comparison = (aStats?.averageResponseTimeMs ?? 0) - (bStats?.averageResponseTimeMs ?? 0);
+          break;
+        }
+      }
+
+      return sort.direction === 'asc' ? comparison : -comparison;
+    });
+
+    return sorted;
+  }, [filteredVocabulary, sort]);
+
   if (!state.vocabulary) {
     return null;
   }
 
-  // Sort vocabulary alphabetically by pinyin
-  const sortedVocabulary = [...state.vocabulary.active].sort((a, b) =>
-    a.pinyin.localeCompare(b.pinyin)
-  );
-
-  // Filter vocabulary based on search query
-  const filteredVocabulary = sortedVocabulary.filter((entry) => {
-    if (!searchQuery) return true;
-
-    let query = searchQuery.toLowerCase();
-    const word = entry.word.toLowerCase();
-    const pinyin = entry.pinyin.toLowerCase();
-    const meaning = entry.meaning.toLowerCase();
-
-    // Check for prefix-based filtering
-    if (query.startsWith('hz:')) {
-      // Character-only search
-      const searchTerm = query.slice(3);
-      return word.startsWith(searchTerm);
-    } else if (query.startsWith('py:')) {
-      // Pinyin-only search
-      const searchTerm = query.slice(3);
-      return pinyin.startsWith(searchTerm) ||
-             new RegExp(`[\\s,]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
-    } else if (query.startsWith('en:')) {
-      // Meaning-only search
-      const searchTerm = query.slice(3);
-      return meaning.startsWith(searchTerm) ||
-             new RegExp(`[\\s;]${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
-    }
-
-    // Match only if query appears at the start of a word
-    // For Chinese characters, match at start of string
-    // For pinyin and meaning, match at start of string or after word boundary (space, semicolon)
-    const wordMatch = word.startsWith(query);
-    const pinyinMatch = pinyin.startsWith(query) ||
-                       new RegExp(`[\\s]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(pinyin);
-    const meaningMatch = meaning.startsWith(query) ||
-                        new RegExp(`[\\s;]${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(meaning);
-
-    return wordMatch || pinyinMatch || meaningMatch;
-  });
+  const totalWords = vocabularyWithStats.length;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-7xl">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
           {/* Header */}
           <div className="mb-8 flex justify-center">
@@ -88,7 +278,7 @@ export function ViewVocabulary() {
           <div className="mb-6">
             <div className="max-w-md mx-auto">
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 text-center">
-                Prefix search with <span className="font-mono font-semibold">hz:</span> (characters), <span className="font-mono font-semibold">py:</span> (pinyin), or <span className="font-mono font-semibold">en:</span> (meaning)
+                Prefix with <span className="font-mono font-semibold">hz:</span> <span className="font-mono font-semibold">py:</span> <span className="font-mono font-semibold">en:</span> • Add <span className="font-mono font-semibold">-</span> for exact syllable match
               </p>
               <input
                 type="text"
@@ -107,7 +297,7 @@ export function ViewVocabulary() {
             <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
               <p className="text-center text-sm text-blue-800 dark:text-blue-200">
                 <span className="font-semibold">
-                  {searchQuery ? `Showing ${filteredVocabulary.length} of ${sortedVocabulary.length} words` : `Total words: ${sortedVocabulary.length}`}
+                  {searchQuery ? `Showing ${sortedVocabulary.length} of ${totalWords} words` : `Total words: ${totalWords}`}
                 </span>
               </p>
             </div>
@@ -115,23 +305,80 @@ export function ViewVocabulary() {
 
           {/* Vocabulary Table */}
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-sm table-fixed">
+            <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
-                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-24">Character</th>
-                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-36">Pinyin</th>
-                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white">Meaning</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="Character → Pinyin average speed">字→拼</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="Character → English average speed">字→英</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="Pinyin → English average speed">拼→英</th>
-                  <th className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20" title="English → Pinyin average speed">英→拼</th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-20">Character</th>
+                  <th
+                    className="text-left p-3 font-semibold text-gray-900 dark:text-white w-32 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('pinyin')}
+                  >
+                    Pinyin
+                    <SortIcon active={sort.field === 'pinyin'} direction={sort.direction} />
+                  </th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white min-w-[140px]">Meaning</th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-20 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('accuracy')}
+                    title="Average accuracy across all attempts"
+                  >
+                    Acc.
+                    <SortIcon active={sort.field === 'accuracy'} direction={sort.direction} />
+                  </th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('attempts')}
+                    title="Total number of attempts"
+                  >
+                    #
+                    <SortIcon active={sort.field === 'attempts'} direction={sort.direction} />
+                  </th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('lastPracticed')}
+                    title="Last practiced"
+                  >
+                    Last
+                    <SortIcon active={sort.field === 'lastPracticed'} direction={sort.direction} />
+                  </th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('char-to-pinyin')}
+                    title="Character → Pinyin average speed"
+                  >
+                    字→拼
+                    <SortIcon active={sort.field === 'char-to-pinyin'} direction={sort.direction} />
+                  </th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('char-to-english')}
+                    title="Character → English average speed"
+                  >
+                    字→英
+                    <SortIcon active={sort.field === 'char-to-english'} direction={sort.direction} />
+                  </th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('pinyin-to-english')}
+                    title="Pinyin → English average speed"
+                  >
+                    拼→英
+                    <SortIcon active={sort.field === 'pinyin-to-english'} direction={sort.direction} />
+                  </th>
+                  <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('english-to-pinyin')}
+                    title="English → Pinyin average speed"
+                  >
+                    英→拼
+                    <SortIcon active={sort.field === 'english-to-pinyin'} direction={sort.direction} />
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {filteredVocabulary.length > 0 ? (
-                  filteredVocabulary.map((entry, index) => {
-                    const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
-                    const stats = responseDatabase?.statistics[vocabId];
+                {sortedVocabulary.length > 0 ? (
+                  sortedVocabulary.map((entry, index) => {
+                    const { stats, accuracy, totalAttempts, lastPracticed } = entry;
 
                     return (
                       <tr
@@ -141,23 +388,32 @@ export function ViewVocabulary() {
                         <td className="p-3 text-2xl text-gray-900 dark:text-white">{entry.word}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                        <td className={`p-3 text-center font-semibold ${totalAttempts > 0 ? getAccuracyColor(accuracy) : 'text-gray-400 dark:text-gray-500'}`}>
+                          {totalAttempts > 0 ? `${Math.round(accuracy)}%` : '—'}
+                        </td>
                         <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {stats?.byPromptType?.['character-to-pinyin']?.correctAttempts ?? 0 > 0
+                          {totalAttempts > 0 ? totalAttempts : '—'}
+                        </td>
+                        <td className="p-3 text-center text-gray-500 dark:text-gray-400 text-xs">
+                          {formatLastPracticed(lastPracticed)}
+                        </td>
+                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
+                          {(stats?.byPromptType?.['character-to-pinyin']?.correctAttempts ?? 0) > 0
                             ? formatResponseTime(stats?.byPromptType?.['character-to-pinyin']?.averageResponseTimeMs ?? 0)
                             : '—'}
                         </td>
                         <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {stats?.byPromptType?.['character-to-english']?.correctAttempts ?? 0 > 0
+                          {(stats?.byPromptType?.['character-to-english']?.correctAttempts ?? 0) > 0
                             ? formatResponseTime(stats?.byPromptType?.['character-to-english']?.averageResponseTimeMs ?? 0)
                             : '—'}
                         </td>
                         <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {stats?.byPromptType?.['pinyin-to-english']?.correctAttempts ?? 0 > 0
+                          {(stats?.byPromptType?.['pinyin-to-english']?.correctAttempts ?? 0) > 0
                             ? formatResponseTime(stats?.byPromptType?.['pinyin-to-english']?.averageResponseTimeMs ?? 0)
                             : '—'}
                         </td>
                         <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {stats?.byPromptType?.['english-to-pinyin']?.correctAttempts ?? 0 > 0
+                          {(stats?.byPromptType?.['english-to-pinyin']?.correctAttempts ?? 0) > 0
                             ? formatResponseTime(stats?.byPromptType?.['english-to-pinyin']?.averageResponseTimeMs ?? 0)
                             : '—'}
                         </td>
@@ -166,7 +422,7 @@ export function ViewVocabulary() {
                   })
                 ) : (
                   <tr>
-                    <td colSpan={7} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    <td colSpan={10} className="p-8 text-center text-gray-500 dark:text-gray-400">
                       No matching vocabulary found
                     </td>
                   </tr>

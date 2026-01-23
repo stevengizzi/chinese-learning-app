@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import type { VocabularyMasteryInfo } from '../../types/dashboard';
+import { WeakSpotsModal } from './WeakSpotsModal';
 
 interface WeakSpotsProps {
   items: VocabularyMasteryInfo[];
@@ -16,6 +18,7 @@ function getAccuracyColor(accuracy: number): string {
 }
 
 export function WeakSpots({ items, maxItems = 8 }: WeakSpotsProps) {
+  const [showModal, setShowModal] = useState(false);
   const displayItems = items.slice(0, maxItems);
 
   return (
@@ -61,9 +64,12 @@ export function WeakSpots({ items, maxItems = 8 }: WeakSpotsProps) {
 
           {items.length > maxItems && (
             <div className="text-center pt-2">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <button
+                onClick={() => setShowModal(true)}
+                className="text-sm text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 hover:underline cursor-pointer transition-colors"
+              >
                 +{items.length - maxItems} more items need attention
-              </span>
+              </button>
             </div>
           )}
         </div>
@@ -75,6 +81,14 @@ export function WeakSpots({ items, maxItems = 8 }: WeakSpotsProps) {
             These items have accuracy below 80%. Practice them to improve!
           </p>
         </div>
+      )}
+
+      {/* Full list modal */}
+      {showModal && (
+        <WeakSpotsModal
+          items={items}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </div>
   );
