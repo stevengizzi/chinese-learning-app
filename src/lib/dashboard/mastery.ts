@@ -1,56 +1,88 @@
 import type { VocabularyEntry } from '../../types/vocabulary';
-import type { ResponseDatabase, VocabularySpeedStats } from '../../types/responseTracking';
+import type { ResponseDatabase, VocabularySpeedStats, ResponseRecord } from '../../types/responseTracking';
 import type {
   MasteryLevel,
   VocabularyMasteryInfo,
   MasteryBreakdown
 } from '../../types/dashboard';
-import { calculateGlobalAverage } from '../responseTracking/storage';
 
 /**
- * Mastery thresholds
+ * Mastery thresholds using rolling window
  */
 const THRESHOLDS = {
+  rollingWindow: 15,  // Number of recent attempts to consider
   mastered: {
-    accuracy: 90,
-    minAttempts: 5,
-    speedRatio: 0.8  // Must be <= 80% of global average (faster)
+    accuracyPercent: 80,  // Need 80% accuracy (12 out of 15)
+    baseSpeedMs: 2500,    // Base threshold for 1-word answers
+    speedPerWordMs: 750   // Additional ms per extra word
   },
   learning: {
-    accuracy: 70,
-    minAttempts: 3
+    accuracyPercent: 60,  // Need 60% accuracy
+    minAttempts: 5        // Need at least 5 attempts to be "learning"
   }
 } as const;
 
 /**
- * Calculate mastery level for a single vocabulary entry
+ * Calculate speed threshold for a given word count
+ * Base: 2500ms for 1 word, +750ms for each additional word
+ */
+function calculateSpeedThreshold(wordCount: number): number {
+  return THRESHOLDS.mastered.baseSpeedMs + Math.max(0, wordCount - 1) * THRESHOLDS.mastered.speedPerWordMs;
+}
+
+/**
+ * Get the last N attempts for a vocabulary item from the records
+ */
+function getRecentAttempts(
+  records: ResponseRecord[],
+  vocabularyId: string,
+  limit: number
+): ResponseRecord[] {
+  // Filter records for this vocabulary item, most recent first
+  const vocabRecords = records
+    .filter(r => r.vocabularyId === vocabularyId)
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .slice(0, limit);
+
+  return vocabRecords;
+}
+
+/**
+ * Calculate mastery level for a single vocabulary entry using rolling window
  */
 export function calculateMasteryLevel(
   stats: VocabularySpeedStats | null | undefined,
-  globalAverageMs: number
+  recentAttempts: ResponseRecord[]
 ): MasteryLevel {
-  // No stats = new vocabulary
-  if (!stats || stats.totalAttempts === 0) {
+  // No stats or no attempts = new vocabulary
+  if (!stats || stats.totalAttempts === 0 || recentAttempts.length === 0) {
     return 'new';
   }
 
-  const accuracy = (stats.correctAttempts / stats.totalAttempts) * 100;
-  const speedRatio = globalAverageMs > 0
-    ? stats.averageResponseTimeMs / globalAverageMs
-    : 1;
+  const totalRecent = recentAttempts.length;
+  const correctRecent = recentAttempts.filter(r => r.wasCorrect).length;
+  const accuracyPercent = (correctRecent / totalRecent) * 100;
 
-  // Check for mastered: high accuracy, enough attempts, and fast
-  if (
-    accuracy >= THRESHOLDS.mastered.accuracy &&
-    stats.totalAttempts >= THRESHOLDS.mastered.minAttempts &&
-    speedRatio <= THRESHOLDS.mastered.speedRatio
-  ) {
-    return 'mastered';
+  // Need a full rolling window to be considered for "mastered"
+  if (totalRecent >= THRESHOLDS.rollingWindow) {
+    // Calculate average response time from correct attempts in the window
+    const correctAttempts = recentAttempts.filter(r => r.wasCorrect);
+
+    if (correctAttempts.length > 0 && accuracyPercent >= THRESHOLDS.mastered.accuracyPercent) {
+      const avgResponseTimeMs = correctAttempts.reduce((sum, r) => sum + r.responseTimeMs, 0) / correctAttempts.length;
+      const wordCount = stats.wordCount || 1;
+      const speedThreshold = calculateSpeedThreshold(wordCount);
+
+      // Check for mastered: high accuracy AND fast enough
+      if (avgResponseTimeMs <= speedThreshold) {
+        return 'mastered';
+      }
+    }
   }
 
   // Check for learning: decent accuracy and some attempts
   if (
-    accuracy >= THRESHOLDS.learning.accuracy &&
+    accuracyPercent >= THRESHOLDS.learning.accuracyPercent &&
     stats.totalAttempts >= THRESHOLDS.learning.minAttempts
   ) {
     return 'learning';
@@ -72,13 +104,35 @@ function generateVocabularyId(entry: VocabularyEntry): string {
  */
 export function getVocabularyMasteryInfo(
   entry: VocabularyEntry,
-  database: ResponseDatabase | null,
-  globalAverageMs: number
+  database: ResponseDatabase | null
 ): VocabularyMasteryInfo {
   const vocabularyId = generateVocabularyId(entry);
   const stats = database?.statistics?.[vocabularyId];
+  const records = database?.records || [];
 
-  const masteryLevel = calculateMasteryLevel(stats, globalAverageMs);
+  // Get recent attempts for rolling window calculation
+  const recentAttempts = getRecentAttempts(records, vocabularyId, THRESHOLDS.rollingWindow);
+
+  const masteryLevel = calculateMasteryLevel(stats, recentAttempts);
+
+  // Calculate rolling window accuracy for display (if we have recent attempts)
+  let displayAccuracy = 0;
+  if (recentAttempts.length > 0) {
+    const correctRecent = recentAttempts.filter(r => r.wasCorrect).length;
+    displayAccuracy = (correctRecent / recentAttempts.length) * 100;
+  } else if (stats && stats.totalAttempts > 0) {
+    // Fall back to lifetime accuracy if no recent records
+    displayAccuracy = (stats.correctAttempts / stats.totalAttempts) * 100;
+  }
+
+  // Calculate rolling window average speed for display (from correct attempts)
+  let displaySpeedMs = 0;
+  const correctRecentAttempts = recentAttempts.filter(r => r.wasCorrect);
+  if (correctRecentAttempts.length > 0) {
+    displaySpeedMs = correctRecentAttempts.reduce((sum, r) => sum + r.responseTimeMs, 0) / correctRecentAttempts.length;
+  } else if (stats?.averageResponseTimeMs) {
+    displaySpeedMs = stats.averageResponseTimeMs;
+  }
 
   return {
     vocabularyId,
@@ -86,10 +140,8 @@ export function getVocabularyMasteryInfo(
     pinyin: entry.pinyin,
     meaning: entry.meaning,
     masteryLevel,
-    accuracy: stats && stats.totalAttempts > 0
-      ? (stats.correctAttempts / stats.totalAttempts) * 100
-      : 0,
-    averageSpeedMs: stats?.averageResponseTimeMs || 0,
+    accuracy: displayAccuracy,
+    averageSpeedMs: displaySpeedMs,
     totalAttempts: stats?.totalAttempts || 0,
     lastPracticed: stats?.lastAttemptTimestamp || null
   };
@@ -102,8 +154,6 @@ export function getMasteryBreakdown(
   vocabulary: VocabularyEntry[],
   database: ResponseDatabase | null
 ): MasteryBreakdown {
-  const globalAverageMs = database ? calculateGlobalAverage(database) : 2000;
-
   const breakdown: MasteryBreakdown = {
     mastered: [],
     learning: [],
@@ -119,7 +169,7 @@ export function getMasteryBreakdown(
   };
 
   for (const entry of vocabulary) {
-    const info = getVocabularyMasteryInfo(entry, database, globalAverageMs);
+    const info = getVocabularyMasteryInfo(entry, database);
     breakdown[info.masteryLevel].push(info);
     breakdown.counts[info.masteryLevel]++;
   }
@@ -182,10 +232,8 @@ export function getWeakVocabulary(
   database: ResponseDatabase | null,
   limit: number = 10
 ): VocabularyMasteryInfo[] {
-  const globalAverageMs = database ? calculateGlobalAverage(database) : 2000;
-
   const itemsWithStats = vocabulary
-    .map(entry => getVocabularyMasteryInfo(entry, database, globalAverageMs))
+    .map(entry => getVocabularyMasteryInfo(entry, database))
     .filter(info => info.totalAttempts > 0 && info.accuracy < 80) // Only items that have been practiced but are below 80%
     .sort((a, b) => a.accuracy - b.accuracy); // Sort by accuracy ascending (weakest first)
 
@@ -200,10 +248,8 @@ export function getNewVocabulary(
   database: ResponseDatabase | null,
   limit: number = 10
 ): VocabularyMasteryInfo[] {
-  const globalAverageMs = database ? calculateGlobalAverage(database) : 2000;
-
   const newItems = vocabulary
-    .map(entry => getVocabularyMasteryInfo(entry, database, globalAverageMs))
+    .map(entry => getVocabularyMasteryInfo(entry, database))
     .filter(info => info.totalAttempts === 0);
 
   return newItems.slice(0, limit);
@@ -218,11 +264,10 @@ export function getStaleVocabulary(
   daysThreshold: number = 7,
   limit: number = 10
 ): VocabularyMasteryInfo[] {
-  const globalAverageMs = database ? calculateGlobalAverage(database) : 2000;
   const thresholdMs = Date.now() - daysThreshold * 24 * 60 * 60 * 1000;
 
   const staleItems = vocabulary
-    .map(entry => getVocabularyMasteryInfo(entry, database, globalAverageMs))
+    .map(entry => getVocabularyMasteryInfo(entry, database))
     .filter(info =>
       info.totalAttempts > 0 &&
       info.lastPracticed !== null &&

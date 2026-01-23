@@ -136,19 +136,21 @@ export interface HeroStatsData {
 
 /**
  * Mastery thresholds for determining vocabulary levels
+ * Uses rolling window of last 15 attempts for accuracy and speed calculations
  */
 export const MASTERY_THRESHOLDS = {
+  rollingWindow: 15,  // Number of recent attempts to consider
   mastered: {
-    accuracy: 90,
-    minAttempts: 5,
-    speedRatio: 0.8  // Must be <= 80% of global average (faster)
+    accuracyPercent: 80,    // Need 80% in rolling window (12 out of 15)
+    baseSpeedMs: 2500,      // Base threshold for 1-word answers
+    speedPerWordMs: 750     // Additional ms per extra word
   },
   learning: {
-    accuracy: 70,
-    minAttempts: 3
+    accuracyPercent: 60,    // Need 60% accuracy in rolling window
+    minAttempts: 5          // Need at least 5 attempts to be "learning"
   },
   struggling: {
-    accuracy: 0,  // Any accuracy below learning threshold
+    accuracyPercent: 0,     // Any accuracy below learning threshold
     minAttempts: 1
   }
   // 'new' = 0 attempts
