@@ -308,7 +308,7 @@ export function ViewVocabulary() {
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
-                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-20">Character</th>
+                  <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-28">Character</th>
                   <th
                     className="text-left p-3 font-semibold text-gray-900 dark:text-white w-32 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
                     onClick={() => handleSort('pinyin')}
