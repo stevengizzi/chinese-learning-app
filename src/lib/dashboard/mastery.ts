@@ -1,10 +1,13 @@
 import type { VocabularyEntry } from '../../types/vocabulary';
-import type { ResponseDatabase, VocabularySpeedStats, ResponseRecord } from '../../types/responseTracking';
+import type { ResponseDatabase, VocabularySpeedStats, ResponseRecord, PromptType, PromptTypeStats } from '../../types/responseTracking';
 import type {
   MasteryLevel,
   VocabularyMasteryInfo,
-  MasteryBreakdown
+  MasteryBreakdown,
+  PromptTypeMasteryInfo,
+  AggregateMasteryData
 } from '../../types/dashboard';
+import { ALL_PROMPT_TYPES } from '../../types/dashboard';
 
 /**
  * Mastery thresholds using rolling window
@@ -104,6 +107,121 @@ function generateVocabularyId(entry: VocabularyEntry): string {
 }
 
 /**
+ * Get recent attempts for a specific prompt type
+ */
+function getRecentAttemptsForPromptType(
+  records: ResponseRecord[],
+  vocabularyId: string,
+  promptType: PromptType,
+  limit: number
+): ResponseRecord[] {
+  return records
+    .filter(r => r.vocabularyId === vocabularyId && r.promptType === promptType)
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .slice(0, limit);
+}
+
+/**
+ * Calculate mastery level for a specific prompt type
+ */
+export function calculatePromptTypeMasteryLevel(
+  promptStats: PromptTypeStats | undefined,
+  recentAttempts: ResponseRecord[],
+  wordCount: number
+): MasteryLevel {
+  // No stats or no attempts = new
+  if (!promptStats || promptStats.totalAttempts === 0) {
+    return 'new';
+  }
+
+  const totalRecent = recentAttempts.length;
+
+  // Calculate accuracy
+  let accuracyPercent: number;
+  if (totalRecent > 0) {
+    const correctRecent = recentAttempts.filter(r => r.wasCorrect).length;
+    accuracyPercent = (correctRecent / totalRecent) * 100;
+  } else {
+    // Fall back to lifetime accuracy
+    accuracyPercent = (promptStats.correctAttempts / promptStats.totalAttempts) * 100;
+  }
+
+  // Need full rolling window to be considered for "mastered"
+  if (totalRecent >= THRESHOLDS.rollingWindow) {
+    const correctAttempts = recentAttempts.filter(r => r.wasCorrect);
+
+    if (correctAttempts.length > 0 && accuracyPercent >= THRESHOLDS.mastered.accuracyPercent) {
+      const avgResponseTimeMs = correctAttempts.reduce((sum, r) => sum + r.responseTimeMs, 0) / correctAttempts.length;
+      const speedThreshold = calculateSpeedThreshold(wordCount);
+
+      if (avgResponseTimeMs <= speedThreshold) {
+        return 'mastered';
+      }
+    }
+  }
+
+  // Check for learning
+  if (accuracyPercent >= THRESHOLDS.learning.accuracyPercent) {
+    return 'learning';
+  }
+
+  return 'struggling';
+}
+
+/**
+ * Get mastery info for all prompt types
+ */
+function getPromptTypeMasteryInfos(
+  stats: VocabularySpeedStats | null | undefined,
+  records: ResponseRecord[],
+  vocabularyId: string
+): Record<PromptType, PromptTypeMasteryInfo> {
+  const result = {} as Record<PromptType, PromptTypeMasteryInfo>;
+  const wordCount = stats?.wordCount || 1;
+
+  for (const promptType of ALL_PROMPT_TYPES) {
+    const promptStats = stats?.byPromptType?.[promptType];
+    const recentAttempts = getRecentAttemptsForPromptType(
+      records,
+      vocabularyId,
+      promptType,
+      THRESHOLDS.rollingWindow
+    );
+
+    const masteryLevel = calculatePromptTypeMasteryLevel(promptStats, recentAttempts, wordCount);
+
+    // Calculate display accuracy
+    let accuracy = 0;
+    if (recentAttempts.length > 0) {
+      const correctRecent = recentAttempts.filter(r => r.wasCorrect).length;
+      accuracy = (correctRecent / recentAttempts.length) * 100;
+    } else if (promptStats && promptStats.totalAttempts > 0) {
+      accuracy = (promptStats.correctAttempts / promptStats.totalAttempts) * 100;
+    }
+
+    // Calculate display speed
+    let averageSpeedMs = 0;
+    const correctRecentAttempts = recentAttempts.filter(r => r.wasCorrect);
+    if (correctRecentAttempts.length > 0) {
+      averageSpeedMs = correctRecentAttempts.reduce((sum, r) => sum + r.responseTimeMs, 0) / correctRecentAttempts.length;
+    } else if (promptStats?.averageResponseTimeMs) {
+      averageSpeedMs = promptStats.averageResponseTimeMs;
+    }
+
+    result[promptType] = {
+      promptType,
+      masteryLevel,
+      accuracy,
+      averageSpeedMs,
+      totalAttempts: promptStats?.totalAttempts || 0,
+      lastPracticed: promptStats?.lastAttemptTimestamp || null
+    };
+  }
+
+  return result;
+}
+
+/**
  * Get mastery information for a single vocabulary entry
  */
 export function getVocabularyMasteryInfo(
@@ -117,7 +235,39 @@ export function getVocabularyMasteryInfo(
   // Get recent attempts for rolling window calculation
   const recentAttempts = getRecentAttempts(records, vocabularyId, THRESHOLDS.rollingWindow);
 
-  const masteryLevel = calculateMasteryLevel(stats, recentAttempts);
+  // Get per-prompt-type mastery info
+  const byPromptType = getPromptTypeMasteryInfos(stats, records, vocabularyId);
+
+  // Count how many prompt types are mastered
+  const promptTypesMastered = ALL_PROMPT_TYPES.filter(
+    pt => byPromptType[pt].masteryLevel === 'mastered'
+  ).length;
+
+  // Determine overall mastery level based on prompt type completion
+  // "new" = no prompt types attempted
+  // "mastered" = all 4 prompt types mastered
+  // "learning" = at least one mastered or learning, none struggling
+  // "struggling" = any prompt type struggling
+  const promptTypesAttempted = ALL_PROMPT_TYPES.filter(
+    pt => byPromptType[pt].totalAttempts > 0
+  ).length;
+
+  let masteryLevel: MasteryLevel;
+  if (promptTypesAttempted === 0) {
+    masteryLevel = 'new';
+  } else if (promptTypesMastered === 4) {
+    masteryLevel = 'mastered';
+  } else {
+    // Check if any are struggling
+    const anyStruggling = ALL_PROMPT_TYPES.some(
+      pt => byPromptType[pt].masteryLevel === 'struggling'
+    );
+    if (anyStruggling) {
+      masteryLevel = 'struggling';
+    } else {
+      masteryLevel = 'learning';
+    }
+  }
 
   // Calculate rolling window accuracy for display (if we have recent attempts)
   let displayAccuracy = 0;
@@ -147,7 +297,9 @@ export function getVocabularyMasteryInfo(
     accuracy: displayAccuracy,
     averageSpeedMs: displaySpeedMs,
     totalAttempts: stats?.totalAttempts || 0,
-    lastPracticed: stats?.lastAttemptTimestamp || null
+    lastPracticed: stats?.lastAttemptTimestamp || null,
+    byPromptType,
+    promptTypesMastered
   };
 }
 
@@ -280,4 +432,57 @@ export function getStaleVocabulary(
     .sort((a, b) => (a.lastPracticed || 0) - (b.lastPracticed || 0)); // Sort by last practiced ascending (oldest first)
 
   return staleItems.slice(0, limit);
+}
+
+/**
+ * Get aggregate mastery data for radar chart visualization
+ * Returns mastery percentage for each prompt type across all vocabulary
+ */
+export function getAggregateMasteryData(
+  vocabulary: VocabularyEntry[],
+  database: ResponseDatabase | null
+): AggregateMasteryData {
+  // Initialize counters for each prompt type
+  const byPromptType = {} as AggregateMasteryData['byPromptType'];
+  for (const pt of ALL_PROMPT_TYPES) {
+    byPromptType[pt] = {
+      totalVocabulary: vocabulary.length,
+      mastered: 0,
+      learning: 0,
+      struggling: 0,
+      new: 0,
+      masteryPercentage: 0
+    };
+  }
+
+  // Count mastery levels for each prompt type across all vocabulary
+  for (const entry of vocabulary) {
+    const info = getVocabularyMasteryInfo(entry, database);
+    for (const pt of ALL_PROMPT_TYPES) {
+      const level = info.byPromptType[pt].masteryLevel;
+      byPromptType[pt][level]++;
+    }
+  }
+
+  // Calculate mastery percentage for each prompt type
+  // Weight: mastered = 100%, learning = 50%, struggling = 10%, new = 0%
+  for (const pt of ALL_PROMPT_TYPES) {
+    const data = byPromptType[pt];
+    if (data.totalVocabulary > 0) {
+      const weightedScore =
+        data.mastered * 1.0 +
+        data.learning * 0.5 +
+        data.struggling * 0.1;
+      data.masteryPercentage = (weightedScore / data.totalVocabulary) * 100;
+    }
+  }
+
+  // Calculate overall mastery percentage (average across all prompt types)
+  const overallMasteryPercentage =
+    ALL_PROMPT_TYPES.reduce((sum, pt) => sum + byPromptType[pt].masteryPercentage, 0) / 4;
+
+  return {
+    byPromptType,
+    overallMasteryPercentage
+  };
 }

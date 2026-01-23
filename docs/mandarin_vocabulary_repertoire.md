@@ -408,3 +408,33 @@ notes:
 | 路口 | lu4 kou3 | crossing; intersection (of roads) |
 | 大学 | da4 xue2 | university; college |
 | 去 | qu4 | to go |
+| 半年 | ban4 nian2 | half a year |
+| 您 | nin2 | you (courteous) |
+| 下边 | xia4 bian | under; the underside; below |
+| 备 | bei4 | to prepare; get ready; to provide or equip |
+| 跑 | pao3 | to run |
+| 远 | yuan3 | far; distant |
+| 男孩儿 | nan2 hai2 r | boy |
+| 课文 | ke4 wen2 | a test (book, etc) |
+| 常常 | chang2 chang2 | often; frequently |
+| 和 | he2 | and; together with; peace |
+| 先 | xian1 | first |
+| 几 | ji3 | how many?; several; some |
+| 病 | bing4 | disease; illness |
+| 最后 | zui4 hou4 | final; last |
+| 回答 | hui2 da2 | to answer |
+| 记 | ji4 | to record; to note; to remember |
+| 床 | chuang2 | bed |
+| 爷爷 | ye2 ye | grandpa (paternal side) |
+| 忘 | wang4 | to forget |
+| 地 | di4 / de | earth; ground; particle to link adverbial and verb |
+| 一点儿 | yi1 dian3 r | a bit; a little |
+| 新年 | xin1 nian2 | New Year |
+| 真 | zhen1 | really; truly |
+| 早饭 | zao3 fan4 | breakfast |
+| 比 | bi3 | to compare |
+| 星期天 | xing1 qi1 tian1 | Sunday |
+| 开会 | kai1 hui4 | to hold a meeting; to attend a meeting |
+| 准 | zhun3 | standard; norm; accurate; in accordance with |
+| 到 | dao4 | to arrive; until (a time) |
+| 馆 | guan3 | accommodation for guests; (of service trades) shop; embassy |

@@ -1,6 +1,6 @@
 import { useExercise } from '../../contexts/ExerciseContext';
 import { useDashboardData } from '../../hooks/useDashboardData';
-import { getWeakVocabulary } from '../../lib/dashboard/mastery';
+import { getWeakVocabulary, getAggregateMasteryData } from '../../lib/dashboard/mastery';
 import { calculateGlobalAverage } from '../../lib/responseTracking/storage';
 import { HeroStats } from './HeroStats';
 import { MasteryBreakdown } from './MasteryBreakdown';
@@ -9,6 +9,8 @@ import { ActivityCalendar } from './ActivityCalendar';
 import { SpeedTrends } from './SpeedTrends';
 import { RecentSessions } from './RecentSessions';
 import { HighScoresPanel } from './HighScoresPanel';
+import { PromptTypeMasteryBars } from './PromptTypeMasteryBars';
+import { MasteryRadarChart } from './MasteryRadarChart';
 
 export function Dashboard() {
   const { state, dispatch } = useExercise();
@@ -35,6 +37,11 @@ export function Dashboard() {
   const globalAverage = state.responseDatabase
     ? calculateGlobalAverage(state.responseDatabase)
     : 2000;
+
+  // Get aggregate mastery data for radar chart and progress bars
+  const aggregateMasteryData = state.vocabulary?.active && state.responseDatabase
+    ? getAggregateMasteryData(state.vocabulary.active, state.responseDatabase)
+    : null;
 
   const handleBack = () => {
     dispatch({ type: 'BACK_TO_MENU' });
@@ -115,6 +122,16 @@ export function Dashboard() {
 
           {/* Right Column - Narrow */}
           <div className="space-y-6">
+            {/* Mastery Radar Chart */}
+            {aggregateMasteryData && (
+              <MasteryRadarChart data={aggregateMasteryData} />
+            )}
+
+            {/* Prompt Type Mastery Bars */}
+            {aggregateMasteryData && (
+              <PromptTypeMasteryBars data={aggregateMasteryData} />
+            )}
+
             {/* Mastery Breakdown */}
             <MasteryBreakdown data={masteryBreakdown} />
 

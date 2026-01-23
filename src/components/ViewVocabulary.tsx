@@ -2,12 +2,13 @@ import { useState, useEffect, useMemo } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
 import { formatResponseTime } from '../lib/responseTracking/analytics';
-import { calculateMasteryLevel } from '../lib/dashboard/mastery';
-import type { ResponseDatabase, VocabularySpeedStats, ResponseRecord } from '../types/responseTracking';
+import { getVocabularyMasteryInfo } from '../lib/dashboard/mastery';
+import type { ResponseDatabase, VocabularySpeedStats } from '../types/responseTracking';
 import type { VocabularyEntry } from '../types/vocabulary';
-import type { MasteryLevel } from '../types/dashboard';
+import type { MasteryLevel, VocabularyMasteryInfo } from '../types/dashboard';
+import { ALL_PROMPT_TYPES, PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
 
-type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'mastery' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
+type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'mastery' | 'promptTypes' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
 type SortDirection = 'asc' | 'desc';
 
 interface SortState {
@@ -22,6 +23,7 @@ interface VocabularyWithStats extends VocabularyEntry {
   totalAttempts: number;
   lastPracticed: number | null;
   masteryLevel: MasteryLevel;
+  masteryInfo: VocabularyMasteryInfo;
 }
 
 /**
@@ -51,13 +53,37 @@ function getMasteryDisplay(level: MasteryLevel): { label: string; color: string;
 }
 
 /**
- * Get recent attempts for a vocabulary item from records
+ * Get the dot color for a prompt type mastery level
  */
-function getRecentAttempts(records: ResponseRecord[], vocabularyId: string, limit: number): ResponseRecord[] {
-  return records
-    .filter(r => r.vocabularyId === vocabularyId)
-    .sort((a, b) => b.timestamp - a.timestamp)
-    .slice(0, limit);
+function getPromptTypeDotColor(level: MasteryLevel): string {
+  return MASTERY_COLORS[level];
+}
+
+/**
+ * Prompt type mastery dots component
+ */
+function PromptTypeDots({ masteryInfo }: { masteryInfo: VocabularyMasteryInfo }) {
+  return (
+    <div className="flex items-center gap-1.5">
+      {ALL_PROMPT_TYPES.map((pt) => {
+        const info = masteryInfo.byPromptType[pt];
+        const config = PROMPT_TYPE_CONFIG[pt];
+        const dotColor = getPromptTypeDotColor(info.masteryLevel);
+
+        return (
+          <div
+            key={pt}
+            className="w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 cursor-help"
+            style={{
+              backgroundColor: dotColor,
+              boxShadow: info.masteryLevel === 'mastered' ? `0 0 6px ${dotColor}` : 'none'
+            }}
+            title={`${config.label}: ${info.masteryLevel} (${Math.round(info.accuracy)}% accuracy, ${info.totalAttempts} attempts)`}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 /**
@@ -126,30 +152,22 @@ export function ViewVocabulary() {
   const vocabularyWithStats = useMemo<VocabularyWithStats[]>(() => {
     if (!state.vocabulary) return [];
 
-    const records = responseDatabase?.records || [];
-
     return state.vocabulary.active.map(entry => {
       const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
       const stats = responseDatabase?.statistics[vocabId] || null;
 
-      // Calculate accuracy from stats
-      let accuracy = 0;
-      if (stats && stats.totalAttempts > 0) {
-        accuracy = (stats.correctAttempts / stats.totalAttempts) * 100;
-      }
-
-      // Calculate mastery level
-      const recentAttempts = getRecentAttempts(records, vocabId, 15);
-      const masteryLevel = calculateMasteryLevel(stats, recentAttempts);
+      // Get full mastery info including per-prompt-type mastery
+      const masteryInfo = getVocabularyMasteryInfo(entry, responseDatabase);
 
       return {
         ...entry,
         vocabId,
         stats,
-        accuracy,
-        totalAttempts: stats?.totalAttempts ?? 0,
-        lastPracticed: stats?.lastAttemptTimestamp ?? null,
-        masteryLevel
+        accuracy: masteryInfo.accuracy,
+        totalAttempts: masteryInfo.totalAttempts,
+        lastPracticed: masteryInfo.lastPracticed,
+        masteryLevel: masteryInfo.masteryLevel,
+        masteryInfo
       };
     });
   }, [state.vocabulary, responseDatabase]);
@@ -254,6 +272,11 @@ export function ViewVocabulary() {
           const aMastery = getMasteryDisplay(a.masteryLevel);
           const bMastery = getMasteryDisplay(b.masteryLevel);
           comparison = aMastery.sortOrder - bMastery.sortOrder;
+          break;
+        }
+        case 'promptTypes': {
+          // Sort by number of mastered prompt types (descending by default)
+          comparison = a.masteryInfo.promptTypesMastered - b.masteryInfo.promptTypesMastered;
           break;
         }
         case 'lastPracticed':
@@ -392,6 +415,14 @@ export function ViewVocabulary() {
                     <SortIcon active={sort.field === 'lastPracticed'} direction={sort.direction} />
                   </th>
                   <th
+                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
+                    onClick={() => handleSort('promptTypes')}
+                    title="Per-prompt-type mastery: 字→拼音 | 字→EN | 拼→EN | EN→拼"
+                  >
+                    Skills
+                    <SortIcon active={sort.field === 'promptTypes'} direction={sort.direction} />
+                  </th>
+                  <th
                     className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
                     onClick={() => handleSort('char-to-pinyin')}
                     title="Character → Pinyin average speed"
@@ -453,6 +484,11 @@ export function ViewVocabulary() {
                         <td className="p-3 text-center text-gray-500 dark:text-gray-400 text-xs">
                           {formatLastPracticed(lastPracticed)}
                         </td>
+                        <td className="p-3">
+                          <div className="flex justify-center">
+                            <PromptTypeDots masteryInfo={entry.masteryInfo} />
+                          </div>
+                        </td>
                         <td className="p-3 text-center text-gray-700 dark:text-gray-300">
                           {(stats?.byPromptType?.['character-to-pinyin']?.correctAttempts ?? 0) > 0
                             ? formatResponseTime(stats?.byPromptType?.['character-to-pinyin']?.averageResponseTimeMs ?? 0)
@@ -478,7 +514,7 @@ export function ViewVocabulary() {
                   })
                 ) : (
                   <tr>
-                    <td colSpan={11} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    <td colSpan={12} className="p-8 text-center text-gray-500 dark:text-gray-400">
                       No matching vocabulary found
                     </td>
                   </tr>

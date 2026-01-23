@@ -3088,3 +3088,243 @@ english: We go to school.
 mandarin: 我们去学校。
 pinyin: Wo3 men qu4 xue2 xiao4.
 --
+english: I study Chinese for half a year.
+mandarin: 我学汉字半年。
+pinyin: Wo3 xue2 han4 zi4 ban4 nian2.
+--
+english: He works for half a year.
+mandarin: 他工作半年。
+pinyin: Ta1 gong1 zuo4 ban4 nian2.
+--
+english: You drink water? (polite)
+mandarin: 您喝水吗？
+pinyin: Nin2 he1 shui3 ma?
+--
+english: You go home? (polite)
+mandarin: 您回家吗？
+pinyin: Nin2 hui2 jia1 ma?
+--
+english: The bag is under the table.
+mandarin: 书包在桌下边。
+pinyin: Shu1 bao1 zai4 zhuo1 xia4 bian.
+--
+english: The dog is under the bed.
+mandarin: 狗在床下边。
+pinyin: Gou3 zai4 chuang2 xia4 bian.
+--
+english: I prepare the book.
+mandarin: 我备书。
+pinyin: Wo3 bei4 shu1.
+--
+english: He prepares the meeting.
+mandarin: 他备开会。
+pinyin: Ta1 bei4 kai1 hui4.
+--
+english: The boy runs.
+mandarin: 男孩儿跑。
+pinyin: Nan2 hai2 r pao3.
+--
+english: He runs to school.
+mandarin: 他跑去学校。
+pinyin: Ta1 pao3 qu4 xue2 xiao4.
+--
+english: The school is far.
+mandarin: 学校远。
+pinyin: Xue2 xiao4 yuan3.
+--
+english: His home is far.
+mandarin: 他家里远。
+pinyin: Ta1 jia1 li3 yuan3.
+--
+english: The boy is at home.
+mandarin: 男孩儿在家里。
+pinyin: Nan2 hai2 r zai4 jia1 li3.
+--
+english: The boy goes to school.
+mandarin: 男孩儿去学校。
+pinyin: Nan2 hai2 r qu4 xue2 xiao4.
+--
+english: I read the text.
+mandarin: 我读课文。
+pinyin: Wo3 du2 ke4 wen2.
+--
+english: The teacher reads the text.
+mandarin: 老师读课文。
+pinyin: Lao3 shi1 du2 ke4 wen2.
+--
+english: I often watch TV.
+mandarin: 我常常看电视。
+pinyin: Wo3 chang2 chang2 kan4 dian4 shi4.
+--
+english: He often goes home.
+mandarin: 他常常回家。
+pinyin: Ta1 chang2 chang2 hui2 jia1.
+--
+english: I and mom go home.
+mandarin: 我和妈妈回家。
+pinyin: Wo3 he2 ma1 ma hui2 jia1.
+--
+english: He and dad drink water.
+mandarin: 他和爸喝水。
+pinyin: Ta1 he2 ba4 he1 shui3.
+--
+english: I first go home.
+mandarin: 我先回家。
+pinyin: Wo3 xian1 hui2 jia1.
+--
+english: She first drinks water.
+mandarin: 她先喝水。
+pinyin: Ta1 xian1 he1 shui3.
+--
+english: How many people?
+mandarin: 几个人？
+pinyin: Ji3 ge ren2?
+--
+english: How many books?
+mandarin: 几本书？
+pinyin: Ji3 ben3 shu1?
+--
+english: He has an illness.
+mandarin: 他有病。
+pinyin: Ta1 you3 bing4.
+--
+english: Grandma has an illness.
+mandarin: 奶奶有病。
+pinyin: Nai3 nai you3 bing4.
+--
+english: In the end, he goes home.
+mandarin: 最后他回家。
+pinyin: Zui4 hou4 ta1 hui2 jia1.
+--
+english: In the end, I answer.
+mandarin: 最后我回答。
+pinyin: Zui4 hou4 wo3 hui2 da2.
+--
+english: I answer the question.
+mandarin: 我回答问题。
+pinyin: Wo3 hui2 da2 wen4 ti2.
+--
+english: The student answers.
+mandarin: 学生回答。
+pinyin: Xue2 sheng1 hui2 da2.
+--
+english: I remember the teacher.
+mandarin: 我记老师。
+pinyin: Wo3 ji4 lao3 shi1.
+--
+english: He records the meeting.
+mandarin: 他记开会。
+pinyin: Ta1 ji4 kai1 hui4.
+--
+english: The bed is upstairs.
+mandarin: 床在楼上。
+pinyin: Chuang2 zai4 lou2 shang4.
+--
+english: The dog is on the bed.
+mandarin: 狗在床上。
+pinyin: Gou3 zai4 chuang2 shang4.
+--
+english: Grandpa is at home.
+mandarin: 爷爷在家里。
+pinyin: Ye2 ye zai4 jia1 li3.
+--
+english: I call grandpa.
+mandarin: 我给爷爷打电话。
+pinyin: Wo3 gei3 ye2 ye da3 dian4 hua4.
+--
+english: I forget the book.
+mandarin: 我忘书。
+pinyin: Wo3 wang4 shu1.
+--
+english: He forgets the meeting.
+mandarin: 他忘开会。
+pinyin: Ta1 wang4 kai1 hui4.
+--
+english: He walks slowly.
+mandarin: 他慢慢地走。
+pinyin: Ta1 man4 man4 de zou3.
+--
+english: She quickly goes home.
+mandarin: 她快快地回家。
+pinyin: Ta1 kuai4 kuai4 de hui2 jia1.
+--
+english: I drink a little water.
+mandarin: 我喝一点儿水。
+pinyin: Wo3 he1 yi1 dian3 r shui3.
+--
+english: There is a little rice.
+mandarin: 有一点儿米。
+pinyin: You3 yi1 dian3 r mi3.
+--
+english: We go home for New Year.
+mandarin: 新年我们回家。
+pinyin: Xin1 nian2 wo3 men hui2 jia1.
+--
+english: New Year is coming.
+mandarin: 新年来。
+pinyin: Xin1 nian2 lai2.
+--
+english: This is really good.
+mandarin: 这个真好。
+pinyin: Zhe4 ge zhen1 hao3.
+--
+english: He really goes.
+mandarin: 他真去。
+pinyin: Ta1 zhen1 qu4.
+--
+english: I eat breakfast.
+mandarin: 我吃早饭。
+pinyin: Wo3 chi1 zao3 fan4.
+--
+english: Mom makes breakfast.
+mandarin: 妈妈做早饭。
+pinyin: Ma1 ma zuo4 zao3 fan4.
+--
+english: He compares the two books.
+mandarin: 他比两本书。
+pinyin: Ta1 bi3 liang3 ben3 shu1.
+--
+english: This one is bigger than that.
+mandarin: 这个比那个大。
+pinyin: Zhe4 ge bi3 na4 ge da4.
+--
+english: Sunday I go home.
+mandarin: 星期天我回家。
+pinyin: Xing1 qi1 tian1 wo3 hui2 jia1.
+--
+english: On Sunday we meet.
+mandarin: 星期天我们见。
+pinyin: Xing1 qi1 tian1 wo3 men jian4.
+--
+english: We have a meeting today.
+mandarin: 今天我们开会。
+pinyin: Jin1 tian1 wo3 men kai1 hui4.
+--
+english: The teacher attends a meeting.
+mandarin: 老师开会。
+pinyin: Lao3 shi1 kai1 hui4.
+--
+english: The answer is correct.
+mandarin: 回答准。
+pinyin: Hui2 da2 zhun3.
+--
+english: The time is accurate.
+mandarin: 时间准。
+pinyin: Shi2 jian1 zhun3.
+--
+english: He arrives at home.
+mandarin: 他到家里。
+pinyin: Ta1 dao4 jia1 li3.
+--
+english: I wait until Sunday.
+mandarin: 我等到星期天。
+pinyin: Wo3 deng3 dao4 xing1 qi1 tian1.
+--
+english: I go to the library.
+mandarin: 我去图书馆。
+pinyin: Wo3 qu4 tu2 shu1 guan3.
+--
+english: The library is upstairs.
+mandarin: 图书馆在楼上。
+pinyin: Tu2 shu1 guan3 zai4 lou2 shang4.
+--

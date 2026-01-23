@@ -1,4 +1,5 @@
 import type { ExerciseType, PlayMode } from './exercise';
+import type { PromptType } from './responseTracking';
 
 /**
  * Dashboard Statistics - stored in localStorage
@@ -69,6 +70,18 @@ export interface AllTimeStats {
 export type MasteryLevel = 'mastered' | 'learning' | 'struggling' | 'new';
 
 /**
+ * Mastery information for a single prompt type
+ */
+export interface PromptTypeMasteryInfo {
+  promptType: PromptType;
+  masteryLevel: MasteryLevel;
+  accuracy: number;  // 0-100
+  averageSpeedMs: number;
+  totalAttempts: number;
+  lastPracticed: number | null;
+}
+
+/**
  * Mastery information for a single vocabulary entry
  */
 export interface VocabularyMasteryInfo {
@@ -76,11 +89,13 @@ export interface VocabularyMasteryInfo {
   character: string;
   pinyin: string;
   meaning: string;
-  masteryLevel: MasteryLevel;
-  accuracy: number;  // 0-100
+  masteryLevel: MasteryLevel;  // Overall mastery (based on prompt type completion)
+  accuracy: number;  // 0-100 (overall)
   averageSpeedMs: number;
   totalAttempts: number;
   lastPracticed: number | null;  // timestamp or null
+  byPromptType: Record<PromptType, PromptTypeMasteryInfo>;  // Per-prompt-type mastery
+  promptTypesMastered: number;  // Count of prompt types at 'mastered' level (0-4)
 }
 
 /**
@@ -174,6 +189,41 @@ export const MASTERY_COLORS = {
   struggling: '#F59E0B', // Orange/Amber
   new: '#9CA3AF'         // Gray
 } as const;
+
+/**
+ * Prompt type display names and colors
+ */
+export const PROMPT_TYPE_CONFIG: Record<PromptType, { label: string; shortLabel: string; color: string }> = {
+  'character-to-pinyin': { label: '字 → 拼音', shortLabel: '字→拼', color: '#8B5CF6' },    // Purple
+  'character-to-english': { label: '字 → EN', shortLabel: '字→EN', color: '#EC4899' },    // Pink
+  'pinyin-to-english': { label: '拼音 → EN', shortLabel: '拼→EN', color: '#06B6D4' },     // Cyan
+  'english-to-pinyin': { label: 'EN → 拼音', shortLabel: 'EN→拼', color: '#F97316' }      // Orange
+} as const;
+
+/**
+ * All prompt types in order
+ */
+export const ALL_PROMPT_TYPES: PromptType[] = [
+  'character-to-pinyin',
+  'character-to-english',
+  'pinyin-to-english',
+  'english-to-pinyin'
+] as const;
+
+/**
+ * Aggregate mastery data for radar chart visualization
+ */
+export interface AggregateMasteryData {
+  byPromptType: Record<PromptType, {
+    totalVocabulary: number;
+    mastered: number;
+    learning: number;
+    struggling: number;
+    new: number;
+    masteryPercentage: number;  // 0-100: weighted score for this prompt type
+  }>;
+  overallMasteryPercentage: number;  // 0-100: average across all prompt types
+}
 
 /**
  * Calendar intensity colors (green scale)
