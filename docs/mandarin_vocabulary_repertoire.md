@@ -305,7 +305,7 @@ notes:
 | 的 | de | of (indicating possession) |
 | 渴 | ke3 | thirsty |
 | 后天 | hou4 tian1 | the day after tomorrow |
-| 北边 | bei3 bian1 | north side; northern part |
+| 北边 | bei3 bian | north side; northern part |
 | 四 | si4 | four |
 | 不大 | bu4 da4 | not very; not too; not often |
 | 同学 | tong2 xue2 | classmate |
@@ -356,7 +356,7 @@ notes:
 | 家里 | jia1 li3 | home |
 | 上边 | shang4 bian | above; overhead |
 | 学院 | xue2 yuan4 | college; school |
-| 西边 | xi1 bian1 | west side; western part |
+| 西边 | xi1 bian | west side; western part |
 | 进 | jin4 | to enter; to go forward |
 | 着 | zhe / zhao2 / zhuo2 / zhao1 | to catch fire; to contact; to wear (clothes); marker following a verb to indicate action is in progress |
 | 吧 | ba1 | ...right?; ...ok?; particle used to indicate suggestion |
@@ -486,7 +486,7 @@ notes:
 | 些 | xie1 | some; few |
 | 医生 | yi1 sheng1 | doctor |
 | 关上 | guan1 shang4 | to close (a door); to turn off |
-| 小姐 | xiao3 jie | young lady; miss |
+| 小姐 | xiao3 jie3 | young lady; miss |
 | 孩 | hai2 | child |
 | 男朋友 | nan2 peng2 you | boyfriend |
 | 爸爸 | ba4 ba | dad |
@@ -520,7 +520,7 @@ notes:
 | 回来 | hui2 lai | to return; to come back |
 | 开车 | kai1 che1 | to drive a car |
 | 我 | wo3 | I; me |
-| 东边 | dong1 bian | eastern part; east side |
+| 东边 | dong1 bian1 | eastern part; east side |
 | 十 | shi2 | ten |
 | 肉 | rou4 | meat |
 | 旁边 | pang2 bian1 | next to; beside |
@@ -540,7 +540,8 @@ notes:
 | 兴 | xing4 | feeling; desire; excitement |
 | 星期 | xing1 qi1 | week; day of the week |
 | 告 | gao4 | to say; to tell; to file a lawsuit |
-| 果 | you3 shi2 hou | sometimes |
+| 果 | guo3 | result; fruit |
+| 有时候 | you3 shi2 hou | sometimes |
 | 文 | wen2 | language; culture |
 | 口 | kou3 | mouth |
 | 期 | qi1 | a period of time |
@@ -558,7 +559,7 @@ notes:
 | 小学 | xiao3 xue2 | elementary school; primary school |
 | 打 | da3 | to hit; to break; to type |
 | 我们 | wo3 men | we |
-| 坐下 | zuo4 xia | to sit down |
+| 坐下 | zuo4 xia4 | to sit down |
 | 一起 | yi1 qi3 | together |
 | 了 | le | past tense and completed action marker |
 | 请进 | qing3 jin4 | please come in |
