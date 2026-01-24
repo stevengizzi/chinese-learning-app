@@ -25,8 +25,7 @@ notes:
 | 爱好 | ai4 hao4 | hobby; interest |
 | 车 | che1 | car; vehicle |
 | 车票 | che1 piao4 | (train or bus) ticket |
-| 得 | de2 | to get; to obtain; to contract (a disease) |
-| 得 | dei3 | must; have to |
+| 得 | de2 / dei3 | to get; to obtain; to contract (a disease); must; have to |
 | 地图 | di4 tu2 | map |
 | 过 | guo4 | to cross; to pass (time); to celebrate (a holiday) |
 | 孩子 | hai2 zi | child |
@@ -438,3 +437,157 @@ notes:
 | 准 | zhun3 | standard; norm; accurate; in accordance with |
 | 到 | dao4 | to arrive; until (a time) |
 | 馆 | guan3 | accommodation for guests; (of service trades) shop; embassy |
+| 女朋友 | nü3 peng2 you | girlfriend |
+| 字 | zi4 | Chinese character |
+| 院 | yuan4 | institution; courtyard |
+| 时候 | shi2 hou | time; moment |
+| 哥 | ge1 | elder brother |
+| 名 | ming2 | name |
+| 睡 | shui4 | to sleep |
+| 进去 | jin4 qu4 | to go in |
+| 门口 | men2 kou3 | doorway; gate |
+| 早 | zao3 | early; good morning |
+| 东西 | dong1 xi1 | stuff; thing |
+| 吃 | chi1 | to eat |
+| 买 | mai3 | to buy |
+| 妈 | ma1 | ma; mom; mother |
+| 住 | zhu4 | to live; to stay |
+| 干 | gan4 / gan1 | to do; tree trunk; dry |
+| 休 | xiu1 | stop; rest |
+| 看病 | kan4 bing4 | to visit a doctor |
+| 网 | wang3 | net |
+| 工人 | gong1 ren2 | worker |
+| 有的 | you3 de | there are; some (exist) |
+| 老人 | lao3 ren2 | old person |
+| 开玩笑 | kai1 wan2 xiao4 | to joke; to make fun of |
+| 中午 | zhong1 wu3 | noon; midday |
+| 知道 | zhi1 dao4 | to know |
+| 下车 | xia4 che1 | to get off or out of (a bus, train, car, etc) |
+| 白天 | bai2 tian1 | daytime; during the day |
+| 非常 | fei1 chang2 | very much; unusual; extraordinary |
+| 方 | fang1 | square |
+| 马路 | ma3 lu4 | street; road |
+| 高 | gao1 | tall; high |
+| 会 | hui4 | will (do something); to be able to; meeting; group; association |
+| 喜欢 | xi3 huan | to like; to be fond of |
+| 身上 | shen1 shang | on the body; at hand; among |
+| 手机 | shou3 ji1 | cell phone |
+| 中国 | zhong1 guo2 | China |
+| 你 | ni3 | you |
+| 半 | ban4 | half |
+| 大学生 | da4 xue2 sheng1 | university student; college student |
+| 地上 | di4 shang | on the ground |
+| 正 | zheng4 | right; proper; straight |
+| 他 | ta1 | he; him |
+| 在 | zai4 | at; in |
+| 家人 | jia1 ren2 | household; family |
+| 弟弟 | di4 di | younger brother |
+| 元 | yuan2 | first; dollar; chief; head; fundamental |
+| 些 | xie1 | some; few |
+| 医生 | yi1 sheng1 | doctor |
+| 关上 | guan1 shang4 | to close (a door); to turn off |
+| 小姐 | xiao3 jie | young lady; miss |
+| 孩 | hai2 | child |
+| 男朋友 | nan2 peng2 you | boyfriend |
+| 爸爸 | ba4 ba | dad |
+| 楼 | lou2 | building |
+| 中文 | zhong1 wen2 | Chinese language |
+| 钱包 | qian2 bao1 | purse; wallet |
+| 那边 | na4 bian | over there; yonder |
+| 重要 | zhong4 yao4 | important; significant |
+| 玩 | wan2 | to play; to have fun |
+| 一样 | yi1 yang4 | the same as |
+| 时间 | shi2 jian1 | time |
+| 车站 | che1 zhan4 | rail station; bus stop |
+| 女孩儿 | nü3 hai2 r | girl |
+| 天 | tian1 | day; sky; heaven |
+| 很 | hen3 | very; quite |
+| 医 | yi1 | medical |
+| 洗 | xi3 | to wash |
+| 午 | wu3 | noon; midday |
+| 爱 | ai4 | love |
+| 请问 | qing3 wen4 | May I ask...? |
+| 好 | hao3 | good; well; very |
+| 生气 | sheng1 qi4 | angry |
+| 看见 | kan4 jian4 | to see; to catch sight of |
+| 晚 | wan3 | late; evening; night |
+| 机票 | ji1 piao4 | plane ticket; passenger ticket |
+| 午饭 | wu3 fan4 | lunch |
+| 班 | ban1 | class (school); shift (work) |
+| 飞机 | fei1 ji1 | airplane |
+| 不 | bu4 | no; not |
+| 下午 | xia4 wu3 | afternoon |
+| 回来 | hui2 lai | to return; to come back |
+| 开车 | kai1 che1 | to drive a car |
+| 我 | wo3 | I; me |
+| 东边 | dong1 bian | eastern part; east side |
+| 十 | shi2 | ten |
+| 肉 | rou4 | meat |
+| 旁边 | pang2 bian1 | next to; beside |
+| 南边 | nan2 bian | south side; southern part |
+| 们 | men | plural marker for pronouns and nouns referring to individuals |
+| 汽车 | qi4 che1 | car |
+| 七 | qi1 | seven |
+| 起床 | qi3 chuang2 | to get out of bed |
+| 吃饭 | chi1 fan4 | to have a meal |
+| 写 | xie3 | to write |
+| 身 | shen1 | body |
+| 回到 | hui2 dao4 | to return to |
+| 后边 | hou4 bian | back; rear; behind |
+| 杯子 | bei1 zi | cup; glass |
+| 下课 | xia4 ke4 | to finish class; to get out of class |
+| 电脑 | dian4 nao3 | computer |
+| 兴 | xing4 | feeling; desire; excitement |
+| 星期 | xing1 qi1 | week; day of the week |
+| 告 | gao4 | to say; to tell; to file a lawsuit |
+| 果 | you3 shi2 hou | sometimes |
+| 文 | wen2 | language; culture |
+| 口 | kou3 | mouth |
+| 期 | qi1 | a period of time |
+| 有 | you3 | to have; there is; there are |
+| 地点 | di4 dian3 | place; location |
+| 别的 | bie2 de | other |
+| 男 | nan2 | male |
+| 地方 | di4 fang1 | area; place |
+| 房 | fang2 | room; house |
+| 右 | you4 | right (side) |
+| 京 | jing1 | capital city of a country |
+| 妹妹 | mei4 mei | younger sister |
+| 来到 | lai2 dao4 | to come; to arrive |
+| 还是 | hai2 shi | or; still; had better |
+| 小学 | xiao3 xue2 | elementary school; primary school |
+| 打 | da3 | to hit; to break; to type |
+| 我们 | wo3 men | we |
+| 坐下 | zuo4 xia | to sit down |
+| 一起 | yi1 qi3 | together |
+| 了 | le | past tense and completed action marker |
+| 请进 | qing3 jin4 | please come in |
+| 飞 | fei1 | to fly |
+| 么 | me | what?; used to indicate a suggestion or implicit statement |
+| 请 | qing3 | please; to invite |
+| 汽 | qi4 | steam; vapor |
+| 次 | ci4 | order; sequence; secondary |
+| 医院 | yi1 yuan4 | hospital |
+| 什 | shen2 | what |
+| 本子 | ben3 zi | book; edition; notebook |
+| 朋友 | peng2 you | friend |
+| 小 | xiao3 | small |
+| 是 | shi4 | is; are; am |
+| 房子 | fang2 zi | house; apartment |
+| 这些 | zhe4 xie1 | these |
+| 在家 | zai4 jia1 | at home |
+| 车上 | che1 shang4 | in the car; aboard |
+| 请坐 | qing3 zuo4 | please have a seat |
+| 看到 | kan4 dao4 | to see; notice |
+| 真的 | zhen1 de | true; really |
+| 后 | hou4 | behind; afterwards; back; after |
+| 这里 | zhe4 li3 | here |
+| 场 | chang3 | field; open space; measure word for events |
+| 时 | shi2 | time |
+| 净 | jing4 | clean; net (income, exports, etc) |
+| 听 | ting1 | to listen |
+| 欢 | huan1 | joyous; happy; pleased |
+| 个 | ge4 | classifier for people or objects |
+| 怎么 | zen3 me | how?; what?; why? |
+| 话 | hua4 | speech; words; talk |
+| 诉 | su4 | to complain; to sue; to tell |

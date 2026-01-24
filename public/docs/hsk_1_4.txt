@@ -3328,3 +3328,1093 @@ english: The library is upstairs.
 mandarin: 图书馆在楼上。
 pinyin: Tu2 shu1 guan3 zai4 lou2 shang4.
 --
+english: My girlfriend is at home.
+mandarin: 我女朋友在家。
+pinyin: Wo3 nü3 peng2 you zai4 jia1.
+
+english: He likes his girlfriend.
+mandarin: 他喜欢女朋友。
+pinyin: Ta1 xi3 huan nü3 peng2 you.
+
+english: This character is Chinese.
+mandarin: 这个字是中文。
+pinyin: Zhe4 ge zi4 shi4 zhong1 wen2.
+
+english: I write Chinese characters.
+mandarin: 我写汉字。
+pinyin: Wo3 xie3 han4 zi4.
+
+english: The hospital is over there.
+mandarin: 医院在那边。
+pinyin: Yi1 yuan4 zai4 na4 bian.
+
+english: The school courtyard is big.
+mandarin: 学院很大。
+pinyin: Xue2 yuan4 hen3 da4.
+
+english: When I have time, I rest.
+mandarin: 有时候我休息。
+pinyin: You3 shi2 hou wo3 xiu1 xi.
+
+english: At that time, he was at home.
+mandarin: 那时候他在家。
+pinyin: Na4 shi2 hou ta1 zai4 jia1.
+
+english: My older brother works.
+mandarin: 我哥工作。
+pinyin: Wo3 ge1 gong1 zuo4.
+
+english: My brother is very tall.
+mandarin: 哥哥很高。
+pinyin: Ge1 ge hen3 gao1.
+
+english: His name is important.
+mandarin: 他名很重要。
+pinyin: Ta1 ming2 hen3 zhong4 yao4.
+
+english: What is your name? (polite)
+mandarin: 您名是什么？
+pinyin: Nin2 ming2 shi4 shen2 me?
+
+english: I sleep at home.
+mandarin: 我在家睡。
+pinyin: Wo3 zai4 jia1 shui4.
+
+english: He sleeps in the afternoon.
+mandarin: 他下午睡。
+pinyin: Ta1 xia4 wu3 shui4.
+
+english: He goes into the room.
+mandarin: 他进去房间。
+pinyin: Ta1 jin4 qu4 fang2 jian1.
+
+english: Please go in.
+mandarin: 请进去。
+pinyin: Qing3 jin4 qu4.
+
+english: He is at the door.
+mandarin: 他在门口。
+pinyin: Ta1 zai4 men2 kou3.
+
+english: The car stops at the door.
+mandarin: 汽车在门口。
+pinyin: Qi4 che1 zai4 men2 kou3.
+
+english: I get up early.
+mandarin: 我早起床。
+pinyin: Wo3 zao3 qi3 chuang2.
+
+english: Good morning, teacher.
+mandarin: 老师早。
+pinyin: Lao3 shi1 zao3.
+
+english: I buy things.
+mandarin: 我买东西。
+pinyin: Wo3 mai3 dong1 xi1.
+
+english: There are many things here.
+mandarin: 这里有很多东西。
+pinyin: Zhe4 li3 you3 hen3 duo1 dong1 xi1.
+
+english: I eat lunch.
+mandarin: 我吃午饭。
+pinyin: Wo3 chi1 wu3 fan4.
+
+english: He eats meat.
+mandarin: 他吃肉。
+pinyin: Ta1 chi1 rou4.
+
+english: I buy a ticket.
+mandarin: 我买票。
+pinyin: Wo3 mai3 piao4.
+
+english: Mom buys fruit.
+mandarin: 妈妈买水果。
+pinyin: Ma1 ma mai3 shui3 guo3.
+
+english: My mom is at home.
+mandarin: 我妈在家。
+pinyin: Wo3 ma1 zai4 jia1.
+
+english: Mom drinks water.
+mandarin: 妈喝水。
+pinyin: Ma1 he1 shui3.
+
+english: I live in China.
+mandarin: 我住中国。
+pinyin: Wo3 zhu4 zhong1 guo2.
+
+english: He lives near the school.
+mandarin: 他住学校旁边。
+pinyin: Ta1 zhu4 xue2 xiao4 pang2 bian1.
+
+english: What are you doing?
+mandarin: 你干什么？
+pinyin: Ni3 gan4 shen2 me?
+
+english: I do work.
+mandarin: 我干工作。
+pinyin: Wo3 gan4 gong1 zuo4.
+
+english: I rest at noon.
+mandarin: 我中午休息。
+pinyin: Wo3 zhong1 wu3 xiu1 xi.
+
+english: He rests at home.
+mandarin: 他在家休。
+pinyin: Ta1 zai4 jia1 xiu1.
+
+english: I go see a doctor.
+mandarin: 我去看病。
+pinyin: Wo3 qu4 kan4 bing4.
+
+english: Grandpa goes to see a doctor.
+mandarin: 爷爷看病。
+pinyin: Ye2 ye kan4 bing4.
+
+english: I go online.
+mandarin: 我上网。
+pinyin: Wo3 shang4 wang3.
+
+english: He studies online.
+mandarin: 他网上学习。
+pinyin: Ta1 wang3 shang4 xue2 xi2.
+
+english: He is a worker.
+mandarin: 他是工人。
+pinyin: Ta1 shi4 gong1 ren2.
+
+english: The workers work.
+mandarin: 工人工作。
+pinyin: Gong1 ren2 gong1 zuo4.
+
+english: Some people are at home.
+mandarin: 有的人在家。
+pinyin: You3 de ren2 zai4 jia1.
+
+english: Some things are important.
+mandarin: 有的东西很重要。
+pinyin: You3 de dong1 xi1 hen3 zhong4 yao4.
+
+english: The old person is walking.
+mandarin: 老人走路。
+pinyin: Lao3 ren2 zou3 lu4.
+
+english: Old people like tea.
+mandarin: 老人喜欢茶。
+pinyin: Lao3 ren2 xi3 huan cha2.
+
+english: He is joking.
+mandarin: 他开玩笑。
+pinyin: Ta1 kai1 wan2 xiao4.
+
+english: We joke together.
+mandarin: 我们一起开玩笑。
+pinyin: Wo3 men yi1 qi3 kai1 wan2 xiao4.
+
+english: I eat at noon.
+mandarin: 我中午吃饭。
+pinyin: Wo3 zhong1 wu3 chi1 fan4.
+
+english: At noon he rests.
+mandarin: 他中午休息。
+pinyin: Ta1 zhong1 wu3 xiu1 xi.
+
+english: I know his name.
+mandarin: 我知道他名字。
+pinyin: Wo3 zhi1 dao4 ta1 ming2 zi.
+
+english: She knows the place.
+mandarin: 她知道地方。
+pinyin: Ta1 zhi1 dao4 di4 fang1.
+
+english: I get off the car.
+mandarin: 我下车。
+pinyin: Wo3 xia4 che1.
+
+english: He gets off at the station.
+mandarin: 他在车站下车。
+pinyin: Ta1 zai4 che1 zhan4 xia4 che1.
+
+english: I work during the day.
+mandarin: 我白天工作。
+pinyin: Wo3 bai2 tian1 gong1 zuo4.
+
+english: He sleeps during the day.
+mandarin: 他白天睡觉。
+pinyin: Ta1 bai2 tian1 shui4 jiao4.
+
+english: This is very important.
+mandarin: 这个非常重要。
+pinyin: Zhe4 ge fei1 chang2 zhong4 yao4.
+
+english: I like it very much.
+mandarin: 我非常喜欢。
+pinyin: Wo3 fei1 chang2 xi3 huan.
+
+english: This place is big.
+mandarin: 这个地方很大。
+pinyin: Zhe4 ge di4 fang1 hen3 da4.
+
+english: That side is the square.
+mandarin: 那边是方。
+pinyin: Na4 bian shi4 fang1.
+
+english: The car is on the road.
+mandarin: 汽车在马路。
+pinyin: Qi4 che1 zai4 ma3 lu4.
+
+english: He walks on the street.
+mandarin: 他在马路走路。
+pinyin: Ta1 zai4 ma3 lu4 zou3 lu4.
+
+english: He is very tall.
+mandarin: 他很高。
+pinyin: Ta1 hen3 gao1.
+
+english: This building is tall.
+mandarin: 这个楼很高。
+pinyin: Zhe4 ge lou2 hen3 gao1.
+
+english: I will go.
+mandarin: 我会去。
+pinyin: Wo3 hui4 qu4.
+
+english: He can drive.
+mandarin: 他会开车。
+pinyin: Ta1 hui4 kai1 che1.
+
+english: I like Chinese.
+mandarin: 我喜欢中文。
+pinyin: Wo3 xi3 huan zhong1 wen2.
+
+english: She likes music.
+mandarin: 她喜欢歌。
+pinyin: Ta1 xi3 huan ge1.
+
+english: The phone is on me.
+mandarin: 手机在身上。
+pinyin: Shou3 ji1 zai4 shen1 shang.
+
+english: Money is on him.
+mandarin: 钱在他身上。
+pinyin: Qian2 zai4 ta1 shen1 shang.
+
+english: I use a phone.
+mandarin: 我用手机。
+pinyin: Wo3 yong4 shou3 ji1.
+
+english: He looks at his phone.
+mandarin: 他看手机。
+pinyin: Ta1 kan4 shou3 ji1.
+
+english: I am in China.
+mandarin: 我在中国。
+pinyin: Wo3 zai4 zhong1 guo2.
+
+english: China is very big.
+mandarin: 中国很大。
+pinyin: Zhong1 guo2 hen3 da4.
+
+english: You are my friend.
+mandarin: 你是我朋友。
+pinyin: Ni3 shi4 wo3 peng2 you.
+
+english: I see you.
+mandarin: 我看见你。
+pinyin: Wo3 kan4 jian4 ni3.
+
+english: I eat half.
+mandarin: 我吃一半。
+pinyin: Wo3 chi1 yi1 ban4.
+
+english: Half the day passes.
+mandarin: 半天过。
+pinyin: Ban4 tian1 guo4.
+
+english: He is a college student.
+mandarin: 他是大学生。
+pinyin: Ta1 shi4 da4 xue2 sheng1.
+
+english: College students study.
+mandarin: 大学生学习。
+pinyin: Da4 xue2 sheng1 xue2 xi2.
+
+english: The book is on the ground.
+mandarin: 书在地上。
+pinyin: Shu1 zai4 di4 shang.
+
+english: He sits on the ground.
+mandarin: 他坐在地上。
+pinyin: Ta1 zuo4 zai4 di4 shang.
+
+english: He is just eating.
+mandarin: 他正吃饭。
+pinyin: Ta1 zheng4 chi1 fan4.
+
+english: The class is just starting.
+mandarin: 正上课。
+pinyin: Zheng4 shang4 ke4.
+
+english: He is at home.
+mandarin: 他在家。
+pinyin: Ta1 zai4 jia1.
+
+english: He likes Chinese.
+mandarin: 他喜欢中文。
+pinyin: Ta1 xi3 huan zhong1 wen2.
+
+english: I am at school.
+mandarin: 我在学校。
+pinyin: Wo3 zai4 xue2 xiao4.
+
+english: The book is on the table.
+mandarin: 书在桌子上。
+pinyin: Shu1 zai4 zhuo1 zi shang4.
+
+english: My family is at home.
+mandarin: 我家人在家。
+pinyin: Wo3 jia1 ren2 zai4 jia1.
+
+english: Family is very important.
+mandarin: 家人很重要。
+pinyin: Jia1 ren2 hen3 zhong4 yao4.
+
+english: My younger brother is a student.
+mandarin: 我弟弟是学生。
+pinyin: Wo3 di4 di shi4 xue2 sheng.
+
+english: My younger brother likes to play.
+mandarin: 我弟弟喜欢玩。
+pinyin: Wo3 di4 di xi3 huan wan2.
+
+english: One dollar.
+mandarin: 一元。
+pinyin: Yi1 yuan2.
+
+english: Two dollars.
+mandarin: 两元。
+pinyin: Liang3 yuan2.
+
+english: I have some money.
+mandarin: 我有些钱。
+pinyin: Wo3 you3 xie1 qian2.
+
+english: There are some people.
+mandarin: 有些人。
+pinyin: You3 xie1 ren2.
+
+english: The doctor is here.
+mandarin: 医生在这里。
+pinyin: Yi1 sheng1 zai4 zhe4 li3.
+
+english: I see the doctor.
+mandarin: 我看病找医生。
+pinyin: Wo3 kan4 bing4 zhao3 yi1 sheng1.
+
+english: Close the door.
+mandarin: 关上门。
+pinyin: Guan1 shang4 men2.
+
+english: He closes the door.
+mandarin: 他关上门。
+pinyin: Ta1 guan1 shang4 men2.
+
+english: The young lady is here.
+mandarin: 小姐在这里。
+pinyin: Xiao3 jie zai4 zhe4 li3.
+
+english: The young lady works here.
+mandarin: 小姐在这里工作。
+pinyin: Xiao3 jie zai4 zhe4 li3 gong1 zuo4.
+
+english: The child is at home.
+mandarin: 孩在家。
+pinyin: Hai2 zai4 jia1.
+
+english: The child is sleeping.
+mandarin: 孩睡觉。
+pinyin: Hai2 shui4 jiao4.
+
+english: He is my boyfriend.
+mandarin: 他是我男朋友。
+pinyin: Ta1 shi4 wo3 nan2 peng2 you.
+
+english: My boyfriend is very tall.
+mandarin: 我男朋友很高。
+pinyin: Wo3 nan2 peng2 you hen3 gao1.
+
+english: My dad is at home.
+mandarin: 我爸爸在家。
+pinyin: Wo3 ba4 ba zai4 jia1.
+
+english: My dad drives.
+mandarin: 我爸爸开车。
+pinyin: Wo3 ba4 ba kai1 che1.
+
+english: This building is tall.
+mandarin: 这个楼很高。
+pinyin: Zhe4 ge lou2 hen3 gao1.
+
+english: He is downstairs.
+mandarin: 他在楼下。
+pinyin: Ta1 zai4 lou2 xia4.
+
+english: I study Chinese.
+mandarin: 我学习中文。
+pinyin: Wo3 xue2 xi2 zhong1 wen2.
+
+english: Chinese is very useful.
+mandarin: 中文很有用。
+pinyin: Zhong1 wen2 hen3 you3 yong4.
+
+english: My wallet is here.
+mandarin: 我钱包在这里。
+pinyin: Wo3 qian2 bao1 zai4 zhe4 li3.
+
+english: Money is in the wallet.
+mandarin: 钱在钱包里。
+pinyin: Qian2 zai4 qian2 bao1 li3.
+
+english: He is over there.
+mandarin: 他在那边。
+pinyin: Ta1 zai4 na4 bian.
+
+english: The store is over there.
+mandarin: 商店在那边。
+pinyin: Shang1 dian4 zai4 na4 bian.
+
+english: This is important.
+mandarin: 这个很重要。
+pinyin: Zhe4 ge hen3 zhong4 yao4.
+
+english: Family is important.
+mandarin: 家人重要。
+pinyin: Jia1 ren2 zhong4 yao4.
+
+english: The kids play.
+mandarin: 小孩儿玩。
+pinyin: Xiao3 hai2 r wan2.
+
+english: We play together.
+mandarin: 我们一起玩。
+pinyin: Wo3 men yi1 qi3 wan2.
+
+english: We are the same.
+mandarin: 我们一样。
+pinyin: Wo3 men yi1 yang4.
+
+english: These two are the same.
+mandarin: 这两个一样。
+pinyin: Zhe4 liang3 ge yi1 yang4.
+
+english: I have time.
+mandarin: 我有时间。
+pinyin: Wo3 you3 shi2 jian1.
+
+english: What time is it?
+mandarin: 现在时间？
+pinyin: Xian4 zai4 shi2 jian1?
+
+english: He is at the station.
+mandarin: 他在车站。
+pinyin: Ta1 zai4 che1 zhan4.
+
+english: The station is over there.
+mandarin: 车站在那边。
+pinyin: Che1 zhan4 zai4 na4 bian.
+
+english: The girl is at home.
+mandarin: 女孩儿在家。
+pinyin: Nü3 hai2 r zai4 jia1.
+
+english: The girl likes to laugh.
+mandarin: 女孩儿喜欢笑。
+pinyin: Nü3 hai2 r xi3 huan xiao4.
+
+english: Today is a good day.
+mandarin: 今天天好。
+pinyin: Jin1 tian1 tian1 hao3.
+
+english: Tomorrow is Sunday.
+mandarin: 明天星期天。
+pinyin: Ming2 tian1 xing1 qi1 tian1.
+
+english: He is very busy.
+mandarin: 他很忙。
+pinyin: Ta1 hen3 mang2.
+
+english: This is very good.
+mandarin: 这个很好。
+pinyin: Zhe4 ge hen3 hao3.
+
+english: He studies medicine.
+mandarin: 他学医。
+pinyin: Ta1 xue2 yi1.
+
+english: Medicine is important.
+mandarin: 医很重要。
+pinyin: Yi1 hen3 zhong4 yao4.
+
+english: I wash my hands.
+mandarin: 我洗手。
+pinyin: Wo3 xi3 shou3.
+
+english: He washes clothes.
+mandarin: 他洗衣服。
+pinyin: Ta1 xi3 yi1 fu.
+
+english: Noon is lunchtime.
+mandarin: 午是午饭时间。
+pinyin: Wu3 shi4 wu3 fan4 shi2 jian1.
+
+english: We meet at noon.
+mandarin: 我们中午见面。
+pinyin: Wo3 men zhong1 wu3 jian4 mian4.
+
+english: I love my family.
+mandarin: 我爱家人。
+pinyin: Wo3 ai4 jia1 ren2.
+
+english: He loves Chinese.
+mandarin: 他爱中文。
+pinyin: Ta1 ai4 zhong1 wen2.
+
+english: May I ask, where is the bathroom?
+mandarin: 请问洗手间在哪儿？
+pinyin: Qing3 wen4 xi3 shou3 jian1 zai4 na3 r?
+
+english: May I ask, how much is it?
+mandarin: 请问多少钱？
+pinyin: Qing3 wen4 duo1 shao3 qian2?
+
+english: This is good.
+mandarin: 这个好。
+pinyin: Zhe4 ge hao3.
+
+english: He is doing well.
+mandarin: 他好。
+pinyin: Ta1 hao3.
+
+english: He is angry.
+mandarin: 他生气。
+pinyin: Ta1 sheng1 qi4.
+
+english: Don’t be angry.
+mandarin: 别生气。
+pinyin: Bie2 sheng1 qi4.
+
+english: I see him.
+mandarin: 我看见他。
+pinyin: Wo3 kan4 jian4 ta1.
+
+english: I saw the doctor.
+mandarin: 我看见医生。
+pinyin: Wo3 kan4 jian4 yi1 sheng1.
+
+english: It’s late.
+mandarin: 晚了。
+pinyin: Wan3 le.
+
+english: Good evening.
+mandarin: 晚上好。
+pinyin: Wan3 shang hao3.
+
+english: I buy a plane ticket.
+mandarin: 我买机票。
+pinyin: Wo3 mai3 ji1 piao4.
+
+english: The plane ticket is expensive.
+mandarin: 机票很贵。
+pinyin: Ji1 piao4 hen3 gui4.
+
+english: We eat lunch.
+mandarin: 我们吃午饭。
+pinyin: Wo3 men chi1 wu3 fan4.
+
+english: Lunch is at noon.
+mandarin: 午饭在中午。
+pinyin: Wu3 fan4 zai4 zhong1 wu3.
+
+english: I go to class.
+mandarin: 我上班。
+pinyin: Wo3 shang4 ban1.
+
+english: He gets off work.
+mandarin: 他下班。
+pinyin: Ta1 xia4 ban1.
+
+english: The plane flies.
+mandarin: 飞机飞。
+pinyin: Fei1 ji1 fei1.
+
+english: I take the plane.
+mandarin: 我坐飞机。
+pinyin: Wo3 zuo4 fei1 ji1.
+
+english: This place is good.
+mandarin: 这个地方好。
+pinyin: Zhe4 ge di4 fang hao3.
+
+english: That place is far.
+mandarin: 那个地方远。
+pinyin: Na4 ge di4 fang yuan3.
+
+english: We go together.
+mandarin: 我们一起去。
+pinyin: Wo3 men yi1 qi3 qu4.
+
+english: Eat together.
+mandarin: 一起吃饭。
+pinyin: Yi1 qi3 chi1 fan4.
+
+english: I think it’s good.
+mandarin: 我觉得很好。
+pinyin: Wo3 jue2 de hen3 hao3.
+
+english: He thinks it’s expensive.
+mandarin: 他觉得很贵。
+pinyin: Ta1 jue2 de hen3 gui4.
+
+english: I know.
+mandarin: 我知道。
+pinyin: Wo3 zhi1 dao4.
+
+english: She knows him.
+mandarin: 她认识他。
+pinyin: Ta1 ren4 shi ta1.
+(notice: using 认识 instead of repeating 知道 — more natural)
+
+english: I look for my book.
+mandarin: 我找书。
+pinyin: Wo3 zhao3 shu1.
+
+english: He is looking for the doctor.
+mandarin: 他找医生。
+pinyin: Ta1 zhao3 yi1 sheng1.
+
+english: Go in.
+mandarin: 进去。
+pinyin: Jin4 qu4.
+
+english: He enters the room.
+mandarin: 他进房间。
+pinyin: Ta1 jin4 fang2 jian1.
+
+english: Go out.
+mandarin: 出去。
+pinyin: Chu1 qu4.
+
+english: He goes out to run.
+mandarin: 他出去跑。
+pinyin: Ta1 chu1 qu4 pao3.
+
+english: After class, we eat.
+mandarin: 放学以后吃饭。
+pinyin: Fang4 xue2 yi3 hou4 chi1 fan4.
+
+english: Later, call me.
+mandarin: 以后打电话。
+pinyin: Yi3 hou4 da3 dian4 hua4.
+
+english: Before, I studied here.
+mandarin: 以前我在这儿学。
+pinyin: Yi3 qian2 wo3 zai4 zhe4 r xue2.
+
+english: He was very busy before.
+mandarin: 他以前很忙。
+pinyin: Ta1 yi3 qian2 hen3 mang2.
+
+english: Say it again.
+mandarin: 再说一遍。
+pinyin: Zai4 shuo1 yi2 bian4.
+
+english: Come again tomorrow.
+mandarin: 明天再来。
+pinyin: Ming2 tian1 zai4 lai2.
+
+english: He already ate.
+mandarin: 他已经吃饭了。
+pinyin: Ta1 yi3 jing1 chi1 fan4 le.
+
+english: It’s already late.
+mandarin: 已经晚了。
+pinyin: Yi3 jing1 wan3 le.
+
+english: I still want water.
+mandarin: 还要水。
+pinyin: Hai2 yao4 shui3.
+
+english: She still wants a ticket.
+mandarin: 她还要票。
+pinyin: Ta1 hai2 yao4 piao4.
+
+english: You can go.
+mandarin: 你可以去。
+pinyin: Ni3 ke3 yi3 qu4.
+
+english: This can be used.
+mandarin: 这个可以用。
+pinyin: Zhe4 ge ke3 yi3 yong4.
+
+english: This is not allowed.
+mandarin: 这个不可以。
+pinyin: Zhe4 ge bu4 ke3 yi3.
+
+english: You can’t go in.
+mandarin: 不可以进去。
+pinyin: Bu4 ke3 yi3 jin4 qu4.
+
+english: Class begins.
+mandarin: 上课开始。
+pinyin: Shang4 ke4 kai1 shi3.
+
+english: The meeting starts.
+mandarin: 开会开始。
+pinyin: Kai1 hui4 kai1 shi3.
+
+english: Class ends.
+mandarin: 上课结束。
+pinyin: Shang4 ke4 jie2 shu4.
+
+english: The meeting is over.
+mandarin: 开会结束。
+pinyin: Kai1 hui4 jie2 shu4.
+
+english: Help me.
+mandarin: 帮我。
+pinyin: Bang1 wo3.
+
+english: He helps his dad.
+mandarin: 他帮爸爸。
+pinyin: Ta1 bang1 ba4 ba.
+
+english: I ask the teacher.
+mandarin: 我问老师。
+pinyin: Wo3 wen4 lao3 shi1.
+
+english: Ask the doctor.
+mandarin: 问医生。
+pinyin: Wen4 yi1 sheng1.
+
+english: Let’s go.
+mandarin: 走吧。
+pinyin: Zou3 ba.
+
+english: He walks very fast.
+mandarin: 他走很快。
+pinyin: Ta1 zou3 hen3 kuai4.
+
+english: Come back.
+mandarin: 回来。
+pinyin: Hui2 lai2.
+
+english: He comes back home.
+mandarin: 他回家来。
+pinyin: Ta1 hui2 jia1 lai2.
+
+english: He comes to China.
+mandarin: 他来到中国。
+pinyin: Ta1 lai2 dao4 Zhong1 guo2.
+
+english: We came here.
+mandarin: 我们来到这里。
+pinyin: Wo3 men lai2 dao4 zhe4 li3.
+
+english: Do you want tea or coffee?
+mandarin: 你要茶还是咖啡？
+pinyin: Ni3 yao4 cha2 hai2 shi ka1 fei1?
+
+english: It’s still too late.
+mandarin: 还是太晚了。
+pinyin: Hai2 shi tai4 wan3 le.
+
+english: He studies in elementary school.
+mandarin: 他在小学学习。
+pinyin: Ta1 zai4 xiao3 xue2 xue2 xi2.
+
+english: My sister is in elementary school.
+mandarin: 妹妹在小学。
+pinyin: Mei4 mei zai4 xiao3 xue2.
+
+english: I make a phone call.
+mandarin: 我打电话。
+pinyin: Wo3 da3 dian4 hua4.
+
+english: He types on the computer.
+mandarin: 他打电脑。
+pinyin: Ta1 da3 dian4 nao3.
+(colloquial; more natural would be 用电脑)
+
+english: We go together.
+mandarin: 我们一起去。
+pinyin: Wo3 men yi1 qi3 qu4.
+
+english: We like Chinese.
+mandarin: 我们喜欢中文。
+pinyin: Wo3 men xi3 huan Zhong1 wen2.
+
+english: Please sit down.
+mandarin: 请坐下。
+pinyin: Qing3 zuo4 xia.
+
+english: He sits down next to me.
+mandarin: 他在我旁边坐下。
+pinyin: Ta1 zai4 wo3 pang2 bian1 zuo4 xia.
+
+english: Let’s eat together.
+mandarin: 一起吃饭。
+pinyin: Yi1 qi3 chi1 fan4.
+
+english: They study together.
+mandarin: 他们一起学习。
+pinyin: Ta1 men yi1 qi3 xue2 xi2.
+
+english: He came.
+mandarin: 他来了。
+pinyin: Ta1 lai2 le.
+
+english: I bought it.
+mandarin: 我买了。
+pinyin: Wo3 mai3 le.
+
+english: Please come in.
+mandarin: 请进。
+pinyin: Qing3 jin4.
+
+english: Please come into the room.
+mandarin: 请进房间。
+pinyin: Qing3 jin4 fang2 jian1.
+
+english: The plane flies.
+mandarin: 飞机飞。
+pinyin: Fei1 ji1 fei1.
+
+english: He flies to Beijing.
+mandarin: 他飞到北京。
+pinyin: Ta1 fei1 dao4 Bei3 jing1.
+
+english: Are you busy?
+mandarin: 你忙么？
+pinyin: Ni3 mang2 me?
+
+english: Is it good?
+mandarin: 好么？
+pinyin: Hao3 me?
+
+english: Please sit.
+mandarin: 请坐。
+pinyin: Qing3 zuo4.
+
+english: He invites me.
+mandarin: 他请我。
+pinyin: Ta1 qing3 wo3.
+
+english: This car has gas.
+mandarin: 这个汽车有汽。
+pinyin: Zhe4 ge qi4 che1 you3 qi4.
+(rare alone; mostly used in 汽车, 汽水, 汽油)
+
+english: There is steam.
+mandarin: 有汽。
+pinyin: You3 qi4.
+
+english: This is the first time.
+mandarin: 这是第一次。
+pinyin: Zhe4 shi di4 yi1 ci4.
+
+english: He goes three times.
+mandarin: 他去三次。
+pinyin: Ta1 qu4 san1 ci4.
+
+english: He goes to the hospital.
+mandarin: 他去医院。
+pinyin: Ta1 qu4 yi1 yuan4.
+
+english: The hospital is far.
+mandarin: 医院很远。
+pinyin: Yi1 yuan4 hen3 yuan3.
+
+english: What is this?
+mandarin: 这是什么？
+pinyin: Zhe4 shi shen2 me?
+
+english: What are you doing?
+mandarin: 你做什么？
+pinyin: Ni3 zuo4 shen2 me?
+
+english: This notebook is mine.
+mandarin: 这个本子是我的。
+pinyin: Zhe4 ge ben3 zi shi4 wo3 de.
+
+english: I buy a notebook.
+mandarin: 我买本子。
+pinyin: Wo3 mai3 ben3 zi.
+
+english: He is my friend.
+mandarin: 他是我朋友。
+pinyin: Ta1 shi4 wo3 peng2 you.
+
+english: Friends come together.
+mandarin: 朋友一起来。
+pinyin: Peng2 you yi1 qi3 lai2.
+
+english: The room is small.
+mandarin: 房间很小。
+pinyin: Fang2 jian1 hen3 xiao3.
+
+english: He is very young.
+mandarin: 他很小。
+pinyin: Ta1 hen3 xiao3.
+
+english: This is good.
+mandarin: 这是好的。
+pinyin: Zhe4 shi hao3 de.
+
+english: She is a doctor.
+mandarin: 她是医生。
+pinyin: Ta1 shi4 yi1 sheng1.
+
+english: This house is very big.
+mandarin: 这个房子很大。
+pinyin: Zhe4 ge fang2 zi hen3 da4.
+
+english: I live in this house.
+mandarin: 我住这个房子。
+pinyin: Wo3 zhu4 zhe4 ge fang2 zi.
+
+english: These are my books.
+mandarin: 这些是我的书。
+pinyin: Zhe4 xie1 shi4 wo3 de shu1.
+
+english: I like these things.
+mandarin: 我喜欢这些东西。
+pinyin: Wo3 xi3 huan zhe4 xie1 dong1 xi.
+
+english: He is at home.
+mandarin: 他在家。
+pinyin: Ta1 zai4 jia1.
+
+english: I study at home.
+mandarin: 我在家学习。
+pinyin: Wo3 zai4 jia1 xue2 xi2.
+
+english: He is on the bus.
+mandarin: 他在车上。
+pinyin: Ta1 zai4 che1 shang4.
+
+english: I eat on the train.
+mandarin: 我在车上吃饭。
+pinyin: Wo3 zai4 che1 shang4 chi1 fan4.
+
+english: Please have a seat.
+mandarin: 请坐。
+pinyin: Qing3 zuo4.
+
+english: Please sit here.
+mandarin: 请坐这里。
+pinyin: Qing3 zuo4 zhe4 li3.
+
+english: I see him.
+mandarin: 我看到他。
+pinyin: Wo3 kan4 dao4 ta1.
+
+english: She sees the doctor.
+mandarin: 她看到医生。
+pinyin: Ta1 kan4 dao4 yi1 sheng1.
+
+english: It’s really good.
+mandarin: 真的很好。
+pinyin: Zhen1 de hen3 hao3.
+
+english: Is it really him?
+mandarin: 真的是他吗？
+pinyin: Zhen1 de shi4 ta1 ma?
+
+english: After class, we eat.
+mandarin: 下课后我们吃饭。
+pinyin: Xia4 ke4 hou4 wo3 men chi1 fan4.
+
+english: He comes after me.
+mandarin: 他在我后边。
+pinyin: Ta1 zai4 wo3 hou4 bian.
+
+english: I am here.
+mandarin: 我在这里。
+pinyin: Wo3 zai4 zhe4 li3.
+
+english: Sit here.
+mandarin: 坐这里。
+pinyin: Zuo4 zhe4 li3.
+
+english: This is a good show.
+mandarin: 这是一场好戏。
+pinyin: Zhe4 shi yi1 chang3 hao3 xi4.
+
+english: We have a meeting.
+mandarin: 我们开一场会。
+pinyin: Wo3 men kai1 yi1 chang3 hui4.
+
+english: At that time, I was home.
+mandarin: 那时我在家。
+pinyin: Na4 shi2 wo3 zai4 jia1.
+
+english: When the time comes, we go.
+mandarin: 到时我们去。
+pinyin: Dao4 shi2 wo3 men qu4.
+
+english: The room is clean.
+mandarin: 房间很净。
+pinyin: Fang2 jian1 hen3 jing4.
+
+english: This cup is clean.
+mandarin: 这个杯子很净。
+pinyin: Zhe4 ge bei1 zi hen3 jing4.
+
+english: I listen to him.
+mandarin: 我听他。
+pinyin: Wo3 ting1 ta1.
+
+english: I hear it.
+mandarin: 我听到。
+pinyin: Wo3 ting1 dao4.
+
+english: Everyone is happy.
+mandarin: 大家很欢。
+pinyin: Da4 jia1 hen3 huan1.
+
+english: He feels happy. (more natural: 高兴 / 开心, but valid)
+mandarin: 他很欢。
+pinyin: Ta1 hen3 huan1.
+
+english: One person.
+mandarin: 一个人。
+pinyin: Yi1 ge ren2.
+
+english: This is one book. (classifier 本 is better, but 个 is allowed)
+mandarin: 这是一个书。
+pinyin: Zhe4 shi yi1 ge shu1.
+
+english: How do you go?
+mandarin: 你怎么去？
+pinyin: Ni3 zen3 me qu4.
+
+english: How is this done?
+mandarin: 怎么做？
+pinyin: Zen3 me zuo4.
+
+english: He speaks.
+mandarin: 他说话。
+pinyin: Ta1 shuo1 hua4.
+
+english: This is his word.
+mandarin: 这是他的话。
+pinyin: Zhe4 shi ta1 de hua4.
+
+english: He tells me. (formal / literary; modern spoken is 告诉)
+mandarin: 他诉我。
+pinyin: Ta1 su4 wo3.
+
+english: She complains.
+mandarin: 她诉。
+pinyin: Ta1 su4.
