@@ -135,7 +135,8 @@ export function generateExercise(
   playMode: PlayMode,
   recentExerciseIds: string[] = [],
   remainingWords: string[] = [],
-  focusMode?: FocusModeOptions
+  focusMode?: FocusModeOptions,
+  fullVocabulary?: VocabularyEntry[]  // Full vocabulary for disambiguation (optional)
 ): Exercise {
   if (vocabulary.length === 0) {
     throw new Error('No vocabulary available for exercises');
@@ -258,13 +259,17 @@ export function generateExercise(
     prompt = getPromptForEntry(selectedEntry, exerciseType);
   }
 
+  // Use full vocabulary for disambiguation if provided, otherwise use exercise vocabulary
+  const vocabForDisambiguation = fullVocabulary || vocabulary;
+
   // Check if we need to disambiguate pinyin and convert to tone marks
   // If the prompt is pinyin and there are multiple entries with the same pinyin, add the character
+  // Check against FULL vocabulary, not just the filtered subset
   if (prompt === selectedEntry.pinyin) {
     // Convert numbered pinyin to tone marks
     const pinyinWithTones = convertPinyinStringToToneMarks(selectedEntry.pinyin);
 
-    const entriesWithSamePinyin = vocabulary.filter(v => v.pinyin === selectedEntry.pinyin);
+    const entriesWithSamePinyin = vocabForDisambiguation.filter(v => v.pinyin === selectedEntry.pinyin);
     if (entriesWithSamePinyin.length > 1) {
       prompt = `${pinyinWithTones} (${selectedEntry.word})`;
     } else {
@@ -275,8 +280,9 @@ export function generateExercise(
   // Check if we need to disambiguate English meanings
   // If the prompt is a meaning and there are multiple entries with equivalent meanings
   // (same set of meaning segments regardless of order), add the character
+  // Check against FULL vocabulary, not just the filtered subset
   if (prompt === selectedEntry.meaning) {
-    const entriesWithEquivalentMeaning = vocabulary.filter(v =>
+    const entriesWithEquivalentMeaning = vocabForDisambiguation.filter(v =>
       meaningsAreEquivalent(v.meaning, selectedEntry.meaning)
     );
     if (entriesWithEquivalentMeaning.length > 1) {
@@ -286,8 +292,9 @@ export function generateExercise(
 
   // Check if we need to disambiguate characters with same word but different pinyin
   // If prompt is a character and multiple entries share it, disambiguate based on exercise type
+  // Check against FULL vocabulary, not just the filtered subset
   if (prompt === selectedEntry.word) {
-    const entriesWithSameWord = vocabulary.filter(v => v.word === selectedEntry.word);
+    const entriesWithSameWord = vocabForDisambiguation.filter(v => v.word === selectedEntry.word);
     if (entriesWithSameWord.length > 1) {
       const isPinyinExercise = exerciseType.endsWith('-pinyin') || exerciseType === 'shuffled';
       const isEnglishExercise = exerciseType.endsWith('-english');

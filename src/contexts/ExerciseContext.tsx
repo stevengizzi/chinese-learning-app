@@ -19,16 +19,24 @@ type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 
 /**
  * Create disambiguated prompts for remainingWords
  * Adds character/pinyin in parentheses when duplicates exist
+ * @param vocabulary - The vocabulary entries to create prompts for (may be filtered subset)
+ * @param exerciseType - The type of exercise
+ * @param fullVocabulary - The full vocabulary list to check for duplicates (optional, defaults to vocabulary)
  */
 function createDisambiguatedPrompts(
   vocabulary: VocabularyEntry[],
-  exerciseType: ExerciseType
+  exerciseType: ExerciseType,
+  fullVocabulary?: VocabularyEntry[]
 ): string[] {
+  // Use full vocabulary for duplicate detection if provided, otherwise use the exercise vocabulary
+  const vocabForDuplicates = fullVocabulary || vocabulary;
+
   if (exerciseType === 'english-to-pinyin') {
     // Group by normalized meaning to find entries with equivalent meanings
     // e.g., "cup; glass" and "glass; cup" are considered equivalent
+    // Check against FULL vocabulary, not just the filtered subset
     const normalizedMeaningCounts = new Map<string, number>();
-    vocabulary.forEach(v => {
+    vocabForDuplicates.forEach(v => {
       const normalized = normalizeMeaning(v.meaning);
       normalizedMeaningCounts.set(normalized, (normalizedMeaningCounts.get(normalized) || 0) + 1);
     });
@@ -43,9 +51,9 @@ function createDisambiguatedPrompts(
   }
 
   if (exerciseType === 'pinyin-to-english') {
-    // Group by pinyin to find duplicates
+    // Group by pinyin to find duplicates - check against FULL vocabulary
     const pinyinCounts = new Map<string, number>();
-    vocabulary.forEach(v => {
+    vocabForDuplicates.forEach(v => {
       pinyinCounts.set(v.pinyin, (pinyinCounts.get(v.pinyin) || 0) + 1);
     });
 
@@ -59,9 +67,9 @@ function createDisambiguatedPrompts(
   }
 
   if (exerciseType === 'character-to-pinyin' || exerciseType === 'character-to-english') {
-    // Group by word to find duplicates
+    // Group by word to find duplicates - check against FULL vocabulary
     const wordCounts = new Map<string, number>();
-    vocabulary.forEach(v => {
+    vocabForDuplicates.forEach(v => {
       wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
     });
 
@@ -81,9 +89,10 @@ function createDisambiguatedPrompts(
   // For shuffled modes, handle both word and meaning prompts
   if (exerciseType === 'shuffled') {
     // Group by normalized meaning to find entries with equivalent meanings
+    // Check against FULL vocabulary
     const normalizedMeaningCounts = new Map<string, number>();
     const wordCounts = new Map<string, number>();
-    vocabulary.forEach(v => {
+    vocabForDuplicates.forEach(v => {
       const normalized = normalizeMeaning(v.meaning);
       normalizedMeaningCounts.set(normalized, (normalizedMeaningCounts.get(normalized) || 0) + 1);
       wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
@@ -109,9 +118,10 @@ function createDisambiguatedPrompts(
   }
 
   if (exerciseType === 'shuffled-to-english') {
+    // Check against FULL vocabulary
     const pinyinCounts = new Map<string, number>();
     const wordCounts = new Map<string, number>();
-    vocabulary.forEach(v => {
+    vocabForDuplicates.forEach(v => {
       pinyinCounts.set(v.pinyin, (pinyinCounts.get(v.pinyin) || 0) + 1);
       wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
     });
@@ -203,7 +213,8 @@ function generateNewExercise(
   recentIds: string[],
   remainingWords: string[],
   focusOnWeaknesses: boolean = false,
-  responseDatabase: ResponseDatabase | null = null
+  responseDatabase: ResponseDatabase | null = null,
+  fullVocabulary?: VocabularyEntry[]
 ): Exercise {
   // Build focus mode options if enabled and we have a response database
   const focusMode = focusOnWeaknesses && responseDatabase
@@ -216,7 +227,8 @@ function generateNewExercise(
     playMode,
     recentIds,
     remainingWords,
-    focusMode
+    focusMode,
+    fullVocabulary
   );
 }
 
@@ -294,7 +306,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       let remainingWords: string[] | undefined;
 
       if (playMode === 'complete-all' || playMode === 'drill' || playMode === 'speed-drill') {
-        remainingWords = shuffleArray(createDisambiguatedPrompts(activeVocabulary, exerciseType));
+        remainingWords = shuffleArray(createDisambiguatedPrompts(activeVocabulary, exerciseType, state.vocabulary.active));
       }
 
       const session = createNewSession(exerciseType, playMode, activeVocabulary.length);
@@ -314,7 +326,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         [],
         remainingWords || [],
         state.focusOnWeaknesses,
-        state.responseDatabase
+        state.responseDatabase,
+        state.vocabulary.active  // Full vocabulary for disambiguation
       );
 
       return {
@@ -529,7 +542,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         recentIds,
         state.currentSession.remainingWords || [],
         state.currentSession.focusOnWeaknesses || false,
-        state.responseDatabase
+        state.responseDatabase,
+        state.vocabulary?.active  // Full vocabulary for disambiguation
       );
 
       // Resume timer
@@ -637,7 +651,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       }
 
       // Create remaining words list with disambiguation for duplicates
-      const remainingWords = shuffleArray(createDisambiguatedPrompts(activeVocabulary, exerciseType));
+      const remainingWords = shuffleArray(createDisambiguatedPrompts(activeVocabulary, exerciseType, state.vocabulary.active));
 
       const session = createNewSession(exerciseType, 'speed-drill', activeVocabulary.length);
       session.remainingWords = remainingWords;
@@ -655,7 +669,10 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         exerciseType,
         'speed-drill',
         [],
-        remainingWords || []
+        remainingWords || [],
+        false,  // focusOnWeaknesses
+        null,   // responseDatabase
+        state.vocabulary.active  // Full vocabulary for disambiguation
       );
 
       return {
