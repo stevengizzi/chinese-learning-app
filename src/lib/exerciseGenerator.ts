@@ -6,6 +6,51 @@ import { rankVocabularyByPriority, selectWeightedByPriority, type TrainingPriori
 import { generateVocabularyId } from './responseTracking/storage';
 
 /**
+ * Normalize a meaning string for semantic comparison.
+ * Splits by semicolon, trims whitespace, lowercases, and sorts alphabetically.
+ * This allows "cup; glass" to match "glass; cup" as equivalent meanings.
+ */
+export function normalizeMeaning(meaning: string): string {
+  return meaning
+    .split(';')
+    .map(s => s.trim().toLowerCase())
+    .sort()
+    .join(';');
+}
+
+/**
+ * Check if two meanings are semantically equivalent.
+ * They're equivalent if they contain the same set of meaning segments.
+ */
+export function meaningsAreEquivalent(meaning1: string, meaning2: string): boolean {
+  return normalizeMeaning(meaning1) === normalizeMeaning(meaning2);
+}
+
+/**
+ * Group vocabulary by normalized meaning to find entries with equivalent meanings.
+ * Returns a Map where keys are normalized meanings and values are arrays of entries.
+ */
+export function groupByNormalizedMeaning(vocabulary: VocabularyEntry[]): Map<string, VocabularyEntry[]> {
+  const groups = new Map<string, VocabularyEntry[]>();
+  for (const entry of vocabulary) {
+    const normalized = normalizeMeaning(entry.meaning);
+    const group = groups.get(normalized) || [];
+    group.push(entry);
+    groups.set(normalized, group);
+  }
+  return groups;
+}
+
+/**
+ * Check if a vocabulary entry has equivalent meanings with other entries.
+ * Used for disambiguation in English prompts.
+ */
+export function hasEquivalentMeanings(entry: VocabularyEntry, vocabulary: VocabularyEntry[]): boolean {
+  const normalizedMeaning = normalizeMeaning(entry.meaning);
+  return vocabulary.some(v => v !== entry && normalizeMeaning(v.meaning) === normalizedMeaning);
+}
+
+/**
  * Determine the prompt type based on what was shown to the user
  */
 function determinePromptType(
@@ -228,10 +273,13 @@ export function generateExercise(
   }
 
   // Check if we need to disambiguate English meanings
-  // If the prompt is a meaning and there are multiple entries with the same meaning, add the character
+  // If the prompt is a meaning and there are multiple entries with equivalent meanings
+  // (same set of meaning segments regardless of order), add the character
   if (prompt === selectedEntry.meaning) {
-    const entriesWithSameMeaning = vocabulary.filter(v => v.meaning === selectedEntry.meaning);
-    if (entriesWithSameMeaning.length > 1) {
+    const entriesWithEquivalentMeaning = vocabulary.filter(v =>
+      meaningsAreEquivalent(v.meaning, selectedEntry.meaning)
+    );
+    if (entriesWithEquivalentMeaning.length > 1) {
       prompt = `${selectedEntry.meaning} (${selectedEntry.word})`;
     }
   }

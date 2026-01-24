@@ -5,7 +5,7 @@ import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode } from '../types
 import type { Session } from '../types/session';
 import type { ResponseDatabase } from '../types/responseTracking';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
-import { generateExercise, shuffleArray } from '../lib/exerciseGenerator';
+import { generateExercise, shuffleArray, normalizeMeaning } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
@@ -25,14 +25,17 @@ function createDisambiguatedPrompts(
   exerciseType: ExerciseType
 ): string[] {
   if (exerciseType === 'english-to-pinyin') {
-    // Group by meaning to find duplicates
-    const meaningCounts = new Map<string, number>();
+    // Group by normalized meaning to find entries with equivalent meanings
+    // e.g., "cup; glass" and "glass; cup" are considered equivalent
+    const normalizedMeaningCounts = new Map<string, number>();
     vocabulary.forEach(v => {
-      meaningCounts.set(v.meaning, (meaningCounts.get(v.meaning) || 0) + 1);
+      const normalized = normalizeMeaning(v.meaning);
+      normalizedMeaningCounts.set(normalized, (normalizedMeaningCounts.get(normalized) || 0) + 1);
     });
 
     return vocabulary.map(v => {
-      if (meaningCounts.get(v.meaning)! > 1) {
+      const normalized = normalizeMeaning(v.meaning);
+      if (normalizedMeaningCounts.get(normalized)! > 1) {
         return `${v.meaning} (${v.word})`;
       }
       return v.meaning;
@@ -77,10 +80,12 @@ function createDisambiguatedPrompts(
 
   // For shuffled modes, handle both word and meaning prompts
   if (exerciseType === 'shuffled') {
-    const meaningCounts = new Map<string, number>();
+    // Group by normalized meaning to find entries with equivalent meanings
+    const normalizedMeaningCounts = new Map<string, number>();
     const wordCounts = new Map<string, number>();
     vocabulary.forEach(v => {
-      meaningCounts.set(v.meaning, (meaningCounts.get(v.meaning) || 0) + 1);
+      const normalized = normalizeMeaning(v.meaning);
+      normalizedMeaningCounts.set(normalized, (normalizedMeaningCounts.get(normalized) || 0) + 1);
       wordCounts.set(v.word, (wordCounts.get(v.word) || 0) + 1);
     });
 
@@ -93,7 +98,8 @@ function createDisambiguatedPrompts(
         prompts.push(v.word);
       }
       // Add meaning prompt (with character disambiguation if needed)
-      if (meaningCounts.get(v.meaning)! > 1) {
+      const normalized = normalizeMeaning(v.meaning);
+      if (normalizedMeaningCounts.get(normalized)! > 1) {
         prompts.push(`${v.meaning} (${v.word})`);
       } else {
         prompts.push(v.meaning);
