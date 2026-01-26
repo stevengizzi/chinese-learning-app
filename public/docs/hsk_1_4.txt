@@ -4418,3 +4418,243 @@ pinyin: Ta1 su4 wo3.
 english: She complains.
 mandarin: 她诉。
 pinyin: Ta1 su4.
+
+english: Taiwan is very beautiful.
+mandarin: 台湾很漂亮。
+pinyin: Tai2 wan1 hen3 piao4 liang.
+
+english: I want to go to Taiwan.
+mandarin: 我想去台湾。
+pinyin: Wo3 xiang3 qu4 tai2 wan1.
+
+english: This city is very beautiful.
+mandarin: 这个城市很漂亮。
+pinyin: Zhe4 ge cheng2 shi4 hen3 piao4 liang.
+
+english: Her house is very pretty.
+mandarin: 她的房子很漂亮。
+pinyin: Ta1 de fang2 zi hen3 piao4 liang.
+
+english: There is a hot spring in that place.
+mandarin: 那个地方有温泉。
+pinyin: Na4 ge di4 fang1 you3 wen1 quan2.
+
+english: I want to go to the hot spring.
+mandarin: 我想去温泉。
+pinyin: Wo3 xiang3 qu4 wen1 quan2.
+
+english: Japan is a country.
+mandarin: 日本是国家。
+pinyin: Ri4 ben3 shi4 guo2 jia1.
+
+english: He comes from Japan.
+mandarin: 他来自日本。
+pinyin: Ta1 lai2 zi4 ri4 ben3.
+
+english: This city is very big.
+mandarin: 这个城市很大。
+pinyin: Zhe4 ge cheng2 shi4 hen3 da4.
+
+english: I like this city.
+mandarin: 我喜欢这个城市。
+pinyin: Wo3 xi3 huan zhe4 ge cheng2 shi4.
+
+english: This city has a market.
+mandarin: 这个市有商场。
+pinyin: Zhe4 ge shi4 you3 shang1 chang3.
+
+english: I live in this city.
+mandarin: 我住在这个市。
+pinyin: Wo3 zhu4 zai4 zhe4 ge shi4.
+
+english: Today is very warm.
+mandarin: 今天很温暖。
+pinyin: Jin1 tian1 hen3 wen1 nuan3.
+
+english: This blanket is warm.
+mandarin: 这个毯子很温暖。
+pinyin: Zhe4 ge tan3 zi hen3 wen1 nuan3.
+
+english: The hotel receives guests.
+mandarin: 这个馆接待客人。
+pinyin: Zhe4 ge guan3 jie1 dai4 ke4 ren2.
+
+english: They host Chinese people.
+mandarin: 他们接待中国人。
+pinyin: Ta1 men jie1 dai4 zhong1 guo2 ren2.
+
+english: Each person has a phone.
+mandarin: 每个人有手机。
+pinyin: Mei3 ge ren2 you3 shou3 ji1.
+
+english: Each student has a book.
+mandarin: 每个学生有书。
+pinyin: Mei3 ge xue2 sheng1 you3 shu1.
+
+english: Everyone likes music.
+mandarin: 每个人喜欢音乐。
+pinyin: Mei3 ge ren2 xi3 huan yin1 yue4.
+
+english: Everyone is at home.
+mandarin: 每个人在家。
+pinyin: Mei3 ge ren2 zai4 jia1.
+
+english: I watch the sunrise.
+mandarin: 我看日出。
+pinyin: Wo3 kan4 ri4 chu1.
+
+english: Sunrise is very beautiful.
+mandarin: 日出很漂亮。
+pinyin: Ri4 chu1 hen3 piao4 liang.
+
+english: We watch the sunset.
+mandarin: 我们看日落。
+pinyin: Wo3 men kan4 ri4 luo4.
+
+english: Sunset is very nice.
+mandarin: 日落很好看。
+pinyin: Ri4 luo4 hen3 hao3 kan4.
+
+english: This is not my house.
+mandarin: 这不是我的房子。
+pinyin: Zhe4 bu4 shi4 wo3 de fang2 zi.
+
+english: He is not a student.
+mandarin: 他不是学生。
+pinyin: Ta1 bu4 shi4 xue2 sheng1.
+
+english: China is very big.
+mandarin: 中国很大。
+pinyin: Zhong1 guo2 hen3 da4.
+
+english: I live in China.
+mandarin: 我住在中国。
+pinyin: Wo3 zhu4 zai4 zhong1 guo2.
+
+english: The US is far away.
+mandarin: 美国很远。
+pinyin: Mei3 guo2 hen3 yuan3.
+
+english: I want to go to the US.
+mandarin: 我想去美国。
+pinyin: Wo3 xiang3 qu4 mei3 guo2.
+
+english: He is an American.
+mandarin: 他是美国人。
+pinyin: Ta1 shi4 mei3 guo2 ren2.
+
+english: Americans like basketball.
+mandarin: 美国人喜欢篮球。
+pinyin: Mei3 guo2 ren2 xi3 huan lan2 qiu2.
+
+english: She is Chinese.
+mandarin: 她是中国人。
+pinyin: Ta1 shi4 zhong1 guo2 ren2.
+
+english: Chinese people like rice.
+mandarin: 中国人喜欢米饭。
+pinyin: Zhong1 guo2 ren2 xi3 huan mi3 fan4.
+
+english: That mountain is a volcano.
+mandarin: 那个山是火山。
+pinyin: Na4 ge shan1 shi4 huo3 shan1.
+
+english: The volcano is very big.
+mandarin: 火山很大。
+pinyin: Huo3 shan1 hen3 da4.
+
+english: I have a cat.
+mandarin: 我有猫。
+pinyin: Wo3 you3 mao1.
+
+english: The cat is very cute.
+mandarin: 猫很可爱。
+pinyin: Mao1 hen3 ke3 ai4.
+
+english: I play basketball.
+mandarin: 我玩篮球。
+pinyin: Wo3 wan2 lan2 qiu2.
+
+english: He likes basketball.
+mandarin: 他喜欢篮球。
+pinyin: Ta1 xi3 huan lan2 qiu2.
+
+english: She plays tennis.
+mandarin: 她玩网球。
+pinyin: Ta1 wan2 wang3 qiu2.
+
+english: Tennis is very fun.
+mandarin: 网球很好玩。
+pinyin: Wang3 qiu2 hen3 hao3 wan2.
+
+english: They play soccer.
+mandarin: 他们玩足球。
+pinyin: Ta1 men wan2 zu2 qiu2.
+
+english: I like soccer.
+mandarin: 我喜欢足球。
+pinyin: Wo3 xi3 huan zu2 qiu2.
+
+english: The kitten is very small.
+mandarin: 小猫很小。
+pinyin: Xiao3 mao1 hen3 xiao3.
+
+english: I see a kitten.
+mandarin: 我看到小猫。
+pinyin: Wo3 kan4 dao4 xiao3 mao1.
+
+english: There is a dog here.
+mandarin: 这里有狗。
+pinyin: Zhe4 li3 you3 gou3.
+
+english: The dog is big.
+mandarin: 狗很大。
+pinyin: Gou3 hen3 da4.
+
+english: The puppy is cute.
+mandarin: 小狗很可爱。
+pinyin: Xiao3 gou3 hen3 ke3 ai4.
+
+english: I like the puppy.
+mandarin: 我喜欢小狗。
+pinyin: Wo3 xi3 huan xiao3 gou3.
+
+english: I eat cake.
+mandarin: 我吃蛋糕。
+pinyin: Wo3 chi1 dan4 gao1.
+
+english: The cake is very good.
+mandarin: 蛋糕很好吃。
+pinyin: Dan4 gao1 hen3 hao3 chi1.
+
+english: I like chocolate.
+mandarin: 我喜欢巧克力。
+pinyin: Wo3 xi3 huan qiao3 ke4 li4.
+
+english: Chocolate is very sweet.
+mandarin: 巧克力很甜。
+pinyin: Qiao3 ke4 li4 hen3 tian2.
+
+english: I listen to music.
+mandarin: 我听音乐。
+pinyin: Wo3 ting1 yin1 yue4.
+
+english: She likes music.
+mandarin: 她喜欢音乐。
+pinyin: Ta1 xi3 huan yin1 yue4.
+
+english: I have a blanket.
+mandarin: 我有毯子。
+pinyin: Wo3 you3 tan3 zi.
+
+english: The blanket is warm.
+mandarin: 毯子很温暖。
+pinyin: Tan3 zi hen3 wen1 nuan3.
+
+english: I arrive at home.
+mandarin: 我来到家。
+pinyin: Wo3 lai2 dao4 jia1.
+
+english: He arrives at the school.
+mandarin: 他来到学校。
+pinyin: Ta1 lai2 dao4 xue2 xiao4.

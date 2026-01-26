@@ -167,7 +167,7 @@ notes:
 | 生 | sheng1 | to be born; life |
 | 不对 | bu4 dui4 | incorrect; wrong |
 | 一边 | yi1 bian1 | at the same time...; side |
-| 不客气 | bu4 ke4 qi | you're welcome; don't mention it; impolite; rude |
+| 不客气 | bu4 ke4 qi4 | you're welcome; don't mention it; impolite; rude |
 | 也 | ye3 | also; too |
 | 山 | shan1 | mountain |
 | 友 | you3 | friend |
@@ -592,3 +592,32 @@ notes:
 | 怎么 | zen3 me | how?; what?; why? |
 | 话 | hua4 | speech; words; talk |
 | 诉 | su4 | to complain; to sue; to tell |
+| 台湾 | tai2 wan1 | Taiwan |
+| 漂亮 | piao4 liang | pretty; beautiful |
+| 温泉 | wen1 quan2 | hot spring (or well) |
+| 日本 | ri4 ben3 | Japan |
+| 城市 | cheng2 shi4 | town; city |
+| 市 | shi4 | market; city; municipality |
+| 温暖 | wen1 nuan3 | warm; to make warm |
+| 接待 | jie1 dai4 | to receive; to entertain; to host (guests, visitors, clients) |
+| 每个 | mei3 ge4 | each; every |
+| 每个人 | mei3 ge ren2 | everybody; everyone |
+| 日出 | ri4 chu1 | sunrise |
+| 日落 | ri4 luo4 | sunset; sundown |
+| 不是 | bu4 shi4 | no; is not; not |
+| 中国 | zhong1 guo2 | China |
+| 美国 | mei3 guo2 | United States of America |
+| 美国人 | mei3 guo2 ren2 | American person |
+| 中国人 | zhong1 guo2 ren2 | Chinese person |
+| 火山 | huo3 shan1 | volcano |
+| 猫 | mao1 | cat; feline | 
+| 篮球 | lan2 qiu2 | basketball | 
+| 网球 | wang3 qiu2 | tennis; tennis ball |
+| 足球 | zu2 qiu2 | soccer; football |
+| 小猫 | xiao3 mao1 | kitten |
+| 狗 | gou3 | dog |
+| 小狗 | xiao3 gou3 | pup; puppy |
+| 蛋糕 | dan4 gao1 | cake |
+| 巧克力 | qiao3 ke4 li4 | chocolate |
+| 音乐 | yin1 yue4 | music |
+| 毯子 | tan3 zi | blanket |
