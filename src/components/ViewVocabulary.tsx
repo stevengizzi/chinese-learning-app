@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
 import { formatResponseTime } from '../lib/responseTracking/analytics';
 import { getVocabularyMasteryInfo } from '../lib/dashboard/mastery';
+import { loadVocabularySelection, saveVocabularySelection } from '../lib/vocabularySelection';
 import type { ResponseDatabase, VocabularySpeedStats } from '../types/responseTracking';
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { MasteryLevel, VocabularyMasteryInfo } from '../types/dashboard';
@@ -114,6 +115,7 @@ export function ViewVocabulary() {
   const [searchQuery, setSearchQuery] = useState('');
   const [responseDatabase, setResponseDatabase] = useState<ResponseDatabase | null>(null);
   const [sort, setSort] = useState<SortState>({ field: 'pinyin', direction: 'asc' });
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(() => loadVocabularySelection());
 
   // Reload database whenever this component is shown
   useEffect(() => {
@@ -164,6 +166,45 @@ export function ViewVocabulary() {
       };
     });
   }, [state.vocabulary, responseDatabase]);
+
+  // Toggle selection for a single vocabulary item
+  const toggleSelection = useCallback((vocabId: string) => {
+    setSelectedIds(prev => {
+      const newSelected = new Set(prev);
+      if (newSelected.has(vocabId)) {
+        newSelected.delete(vocabId);
+      } else {
+        newSelected.add(vocabId);
+      }
+      saveVocabularySelection(newSelected);
+      return newSelected;
+    });
+  }, []);
+
+  // Select all currently visible (filtered) vocabulary
+  const handleSelectAll = useCallback(() => {
+    setSelectedIds(prev => {
+      const visibleIds = vocabularyWithStats.map(v => v.vocabId);
+      const allVisible = visibleIds.every(id => prev.has(id));
+
+      const newSelected = new Set(prev);
+      if (allVisible) {
+        // Deselect all visible
+        visibleIds.forEach(id => newSelected.delete(id));
+      } else {
+        // Select all visible
+        visibleIds.forEach(id => newSelected.add(id));
+      }
+      saveVocabularySelection(newSelected);
+      return newSelected;
+    });
+  }, [vocabularyWithStats]);
+
+  // Clear all selection
+  const handleClearSelection = useCallback(() => {
+    setSelectedIds(new Set());
+    saveVocabularySelection(new Set());
+  }, []);
 
   // Filter vocabulary based on search query
   const filteredVocabulary = useMemo(() => {
@@ -344,14 +385,29 @@ export function ViewVocabulary() {
             </div>
           </div>
 
-          {/* Vocabulary count */}
-          <div className="mb-6 flex justify-center">
+          {/* Vocabulary count and selection info */}
+          <div className="mb-6 flex justify-center gap-4">
             <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
               <p className="text-center text-sm text-blue-800 dark:text-blue-200">
                 <span className="font-semibold">
                   {searchQuery ? `Showing ${sortedVocabulary.length} of ${totalWords} words` : `Total words: ${totalWords}`}
                 </span>
               </p>
+            </div>
+            <div className="bg-purple-50 dark:bg-purple-900/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4 flex items-center gap-3">
+              <p className="text-center text-sm text-purple-800 dark:text-purple-200">
+                <span className="font-semibold">
+                  {selectedIds.size > 0 ? `${selectedIds.size} selected` : 'None selected'}
+                </span>
+              </p>
+              {selectedIds.size > 0 && (
+                <button
+                  onClick={handleClearSelection}
+                  className="text-xs text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 underline"
+                >
+                  Clear
+                </button>
+              )}
             </div>
           </div>
 
@@ -360,6 +416,15 @@ export function ViewVocabulary() {
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
+                  <th className="text-center p-3 w-10">
+                    <input
+                      type="checkbox"
+                      checked={vocabularyWithStats.length > 0 && vocabularyWithStats.every(v => selectedIds.has(v.vocabId))}
+                      onChange={handleSelectAll}
+                      className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                      title={vocabularyWithStats.every(v => selectedIds.has(v.vocabId)) ? "Deselect all" : "Select all"}
+                    />
+                  </th>
                   <th className="text-left p-3 font-semibold text-gray-900 dark:text-white w-28">Character</th>
                   <th
                     className="text-left p-3 font-semibold text-gray-900 dark:text-white w-32 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
@@ -445,6 +510,14 @@ export function ViewVocabulary() {
                         key={index}
                         className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
                       >
+                        <td className="text-center p-3">
+                          <input
+                            type="checkbox"
+                            checked={selectedIds.has(entry.vocabId)}
+                            onChange={() => toggleSelection(entry.vocabId)}
+                            className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                          />
+                        </td>
                         <td className="p-3 text-2xl text-gray-900 dark:text-white whitespace-nowrap">{entry.word}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300 whitespace-nowrap">{entry.pinyin}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300 min-w-[200px]">{entry.meaning}</td>
@@ -487,7 +560,7 @@ export function ViewVocabulary() {
                   })
                 ) : (
                   <tr>
-                    <td colSpan={11} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    <td colSpan={12} className="p-8 text-center text-gray-500 dark:text-gray-400">
                       No matching vocabulary found
                     </td>
                   </tr>

@@ -10,6 +10,7 @@ import type { VocabularyFilterConfig, VocabularyFilterType, SavedFilterPreferenc
 import { DEFAULT_MASTERY_LEVELS } from '../types/vocabularyFilter';
 import { generateVocabularyId, calculateSpeedThreshold } from './responseTracking/storage';
 import { getVocabularyMasteryInfo } from './dashboard/mastery';
+import { loadVocabularySelection } from './vocabularySelection';
 
 const FILTER_PREFERENCES_KEY = 'vocabulary-filter-preferences';
 
@@ -162,6 +163,11 @@ function entryPassesFilter(
   const useAnyPromptType = !promptType || promptType === 'any';
 
   switch (config.type) {
+    case 'selected-only': {
+      const selectedIds = loadVocabularySelection();
+      return selectedIds.has(vocabId);
+    }
+
     case 'never-attempted': {
       if (!stats) return true;
       if (useAnyPromptType) {
@@ -294,6 +300,7 @@ export function getAllFilterCounts(
 ): Record<VocabularyFilterType, number> {
   const filterTypes: VocabularyFilterType[] = [
     'all',
+    'selected-only',
     'never-attempted',
     'recent-failures',
     'low-accuracy',

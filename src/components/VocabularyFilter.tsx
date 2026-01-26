@@ -4,6 +4,7 @@ import type { ResponseDatabase, PromptType } from '../types/responseTracking';
 import type { VocabularyFilterConfig, VocabularyFilterType, MasteryLevelsByPromptType } from '../types/vocabularyFilter';
 import { FILTER_LABELS, FILTER_DESCRIPTIONS, DEFAULT_FILTER_CONFIGS, DEFAULT_MASTERY_LEVELS } from '../types/vocabularyFilter';
 import { countFilteredVocabulary, getFilterForExercise, saveFilterForExercise, clearFilterForExercise, getPromptTypesForExercise } from '../lib/vocabularyFilter';
+import { getSelectedCount } from '../lib/vocabularySelection';
 import { PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
 import type { MasteryLevel } from '../types/dashboard';
 
@@ -62,9 +63,13 @@ export function VocabularyFilter({
     }
   }, [exerciseKey]);
 
+  // Get selected vocabulary count
+  const selectedCount = getSelectedCount();
+
   // Calculate counts for each filter type
   const filterCounts: Record<VocabularyFilterType, number> = {
     'all': vocabulary.length,
+    'selected-only': selectedCount,
     'never-attempted': countFilteredVocabulary(vocabulary, { ...DEFAULT_FILTER_CONFIGS['never-attempted'] }, database),
     'recent-failures': countFilteredVocabulary(vocabulary, { ...DEFAULT_FILTER_CONFIGS['recent-failures'] }, database),
     'low-accuracy': countFilteredVocabulary(vocabulary, { ...config, type: 'low-accuracy', accuracyThreshold: config.accuracyThreshold ?? 70 }, database),
@@ -143,6 +148,7 @@ export function VocabularyFilter({
   // Filter options grouped
   const filterOptions: { type: VocabularyFilterType; color: string }[] = [
     { type: 'all', color: 'bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600' },
+    { type: 'selected-only', color: 'bg-violet-50 dark:bg-violet-900/30 border-violet-300 dark:border-violet-700' },
     { type: 'never-attempted', color: 'bg-blue-50 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700' },
     { type: 'recent-failures', color: 'bg-red-50 dark:bg-red-900/30 border-red-300 dark:border-red-700' },
     { type: 'low-accuracy', color: 'bg-orange-50 dark:bg-orange-900/30 border-orange-300 dark:border-orange-700' },

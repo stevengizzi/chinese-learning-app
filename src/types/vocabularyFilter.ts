@@ -12,6 +12,7 @@ import type { MasteryLevel } from './dashboard';
  */
 export type VocabularyFilterType =
   | 'all'                    // No filtering - use all vocabulary
+  | 'selected-only'          // Only vocabulary items checked in the vocabulary list
   | 'never-attempted'        // No recorded attempts
   | 'recent-failures'        // Last attempt was incorrect
   | 'low-accuracy'           // Success rate below threshold
@@ -69,6 +70,7 @@ export interface VocabularyFilterConfig {
  */
 export const DEFAULT_FILTER_CONFIGS: Record<VocabularyFilterType, VocabularyFilterConfig> = {
   'all': { type: 'all' },
+  'selected-only': { type: 'selected-only' },
   'never-attempted': { type: 'never-attempted', promptType: 'any' },
   'recent-failures': { type: 'recent-failures', promptType: 'any' },
   'low-accuracy': { type: 'low-accuracy', accuracyThreshold: 70, promptType: 'any' },
@@ -82,6 +84,7 @@ export const DEFAULT_FILTER_CONFIGS: Record<VocabularyFilterType, VocabularyFilt
  */
 export const FILTER_LABELS: Record<VocabularyFilterType, string> = {
   'all': 'All Vocabulary',
+  'selected-only': 'Selected Only',
   'never-attempted': 'Never Attempted',
   'recent-failures': 'Recent Failures',
   'low-accuracy': 'Low Accuracy',
@@ -95,6 +98,7 @@ export const FILTER_LABELS: Record<VocabularyFilterType, string> = {
  */
 export const FILTER_DESCRIPTIONS: Record<VocabularyFilterType, string> = {
   'all': 'Practice with your entire vocabulary',
+  'selected-only': 'Only items you\'ve checked in the vocabulary list',
   'never-attempted': 'Items you haven\'t practiced yet',
   'recent-failures': 'Items where your last attempt was incorrect',
   'low-accuracy': 'Items with accuracy below threshold',

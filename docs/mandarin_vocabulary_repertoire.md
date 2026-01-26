@@ -150,7 +150,7 @@ notes:
 | 学习 | xue2 xi2 | to study |
 | 好吃 | hao3 chi1 | tasty; delicious |
 | 儿子 | er2 zi | son |
-| 打球 | da3 qiu4 | to play ball; to play with a ball |
+| 打球 | da3 qiu2 | to play ball; to play with a ball |
 | 洗手间 | xi3 shou3 jian1 | washroom; bathroom |
 | 放 | fang4 | to put; to place; to set off (fireworks, etc) |
 | 奶 | nai3 | breast; milk; to breastfeed |
