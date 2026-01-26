@@ -71,13 +71,13 @@ notes:
 | 女儿 | nü3 er2 | daughter |
 | 面包 | mian4 bao1 | bread |
 | 最好 | zui4 hao3 | best; "you had better..." |
-| 点 | dian3 | point; dot |
+| 点 | dian3 | point; dot; to order (sth) |
 | 有些 | you3 xie1 | some; somewhat |
 | 妹 | mei4 | younger sister |
 | 什么 | shen2 me | what? |
 | 房间 | fang2 jian1 | room |
 | 高兴 | gao1 xing4 | happy |
-| 饭店 | fan4 dian4 | restaurant |
+| 饭店 | fan4 dian4 | restaurant; hotel |
 | 脑 | nao3 | brain |
 | 没关系 | mei2 guan1 xi | it doesn't matter |
 | 路 | lu4 | road |
@@ -621,7 +621,120 @@ notes:
 | 巧克力 | qiao3 ke4 li4 | chocolate |
 | 音乐 | yin1 yue4 | music |
 | 毯子 | tan3 zi | blanket |
+| 行人 | xing2 ren2 | pedestrian |
 | 小心 | xiao3 xin | take care; be careful; be cautious |
 | 心 | xin1 | heart |
 | 回收 | hui2 shou1 | to recycle; to retrieve; to recover |
 | 回收利用 | hui2 shou1 li4 yong4 | recycling |
+| 入口 | ru4 kou3 | entrance |
+| 出口 | chu1 kou3 | exit |
+| 不错 | bu4 cuo4 | not bad; pretty good |
+| 服务员 | fu2 wu4 yuan2 | waiter; waitress; attendant |
+| 大自然 | da4 zi4 ran2 | nature |
+| 环岛 | huan2 dao3 | to travel around an island |
+| 兄弟姐妹 | xiong1 di4 jie3 mei4 | brothers and sisters; siblings |
+| 绿茶 | lü4 cha2 | green tea |
+| 红茶 | hong2 cha2 | black tea |
+| 鸡尾酒 | ji1 wei3 jiu3 | cocktail |
+| 调酒 | tiao2 jiu3 | to mix drinks; cocktail |
+| 调酒师 | tiao2 jiu3 shi1 | bartender; mixologist |
+| 怎么说 | zen3 me shuo1 | how do you say...? |
+| 这个怎么说 | zhe4 ge zen3 me shuo1 | how do you say this? |
+| 附近 | fu4 jin4 | nearby; neighboring; vicinity |
+| 酒吧 | jiu3 ba4 | bar |
+| 周末 | zhou1 mo4 | weekend |
+| 骑 | qi2 | to ride; sit on the back of |
+| 脚踏车 | jiao3 ta4 che1 | bicycle (Taiwan) |
+| 自行车 | zi4 xing2 che1 | bicycle |
+| 骑脚踏车 | qi2 jiao3 ta4 che1 | bicycle |
+| 骑马 | qi2 ma3 | to ride a horse; to be on horseback |
+| 探索 | tan4 suo3 | to explore; to probe |
+| 方便 | fang2 bian4 | convenient; suitable; to make things easy |
+| 共享 | gong4 xiang3 | to enjoy together; to share |
+| 办公 | ban4 gong1 | to work (in an office); to handle official business |
+| 空间 | kong1 jian1 | space; room |
+| 共享办公空间 | gong4 xiang3 ban4 gong1 kong1 jian1 | coworking space; shared office space |
+| 经营 | jing1 ying2 | to manage; to operate; to run (a business) |
+| 公司 | gong1 si1 | company; corporation; firm |
+| 经营一家公司 | jing1 ying2 yi4 jia1 gong1 si1 | to run a company |
+| 硬件 | ying4 jian4 | (computer) hardware |
+| 软件 | ruan3 jian4 | software |
+| 硬体 | ying4 ti3 | (computer) hardware (Taiwan) |
+| 软体 | ruan3 ti3 | software (Taiwan) |
+| 教育 | jiao4 yu4 | education |
+| 创办 | chuang4 ban4 | to establish; to found |
+| 作曲 | zuo4 qu3 | to compose music |
+| 作曲家 | zuo4 qu3 jia1 | composer; songwriter |
+| 奇幻 | qi2 huan4 | fantasy (fiction) |
+| 科幻 | ke1 huan4 | science fiction |
+| 内用 | nei4 yong4 | to dine in (at a restaurant) (Taiwan) |
+| 堂食 | tang2 shi2 | to dine in (at a restaurant) |
+| 外带 | wai4 dai4 | take-out (food); to take to go (Taiwan) |
+| 打包 | da3 bao1 | take-out (food); to take to go (Taiwan) |
+| 再说一次 | zai4 shuo1 yi1 ci4 | say that again |
+| 可是 | ke3 shi4 | but; yet; however |
+| 更多 | geng1 duo1 | more; much |
+| 便利商店 | bian3 li4 shang1 dian4 | convenience store |
+| 便利店 | bian3 li4 dian4 | convenience store |
+| 统一 | tong3 yi1 | 7-Eleven |
+| 全家 | quan2 jia1 | FamilyMart |
+| 多久 | duo1 jiu3 | (of time) how long? |
+| 从 | cong2 | from (a time, a place, or a point of view) |
+| 转机 | zhuan3 ji1 | to change planes; (flight) transfer |
+| 香蕉 | xiang1 jiao1 | banana |
+| 葡萄 | pu2 tao2 | grapes |
+| 西瓜 | xi1 gua1 | watermelon |
+| 苹果 | ping2 guo3 | apple (tree/fruit) |
+| 红色 | hong2 se4 | red |
+| 橙色 | cheng2 se4 | orange (color) |
+| 橙子 | cheng2 zi | orange (fruit) |
+| 橘子 | ju2 zi | mandarin orange; tangerine |
+| 黄色 | huang2 se4 | yellow |
+| 绿色 | lü4 se4 | green |
+| 蓝色 | lan2 se4 | blue |
+| 紫色 | zi3 se4 | purple |
+| 黑色 | hei1 se4 | black |
+| 棕色 | zong1 se4 | brown |
+| 灰色 | hui1 se4 | grey |
+| 臭豆腐 | chou4 dou4 fu | stinky tofu |
+| 饭馆 | fan4 guan3 | restaurant (casual/traditional) |
+| 餐厅 | can1 ting1 | restaurant; dining room |
+| 珍珠奶茶 | zhen1 zhu1 nai3 cha2 | bubble milk tea; boba tea |
+| 奶茶 | nai3 cha2 | milk tea |
+| 皮蛋 | pi2 dan4 | century egg; preserved egg |
+| 拉面 | la1 mian4 | ramen; pulled noodles |
+| 意大利面 | yi4 da4 li4 mian4 | spaghetti; pasta |
+| 意大利 | yi4 da4 li4 | Italy |
+| 比较喜欢 | bi3 jiao4 xi3 huan | to prefer; to like more |
+| 最喜欢 | zui4 xi3 huan | to like the most/best |
+| 因为 | yin1 wei4 | because; as; on account of |
+| 所以 | suo3 yi3 | so; therefore; as a result |
+| 你要点什么 | ni3 yao4 dian3 shen2 me | what would you like to order? |
+| 你要吃森么 | ni3 yao4 chi1 shen2 me | what would you like to eat? |
+| 什么好吃 | shen2 me hao3 chi1 | what's good to eat? |
+| 哪个最好吃 | na3 ge zui4 hao3 chi1 | which one tastes the best? |
+| 需要 | xu1 yao4 | to need; to want badly |
+| 拿铁 | na2 tie3 | latte |
+| 美式咖啡 | mei3 shi4 ka1 fei1 | Americano |
+| 浓缩咖啡 | nong2 suo1 ka1 fei1 | espresso |
+| 料理 | liao4 li3 | cuisine; cooking |
+| 式 | shi4 | style; type (of tangible techniques) |
+| 台式 | tai2 shi4 | Taiwanese-style |
+| 中式 | zhong1 shi4 | Chinese-style |
+| 日式 | ri4 shi4 | Japanese-style |
+| 美式 | mei3 shi4 | American-style |
+| 韩式 | han2 shi4 | Korean-style |
+| 法式 | fa3 shi4 | French-style |
+| 英式 | ying1 shi4 | British-style |
+| 英国 | ying1 guo2 | United Kingdom |
+| 法国 | fa3 guo2 | France |
+| 韩国 | han2 guo2 | South Korea |
+| 西班牙 | xi1 ban1 ya2 | Spain |
+| 印度 | yin4 du4 | India |
+| 事情 | shi4 qing2 | affair; matter; thing (to do) |
+| 可以 | ke3 yi3 | can; may |
+| 的时候 | de shi2 hou | when... |
+| 我笑的时候 | wo3 xiao3 de shi2 hou4 | when I was little... |
+| 南非 | nan2 fei1 | South Africa |
+| 非洲 | fei1 zhou1 | Africa |
+| 推荐 | tui1 jian4 | to recommend; recommendation |
