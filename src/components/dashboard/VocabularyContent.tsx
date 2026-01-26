@@ -431,8 +431,8 @@ export function VocabularyContent() {
                       className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
                     >
                       <td className="p-3 text-2xl text-gray-900 dark:text-white whitespace-nowrap">{entry.word}</td>
-                      <td className="p-3 text-gray-700 dark:text-gray-300">{entry.pinyin}</td>
-                      <td className="p-3 text-gray-700 dark:text-gray-300">{entry.meaning}</td>
+                      <td className="p-3 text-gray-700 dark:text-gray-300 whitespace-nowrap">{entry.pinyin}</td>
+                      <td className="p-3 text-gray-700 dark:text-gray-300 min-w-[200px]">{entry.meaning}</td>
                       <td className="p-3">
                         <div className="flex justify-center">
                           <PromptTypeDots masteryInfo={entry.masteryInfo} />

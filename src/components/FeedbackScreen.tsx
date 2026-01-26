@@ -3,6 +3,7 @@ import { useExercise } from '../contexts/ExerciseContext';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { parseExampleSentences, findMatchingSentences, type ExampleSentence } from '../lib/exampleSentences';
 import { SpeedFeedback } from './SpeedFeedback';
+import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 
 export function FeedbackScreen() {
   const { state, dispatch } = useExercise();
@@ -104,6 +105,30 @@ export function FeedbackScreen() {
               </div>
             )}
             </div>
+
+            {/* Vocabulary Context Card */}
+            {state.currentExercise?.words[0] && (() => {
+              const vocab = state.currentExercise.words[0];
+              const charCount = vocab.word.length;
+              // Scale font size based on character count
+              const fontSize = charCount <= 2 ? 'text-5xl' :
+                              charCount <= 3 ? 'text-4xl' :
+                              charCount <= 4 ? 'text-3xl' :
+                              charCount <= 5 ? 'text-2xl' : 'text-xl';
+              return (
+                <div className={`mb-4 ${isCorrect ? 'bg-gray-50 dark:bg-gray-700' : 'bg-amber-50 dark:bg-amber-900/20'} border-2 ${isCorrect ? 'border-gray-200 dark:border-gray-600' : 'border-amber-200 dark:border-amber-700'} rounded-xl p-4 text-center`}>
+                  <div className={`${fontSize} font-normal text-gray-900 dark:text-white mb-1`}>
+                    {vocab.word}
+                  </div>
+                  <div className="text-lg text-gray-500 dark:text-gray-400 mb-1">
+                    {convertPinyinStringToToneMarks(vocab.pinyin)}
+                  </div>
+                  <div className="text-base text-gray-600 dark:text-gray-300">
+                    {vocab.meaning}
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Comparison View */}
             <div className="mb-4">
