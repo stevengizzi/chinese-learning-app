@@ -116,7 +116,7 @@ export function FeedbackScreen() {
                               charCount <= 4 ? 'text-3xl' :
                               charCount <= 5 ? 'text-2xl' : 'text-xl';
               return (
-                <div className={`mb-4 ${isCorrect ? 'bg-gray-50 dark:bg-gray-700' : 'bg-amber-50 dark:bg-amber-900/20'} border-2 ${isCorrect ? 'border-gray-200 dark:border-gray-600' : 'border-amber-200 dark:border-amber-700'} rounded-xl p-4 text-center`}>
+                <div className={`mb-4 ${isCorrect ? 'bg-green-50 dark:bg-green-900/20' : 'bg-amber-50 dark:bg-amber-900/20'} border-2 ${isCorrect ? 'border-green-200 dark:border-green-700' : 'border-amber-200 dark:border-amber-700'} rounded-xl p-4 text-center`}>
                   <div className={`${fontSize} font-normal text-gray-900 dark:text-white mb-1`}>
                     {vocab.word}
                   </div>
