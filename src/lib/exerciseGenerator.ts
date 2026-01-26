@@ -151,7 +151,13 @@ export function generateExercise(
     const promptToUse = remainingWords[0];
 
     // Find matching vocabulary entry using multiple strategies
-    let entry = vocabulary.find(v => v.word === promptToUse || v.meaning === promptToUse || v.pinyin === promptToUse);
+    // Note: pinyin prompts use tone marks (e.g., "yuè") but v.pinyin uses numbers (e.g., "yue4")
+    let entry = vocabulary.find(v =>
+      v.word === promptToUse ||
+      v.meaning === promptToUse ||
+      v.pinyin === promptToUse ||
+      convertPinyinStringToToneMarks(v.pinyin) === promptToUse
+    );
 
     // If not found directly, try matching disambiguated prompts
     // e.g., prompt might be "yesterday (昨)" or "哥哥 (older brother)"
@@ -172,14 +178,17 @@ export function generateExercise(
 
     // Fallback: try simple partial matching
     if (!entry) {
-      entry = vocabulary.find(v =>
-        promptToUse.startsWith(v.word + ' ') ||
-        promptToUse.startsWith(v.word + '(') ||
-        promptToUse.startsWith(v.meaning + ' ') ||
-        promptToUse.startsWith(v.meaning + '(') ||
-        promptToUse.startsWith(v.pinyin + ' ') ||
-        promptToUse.startsWith(v.pinyin + '(')
-      );
+      entry = vocabulary.find(v => {
+        const pinyinWithTones = convertPinyinStringToToneMarks(v.pinyin);
+        return promptToUse.startsWith(v.word + ' ') ||
+          promptToUse.startsWith(v.word + '(') ||
+          promptToUse.startsWith(v.meaning + ' ') ||
+          promptToUse.startsWith(v.meaning + '(') ||
+          promptToUse.startsWith(v.pinyin + ' ') ||
+          promptToUse.startsWith(v.pinyin + '(') ||
+          promptToUse.startsWith(pinyinWithTones + ' ') ||
+          promptToUse.startsWith(pinyinWithTones + '(');
+      });
     }
 
     // Also try matching if the vocabulary entry contains the prompt (for partial meanings)
