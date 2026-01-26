@@ -4658,3 +4658,35 @@ pinyin: Wo3 lai2 dao4 jia1.
 english: He arrives at the school.
 mandarin: 他来到学校。
 pinyin: Ta1 lai2 dao4 xue2 xiao4.
+
+english: Be careful on the road.
+mandarin: 马路上小心。
+pinyin: ma3 lu4 shang4 xiao3 xin.
+
+english: Be careful when getting off the car.
+mandarin: 下车小心。
+pinyin: Xia4 che1 xiao3 xin.
+
+english: My heart is very happy.
+mandarin: 我的心很开心。
+pinyin: Wo3 de xin1 hen3 kai1 xin1.
+
+english: His heart is good.
+mandarin: 他的心很好。
+pinyin: Ta1 de xin1 hen3 hao3.
+
+english: This bottle can be recycled.
+mandarin: 这个瓶子可以回收。
+pinyin: Zhe4 ge ping2 zi ke3 yi3 hui2 shou1.
+
+english: We recycle paper.
+mandarin: 我们回收纸。
+pinyin: Wo3 men hui2 shou1 zhi3.
+
+english: We recycle and reuse bottles.
+mandarin: 我们回收利用瓶子。
+pinyin: Wo3 men hui2 shou1 li4 yong4 ping2 zi.
+
+english: Recycling is very important.
+mandarin: 回收利用很重要。
+pinyin: Hui2 shou1 li4 yong4 hen3 zhong4 yao4.

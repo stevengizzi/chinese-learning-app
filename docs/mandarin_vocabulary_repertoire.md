@@ -621,3 +621,7 @@ notes:
 | 巧克力 | qiao3 ke4 li4 | chocolate |
 | 音乐 | yin1 yue4 | music |
 | 毯子 | tan3 zi | blanket |
+| 小心 | xiao3 xin | take care; be careful; be cautious |
+| 心 | xin1 | heart |
+| 回收 | hui2 shou1 | to recycle; to retrieve; to recover |
+| 回收利用 | hui2 shou1 li4 yong4 | recycling |
