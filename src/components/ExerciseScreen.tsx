@@ -81,10 +81,28 @@ export function ExerciseScreen() {
   const useLargeFont = isChinesePrompt(prompt);
   const promptHasChineseThenParentheses = hasChineseThenParentheses(prompt);
 
-  // Calculate font size based on prompt length for non-Chinese prompts
+  // Count Chinese characters in a string (excluding parenthetical disambiguation)
+  const countChineseChars = (text: string): number => {
+    // Remove parenthetical content for counting
+    const withoutParens = text.replace(/\s*\([^\)]+\)/, '');
+    const matches = withoutParens.match(/[\u4e00-\u9fff]/g);
+    return matches ? matches.length : 0;
+  };
+
+  // Calculate font size based on prompt length
   const getPromptFontSize = (): string => {
     if (!prompt) return 'text-[40px] md:text-[60px]';
-    if (useLargeFont) return 'text-[80px] md:text-[120px]';
+
+    if (useLargeFont) {
+      // For Chinese prompts, scale down based on character count to prevent wrapping
+      const charCount = countChineseChars(prompt);
+      if (charCount <= 2) return 'text-[80px] md:text-[120px]';
+      if (charCount <= 3) return 'text-[70px] md:text-[100px]';
+      if (charCount <= 4) return 'text-[60px] md:text-[85px]';
+      if (charCount <= 5) return 'text-[50px] md:text-[70px]';
+      if (charCount <= 6) return 'text-[42px] md:text-[60px]';
+      return 'text-[36px] md:text-[50px]'; // 7+ characters
+    }
 
     // For non-Chinese prompts, scale down based on length
     const length = prompt.length;
