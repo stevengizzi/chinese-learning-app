@@ -234,17 +234,31 @@ export function MainMenu() {
               <h2 className="text-lg font-bold text-emerald-900 dark:text-emerald-100 mb-3 text-center">
                 Grammar Training
               </h2>
-              <div>
-                <button
-                  onClick={() => dispatch({ type: 'START_TENSE_ASPECT' })}
-                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-                >
-                  <span className="text-xl mr-2">⏰</span>
-                  <span>Tense & Aspect</span>
-                </button>
-                <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
-                  Master 了, 过, 正在, 会, 没, 不
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <button
+                    onClick={() => dispatch({ type: 'START_TENSE_ASPECT' })}
+                    className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="text-xl mr-2">⏰</span>
+                    <span>Tense & Aspect</span>
+                  </button>
+                  <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    Master 了, 过, 正在, 会, 没, 不
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={() => dispatch({ type: 'START_INTERROGATIVE' })}
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="text-xl mr-2">?</span>
+                    <span>Question Words</span>
+                  </button>
+                  <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    什么, 谁, 哪儿, 为什么, 怎么...
+                  </p>
+                </div>
               </div>
             </div>
 

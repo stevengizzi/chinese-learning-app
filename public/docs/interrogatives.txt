@@ -1,0 +1,170 @@
+# Chinese Interrogative (Question Word) Practice Corpus
+#
+# Format: Each block represents a base scenario with its question type variations
+#
+# BASE: The base scenario description
+# Then variations:
+# QUESTION_TYPE: english_prompt | chinese_answer | pinyin | [optional_alternate]
+#
+# QUESTION_TYPE values:
+#   WHAT, WHO, WHERE, WHICH
+#   WHEN_GENERAL, WHEN_TIME, WHEN_DAY, WHEN_DATE
+#   WHY, HOW_METHOD, HOW_QUALITY, HOW_SUGGESTION
+#   HOW_MUCH, HOW_MANY, HOW_ADJECTIVE
+#
+# =============================================================================
+
+BASE: personal information
+WHAT: What is your name? | 你叫什么名字？ | ni3 jiao4 shen2 me ming2 zi4
+WHAT: What do you do (for work)? | 你做什么工作？ | ni3 zuo4 shen2 me gong1 zuo4
+WHO: Who is he? | 他是谁？ | ta1 shi4 shei2
+WHO: Who is your teacher? | 谁是你的老师？ | shei2 shi4 ni3 de lao3 shi1
+WHERE: Where are you from? | 你是哪里人？ | ni3 shi4 na3 li3 ren2
+WHERE: Where do you live? | 你住在哪儿？ | ni3 zhu4 zai4 na3 er
+HOW_ADJECTIVE: How old are you? | 你多大？ | ni3 duo1 da4
+===
+
+BASE: location and directions
+WHERE: Where is the bathroom? | 洗手间在哪儿？ | xi3 shou3 jian1 zai4 na3 er
+WHERE: Where is the train station? | 火车站在哪里？ | huo3 che1 zhan4 zai4 na3 li3
+HOW_METHOD: How do I get to the airport? | 怎么去机场？ | zen3 me qu4 ji1 chang3
+HOW_METHOD: How do I get there? | 怎么去那儿？ | zen3 me qu4 na4 er
+HOW_ADJECTIVE: How far is it? | 有多远？ | you3 duo1 yuan3
+===
+
+BASE: time and scheduling
+WHEN_GENERAL: When do you go to work? | 你什么时候上班？ | ni3 shen2 me shi2 hou shang4 ban1
+WHEN_GENERAL: When does the movie start? | 电影什么时候开始？ | dian4 ying3 shen2 me shi2 hou kai1 shi3
+WHEN_TIME: What time is it? | 现在几点？ | xian4 zai4 ji3 dian3
+WHEN_TIME: What time do you eat dinner? | 你几点吃晚饭？ | ni3 ji3 dian3 chi1 wan3 fan4
+WHEN_DAY: What day is it today? | 今天星期几？ | jin1 tian1 xing1 qi1 ji3
+WHEN_DAY: Which day are you free? | 你哪天有空？ | ni3 na3 tian1 you3 kong4
+WHEN_DATE: What is today's date? | 今天几号？ | jin1 tian1 ji3 hao4
+WHEN_DATE: When is your birthday? | 你的生日是几月几号？ | ni3 de sheng1 ri4 shi4 ji3 yue4 ji3 hao4
+===
+
+BASE: shopping and prices
+HOW_MUCH: How much is this? | 这个多少钱？ | zhe4 ge duo1 shao qian2
+HOW_MUCH: How much does it cost? | 多少钱？ | duo1 shao qian2
+HOW_MANY: How many do you want? | 你要几个？ | ni3 yao4 ji3 ge4
+HOW_MANY: How many people? | 几个人？ | ji3 ge4 ren2
+WHICH: Which one do you want? | 你要哪个？ | ni3 yao4 na3 ge4
+WHICH: Which color do you like? | 你喜欢哪个颜色？ | ni3 xi3 huan1 na3 ge4 yan2 se4
+WHAT: What do you want to buy? | 你想买什么？ | ni3 xiang3 mai3 shen2 me
+===
+
+BASE: food and dining
+WHAT: What do you want to eat? | 你想吃什么？ | ni3 xiang3 chi1 shen2 me
+WHAT: What do you want to drink? | 你想喝什么？ | ni3 xiang3 he1 shen2 me
+HOW_QUALITY: How is the food? | 菜怎么样？ | cai4 zen3 me yang4
+HOW_QUALITY: How does it taste? | 味道怎么样？ | wei4 dao4 zen3 me yang4
+HOW_SUGGESTION: How about Chinese food? | 中国菜怎么样？ | zhong1 guo2 cai4 zen3 me yang4
+HOW_SUGGESTION: How about we eat together? | 我们一起吃怎么样？ | wo3 men yi4 qi3 chi1 zen3 me yang4
+WHERE: Where do you want to eat? | 你想在哪儿吃？ | ni3 xiang3 zai4 na3 er chi1
+===
+
+BASE: work and study
+WHAT: What are you studying? | 你学什么？ | ni3 xue2 shen2 me
+WHAT: What subject do you like? | 你喜欢什么科目？ | ni3 xi3 huan1 shen2 me ke1 mu4
+WHERE: Where do you work? | 你在哪儿工作？ | ni3 zai4 na3 er gong1 zuo4
+WHERE: Where is your school? | 你的学校在哪里？ | ni3 de xue2 xiao4 zai4 na3 li3
+WHO: Who is your boss? | 谁是你的老板？ | shei2 shi4 ni3 de lao3 ban3
+HOW_QUALITY: How is your work? | 工作怎么样？ | gong1 zuo4 zen3 me yang4
+WHY: Why are you learning Chinese? | 你为什么学中文？ | ni3 wei4 shen2 me xue2 zhong1 wen2
+===
+
+BASE: daily activities
+WHAT: What are you doing? | 你在做什么？ | ni3 zai4 zuo4 shen2 me
+WHAT: What did you do yesterday? | 你昨天做了什么？ | ni3 zuo2 tian1 zuo4 le shen2 me
+WHEN_GENERAL: When did you arrive? | 你什么时候到的？ | ni3 shen2 me shi2 hou dao4 de
+HOW_METHOD: How did you come here? | 你怎么来的？ | ni3 zen3 me lai2 de
+WHY: Why didn't you come? | 你为什么没来？ | ni3 wei4 shen2 me mei2 lai2
+WHY: Why are you late? | 你为什么迟到？ | ni3 wei4 shen2 me chi2 dao4
+===
+
+BASE: weather and conditions
+HOW_QUALITY: How is the weather today? | 今天天气怎么样？ | jin1 tian1 tian1 qi4 zen3 me yang4
+HOW_ADJECTIVE: How hot is it? | 有多热？ | you3 duo1 re4
+HOW_ADJECTIVE: How cold is it? | 有多冷？ | you3 duo1 leng3
+WHEN_GENERAL: When will it rain? | 什么时候下雨？ | shen2 me shi2 hou xia4 yu3
+===
+
+BASE: health and feelings
+HOW_QUALITY: How are you? | 你怎么样？ | ni3 zen3 me yang4
+HOW_QUALITY: How do you feel? | 你感觉怎么样？ | ni3 gan3 jue2 zen3 me yang4
+WHAT: What's wrong? | 怎么了？ | zen3 me le
+WHY: Why are you unhappy? | 你为什么不开心？ | ni3 wei4 shen2 me bu4 kai1 xin1
+WHERE: Where does it hurt? | 哪儿疼？ | na3 er teng2
+===
+
+BASE: transportation
+HOW_METHOD: How do you go to work? | 你怎么去上班？ | ni3 zen3 me qu4 shang4 ban1
+HOW_METHOD: How do I take the subway? | 怎么坐地铁？ | zen3 me zuo4 di4 tie3
+WHICH: Which bus should I take? | 我应该坐哪路公交车？ | wo3 ying1 gai1 zuo4 na3 lu4 gong1 jiao1 che1
+HOW_ADJECTIVE: How long does it take? | 要多长时间？ | yao4 duo1 chang2 shi2 jian1
+WHEN_TIME: What time does the bus come? | 公交车几点来？ | gong1 jiao1 che1 ji3 dian3 lai2
+===
+
+BASE: phone and communication
+WHAT: What is your phone number? | 你的电话号码是什么？ | ni3 de dian4 hua4 hao4 ma3 shi4 shen2 me
+WHO: Who are you calling? | 你给谁打电话？ | ni3 gei3 shei2 da3 dian4 hua4
+HOW_MANY: How many characters? | 多少个字？ | duo1 shao ge4 zi4
+WHAT: What did he say? | 他说什么？ | ta1 shuo1 shen2 me
+===
+
+BASE: family
+WHO: Who is in your family? | 你家有谁？ | ni3 jia1 you3 shei2
+HOW_MANY: How many people are in your family? | 你家有几口人？ | ni3 jia1 you3 ji3 kou3 ren2
+HOW_ADJECTIVE: How old is your child? | 你的孩子多大？ | ni3 de hai2 zi duo1 da4
+WHERE: Where does your family live? | 你的家人住在哪儿？ | ni3 de jia1 ren2 zhu4 zai4 na3 er
+WHAT: What does your father do? | 你爸爸做什么工作？ | ni3 ba4 ba zuo4 shen2 me gong1 zuo4
+===
+
+BASE: opinions and preferences
+WHICH: Which do you prefer? | 你更喜欢哪个？ | ni3 geng4 xi3 huan1 na3 ge4
+WHAT: What do you think? | 你觉得怎么样？ | ni3 jue2 de zen3 me yang4
+WHY: Why do you like it? | 你为什么喜欢？ | ni3 wei4 shen2 me xi3 huan1
+HOW_SUGGESTION: How about tomorrow? | 明天怎么样？ | ming2 tian1 zen3 me yang4
+HOW_SUGGESTION: How about we go together? | 我们一起去怎么样？ | wo3 men yi4 qi3 qu4 zen3 me yang4
+===
+
+BASE: problems and solutions
+WHAT: What happened? | 发生了什么事？ | fa1 sheng1 le shen2 me shi4
+WHAT: What should I do? | 我应该怎么办？ | wo3 ying1 gai1 zen3 me ban4
+HOW_METHOD: How do I fix it? | 怎么修？ | zen3 me xiu1
+WHY: Why doesn't it work? | 为什么不行？ | wei4 shen2 me bu4 xing2
+WHO: Who can help me? | 谁能帮我？ | shei2 neng2 bang1 wo3
+===
+
+BASE: plans and future
+WHEN_GENERAL: When are you leaving? | 你什么时候走？ | ni3 shen2 me shi2 hou zou3
+WHEN_GENERAL: When will you come back? | 你什么时候回来？ | ni3 shen2 me shi2 hou hui2 lai2
+WHERE: Where are you going? | 你去哪儿？ | ni3 qu4 na3 er
+WHAT: What are your plans? | 你有什么计划？ | ni3 you3 shen2 me ji4 hua4
+HOW_ADJECTIVE: How long will you stay? | 你要待多久？ | ni3 yao4 dai1 duo1 jiu3
+===
+
+BASE: language and learning
+HOW_METHOD: How do you say this in Chinese? | 这个用中文怎么说？ | zhe4 ge yong4 zhong1 wen2 zen3 me shuo1
+WHAT: What does this mean? | 这是什么意思？ | zhe4 shi4 shen2 me yi4 si
+HOW_METHOD: How do you write this character? | 这个字怎么写？ | zhe4 ge4 zi4 zen3 me xie3
+HOW_METHOD: How do you pronounce this? | 这个怎么读？ | zhe4 ge4 zen3 me du2
+HOW_ADJECTIVE: How difficult is Chinese? | 中文有多难？ | zhong1 wen2 you3 duo1 nan2
+===
+
+BASE: entertainment
+WHAT: What movie do you want to watch? | 你想看什么电影？ | ni3 xiang3 kan4 shen2 me dian4 ying3
+WHEN_TIME: What time does the show start? | 演出几点开始？ | yan3 chu1 ji3 dian3 kai1 shi3
+WHERE: Where is the theater? | 电影院在哪儿？ | dian4 ying3 yuan4 zai4 na3 er
+HOW_QUALITY: How was the movie? | 电影怎么样？ | dian4 ying3 zen3 me yang4
+HOW_MUCH: How much is a ticket? | 一张票多少钱？ | yi4 zhang1 piao4 duo1 shao qian2
+===
+
+BASE: special fixed phrases
+WHAT: What's wrong? What happened? | 怎么了？ | zen3 me le
+WHAT: What to do? | 怎么办？ | zen3 me ban4
+WHY: Why? How come? | 为什么？ | wei4 shen2 me
+HOW_SUGGESTION: What do you think? | 怎么样？ | zen3 me yang4
+WHAT: What are you doing? | 干什么？ | gan4 shen2 me
+===
+
