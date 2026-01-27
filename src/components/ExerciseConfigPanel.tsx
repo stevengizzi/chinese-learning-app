@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
-import type { ExerciseType, PlayMode } from '../types/exercise';
+import type { ExerciseType, PlayMode, AudioExerciseSettings } from '../types/exercise';
+import { isAudioExercise } from '../types/exercise';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
+import type { SpeechRate, ReplayLimit } from '../types/tts';
+import { SPEECH_RATE_LABELS, REPLAY_LIMIT_LABELS, DEFAULT_AUDIO_EXERCISE_CONFIG } from '../types/tts';
 import { VocabularyFilter } from './VocabularyFilter';
 import { countFilteredVocabulary, getFilterForExercise, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 
@@ -12,6 +15,8 @@ const EXERCISE_LABELS: Record<ExerciseType, string> = {
   'pinyin-to-english': 'Pinyin → English',
   'shuffled': 'Shuffled → Pinyin',
   'shuffled-to-english': 'Shuffled → English',
+  'audio-to-pinyin': 'Audio → Pinyin',
+  'audio-to-english': 'Audio → English',
 };
 
 const PLAY_MODE_LABELS: Record<PlayMode, string> = {
@@ -31,10 +36,15 @@ const PLAY_MODE_DESCRIPTIONS: Record<PlayMode, string> = {
 export function ExerciseConfigScreen() {
   const { state, dispatch } = useExercise();
   const [filter, setFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
+  const [audioSettings, setAudioSettings] = useState<AudioExerciseSettings>({
+    speechRate: DEFAULT_AUDIO_EXERCISE_CONFIG.speechRate,
+    replayLimit: DEFAULT_AUDIO_EXERCISE_CONFIG.replayLimit,
+  });
 
   const pendingConfig = state.pendingExerciseConfig;
   const exerciseType = pendingConfig?.exerciseType || 'character-to-pinyin';
   const playMode = pendingConfig?.playMode || 'endless';
+  const isAudio = isAudioExercise(exerciseType);
 
   const exerciseKey = `${exerciseType}-${playMode}`;
   const vocabulary = state.vocabulary?.active || [];
@@ -58,7 +68,8 @@ export function ExerciseConfigScreen() {
       payload: {
         exerciseType,
         playMode,
-        vocabularyFilter: shouldIncludeFilter ? filter : undefined
+        vocabularyFilter: shouldIncludeFilter ? filter : undefined,
+        audioSettings: isAudio ? audioSettings : undefined,
       }
     });
   };
@@ -95,6 +106,54 @@ export function ExerciseConfigScreen() {
               />
             </div>
 
+            {/* Audio Settings (only for audio exercises) */}
+            {isAudio && (
+              <div className="bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-200 dark:border-amber-700 rounded-xl p-4">
+                <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-4 flex items-center gap-2">
+                  <span>Audio Settings</span>
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Speech Rate */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Speech Rate
+                    </label>
+                    <select
+                      value={audioSettings.speechRate}
+                      onChange={(e) => setAudioSettings(prev => ({
+                        ...prev,
+                        speechRate: e.target.value as SpeechRate
+                      }))}
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:border-amber-500 dark:focus:border-amber-400 outline-none"
+                    >
+                      {(Object.entries(SPEECH_RATE_LABELS) as [SpeechRate, string][]).map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Replay Limit */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Replay Limit
+                    </label>
+                    <select
+                      value={audioSettings.replayLimit}
+                      onChange={(e) => setAudioSettings(prev => ({
+                        ...prev,
+                        replayLimit: e.target.value as ReplayLimit
+                      }))}
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:border-amber-500 dark:focus:border-amber-400 outline-none"
+                    >
+                      {(Object.entries(REPLAY_LIMIT_LABELS) as [ReplayLimit, string][]).map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Filtered Count */}
             <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
               <div className="text-center">
@@ -110,8 +169,17 @@ export function ExerciseConfigScreen() {
             {/* Info Box */}
             <div className="bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                <span className="font-semibold">Tip:</span> Use filters to focus your practice on specific vocabulary.
-                Select "Remember my filter" to save your preference for this exercise type.
+                {isAudio ? (
+                  <>
+                    <span className="font-semibold">Audio Exercise:</span> Listen to the Chinese audio and type your answer.
+                    Configure TTS settings in the app settings to use Google Cloud TTS for higher quality audio.
+                  </>
+                ) : (
+                  <>
+                    <span className="font-semibold">Tip:</span> Use filters to focus your practice on specific vocabulary.
+                    Select "Remember my filter" to save your preference for this exercise type.
+                  </>
+                )}
               </p>
             </div>
 

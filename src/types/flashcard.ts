@@ -1,9 +1,10 @@
 import type { PlayMode } from './exercise';
+import type { SpeechRate, ReplayLimit } from './tts';
 
 /**
  * Parts of a vocabulary entry that can appear on flashcard sides
  */
-export type FlashcardPart = 'hanzi' | 'pinyin' | 'english';
+export type FlashcardPart = 'hanzi' | 'pinyin' | 'english' | 'audio';
 
 /**
  * Configuration for what appears on each side of the flashcard
@@ -11,6 +12,14 @@ export type FlashcardPart = 'hanzi' | 'pinyin' | 'english';
 export interface FlashcardSideConfig {
   front: FlashcardPart[];
   back: FlashcardPart[];
+}
+
+/**
+ * Audio settings for flashcard audio playback
+ */
+export interface FlashcardAudioSettings {
+  speechRate: SpeechRate;
+  replayLimit: ReplayLimit;
 }
 
 /**
@@ -22,6 +31,8 @@ export interface FlashcardConfig {
   // Speed drill settings (when applicable)
   speedDrillCount?: number;
   speedDrillThreshold?: number;
+  // Audio settings (when audio is on front or back)
+  audioSettings?: FlashcardAudioSettings;
 }
 
 /**
@@ -63,9 +74,9 @@ export function isValidSideConfig(config: FlashcardSideConfig): boolean {
   // Back must have at least one part
   if (config.back.length === 0) return false;
 
-  // Can't have all parts on one side (3 total parts)
-  if (config.front.length === 3) return false;
-  if (config.back.length === 3) return false;
+  // Can't have all parts on one side (4 total parts now with audio)
+  if (config.front.length === 4) return false;
+  if (config.back.length === 4) return false;
 
   // No overlap between front and back
   const frontSet = new Set(config.front);
@@ -84,5 +95,13 @@ export function getPartLabel(part: FlashcardPart): string {
     case 'hanzi': return 'Hanzi';
     case 'pinyin': return 'Pinyin';
     case 'english': return 'English';
+    case 'audio': return 'Audio';
   }
+}
+
+/**
+ * Check if a flashcard configuration uses audio
+ */
+export function hasAudioPart(config: FlashcardSideConfig): boolean {
+  return config.front.includes('audio') || config.back.includes('audio');
 }

@@ -1,14 +1,32 @@
 import type { VocabularyEntry } from './vocabulary';
 import type { PromptType } from './responseTracking';
 import type { VocabularyFilterConfig } from './vocabularyFilter';
+import type { SpeechRate, ReplayLimit } from './tts';
 
 export type ExerciseType =
   | 'character-to-pinyin'
   | 'english-to-pinyin'
   | 'shuffled'
+  | 'audio-to-pinyin'
   | 'character-to-english'
   | 'pinyin-to-english'
-  | 'shuffled-to-english';
+  | 'shuffled-to-english'
+  | 'audio-to-english';
+
+/**
+ * Check if an exercise type uses audio prompts
+ */
+export function isAudioExercise(type: ExerciseType): boolean {
+  return type === 'audio-to-pinyin' || type === 'audio-to-english';
+}
+
+/**
+ * Configuration for audio exercises
+ */
+export interface AudioExerciseSettings {
+  speechRate: SpeechRate;
+  replayLimit: ReplayLimit;
+}
 
 export type PlayMode = 'endless' | 'complete-all' | 'drill' | 'speed-drill';
 
@@ -50,4 +68,5 @@ export interface SessionConfig {
   playMode: PlayMode;
   focusOnWeaknesses: boolean;
   vocabularyFilter?: VocabularyFilterConfig;
+  audioSettings?: AudioExerciseSettings;
 }

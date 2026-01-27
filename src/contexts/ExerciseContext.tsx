@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { VocabularyData, VocabularyEntry } from '../types/vocabulary';
-import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode } from '../types/exercise';
+import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode, AudioExerciseSettings } from '../types/exercise';
 import type { Session } from '../types/session';
 import type { ResponseDatabase } from '../types/responseTracking';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
@@ -167,7 +167,7 @@ type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
   | { type: 'SET_RESPONSE_DATABASE'; payload: ResponseDatabase }
   | { type: 'SHOW_EXERCISE_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
-  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode; vocabularyFilter?: VocabularyFilterConfig } }
+  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode; vocabularyFilter?: VocabularyFilterConfig; audioSettings?: AudioExerciseSettings } }
   | { type: 'SHOW_SPEED_DRILL_CONFIG'; payload: { exerciseType: ExerciseType } }
   | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number; vocabularyFilter?: VocabularyFilterConfig } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
@@ -289,7 +289,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'START_SESSION_WITH_CONFIG': {
       if (!state.vocabulary) return state;
 
-      const { exerciseType, playMode, vocabularyFilter } = action.payload;
+      const { exerciseType, playMode, vocabularyFilter, audioSettings } = action.payload;
 
       // Apply vocabulary filter if specified (including when mastery filter is active)
       const shouldApplyFilter = vocabularyFilter &&
@@ -341,7 +341,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
           ...session,
           focusOnWeaknesses: state.focusOnWeaknesses,  // Store in session for display
           vocabularyFilter,  // Store filter config in session
-          filteredVocabulary: activeVocabulary  // Store filtered vocabulary for the session
+          filteredVocabulary: activeVocabulary,  // Store filtered vocabulary for the session
+          audioSettings,  // Store audio settings for audio exercises
         },
         currentExercise: exercise,
         currentAttempt: null,

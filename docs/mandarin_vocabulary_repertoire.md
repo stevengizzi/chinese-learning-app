@@ -56,7 +56,7 @@ notes:
 | 听见 | ting1 jian4 | to hear |
 | 忘记 | wang4 ji4 | to forget |
 | 五 | wu3 | five |
-| 下 | xia4 | down; below |
+| 下 | xia4 | down; below; to descend |
 | 谢谢 | xie4 xie | thank you |
 | 学校 | xue2 xiao4 | school |
 | 一下儿 | yi1 xia4 r | all of a sudden; give it a go |
@@ -105,10 +105,10 @@ notes:
 | 放假 | fang4 jia4 | to have a holiday or vacation |
 | 歌 | ge1 | song |
 | 试 | shi4 | to try; to test |
-| 出来 | chu1 lai2 | come out |
+| 出来 | chu1 lai2 | to come out |
 | 给 | gei3 / ji3 | to give; to; for |
 | 马 | ma3 | horse |
-| 回去 | hui2 qu | to return; to go back |
+| 回去 | hui2 qu | to go back |
 | 小朋友 | xiao3 peng2 you3 | child; "little friend" |
 | 那儿 | na4 r | there |
 | 电视机 | dian4 shi4 ji1 | television set |
@@ -217,7 +217,7 @@ notes:
 | 觉 | jue2 / jiao4 | to feel; sleep |
 | 这儿 | zhe4 r | here |
 | 难 | nan2 | difficult; hard |
-| 出 | chu1 | to go out |
+| 出 | chu1 | to exit |
 | 说话 | shuo1 hua4 | to speak; talk |
 | 雨 | yu3 | rain |
 | 旁 | pang2 | side; beside |
@@ -289,7 +289,7 @@ notes:
 | 校 | xiao4 | school |
 | 老师 | lao3 shi1 | teacher |
 | 国 | guo2 | country; nation |
-| 跟 | gen1 | with; and; to follow |
+| 跟 | gen1 | with; and (for people) |
 | 坏 | huai4 | bad; spoiled; broken |
 | 今年 | jin1 nian2 | this year |
 | 第 | di4 | prefix indicating order (first, number two, etc) |
@@ -357,9 +357,9 @@ notes:
 | 上边 | shang4 bian | above; overhead |
 | 学院 | xue2 yuan4 | college; school |
 | 西边 | xi1 bian | west side; western part |
-| 进 | jin4 | to enter; to go forward |
-| 着 | zhe / zhao2 / zhuo2 / zhao1 | to catch fire; to contact; to wear (clothes); marker following a verb to indicate action is in progress |
-| 吧 | ba1 | ...right?; ...ok?; particle used to indicate suggestion |
+| 进 | jin4 | to enter |
+| 着 | zhe | indicates ongoing state or action |
+| 吧 | ba1 | ...right?; ...ok?; indicates suggestion |
 | 贵 | gui4 | expensive; (honorific) your |
 | 上车 | shang4 che1 | to get on or into (a bus, train, car, etc) |
 | 坐 | zuo4 | to sit; to take (a bus, airplane, etc) |
@@ -371,7 +371,7 @@ notes:
 | 病人 | bing4 ren2 | sick person; a patient |
 | 蛋 | dan4 | egg |
 | 半天 | ban4 tian1 | half of the day; quite a while |
-| 上 | shang4 | up; above; to go (colloquial) |
+| 上 | shang4 | up; above; to ascend |
 | 左边 | zuo3 bian | the left side |
 | 记得 | ji4 de | to remember |
 | 爸 | ba4 | father; papa |
@@ -414,7 +414,7 @@ notes:
 | 跑 | pao3 | to run |
 | 远 | yuan3 | far; distant |
 | 男孩儿 | nan2 hai2 r | boy |
-| 课文 | ke4 wen2 | a test (book, etc) |
+| 课文 | ke4 wen2 | a text (book, etc) |
 | 常常 | chang2 chang2 | often; frequently |
 | 和 | he2 | and; together with; peace |
 | 先 | xian1 | first |
@@ -452,7 +452,8 @@ notes:
 | 买 | mai3 | to buy |
 | 妈 | ma1 | ma; mom; mother |
 | 住 | zhu4 | to live; to stay |
-| 干 | gan4 / gan1 | to do; tree trunk; dry |
+| 干 | gan1 | dry; clean |
+| 干 | gan4 | to do |
 | 休 | xiu1 | stop; rest |
 | 看病 | kan4 bing4 | to visit a doctor |
 | 网 | wang3 | net |
@@ -482,7 +483,7 @@ notes:
 | 在 | zai4 | at; in |
 | 家人 | jia1 ren2 | household; family |
 | 弟弟 | di4 di | younger brother |
-| 元 | yuan2 | first; dollar; chief; head; fundamental |
+| 元 | yuan2 | yuan (currency) |
 | 些 | xie1 | some; few |
 | 医生 | yi1 sheng1 | doctor |
 | 关上 | guan1 shang4 | to close (a door); to turn off |
@@ -517,7 +518,7 @@ notes:
 | 飞机 | fei1 ji1 | airplane |
 | 不 | bu4 | no; not |
 | 下午 | xia4 wu3 | afternoon |
-| 回来 | hui2 lai | to return; to come back |
+| 回来 | hui2 lai | to come back |
 | 开车 | kai1 che1 | to drive a car |
 | 我 | wo3 | I; me |
 | 东边 | dong1 bian1 | eastern part; east side |
@@ -532,7 +533,7 @@ notes:
 | 吃饭 | chi1 fan4 | to have a meal |
 | 写 | xie3 | to write |
 | 身 | shen1 | body |
-| 回到 | hui2 dao4 | to return to |
+| 回到 | hui2 dao4 | to get back to |
 | 后边 | hou4 bian | back; rear; behind |
 | 杯子 | bei1 zi | cup; glass |
 | 下课 | xia4 ke4 | to finish class; to get out of class |
@@ -561,10 +562,10 @@ notes:
 | 我们 | wo3 men | we |
 | 坐下 | zuo4 xia4 | to sit down |
 | 一起 | yi1 qi3 | together |
-| 了 | le | past tense and completed action marker |
+| 了 | le | indicates past tense and completed action |
 | 请进 | qing3 jin4 | please come in |
 | 飞 | fei1 | to fly |
-| 么 | me | what?; used to indicate a suggestion or implicit statement |
+| 么 | me | what?; indicates a suggestion or implicit statement |
 | 请 | qing3 | please; to invite |
 | 汽 | qi4 | steam; vapor |
 | 次 | ci4 | order; sequence; secondary |
@@ -605,7 +606,6 @@ notes:
 | 日出 | ri4 chu1 | sunrise |
 | 日落 | ri4 luo4 | sunset; sundown |
 | 不是 | bu4 shi4 | no; is not; not |
-| 中国 | zhong1 guo2 | China |
 | 美国 | mei3 guo2 | United States of America |
 | 美国人 | mei3 guo2 ren2 | American person |
 | 中国人 | zhong1 guo2 ren2 | Chinese person |
@@ -613,7 +613,7 @@ notes:
 | 猫 | mao1 | cat; feline | 
 | 篮球 | lan2 qiu2 | basketball | 
 | 网球 | wang3 qiu2 | tennis; tennis ball |
-| 足球 | zu2 qiu2 | soccer; football |
+| 足球 | zu2 qiu2 | soccer |
 | 小猫 | xiao3 mao1 | kitten |
 | 狗 | gou3 | dog |
 | 小狗 | xiao3 gou3 | pup; puppy |
@@ -632,7 +632,7 @@ notes:
 | 服务员 | fu2 wu4 yuan2 | waiter; waitress; attendant |
 | 大自然 | da4 zi4 ran2 | nature |
 | 环岛 | huan2 dao3 | to travel around an island |
-| 兄弟姐妹 | xiong1 di4 jie3 mei4 | brothers and sisters; siblings |
+| 兄弟姐妹 | xiong1 di4 jie3 mei4 | siblings |
 | 绿茶 | lü4 cha2 | green tea |
 | 红茶 | hong2 cha2 | black tea |
 | 鸡尾酒 | ji1 wei3 jiu3 | cocktail |
@@ -646,7 +646,7 @@ notes:
 | 骑 | qi2 | to ride; sit on the back of |
 | 脚踏车 | jiao3 ta4 che1 | bicycle (Taiwan) |
 | 自行车 | zi4 xing2 che1 | bicycle |
-| 骑脚踏车 | qi2 jiao3 ta4 che1 | bicycle |
+| 骑脚踏车 | qi2 jiao3 ta4 che1 | to ride a bicycle |
 | 骑马 | qi2 ma3 | to ride a horse; to be on horseback |
 | 探索 | tan4 suo3 | to explore; to probe |
 | 方便 | fang2 bian4 | convenient; suitable; to make things easy |
@@ -662,7 +662,9 @@ notes:
 | 硬体 | ying4 ti3 | (computer) hardware (Taiwan) |
 | 软体 | ruan3 ti3 | software (Taiwan) |
 | 教育 | jiao4 yu4 | education |
+| 创业 | chuang4 ye | to start an undertaking; entrepreneurship |
 | 创办 | chuang4 ban4 | to establish; to found |
+| 创始人 | chuang4 shi3 ren2 | founder; creator |
 | 作曲 | zuo4 qu3 | to compose music |
 | 作曲家 | zuo4 qu3 jia1 | composer; songwriter |
 | 奇幻 | qi2 huan4 | fantasy (fiction) |
@@ -738,3 +740,9 @@ notes:
 | 南非 | nan2 fei1 | South Africa |
 | 非洲 | fei1 zhou1 | Africa |
 | 推荐 | tui1 jian4 | to recommend; recommendation |
+| 上来 | shang4 lai2 | to come up |
+| 上去 | shang4 qu4 | to go up |
+| 下来 | xia4 lai2 | to come down |
+| 下去 | xia4 qu4 | to go down |
+| 过来 | guo4 lai2 | to come over |
+| 过去 | guo4 qu4 | to go over |

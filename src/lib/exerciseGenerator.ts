@@ -56,8 +56,17 @@ export function hasEquivalentMeanings(entry: VocabularyEntry, vocabulary: Vocabu
 function determinePromptType(
   prompt: string,
   selectedEntry: VocabularyEntry,
-  isPinyinExercise: boolean
+  isPinyinExercise: boolean,
+  exerciseType?: ExerciseType
 ): PromptType {
+  // For audio exercises, use specialized prompt types
+  if (exerciseType === 'audio-to-pinyin') {
+    return 'character-to-pinyin';  // Treat audio prompts like character prompts for tracking
+  }
+  if (exerciseType === 'audio-to-english') {
+    return 'character-to-english';  // Treat audio prompts like character prompts for tracking
+  }
+
   // Check if the original prompt (before disambiguation) matches character, pinyin, or meaning
   const promptWithoutDisambiguation = prompt.split(' (')[0]; // Remove disambiguation text
 
@@ -96,6 +105,12 @@ function getPromptTypeForExercise(exerciseType: ExerciseType): PromptType {
     case 'shuffled-to-english':
       // For shuffled English exercises, use character-to-english as representative
       return 'character-to-english';
+    case 'audio-to-pinyin':
+      // Audio to pinyin uses audio prompt (similar to character prompt)
+      return 'character-to-pinyin';
+    case 'audio-to-english':
+      // Audio to English uses audio prompt (similar to character prompt)
+      return 'character-to-english';
     default:
       return 'character-to-pinyin';
   }
@@ -114,6 +129,9 @@ function getPromptForEntry(entry: VocabularyEntry, exerciseType: ExerciseType): 
   } else if (exerciseType === 'shuffled') {
     // shuffled (to pinyin): randomly choose between character or meaning
     return Math.random() < 0.5 ? entry.word : entry.meaning;
+  } else if (exerciseType === 'audio-to-pinyin' || exerciseType === 'audio-to-english') {
+    // Audio exercises: use the character as the "prompt" (will be converted to audio)
+    return entry.word;
   } else {
     // shuffled-to-english: randomly choose between character or pinyin
     return Math.random() < 0.5 ? entry.word : entry.pinyin;
@@ -326,7 +344,7 @@ export function generateExercise(
   const isEnglishExercise = exerciseType.endsWith('-english');
 
   // Determine prompt type based on what was shown
-  const promptType = determinePromptType(prompt, selectedEntry, isPinyinExercise);
+  const promptType = determinePromptType(prompt, selectedEntry, isPinyinExercise, exerciseType);
 
   return {
     id: exerciseId,

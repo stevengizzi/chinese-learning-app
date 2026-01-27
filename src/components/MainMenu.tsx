@@ -73,6 +73,12 @@ export function MainMenu() {
       title: 'Shuffled → Pinyin',
       shortTitle: '🔀 → 拼音',
       icon: '🔀'
+    },
+    {
+      type: 'audio-to-pinyin' as ExerciseType,
+      title: 'Audio → Pinyin',
+      shortTitle: '🔊 → 拼音',
+      icon: '🔊'
     }
   ];
 
@@ -94,6 +100,12 @@ export function MainMenu() {
       title: 'Shuffled → English',
       shortTitle: '🔀 → EN',
       icon: '🔀'
+    },
+    {
+      type: 'audio-to-english' as ExerciseType,
+      title: 'Audio → English',
+      shortTitle: '🔊 → EN',
+      icon: '🔊'
     }
   ];
 
@@ -293,7 +305,7 @@ export function MainMenu() {
             {/* Exercise Types - Pinyin Answers */}
             <div className="mb-6">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Pinyin Answers</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {pinyinExercises.map((exercise) => (
                   <div
                     key={exercise.type}
@@ -330,7 +342,7 @@ export function MainMenu() {
             {/* Exercise Types - English Answers */}
             <div className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">English Answers</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {englishExercises.map((exercise) => (
                   <div
                     key={exercise.type}

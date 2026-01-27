@@ -16,7 +16,9 @@ function formatExerciseType(type: ExerciseType): string {
     'english-to-pinyin': 'English → Pinyin',
     'pinyin-to-english': 'Pinyin → English',
     'shuffled': 'Shuffled → Pinyin',
-    'shuffled-to-english': 'Shuffled → English'
+    'shuffled-to-english': 'Shuffled → English',
+    'audio-to-pinyin': 'Audio → Pinyin',
+    'audio-to-english': 'Audio → English',
   };
   return labels[type] || type;
 }

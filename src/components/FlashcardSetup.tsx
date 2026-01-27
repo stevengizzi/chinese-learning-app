@@ -3,8 +3,10 @@ import type { VocabularyEntry } from '../types/vocabulary';
 import type { ResponseDatabase } from '../types/responseTracking';
 import type { PlayMode } from '../types/exercise';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
-import type { FlashcardConfig, FlashcardPart, FlashcardSideConfig } from '../types/flashcard';
-import { isValidSideConfig, getPartLabel } from '../types/flashcard';
+import type { FlashcardConfig, FlashcardPart, FlashcardSideConfig, FlashcardAudioSettings } from '../types/flashcard';
+import { isValidSideConfig, getPartLabel, hasAudioPart } from '../types/flashcard';
+import type { SpeechRate, ReplayLimit } from '../types/tts';
+import { SPEECH_RATE_LABELS, REPLAY_LIMIT_LABELS, DEFAULT_AUDIO_EXERCISE_CONFIG } from '../types/tts';
 import { VocabularyFilter } from './VocabularyFilter';
 import { countFilteredVocabulary, filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 
@@ -23,7 +25,7 @@ const PLAY_MODES: { mode: PlayMode; name: string; description: string }[] = [
   { mode: 'speed-drill', name: 'Speed Drill', description: 'Focus on speed with repetition' },
 ];
 
-const ALL_PARTS: FlashcardPart[] = ['hanzi', 'pinyin', 'english'];
+const ALL_PARTS: FlashcardPart[] = ['hanzi', 'pinyin', 'english', 'audio'];
 
 export function FlashcardSetup({
   vocabulary,
@@ -42,6 +44,12 @@ export function FlashcardSetup({
   // Speed drill settings
   const [baseThreshold, setBaseThreshold] = useState(3.0);
 
+  // Audio settings
+  const [audioSettings, setAudioSettings] = useState<FlashcardAudioSettings>({
+    speechRate: DEFAULT_AUDIO_EXERCISE_CONFIG.speechRate,
+    replayLimit: DEFAULT_AUDIO_EXERCISE_CONFIG.replayLimit,
+  });
+
   const filteredCount = countFilteredVocabulary(vocabulary, vocabFilter, database);
   const exerciseKey = `flashcard-${playMode}`;
 
@@ -50,6 +58,7 @@ export function FlashcardSetup({
     back: Array.from(backParts),
   };
 
+  const usesAudio = hasAudioPart(sideConfig);
   const isConfigValid = isValidSideConfig(sideConfig) && filteredCount > 0;
 
   const togglePart = (part: FlashcardPart, side: 'front' | 'back') => {
@@ -97,6 +106,9 @@ export function FlashcardSetup({
       ...(playMode === 'speed-drill' && {
         speedDrillCount: filteredCount,
         speedDrillThreshold: baseThreshold * 1000,
+      }),
+      ...(usesAudio && {
+        audioSettings,
       }),
     };
 
@@ -186,6 +198,55 @@ export function FlashcardSetup({
                     className="w-full h-2 bg-amber-200 rounded-lg appearance-none cursor-pointer dark:bg-amber-700"
                   />
                 </div>
+              </div>
+            )}
+
+            {/* Audio Settings (shown when audio is selected) */}
+            {usesAudio && (
+              <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4">
+                <h3 className="font-semibold text-purple-900 dark:text-purple-100 mb-4">Audio Settings</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Speech Rate */}
+                  <div>
+                    <label className="block text-sm font-medium text-purple-800 dark:text-purple-200 mb-2">
+                      Speech Rate
+                    </label>
+                    <select
+                      value={audioSettings.speechRate}
+                      onChange={(e) => setAudioSettings(prev => ({
+                        ...prev,
+                        speechRate: e.target.value as SpeechRate
+                      }))}
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-700 border-2 border-purple-200 dark:border-purple-600 rounded-lg text-gray-900 dark:text-white focus:border-purple-500 dark:focus:border-purple-400 outline-none"
+                    >
+                      {(Object.entries(SPEECH_RATE_LABELS) as [SpeechRate, string][]).map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Replay Limit */}
+                  <div>
+                    <label className="block text-sm font-medium text-purple-800 dark:text-purple-200 mb-2">
+                      Replay Limit
+                    </label>
+                    <select
+                      value={audioSettings.replayLimit}
+                      onChange={(e) => setAudioSettings(prev => ({
+                        ...prev,
+                        replayLimit: e.target.value as ReplayLimit
+                      }))}
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-700 border-2 border-purple-200 dark:border-purple-600 rounded-lg text-gray-900 dark:text-white focus:border-purple-500 dark:focus:border-purple-400 outline-none"
+                    >
+                      {(Object.entries(REPLAY_LIMIT_LABELS) as [ReplayLimit, string][]).map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <p className="text-xs text-purple-700 dark:text-purple-300 mt-3">
+                  Audio will auto-play when the card appears. Configure TTS in app settings for Google Cloud TTS.
+                </p>
               </div>
             )}
 

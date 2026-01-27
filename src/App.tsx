@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ExerciseProvider, useExercise } from './contexts/ExerciseContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { WelcomeScreen } from './components/WelcomeScreen';
@@ -18,9 +18,11 @@ import { TenseAspectTrainer } from './components/TenseAspectTrainer';
 import { InterrogativeTrainer } from './components/InterrogativeTrainer';
 import { FlashcardTrainer } from './components/FlashcardTrainer';
 import { Dashboard } from './components/dashboard/Dashboard';
+import { TTSSettingsModal, TTSSettingsButton } from './components/TTSSettings';
 
 function AppContent() {
   const { state, dispatch } = useExercise();
+  const [showTTSSettings, setShowTTSSettings] = useState(false);
 
   useEffect(() => {
     // Try to load vocabulary from localStorage on startup
@@ -55,6 +57,8 @@ function AppContent() {
   return (
     <>
       <ThemeToggle />
+      <TTSSettingsButton onClick={() => setShowTTSSettings(true)} />
+      <TTSSettingsModal isOpen={showTTSSettings} onClose={() => setShowTTSSettings(false)} />
 
       {/* Show welcome screen if no vocabulary loaded */}
       {!state.vocabulary ? (

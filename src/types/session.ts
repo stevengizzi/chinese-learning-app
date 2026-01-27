@@ -1,4 +1,4 @@
-import type { ExerciseAttempt, ExerciseType, PlayMode } from './exercise';
+import type { ExerciseAttempt, ExerciseType, PlayMode, AudioExerciseSettings } from './exercise';
 import type { PromptType } from './responseTracking';
 import type { VocabularyFilterConfig } from './vocabularyFilter';
 import type { VocabularyEntry } from './vocabulary';
@@ -33,6 +33,7 @@ export interface Session {
   focusOnWeaknesses?: boolean;  // Whether this session is using focus mode
   vocabularyFilter?: VocabularyFilterConfig;  // Filter used to select vocabulary for this session
   filteredVocabulary?: VocabularyEntry[];  // The filtered vocabulary entries used in this session
+  audioSettings?: AudioExerciseSettings;  // Settings for audio exercises (speech rate, replay limit)
 }
 
 export interface SessionStatistics {

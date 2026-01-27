@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { FlashcardConfig, FlashcardPart } from '../types/flashcard';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { AudioPrompt } from './AudioPrompt';
 
 /**
  * Editable field component for flashcard back side
@@ -106,9 +107,15 @@ interface FlashcardExerciseProps {
 }
 
 /**
- * Render a flashcard part (hanzi, pinyin, or english)
+ * Render a flashcard part (hanzi, pinyin, english, or audio)
  */
-function renderPart(part: FlashcardPart, vocab: VocabularyEntry, isLarge: boolean = false): React.ReactNode {
+function renderPart(
+  part: FlashcardPart,
+  vocab: VocabularyEntry,
+  isLarge: boolean = false,
+  config?: FlashcardConfig,
+  autoPlayAudio: boolean = false
+): React.ReactNode {
   switch (part) {
     case 'hanzi':
       return (
@@ -126,6 +133,19 @@ function renderPart(part: FlashcardPart, vocab: VocabularyEntry, isLarge: boolea
       return (
         <div className={`text-gray-700 dark:text-gray-300 ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
           {vocab.meaning}
+        </div>
+      );
+    case 'audio':
+      return (
+        <div className="flex flex-col items-center">
+          <AudioPrompt
+            text={vocab.word}
+            rate={config?.audioSettings?.speechRate || 'normal'}
+            replayLimit={config?.audioSettings?.replayLimit || 'unlimited'}
+            autoPlay={autoPlayAudio}
+            size={isLarge ? 'large' : 'medium'}
+            showReplayCount={true}
+          />
         </div>
       );
   }
@@ -227,7 +247,7 @@ export function FlashcardExercise({
             <div className="text-center space-y-4">
               {frontParts.map((part, idx) => (
                 <div key={part}>
-                  {renderPart(part, vocab, idx === 0)}
+                  {renderPart(part, vocab, idx === 0, config, part === 'audio')}
                 </div>
               ))}
               <div className="mt-8 text-gray-400 dark:text-gray-500 text-sm">
@@ -244,6 +264,7 @@ export function FlashcardExercise({
                     {part === 'hanzi' && vocab.word}
                     {part === 'pinyin' && convertPinyinStringToToneMarks(vocab.pinyin)}
                     {part === 'english' && vocab.meaning}
+                    {part === 'audio' && '(Audio)'}
                   </div>
                 ))}
               </div>
@@ -255,6 +276,14 @@ export function FlashcardExercise({
               <div className="space-y-3 pt-2">
                 {backParts.map((part, idx) => {
                   const isLarge = idx === 0;
+                  if (part === 'audio') {
+                    // Audio part - auto-play when back side is shown
+                    return (
+                      <div key={part}>
+                        {renderPart(part, vocab, isLarge, config, true)}
+                      </div>
+                    );
+                  }
                   if (part === 'hanzi') {
                     return (
                       <div key={part}>
@@ -266,7 +295,7 @@ export function FlashcardExercise({
                             textColor="text-gray-900 dark:text-white"
                           />
                         ) : (
-                          renderPart(part, vocab, isLarge)
+                          renderPart(part, vocab, isLarge, config)
                         )}
                       </div>
                     );
@@ -283,7 +312,7 @@ export function FlashcardExercise({
                             textColor="text-blue-600 dark:text-blue-400"
                           />
                         ) : (
-                          renderPart(part, vocab, isLarge)
+                          renderPart(part, vocab, isLarge, config)
                         )}
                       </div>
                     );
@@ -299,7 +328,7 @@ export function FlashcardExercise({
                             textColor="text-gray-700 dark:text-gray-300"
                           />
                         ) : (
-                          renderPart(part, vocab, isLarge)
+                          renderPart(part, vocab, isLarge, config)
                         )}
                       </div>
                     );

@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import type { FormEvent } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
+import { isAudioExercise } from '../types/exercise';
+import { AudioPrompt } from './AudioPrompt';
 
 export function ExerciseScreen() {
   const { state, dispatch } = useExercise();
@@ -111,10 +113,19 @@ export function ExerciseScreen() {
     if (length <= 50) return 'text-[26px] md:text-[38px]';
     return 'text-[22px] md:text-[32px]';
   };
-  const isEnglishExercise = state.currentSession?.exerciseType?.endsWith('-english');
+  const exerciseType = state.currentSession?.exerciseType;
+  const isAudio = exerciseType ? isAudioExercise(exerciseType) : false;
+  const isEnglishExercise = exerciseType?.endsWith('-english');
   const instructionText = isEnglishExercise
     ? '👉 Type the English meaning:'
     : '👉 Type the tone-number pinyin:';
+
+  // Get audio settings from session (for audio exercises)
+  const audioSettings = state.currentSession?.audioSettings;
+
+  // For audio exercises, we need to get the Chinese text to speak
+  // The prompt field contains the Chinese characters for audio exercises
+  const audioText = isAudio ? state.currentExercise?.words?.[0]?.word : undefined;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
@@ -146,9 +157,25 @@ export function ExerciseScreen() {
           {/* Prompt Display */}
           <div className="mb-8 flex justify-center">
             <div className="max-w-2xl w-full bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-12 text-center">
-              <div className={`${getPromptFontSize()} leading-tight font-normal text-gray-900 dark:text-white break-words`}>
-                {promptHasChineseThenParentheses && prompt ? formatPromptWithParentheses(prompt) : state.currentExercise?.prompt}
-              </div>
+              {isAudio && audioText ? (
+                <div className="flex flex-col items-center justify-center min-h-[120px]">
+                  <AudioPrompt
+                    text={audioText}
+                    rate={audioSettings?.speechRate || 'normal'}
+                    replayLimit={audioSettings?.replayLimit || 'unlimited'}
+                    autoPlay={true}
+                    size="large"
+                    showReplayCount={true}
+                  />
+                  <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm">
+                    Click to replay audio
+                  </p>
+                </div>
+              ) : (
+                <div className={`${getPromptFontSize()} leading-tight font-normal text-gray-900 dark:text-white break-words`}>
+                  {promptHasChineseThenParentheses && prompt ? formatPromptWithParentheses(prompt) : state.currentExercise?.prompt}
+                </div>
+              )}
             </div>
           </div>
 
@@ -204,8 +231,10 @@ export function ExerciseScreen() {
                   state.currentSession.exerciseType === 'character-to-pinyin' ? 'Character → Pinyin' :
                   state.currentSession.exerciseType === 'english-to-pinyin' ? 'English → Pinyin' :
                   state.currentSession.exerciseType === 'shuffled' ? 'Shuffled (Characters & English) → Pinyin' :
+                  state.currentSession.exerciseType === 'audio-to-pinyin' ? 'Audio → Pinyin' :
                   state.currentSession.exerciseType === 'character-to-english' ? 'Character → English' :
                   state.currentSession.exerciseType === 'pinyin-to-english' ? 'Pinyin → English' :
+                  state.currentSession.exerciseType === 'audio-to-english' ? 'Audio → English' :
                   'Shuffled (Characters & Pinyin) → English'
                 }
                 {' • '}
