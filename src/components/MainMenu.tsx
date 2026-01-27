@@ -229,6 +229,25 @@ export function MainMenu() {
               </div>
             </div>
 
+            {/* Grammar Training Section */}
+            <div className="mb-4 bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-700 rounded-xl p-4">
+              <h2 className="text-lg font-bold text-emerald-900 dark:text-emerald-100 mb-3 text-center">
+                Grammar Training
+              </h2>
+              <div>
+                <button
+                  onClick={() => dispatch({ type: 'START_TENSE_ASPECT' })}
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span className="text-xl mr-2">⏰</span>
+                  <span>Tense & Aspect</span>
+                </button>
+                <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  Master 了, 过, 正在, 会, 没, 不
+                </p>
+              </div>
+            </div>
+
             {/* Sentence Reading Button */}
             <div className="mb-8">
               <button

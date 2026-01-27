@@ -14,7 +14,7 @@ import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilte
 import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard' | 'tense-aspect';
 
 /**
  * Create disambiguated prompts for remainingWords
@@ -179,6 +179,7 @@ type ExerciseAction =
   | { type: 'START_SENTENCE_READING' }
   | { type: 'START_TONE_PATTERN' }
   | { type: 'START_SIMILAR_CHARACTERS' }
+  | { type: 'START_TENSE_ASPECT' }
   | { type: 'VIEW_DASHBOARD' }
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' }
@@ -714,6 +715,13 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         screen: 'similar-characters'
+      };
+    }
+
+    case 'START_TENSE_ASPECT': {
+      return {
+        ...state,
+        screen: 'tense-aspect'
       };
     }
 

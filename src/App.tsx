@@ -14,6 +14,7 @@ import { ExerciseConfigScreen } from './components/ExerciseConfigPanel';
 import { SentenceReadingTrainer } from './components/SentenceReadingTrainer';
 import { TonePatternTrainer } from './components/TonePatternTrainer';
 import { SimilarCharactersTrainer } from './components/SimilarCharactersTrainer';
+import { TenseAspectTrainer } from './components/TenseAspectTrainer';
 import { Dashboard } from './components/dashboard/Dashboard';
 
 function AppContent() {
@@ -76,6 +77,9 @@ function AppContent() {
           )}
           {state.screen === 'similar-characters' && (
             <SimilarCharactersTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
+          )}
+          {state.screen === 'tense-aspect' && (
+            <TenseAspectTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
           )}
           {state.screen === 'dashboard' && <Dashboard />}
         </>
