@@ -184,7 +184,8 @@ type ExerciseAction =
   | { type: 'VIEW_DASHBOARD' }
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' }
-  | { type: 'SET_FOCUS_MODE'; payload: boolean };
+  | { type: 'SET_FOCUS_MODE'; payload: boolean }
+  | { type: 'UPDATE_CURRENT_VOCAB'; payload: { field: 'word' | 'pinyin' | 'meaning'; value: string } };
 
 // Load saved focus mode preference from localStorage
 function loadFocusModePreference(): boolean {
@@ -761,6 +762,112 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         focusOnWeaknesses: action.payload
+      };
+    }
+
+    case 'UPDATE_CURRENT_VOCAB': {
+      if (!state.vocabulary || !state.currentExercise || !state.currentAttempt) return state;
+
+      const { field, value } = action.payload;
+      const currentVocab = state.currentExercise.words[0];
+
+      // Find the vocabulary entry in the active list
+      const vocabIndex = state.vocabulary.active.findIndex(
+        v => v.word === currentVocab.word &&
+             v.pinyin === currentVocab.pinyin &&
+             v.meaning === currentVocab.meaning
+      );
+
+      if (vocabIndex === -1) return state;
+
+      // Create updated vocabulary entry
+      const oldEntry = state.vocabulary.active[vocabIndex];
+      const updatedEntry: VocabularyEntry = {
+        ...oldEntry,
+        [field]: value,
+        // Track original values for meaning edits
+        ...(field === 'meaning' && {
+          originalMeaning: oldEntry.originalMeaning || oldEntry.meaning,
+          isEdited: true,
+        }),
+      };
+
+      // Update the vocabulary list
+      const updatedActive = [...state.vocabulary.active];
+      updatedActive[vocabIndex] = updatedEntry;
+
+      const updatedVocabulary = {
+        ...state.vocabulary,
+        active: updatedActive,
+      };
+
+      // Update the current exercise's words
+      const updatedExercise = {
+        ...state.currentExercise,
+        words: [updatedEntry],
+        // Update correctPinyin/correctMeaning based on what changed
+        ...(field === 'pinyin' && { correctPinyin: value }),
+        ...(field === 'meaning' && { correctMeaning: value }),
+      };
+
+      // Re-grade the answer with the updated correct answer
+      const isEnglishExercise = state.currentExercise.type.endsWith('-english');
+      const newCorrectAnswer = isEnglishExercise
+        ? (updatedExercise.correctMeaning || '')
+        : (updatedExercise.correctPinyin || '');
+
+      const reGradedAttempt = isEnglishExercise
+        ? gradeEnglishAnswer(
+            state.currentAttempt.userAnswer,
+            newCorrectAnswer,
+            state.currentExercise.prompt,
+            state.currentExercise.id
+          )
+        : gradeAnswer(
+            state.currentAttempt.userAnswer,
+            newCorrectAnswer,
+            state.currentExercise.prompt,
+            state.currentExercise.id
+          );
+
+      // Keep the original timestamp
+      reGradedAttempt.timestamp = state.currentAttempt.timestamp;
+
+      // Check if the answer is now correct when it wasn't before
+      const wasCorrect = state.currentAttempt.score.correct === state.currentAttempt.score.total;
+      const isNowCorrect = reGradedAttempt.score.correct === reGradedAttempt.score.total;
+
+      // Update the session's attempts array with the re-graded attempt
+      let updatedSession = state.currentSession;
+      if (state.currentSession && state.currentSession.attempts.length > 0) {
+        const lastAttemptIndex = state.currentSession.attempts.length - 1;
+        const updatedAttempts = [...state.currentSession.attempts];
+        updatedAttempts[lastAttemptIndex] = reGradedAttempt;
+
+        // Also update response timings if answer is now correct
+        let updatedTimings = state.currentSession.responseTimings;
+        if (!wasCorrect && isNowCorrect && updatedTimings && updatedTimings.length > 0) {
+          const lastTimingIndex = updatedTimings.length - 1;
+          updatedTimings = [...updatedTimings];
+          updatedTimings[lastTimingIndex] = {
+            ...updatedTimings[lastTimingIndex],
+            wasCorrect: true,
+          };
+        }
+
+        updatedSession = {
+          ...state.currentSession,
+          attempts: updatedAttempts,
+          responseTimings: updatedTimings,
+        };
+      }
+
+      return {
+        ...state,
+        vocabulary: updatedVocabulary,
+        currentExercise: updatedExercise,
+        currentAttempt: reGradedAttempt,
+        currentSession: updatedSession,
       };
     }
 

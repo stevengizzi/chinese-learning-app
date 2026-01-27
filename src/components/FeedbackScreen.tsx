@@ -1,9 +1,93 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { parseExampleSentences, findMatchingSentences, type ExampleSentence } from '../lib/exampleSentences';
 import { SpeedFeedback } from './SpeedFeedback';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+
+/**
+ * Editable field component for vocabulary card
+ */
+function EditableField({
+  value,
+  displayValue,
+  onSave,
+  fontSize = 'text-base',
+  textColor = 'text-gray-600 dark:text-gray-300',
+}: {
+  value: string;
+  displayValue?: string;
+  onSave: (newValue: string) => void;
+  fontSize?: string;
+  textColor?: string;
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValue, setEditValue] = useState(value);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, [isEditing]);
+
+  useEffect(() => {
+    setEditValue(value);
+  }, [value]);
+
+  const handleSave = () => {
+    const trimmed = editValue.trim();
+    if (trimmed && trimmed !== value) {
+      onSave(trimmed);
+    }
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setEditValue(value);
+    setIsEditing(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      handleSave();
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      handleCancel();
+    }
+  };
+
+  if (isEditing) {
+    return (
+      <input
+        ref={inputRef}
+        type="text"
+        value={editValue}
+        onChange={(e) => setEditValue(e.target.value)}
+        onBlur={handleSave}
+        onKeyDown={handleKeyDown}
+        className={`${fontSize} px-2 py-1 border-2 border-blue-500 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none text-center w-full max-w-md`}
+        onClick={(e) => e.stopPropagation()}
+      />
+    );
+  }
+
+  return (
+    <span
+      className={`${fontSize} ${textColor} cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded px-2 py-0.5 transition-colors group inline-flex items-center gap-1`}
+      onClick={() => setIsEditing(true)}
+      title="Click to edit"
+    >
+      {displayValue || value}
+      <span className="opacity-0 group-hover:opacity-100 text-gray-400 dark:text-gray-500 text-xs transition-opacity">
+        edit
+      </span>
+    </span>
+  );
+}
 
 export function FeedbackScreen() {
   const { state, dispatch } = useExercise();
@@ -115,16 +199,37 @@ export function FeedbackScreen() {
                               charCount <= 3 ? 'text-4xl' :
                               charCount <= 4 ? 'text-3xl' :
                               charCount <= 5 ? 'text-2xl' : 'text-xl';
+
+              const handleFieldEdit = (field: 'word' | 'pinyin' | 'meaning', value: string) => {
+                dispatch({ type: 'UPDATE_CURRENT_VOCAB', payload: { field, value } });
+              };
+
               return (
                 <div className={`mb-4 ${isCorrect ? 'bg-green-50 dark:bg-green-900/20' : 'bg-amber-50 dark:bg-amber-900/20'} border-2 ${isCorrect ? 'border-green-200 dark:border-green-700' : 'border-amber-200 dark:border-amber-700'} rounded-xl p-4 text-center`}>
-                  <div className={`${fontSize} font-normal text-gray-900 dark:text-white mb-1`}>
-                    {vocab.word}
+                  <div className="mb-1">
+                    <EditableField
+                      value={vocab.word}
+                      onSave={(v) => handleFieldEdit('word', v)}
+                      fontSize={`${fontSize} font-normal`}
+                      textColor="text-gray-900 dark:text-white"
+                    />
                   </div>
-                  <div className="text-lg text-gray-500 dark:text-gray-400 mb-1">
-                    {convertPinyinStringToToneMarks(vocab.pinyin)}
+                  <div className="mb-1">
+                    <EditableField
+                      value={vocab.pinyin}
+                      displayValue={convertPinyinStringToToneMarks(vocab.pinyin)}
+                      onSave={(v) => handleFieldEdit('pinyin', v)}
+                      fontSize="text-lg"
+                      textColor="text-gray-500 dark:text-gray-400"
+                    />
                   </div>
-                  <div className="text-base text-gray-600 dark:text-gray-300">
-                    {vocab.meaning}
+                  <div>
+                    <EditableField
+                      value={vocab.meaning}
+                      onSave={(v) => handleFieldEdit('meaning', v)}
+                      fontSize="text-base"
+                      textColor="text-gray-600 dark:text-gray-300"
+                    />
                   </div>
                 </div>
               );
