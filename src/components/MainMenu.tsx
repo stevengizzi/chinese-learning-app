@@ -249,7 +249,7 @@ export function MainMenu() {
             </div>
 
             {/* Sentence Reading Button */}
-            <div className="mb-8">
+            <div className="mb-4">
               <button
                 onClick={() => dispatch({ type: 'START_SENTENCE_READING' })}
                 className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
@@ -259,6 +259,20 @@ export function MainMenu() {
               </button>
               <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
                 Practice reading and translating complete sentences
+              </p>
+            </div>
+
+            {/* Flashcard Mode Button */}
+            <div className="mb-8">
+              <button
+                onClick={() => dispatch({ type: 'START_FLASHCARD' })}
+                className="w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                <span className="text-2xl mr-2">🎴</span>
+                <span className="text-lg">Flashcard Mode</span>
+              </button>
+              <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Simple flashcards with customizable front/back content
               </p>
             </div>
 
