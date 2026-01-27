@@ -1,9 +1,19 @@
 import { useRef } from 'react';
 import type { ChangeEvent } from 'react';
 import { parseVocabularyMarkdown } from '../lib/vocabularyParser';
+import { parsePlecoXml } from '../lib/plecoXmlParser';
 import { useExercise } from '../contexts/ExerciseContext';
+import type { VocabularyData } from '../types/vocabulary';
 
-export function VocabularyUploader() {
+interface VocabularyUploaderProps {
+  buttonText?: string;
+  buttonClassName?: string;
+}
+
+export function VocabularyUploader({
+  buttonText = 'Upload Vocabulary',
+  buttonClassName = 'w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200',
+}: VocabularyUploaderProps) {
   const { dispatch } = useExercise();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -13,7 +23,15 @@ export function VocabularyUploader() {
 
     try {
       const text = await file.text();
-      const vocabularyData = parseVocabularyMarkdown(text);
+      const extension = file.name.split('.').pop()?.toLowerCase();
+
+      let vocabularyData: VocabularyData;
+
+      if (extension === 'xml') {
+        vocabularyData = parsePlecoXml(text);
+      } else {
+        vocabularyData = parseVocabularyMarkdown(text);
+      }
 
       if (vocabularyData.active.length === 0) {
         throw new Error('No active vocabulary found in file');
@@ -41,15 +59,15 @@ export function VocabularyUploader() {
       <input
         ref={fileInputRef}
         type="file"
-        accept=".md,.markdown"
+        accept=".md,.markdown,.xml"
         onChange={handleFileSelect}
         className="hidden"
       />
       <button
         onClick={handleClick}
-        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
+        className={buttonClassName}
       >
-        📁 Update Vocabulary
+        {buttonText}
       </button>
     </div>
   );

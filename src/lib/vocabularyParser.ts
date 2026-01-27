@@ -78,7 +78,8 @@ export function parseVocabularyMarkdown(content: string): VocabularyData {
     active,
     metadata: {
       version,
-      lastUpdated
+      lastUpdated,
+      source: 'markdown',
     }
   };
 }

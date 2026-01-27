@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
 import { formatResponseTime } from '../lib/responseTracking/analytics';
@@ -9,6 +9,100 @@ import type { VocabularyEntry } from '../types/vocabulary';
 import type { MasteryLevel, VocabularyMasteryInfo } from '../types/dashboard';
 import { ALL_PROMPT_TYPES, PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
 
+/**
+ * Editable meaning cell component
+ */
+function EditableMeaning({
+  entry,
+  onSave,
+}: {
+  entry: VocabularyEntry;
+  onSave: (newMeaning: string) => void;
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValue, setEditValue] = useState(entry.meaning);
+  const [showOriginal, setShowOriginal] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, [isEditing]);
+
+  const handleSave = () => {
+    const trimmed = editValue.trim();
+    if (trimmed && trimmed !== entry.meaning) {
+      onSave(trimmed);
+    }
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setEditValue(entry.meaning);
+    setIsEditing(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSave();
+    } else if (e.key === 'Escape') {
+      handleCancel();
+    }
+  };
+
+  if (isEditing) {
+    return (
+      <input
+        ref={inputRef}
+        type="text"
+        value={editValue}
+        onChange={(e) => setEditValue(e.target.value)}
+        onBlur={handleSave}
+        onKeyDown={handleKeyDown}
+        className="w-full px-2 py-1 text-sm border-2 border-blue-500 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none"
+      />
+    );
+  }
+
+  return (
+    <div className="group relative">
+      <div
+        className="flex items-center gap-2 cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded px-1 -mx-1 py-0.5"
+        onClick={() => setIsEditing(true)}
+        title="Click to edit"
+      >
+        <span className="text-gray-700 dark:text-gray-300">{entry.meaning}</span>
+        <span className="opacity-0 group-hover:opacity-100 text-gray-400 dark:text-gray-500 text-xs transition-opacity">
+          edit
+        </span>
+        {entry.isEdited && (
+          <span className="text-xs text-blue-500 dark:text-blue-400" title="Edited">*</span>
+        )}
+      </div>
+      {entry.originalMeaning && entry.originalMeaning !== entry.meaning && (
+        <div className="mt-1">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowOriginal(!showOriginal);
+            }}
+            className="text-xs text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+          >
+            {showOriginal ? 'Hide original' : 'Show original'}
+          </button>
+          {showOriginal && (
+            <div className="mt-1 text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 p-2 rounded max-h-24 overflow-y-auto">
+              {entry.originalMeaning}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'promptTypes' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
 type SortDirection = 'asc' | 'desc';
 
@@ -18,6 +112,7 @@ interface SortState {
 }
 
 interface VocabularyWithStats extends VocabularyEntry {
+  originalIndex: number; // Index in the original vocabulary array
   vocabId: string;
   stats: VocabularySpeedStats | null;
   accuracy: number;
@@ -139,7 +234,7 @@ export function ViewVocabulary() {
   const vocabularyWithStats = useMemo<VocabularyWithStats[]>(() => {
     if (!state.vocabulary) return [];
 
-    return state.vocabulary.active.map(entry => {
+    return state.vocabulary.active.map((entry, index) => {
       const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
       const stats = responseDatabase?.statistics[vocabId] || null;
 
@@ -156,6 +251,7 @@ export function ViewVocabulary() {
 
       return {
         ...entry,
+        originalIndex: index,
         vocabId,
         stats,
         accuracy: masteryInfo.accuracy,
@@ -205,6 +301,32 @@ export function ViewVocabulary() {
     setSelectedIds(new Set());
     saveVocabularySelection(new Set());
   }, []);
+
+  // Handle editing a vocabulary meaning
+  const handleEditMeaning = useCallback((vocabIndex: number, newMeaning: string) => {
+    if (!state.vocabulary) return;
+
+    const updatedActive = state.vocabulary.active.map((entry, idx) => {
+      if (idx === vocabIndex) {
+        return {
+          ...entry,
+          // Store original if this is the first edit
+          originalMeaning: entry.originalMeaning || entry.meaning,
+          meaning: newMeaning,
+          isEdited: true,
+        };
+      }
+      return entry;
+    });
+
+    dispatch({
+      type: 'SET_VOCABULARY',
+      payload: {
+        ...state.vocabulary,
+        active: updatedActive,
+      },
+    });
+  }, [state.vocabulary, dispatch]);
 
   // Filter vocabulary based on search query
   const filteredVocabulary = useMemo(() => {
@@ -520,7 +642,12 @@ export function ViewVocabulary() {
                         </td>
                         <td className="p-3 text-2xl text-gray-900 dark:text-white whitespace-nowrap">{entry.word}</td>
                         <td className="p-3 text-gray-700 dark:text-gray-300 whitespace-nowrap">{entry.pinyin}</td>
-                        <td className="p-3 text-gray-700 dark:text-gray-300 min-w-[200px]">{entry.meaning}</td>
+                        <td className="p-3 min-w-[200px]">
+                          <EditableMeaning
+                            entry={entry}
+                            onSave={(newMeaning) => handleEditMeaning(entry.originalIndex, newMeaning)}
+                          />
+                        </td>
                         <td className="p-3">
                           <div className="flex justify-center">
                             <PromptTypeDots masteryInfo={entry.masteryInfo} />
