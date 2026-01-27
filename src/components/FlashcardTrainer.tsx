@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { PlayMode } from '../types/exercise';
@@ -32,7 +32,7 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export function FlashcardTrainer({ onBack, initialPlayMode }: FlashcardTrainerProps) {
-  const { state } = useExercise();
+  const { state, dispatch } = useExercise();
   const [screen, setScreen] = useState<FlashcardScreen>('setup');
   const [session, setSession] = useState<FlashcardSessionState | null>(null);
   const [vocabulary, setVocabulary] = useState<VocabularyEntry[]>([]);
@@ -179,12 +179,50 @@ export function FlashcardTrainer({ onBack, initialPlayMode }: FlashcardTrainerPr
     setScreen('setup');
   }, []);
 
+  // Get current vocabulary item index (in local vocabulary array)
+  const currentVocabIndex = useMemo(() => {
+    if (!session || vocabulary.length === 0 || session.remainingItems.length === 0) return -1;
+    return session.remainingItems[session.currentIndex % session.remainingItems.length];
+  }, [session, vocabulary.length]);
+
   // Get current vocabulary item
   const getCurrentVocab = (): VocabularyEntry | null => {
-    if (!session || vocabulary.length === 0 || session.remainingItems.length === 0) return null;
-    const actualIndex = session.remainingItems[session.currentIndex % session.remainingItems.length];
-    return vocabulary[actualIndex] || null;
+    if (currentVocabIndex < 0) return null;
+    return vocabulary[currentVocabIndex] || null;
   };
+
+  // Handle editing vocabulary during flashcard exercise
+  const handleEditVocab = useCallback((field: 'word' | 'pinyin' | 'meaning', value: string) => {
+    if (currentVocabIndex < 0 || !state.vocabulary) return;
+
+    const currentVocab = vocabulary[currentVocabIndex];
+    if (!currentVocab) return;
+
+    // Update local vocabulary state
+    const updatedVocabulary = [...vocabulary];
+    updatedVocabulary[currentVocabIndex] = {
+      ...currentVocab,
+      [field]: value,
+    };
+    setVocabulary(updatedVocabulary);
+
+    // Find the corresponding entry in the global vocabulary and update it
+    const globalIndex = state.vocabulary.active.findIndex(
+      v => v.word === currentVocab.word &&
+           v.pinyin === currentVocab.pinyin &&
+           v.meaning === currentVocab.meaning
+    );
+
+    if (globalIndex !== -1) {
+      dispatch({
+        type: 'UPDATE_VOCABULARY_ENTRY',
+        payload: {
+          index: globalIndex,
+          updates: { [field]: value },
+        },
+      });
+    }
+  }, [currentVocabIndex, vocabulary, state.vocabulary, dispatch]);
 
   switch (screen) {
     case 'setup':
@@ -209,6 +247,7 @@ export function FlashcardTrainer({ onBack, initialPlayMode }: FlashcardTrainerPr
           onFlip={handleFlip}
           onAnswer={handleAnswer}
           onEnd={handleEndSession}
+          onEditVocab={handleEditVocab}
           progress={{
             current: session.config.playMode === 'endless'
               ? session.attempts.length + 1

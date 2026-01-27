@@ -24,6 +24,11 @@ function EditableMeaning({
   const [showOriginal, setShowOriginal] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Sync editValue when entry changes (e.g., due to filtering or external updates)
+  useEffect(() => {
+    setEditValue(entry.meaning);
+  }, [entry.meaning]);
+
   useEffect(() => {
     if (isEditing && inputRef.current) {
       inputRef.current.focus();
@@ -300,24 +305,11 @@ export function VocabularyContent() {
   const handleEditMeaning = useCallback((vocabIndex: number, newMeaning: string) => {
     if (!state.vocabulary) return;
 
-    const updatedActive = state.vocabulary.active.map((entry, idx) => {
-      if (idx === vocabIndex) {
-        return {
-          ...entry,
-          // Store original if this is the first edit
-          originalMeaning: entry.originalMeaning || entry.meaning,
-          meaning: newMeaning,
-          isEdited: true,
-        };
-      }
-      return entry;
-    });
-
     dispatch({
-      type: 'SET_VOCABULARY',
+      type: 'UPDATE_VOCABULARY_ENTRY',
       payload: {
-        ...state.vocabulary,
-        active: updatedActive,
+        index: vocabIndex,
+        updates: { meaning: newMeaning },
       },
     });
   }, [state.vocabulary, dispatch]);

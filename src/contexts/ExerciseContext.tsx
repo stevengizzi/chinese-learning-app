@@ -185,7 +185,8 @@ type ExerciseAction =
   | { type: 'SET_ERROR'; payload: string }
   | { type: 'FINISH_LOADING' }
   | { type: 'SET_FOCUS_MODE'; payload: boolean }
-  | { type: 'UPDATE_CURRENT_VOCAB'; payload: { field: 'word' | 'pinyin' | 'meaning'; value: string } };
+  | { type: 'UPDATE_CURRENT_VOCAB'; payload: { field: 'word' | 'pinyin' | 'meaning'; value: string } }
+  | { type: 'UPDATE_VOCABULARY_ENTRY'; payload: { index: number; updates: Partial<VocabularyEntry> } };
 
 // Load saved focus mode preference from localStorage
 function loadFocusModePreference(): boolean {
@@ -868,6 +869,38 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         currentExercise: updatedExercise,
         currentAttempt: reGradedAttempt,
         currentSession: updatedSession,
+      };
+    }
+
+    case 'UPDATE_VOCABULARY_ENTRY': {
+      if (!state.vocabulary) return state;
+
+      const { index, updates } = action.payload;
+      if (index < 0 || index >= state.vocabulary.active.length) return state;
+
+      const oldEntry = state.vocabulary.active[index];
+      const updatedEntry: VocabularyEntry = {
+        ...oldEntry,
+        ...updates,
+        // Track original meaning if editing meaning for the first time
+        ...(updates.meaning && !oldEntry.originalMeaning && {
+          originalMeaning: oldEntry.meaning,
+        }),
+        ...(updates.meaning && {
+          isEdited: true,
+        }),
+      };
+
+      const updatedActive = [...state.vocabulary.active];
+      updatedActive[index] = updatedEntry;
+
+      return {
+        ...state,
+        vocabulary: {
+          ...state.vocabulary,
+          active: updatedActive,
+        },
+        // Note: we intentionally do NOT change the screen here
       };
     }
 
