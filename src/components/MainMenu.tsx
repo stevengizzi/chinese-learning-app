@@ -246,7 +246,7 @@ export function MainMenu() {
               <h2 className="text-lg font-bold text-emerald-900 dark:text-emerald-100 mb-3 text-center">
                 Grammar Training
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                 <div>
                   <button
                     onClick={() => dispatch({ type: 'START_TENSE_ASPECT' })}
@@ -269,6 +269,32 @@ export function MainMenu() {
                   </button>
                   <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
                     什么, 谁, 哪儿, 为什么, 怎么...
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <button
+                    onClick={() => dispatch({ type: 'START_STRUCTURAL_PARTICLE' })}
+                    className="w-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="text-xl mr-2">的</span>
+                    <span>Structural Particles</span>
+                  </button>
+                  <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    的, 地, 得 - the three "de" particles
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={() => dispatch({ type: 'START_QUESTION_PARTICLE' })}
+                    className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="text-xl mr-2">吗</span>
+                    <span>Question Particles</span>
+                  </button>
+                  <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    吗, 呢, 吧 - form questions
                   </p>
                 </div>
               </div>

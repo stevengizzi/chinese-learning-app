@@ -16,6 +16,8 @@ import { TonePatternTrainer } from './components/TonePatternTrainer';
 import { SimilarCharactersTrainer } from './components/SimilarCharactersTrainer';
 import { TenseAspectTrainer } from './components/TenseAspectTrainer';
 import { InterrogativeTrainer } from './components/InterrogativeTrainer';
+import { StructuralParticleTrainer } from './components/StructuralParticleTrainer';
+import { QuestionParticleTrainer } from './components/QuestionParticleTrainer';
 import { FlashcardTrainer } from './components/FlashcardTrainer';
 import { Dashboard } from './components/dashboard/Dashboard';
 import { TTSSettingsModal, TTSSettingsButton } from './components/TTSSettings';
@@ -89,6 +91,12 @@ function AppContent() {
           )}
           {state.screen === 'interrogative' && (
             <InterrogativeTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
+          )}
+          {state.screen === 'structural-particle' && (
+            <StructuralParticleTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
+          )}
+          {state.screen === 'question-particle' && (
+            <QuestionParticleTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />
           )}
           {state.screen === 'flashcard' && (
             <FlashcardTrainer onBack={() => dispatch({ type: 'BACK_TO_MENU' })} />

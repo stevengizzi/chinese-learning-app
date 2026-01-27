@@ -1,7 +1,7 @@
 /**
  * Tense/Aspect Practice Types
  *
- * Types for practicing Chinese time/aspect markers (了, 过, 正在, 会, 没, 不)
+ * Types for practicing Chinese time/aspect markers (了, 过, 正在, 在, 着, 会, 没, 不)
  */
 
 /**
@@ -14,6 +14,10 @@ export type AspectType =
   | 'future_neg'
   | 'progressive'
   | 'progressive_neg'
+  | 'durative'
+  | 'durative_neg'
+  | 'continuous'
+  | 'continuous_neg'
   | 'completed'
   | 'completed_neg'
   | 'experience'
@@ -29,6 +33,10 @@ export const ALL_ASPECT_TYPES: AspectType[] = [
   'future_neg',
   'progressive',
   'progressive_neg',
+  'durative',
+  'durative_neg',
+  'continuous',
+  'continuous_neg',
   'completed',
   'completed_neg',
   'experience',
@@ -42,6 +50,8 @@ export const AFFIRMATIVE_ASPECTS: AspectType[] = [
   'simple_present',
   'future',
   'progressive',
+  'durative',
+  'continuous',
   'completed',
   'experience',
 ];
@@ -53,6 +63,8 @@ export const NEGATIVE_ASPECTS: AspectType[] = [
   'simple_present_neg',
   'future_neg',
   'progressive_neg',
+  'durative_neg',
+  'continuous_neg',
   'completed_neg',
   'experience_neg',
 ];
@@ -67,6 +79,10 @@ export const ASPECT_DISPLAY_NAMES: Record<AspectType, string> = {
   future_neg: 'Future Neg (不会)',
   progressive: 'Progressive (正在)',
   progressive_neg: 'Progressive Neg (没在)',
+  durative: 'Durative (在)',
+  durative_neg: 'Durative Neg (没在)',
+  continuous: 'Continuous (着)',
+  continuous_neg: 'Continuous Neg (没...着)',
   completed: 'Completed (了)',
   completed_neg: 'Completed Neg (没)',
   experience: 'Experience (过)',
@@ -83,6 +99,10 @@ export const ASPECT_SHORT_LABELS: Record<AspectType, string> = {
   future_neg: '不会',
   progressive: '正在',
   progressive_neg: '没在',
+  durative: '在',
+  durative_neg: '没在',
+  continuous: '着',
+  continuous_neg: '没...着',
   completed: '了',
   completed_neg: '没',
   experience: '过',
@@ -97,8 +117,12 @@ export const ASPECT_MARKERS: Record<AspectType, string[]> = {
   simple_present_neg: ['不'],
   future: ['会'],
   future_neg: ['不会', '不要'],
-  progressive: ['正在', '在'],
+  progressive: ['正在'],
   progressive_neg: ['没在', '不在'],
+  durative: ['在'],
+  durative_neg: ['没在', '不在'],
+  continuous: ['着'],
+  continuous_neg: ['没', '着'],
   completed: ['了'],
   completed_neg: ['没'],
   experience: ['过'],
@@ -115,6 +139,10 @@ export const ASPECT_COLORS: Record<AspectType, { bg: string; text: string; borde
   future_neg: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-800 dark:text-blue-200', border: 'border-blue-300 dark:border-blue-700' },
   progressive: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-800 dark:text-amber-200', border: 'border-amber-300 dark:border-amber-700' },
   progressive_neg: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-800 dark:text-amber-200', border: 'border-amber-300 dark:border-amber-700' },
+  durative: { bg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-800 dark:text-orange-200', border: 'border-orange-300 dark:border-orange-700' },
+  durative_neg: { bg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-800 dark:text-orange-200', border: 'border-orange-300 dark:border-orange-700' },
+  continuous: { bg: 'bg-teal-100 dark:bg-teal-900/30', text: 'text-teal-800 dark:text-teal-200', border: 'border-teal-300 dark:border-teal-700' },
+  continuous_neg: { bg: 'bg-teal-100 dark:bg-teal-900/30', text: 'text-teal-800 dark:text-teal-200', border: 'border-teal-300 dark:border-teal-700' },
   completed: { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-800 dark:text-green-200', border: 'border-green-300 dark:border-green-700' },
   completed_neg: { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-800 dark:text-green-200', border: 'border-green-300 dark:border-green-700' },
   experience: { bg: 'bg-purple-100 dark:bg-purple-900/30', text: 'text-purple-800 dark:text-purple-200', border: 'border-purple-300 dark:border-purple-700' },

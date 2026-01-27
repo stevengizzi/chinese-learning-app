@@ -1,0 +1,382 @@
+# Interrogative Particle Practice Corpus (吗/呢/吧)
+#
+# Format:
+# PARTICLE: particle_type
+# INSTRUCTION: instruction_text
+# STATEMENT_CN: chinese_statement
+# STATEMENT_EN: english_statement
+# QUESTION_CN: chinese_question
+# QUESTION_EN: english_question
+# PINYIN: pinyin
+# ===
+#
+# Particle types: MA (吗), NE (呢), BA (吧)
+#
+# =============================================================================
+
+# ==================== 吗 (Yes/No Questions) ====================
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 他是学生
+STATEMENT_EN: He is a student
+QUESTION_CN: 他是学生吗？
+QUESTION_EN: Is he a student?
+PINYIN: ta1 shi4 xue2 sheng ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你高兴
+STATEMENT_EN: You are happy
+QUESTION_CN: 你高兴吗？
+QUESTION_EN: Are you happy?
+PINYIN: ni3 gao1 xing4 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 他是老师
+STATEMENT_EN: He is a teacher
+QUESTION_CN: 他是老师吗？
+QUESTION_EN: Is he a teacher?
+PINYIN: ta1 shi4 lao3 shi1 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 她是中国人
+STATEMENT_EN: She is Chinese
+QUESTION_CN: 她是中国人吗？
+QUESTION_EN: Is she Chinese?
+PINYIN: ta1 shi4 zhong1 guo2 ren2 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你喜欢音乐
+STATEMENT_EN: You like music
+QUESTION_CN: 你喜欢音乐吗？
+QUESTION_EN: Do you like music?
+PINYIN: ni3 xi3 huan yin1 yue4 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 他会说中文
+STATEMENT_EN: He can speak Chinese
+QUESTION_CN: 他会说中文吗？
+QUESTION_EN: Can he speak Chinese?
+PINYIN: ta1 hui4 shuo1 zhong1 wen2 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你有时间
+STATEMENT_EN: You have time
+QUESTION_CN: 你有时间吗？
+QUESTION_EN: Do you have time?
+PINYIN: ni3 you3 shi2 jian1 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你累
+STATEMENT_EN: You are tired
+QUESTION_CN: 你累吗？
+QUESTION_EN: Are you tired?
+PINYIN: ni3 lei4 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 他在家
+STATEMENT_EN: He is at home
+QUESTION_CN: 他在家吗？
+QUESTION_EN: Is he at home?
+PINYIN: ta1 zai4 jia1 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你要喝茶
+STATEMENT_EN: You want to drink tea
+QUESTION_CN: 你要喝茶吗？
+QUESTION_EN: Do you want to drink tea?
+PINYIN: ni3 yao4 he1 cha2 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 她是医生
+STATEMENT_EN: She is a doctor
+QUESTION_CN: 她是医生吗？
+QUESTION_EN: Is she a doctor?
+PINYIN: ta1 shi4 yi1 sheng1 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你明天上班
+STATEMENT_EN: You work tomorrow
+QUESTION_CN: 你明天上班吗？
+QUESTION_EN: Do you work tomorrow?
+PINYIN: ni3 ming2 tian1 shang4 ban1 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 电影好看
+STATEMENT_EN: The movie is good
+QUESTION_CN: 电影好看吗？
+QUESTION_EN: Is the movie good?
+PINYIN: dian4 ying3 hao3 kan4 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你认识他
+STATEMENT_EN: You know him
+QUESTION_CN: 你认识他吗？
+QUESTION_EN: Do you know him?
+PINYIN: ni3 ren4 shi ta1 ma
+===
+
+PARTICLE: MA
+INSTRUCTION: Turn into a yes/no question using 吗
+STATEMENT_CN: 你会开车
+STATEMENT_EN: You can drive
+QUESTION_CN: 你会开车吗？
+QUESTION_EN: Can you drive?
+PINYIN: ni3 hui4 kai1 che1 ma
+===
+
+# ==================== 呢 (Follow-up Questions) ====================
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我很好
+STATEMENT_EN: I'm good (and you?)
+QUESTION_CN: 你呢？
+QUESTION_EN: What about you?
+PINYIN: ni3 ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 他去北京
+STATEMENT_EN: He's going to Beijing (and they?)
+QUESTION_CN: 他们呢？
+QUESTION_EN: What about them?
+PINYIN: ta1 men ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我喜欢茶
+STATEMENT_EN: I like tea (and she?)
+QUESTION_CN: 她呢？
+QUESTION_EN: What about her?
+PINYIN: ta1 ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我的书在这儿
+STATEMENT_EN: My book is here (and his?)
+QUESTION_CN: 他的呢？
+QUESTION_EN: What about his?
+PINYIN: ta1 de ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 妈妈在家
+STATEMENT_EN: Mom is at home (and dad?)
+QUESTION_CN: 爸爸呢？
+QUESTION_EN: What about dad?
+PINYIN: ba4 ba ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我要米饭
+STATEMENT_EN: I want rice (and you?)
+QUESTION_CN: 你呢？
+QUESTION_EN: What about you?
+PINYIN: ni3 ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我学中文
+STATEMENT_EN: I study Chinese (and him?)
+QUESTION_CN: 他呢？
+QUESTION_EN: What about him?
+PINYIN: ta1 ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我的朋友来了
+STATEMENT_EN: My friend came (and your friend?)
+QUESTION_CN: 你的朋友呢？
+QUESTION_EN: What about your friend?
+PINYIN: ni3 de peng2 you3 ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 我今天休息
+STATEMENT_EN: I'm resting today (and tomorrow?)
+QUESTION_CN: 明天呢？
+QUESTION_EN: What about tomorrow?
+PINYIN: ming2 tian1 ne
+===
+
+PARTICLE: NE
+INSTRUCTION: Ask "what about...?" using 呢
+STATEMENT_CN: 苹果好吃
+STATEMENT_EN: Apples are delicious (and oranges?)
+QUESTION_CN: 橘子呢？
+QUESTION_EN: What about tangerines?
+PINYIN: ju2 zi ne
+===
+
+# ==================== 吧 (Suggestions/Confirmations) ====================
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 我们走
+STATEMENT_EN: We go
+QUESTION_CN: 我们走吧！
+QUESTION_EN: Let's go!
+PINYIN: wo3 men zou3 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 你休息
+STATEMENT_EN: You rest
+QUESTION_CN: 你休息吧！
+QUESTION_EN: You should rest!
+PINYIN: ni3 xiu1 xi ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 我们吃饭
+STATEMENT_EN: We eat
+QUESTION_CN: 我们吃饭吧！
+QUESTION_EN: Let's eat!
+PINYIN: wo3 men chi1 fan4 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 你坐
+STATEMENT_EN: You sit
+QUESTION_CN: 你坐吧！
+QUESTION_EN: Please sit!
+PINYIN: ni3 zuo4 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 我们去看电影
+STATEMENT_EN: We go watch a movie
+QUESTION_CN: 我们去看电影吧！
+QUESTION_EN: Let's go watch a movie!
+PINYIN: wo3 men qu4 kan4 dian4 ying3 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 你喝水
+STATEMENT_EN: You drink water
+QUESTION_CN: 你喝水吧！
+QUESTION_EN: Have some water!
+PINYIN: ni3 he1 shui3 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Seek confirmation using 吧
+STATEMENT_CN: 你是老师
+STATEMENT_EN: You are a teacher (right?)
+QUESTION_CN: 你是老师吧？
+QUESTION_EN: You're a teacher, right?
+PINYIN: ni3 shi4 lao3 shi1 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Seek confirmation using 吧
+STATEMENT_CN: 他是你朋友
+STATEMENT_EN: He is your friend (right?)
+QUESTION_CN: 他是你朋友吧？
+QUESTION_EN: He's your friend, right?
+PINYIN: ta1 shi4 ni3 peng2 you3 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Seek confirmation using 吧
+STATEMENT_CN: 你累了
+STATEMENT_EN: You are tired (right?)
+QUESTION_CN: 你累了吧？
+QUESTION_EN: You're tired, right?
+PINYIN: ni3 lei4 le ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Seek confirmation using 吧
+STATEMENT_CN: 这是你的书
+STATEMENT_EN: This is your book (right?)
+QUESTION_CN: 这是你的书吧？
+QUESTION_EN: This is your book, right?
+PINYIN: zhe4 shi4 ni3 de shu1 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 我们一起去
+STATEMENT_EN: We go together
+QUESTION_CN: 我们一起去吧！
+QUESTION_EN: Let's go together!
+PINYIN: wo3 men yi1 qi3 qu4 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 你先吃
+STATEMENT_EN: You eat first
+QUESTION_CN: 你先吃吧！
+QUESTION_EN: You eat first!
+PINYIN: ni3 xian1 chi1 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Seek confirmation using 吧
+STATEMENT_CN: 明天有课
+STATEMENT_EN: There's class tomorrow (right?)
+QUESTION_CN: 明天有课吧？
+QUESTION_EN: There's class tomorrow, right?
+PINYIN: ming2 tian1 you3 ke4 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 我们开始
+STATEMENT_EN: We start
+QUESTION_CN: 我们开始吧！
+QUESTION_EN: Let's start!
+PINYIN: wo3 men kai1 shi3 ba
+===
+
+PARTICLE: BA
+INSTRUCTION: Make a suggestion using 吧
+STATEMENT_CN: 你回家
+STATEMENT_EN: You go home
+QUESTION_CN: 你回家吧！
+QUESTION_EN: You should go home!
+PINYIN: ni3 hui2 jia1 ba
+===
+

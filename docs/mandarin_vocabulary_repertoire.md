@@ -25,7 +25,8 @@ notes:
 | 爱好 | ai4 hao4 | hobby; interest |
 | 车 | che1 | car; vehicle |
 | 车票 | che1 piao4 | (train or bus) ticket |
-| 得 | de2 / dei3 | to get; to obtain; to contract (a disease); must; have to |
+| 得 | de | particle linking verb to complement |
+| 得 | dei3 | must; have to |
 | 地图 | di4 tu2 | map |
 | 过 | guo4 | to cross; to pass (time); to celebrate (a holiday) |
 | 孩子 | hai2 zi | child |
@@ -106,7 +107,7 @@ notes:
 | 歌 | ge1 | song |
 | 试 | shi4 | to try; to test |
 | 出来 | chu1 lai2 | to come out |
-| 给 | gei3 / ji3 | to give; to; for |
+| 给 | gei3 | to give; to; for |
 | 马 | ma3 | horse |
 | 回去 | hui2 qu | to go back |
 | 小朋友 | xiao3 peng2 you3 | child; "little friend" |
@@ -200,7 +201,7 @@ notes:
 | 想 | xiang3 | to think; to want; to miss (sb or sth)
 | 哥哥 | ge1 ge | older brother |
 | 左 | zuo3 | left |
-| 还有 | hai2 you3 | also; in addition; still | 
+| 还有 | hai2 you3 | also; in addition; there's still |
 | 国外 | guo2 wai4 | abroad; external (affairs); overseas; foreign |
 | 她 | ta1 | she; her |
 | 唱歌 | chang4 ge1 | to sing a song |
@@ -214,7 +215,8 @@ notes:
 | 教学楼 | jiao4 xue2 lou2 | teaching block; school building |
 | 作 | zuo4 | to make; to do |
 | 打开 | da3 kai1 | to open; to turn on |
-| 觉 | jue2 / jiao4 | to feel; sleep |
+| 觉 | jue2 | to feel |
+| 觉 | jiao4 | to sleep |
 | 这儿 | zhe4 r | here |
 | 难 | nan2 | difficult; hard |
 | 出 | chu1 | to exit |
@@ -398,7 +400,7 @@ notes:
 | 书 | shu1 | book |
 | 别 | bie2 | do not; another; other |
 | 水 | shui3 | water |
-| 还 | hai2 / huan2 | still; not yet; in addition; to return (something) |
+| 还 | hai2 | still; also |
 | 多 | duo1 | many |
 | 是不是 | shi4 bu4 shi4 | is or isn't; whether or not |
 | 听到 | ting1 dao4 | to hear |
@@ -426,7 +428,8 @@ notes:
 | 床 | chuang2 | bed |
 | 爷爷 | ye2 ye | grandpa (paternal side) |
 | 忘 | wang4 | to forget |
-| 地 | di4 / de | earth; ground; particle to link adverbial and verb |
+| 地 | di4 | earth; ground; land; place |
+| 地 | de | particle linking adjective/adverb to verb |
 | 一点儿 | yi1 dian3 r | a bit; a little |
 | 新年 | xin1 nian2 | New Year |
 | 真 | zhen1 | really; truly |
@@ -556,8 +559,8 @@ notes:
 | 京 | jing1 | capital city of a country |
 | 妹妹 | mei4 mei | younger sister |
 | 来到 | lai2 dao4 | to come; to arrive |
-| 还是 | hai2 shi | or; still; had better |
-| 小学 | xiao3 xue2 | elementary school; primary school |
+| 还是 | hai2 shi | or (in questions); still (despite) |
+| 小学 | xiao3 xue2 | elementary school |
 | 打 | da3 | to hit; to break; to type |
 | 我们 | wo3 men | we |
 | 坐下 | zuo4 xia4 | to sit down |
@@ -656,7 +659,7 @@ notes:
 | 共享办公空间 | gong4 xiang3 ban4 gong1 kong1 jian1 | coworking space; shared office space |
 | 经营 | jing1 ying2 | to manage; to operate; to run (a business) |
 | 公司 | gong1 si1 | company; corporation; firm |
-| 经营一家公司 | jing1 ying2 yi4 jia1 gong1 si1 | to run a company |
+| 经营一家公司 | jing1 ying2 yi1 jia1 gong1 si1 | to run a company |
 | 硬件 | ying4 jian4 | (computer) hardware |
 | 软件 | ruan3 jian4 | software |
 | 硬体 | ying4 ti3 | (computer) hardware (Taiwan) |

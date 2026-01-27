@@ -14,7 +14,7 @@ import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilte
 import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 
-type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard' | 'tense-aspect' | 'flashcard' | 'interrogative';
+type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard' | 'tense-aspect' | 'flashcard' | 'interrogative' | 'structural-particle' | 'question-particle';
 
 /**
  * Create disambiguated prompts for remainingWords
@@ -181,6 +181,8 @@ type ExerciseAction =
   | { type: 'START_SIMILAR_CHARACTERS' }
   | { type: 'START_TENSE_ASPECT' }
   | { type: 'START_INTERROGATIVE' }
+  | { type: 'START_STRUCTURAL_PARTICLE' }
+  | { type: 'START_QUESTION_PARTICLE' }
   | { type: 'START_FLASHCARD' }
   | { type: 'VIEW_DASHBOARD' }
   | { type: 'SET_ERROR'; payload: string }
@@ -734,6 +736,20 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       return {
         ...state,
         screen: 'interrogative'
+      };
+    }
+
+    case 'START_STRUCTURAL_PARTICLE': {
+      return {
+        ...state,
+        screen: 'structural-particle'
+      };
+    }
+
+    case 'START_QUESTION_PARTICLE': {
+      return {
+        ...state,
+        screen: 'question-particle'
       };
     }
 

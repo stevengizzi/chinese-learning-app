@@ -9,7 +9,9 @@
 # ASPECT_TYPE values:
 #   SIMPLE_PRESENT, SIMPLE_PRESENT_NEG
 #   FUTURE, FUTURE_NEG
-#   PROGRESSIVE, PROGRESSIVE_NEG
+#   PROGRESSIVE, PROGRESSIVE_NEG (using 正在)
+#   DURATIVE, DURATIVE_NEG (using 在 before verb)
+#   CONTINUOUS, CONTINUOUS_NEG (using 着 after verb)
 #   COMPLETED, COMPLETED_NEG
 #   EXPERIENCE, EXPERIENCE_NEG
 #
@@ -22,6 +24,8 @@ FUTURE: I will eat lunch | 我会吃午饭 | wo3 hui4 chi1 wu3 fan4
 FUTURE_NEG: I won't eat lunch | 我不会吃午饭 | wo3 bu2 hui4 chi1 wu3 fan4
 PROGRESSIVE: I am eating lunch | 我正在吃午饭 | wo3 zheng4 zai4 chi1 wu3 fan4
 PROGRESSIVE_NEG: I am not eating lunch | 我没在吃午饭 | wo3 mei2 zai4 chi1 wu3 fan4
+DURATIVE: I am eating lunch | 我在吃午饭 | wo3 zai4 chi1 wu3 fan4
+DURATIVE_NEG: I am not eating lunch | 我没在吃午饭 | wo3 mei2 zai4 chi1 wu3 fan4
 COMPLETED: I ate lunch | 我吃了午饭 | wo3 chi1 le wu3 fan4
 COMPLETED_NEG: I didn't eat lunch | 我没吃午饭 | wo3 mei2 chi1 wu3 fan4
 EXPERIENCE: I have eaten lunch before | 我吃过午饭 | wo3 chi1 guo4 wu3 fan4
@@ -35,6 +39,8 @@ FUTURE: I will go to China | 我会去中国 | wo3 hui4 qu4 zhong1 guo2
 FUTURE_NEG: I won't go to China | 我不会去中国 | wo3 bu2 hui4 qu4 zhong1 guo2
 PROGRESSIVE: I am going to China | 我正在去中国 | wo3 zheng4 zai4 qu4 zhong1 guo2
 PROGRESSIVE_NEG: I am not going to China | 我没在去中国 | wo3 mei2 zai4 qu4 zhong1 guo2
+DURATIVE: I am going to China | 我在去中国 | wo3 zai4 qu4 zhong1 guo2
+DURATIVE_NEG: I am not going to China | 我没在去中国 | wo3 mei2 zai4 qu4 zhong1 guo2
 COMPLETED: I went to China | 我去了中国 | wo3 qu4 le zhong1 guo2
 COMPLETED_NEG: I didn't go to China | 我没去中国 | wo3 mei2 qu4 zhong1 guo2
 EXPERIENCE: I have been to China | 我去过中国 | wo3 qu4 guo4 zhong1 guo2
@@ -48,6 +54,8 @@ FUTURE: I will study Chinese | 我会学习中文 | wo3 hui4 xue2 xi2 zhong1 wen
 FUTURE_NEG: I won't study Chinese | 我不会学习中文 | wo3 bu2 hui4 xue2 xi2 zhong1 wen2
 PROGRESSIVE: I am studying Chinese | 我正在学习中文 | wo3 zheng4 zai4 xue2 xi2 zhong1 wen2
 PROGRESSIVE_NEG: I am not studying Chinese | 我没在学习中文 | wo3 mei2 zai4 xue2 xi2 zhong1 wen2
+DURATIVE: I am studying Chinese | 我在学习中文 | wo3 zai4 xue2 xi2 zhong1 wen2
+DURATIVE_NEG: I am not studying Chinese | 我没在学习中文 | wo3 mei2 zai4 xue2 xi2 zhong1 wen2
 COMPLETED: I studied Chinese | 我学习了中文 | wo3 xue2 xi2 le zhong1 wen2
 COMPLETED_NEG: I didn't study Chinese | 我没学习中文 | wo3 mei2 xue2 xi2 zhong1 wen2
 EXPERIENCE: I have studied Chinese before | 我学习过中文 | wo3 xue2 xi2 guo4 zhong1 wen2
@@ -61,23 +69,27 @@ FUTURE: I will watch movies | 我会看电影 | wo3 hui4 kan4 dian4 ying3
 FUTURE_NEG: I won't watch movies | 我不会看电影 | wo3 bu2 hui4 kan4 dian4 ying3
 PROGRESSIVE: I am watching movies | 我正在看电影 | wo3 zheng4 zai4 kan4 dian4 ying3
 PROGRESSIVE_NEG: I am not watching movies | 我没在看电影 | wo3 mei2 zai4 kan4 dian4 ying3
+DURATIVE: I am watching movies | 我在看电影 | wo3 zai4 kan4 dian4 ying3
+DURATIVE_NEG: I am not watching movies | 我没在看电影 | wo3 mei2 zai4 kan4 dian4 ying3
 COMPLETED: I watched movies | 我看了电影 | wo3 kan4 le dian4 ying3
 COMPLETED_NEG: I didn't watch movies | 我没看电影 | wo3 mei2 kan4 dian4 ying3
 EXPERIENCE: I have watched movies before | 我看过电影 | wo3 kan4 guo4 dian4 ying3
 EXPERIENCE_NEG: I have never watched movies | 我没看过电影 | wo3 mei2 kan4 guo4 dian4 ying3
 ===
 
-BASE: drink coffee
-SIMPLE_PRESENT: I drink coffee | 我喝咖啡 | wo3 he1 ka1 fei1
-SIMPLE_PRESENT_NEG: I don't drink coffee | 我不喝咖啡 | wo3 bu4 he1 ka1 fei1
-FUTURE: I will drink coffee | 我会喝咖啡 | wo3 hui4 he1 ka1 fei1
-FUTURE_NEG: I won't drink coffee | 我不会喝咖啡 | wo3 bu2 hui4 he1 ka1 fei1
-PROGRESSIVE: I am drinking coffee | 我正在喝咖啡 | wo3 zheng4 zai4 he1 ka1 fei1
-PROGRESSIVE_NEG: I am not drinking coffee | 我没在喝咖啡 | wo3 mei2 zai4 he1 ka1 fei1
-COMPLETED: I drank coffee | 我喝了咖啡 | wo3 he1 le ka1 fei1
-COMPLETED_NEG: I didn't drink coffee | 我没喝咖啡 | wo3 mei2 he1 ka1 fei1
-EXPERIENCE: I have drunk coffee before | 我喝过咖啡 | wo3 he1 guo4 ka1 fei1
-EXPERIENCE_NEG: I have never drunk coffee | 我没喝过咖啡 | wo3 mei2 he1 guo4 ka1 fei1
+BASE: drink tea
+SIMPLE_PRESENT: I drink tea | 我喝茶 | wo3 he1 cha2
+SIMPLE_PRESENT_NEG: I don't drink tea | 我不喝茶 | wo3 bu4 he1 cha2
+FUTURE: I will drink tea | 我会喝茶 | wo3 hui4 he1 cha2
+FUTURE_NEG: I won't drink tea | 我不会喝茶 | wo3 bu2 hui4 he1 cha2
+PROGRESSIVE: I am drinking tea | 我正在喝茶 | wo3 zheng4 zai4 he1 cha2
+PROGRESSIVE_NEG: I am not drinking tea | 我没在喝茶 | wo3 mei2 zai4 he1 cha2
+DURATIVE: I am drinking tea | 我在喝茶 | wo3 zai4 he1 cha2
+DURATIVE_NEG: I am not drinking tea | 我没在喝茶 | wo3 mei2 zai4 he1 cha2
+COMPLETED: I drank tea | 我喝了茶 | wo3 he1 le cha2
+COMPLETED_NEG: I didn't drink tea | 我没喝茶 | wo3 mei2 he1 cha2
+EXPERIENCE: I have drunk tea before | 我喝过茶 | wo3 he1 guo4 cha2
+EXPERIENCE_NEG: I have never drunk tea | 我没喝过茶 | wo3 mei2 he1 guo4 cha2
 ===
 
 BASE: read books
@@ -87,6 +99,8 @@ FUTURE: I will read books | 我会看书 | wo3 hui4 kan4 shu1
 FUTURE_NEG: I won't read books | 我不会看书 | wo3 bu2 hui4 kan4 shu1
 PROGRESSIVE: I am reading books | 我正在看书 | wo3 zheng4 zai4 kan4 shu1
 PROGRESSIVE_NEG: I am not reading books | 我没在看书 | wo3 mei2 zai4 kan4 shu1
+DURATIVE: I am reading books | 我在看书 | wo3 zai4 kan4 shu1
+DURATIVE_NEG: I am not reading books | 我没在看书 | wo3 mei2 zai4 kan4 shu1
 COMPLETED: I read books | 我看了书 | wo3 kan4 le shu1
 COMPLETED_NEG: I didn't read books | 我没看书 | wo3 mei2 kan4 shu1
 EXPERIENCE: I have read books before | 我看过书 | wo3 kan4 guo4 shu1
@@ -98,12 +112,14 @@ SIMPLE_PRESENT: I go to work | 我上班 | wo3 shang4 ban1
 SIMPLE_PRESENT_NEG: I don't go to work | 我不上班 | wo3 bu4 shang4 ban1
 FUTURE: I will go to work | 我会上班 | wo3 hui4 shang4 ban1
 FUTURE_NEG: I won't go to work | 我不会上班 | wo3 bu2 hui4 shang4 ban1
-PROGRESSIVE: I am going to work | 我正在上班 | wo3 zheng4 zai4 shang4 ban1
-PROGRESSIVE_NEG: I am not going to work | 我没在上班 | wo3 mei2 zai4 shang4 ban1
+PROGRESSIVE: I am working | 我正在上班 | wo3 zheng4 zai4 shang4 ban1
+PROGRESSIVE_NEG: I am not working | 我没在上班 | wo3 mei2 zai4 shang4 ban1
+DURATIVE: I am working | 我在上班 | wo3 zai4 shang4 ban1
+DURATIVE_NEG: I am not working | 我没在上班 | wo3 mei2 zai4 shang4 ban1
 COMPLETED: I went to work | 我上了班 | wo3 shang4 le ban1
 COMPLETED_NEG: I didn't go to work | 我没上班 | wo3 mei2 shang4 ban1
-EXPERIENCE: I have gone to work before | 我上过班 | wo3 shang4 guo4 ban1
-EXPERIENCE_NEG: I have never gone to work | 我没上过班 | wo3 mei2 shang4 guo4 ban1
+EXPERIENCE: I have worked before | 我上过班 | wo3 shang4 guo4 ban1
+EXPERIENCE_NEG: I have never worked | 我没上过班 | wo3 mei2 shang4 guo4 ban1
 ===
 
 BASE: go home
@@ -113,6 +129,8 @@ FUTURE: I will go home | 我会回家 | wo3 hui4 hui2 jia1
 FUTURE_NEG: I won't go home | 我不会回家 | wo3 bu2 hui4 hui2 jia1
 PROGRESSIVE: I am going home | 我正在回家 | wo3 zheng4 zai4 hui2 jia1
 PROGRESSIVE_NEG: I am not going home | 我没在回家 | wo3 mei2 zai4 hui2 jia1
+DURATIVE: I am going home | 我在回家 | wo3 zai4 hui2 jia1
+DURATIVE_NEG: I am not going home | 我没在回家 | wo3 mei2 zai4 hui2 jia1
 COMPLETED: I went home | 我回了家 | wo3 hui2 le jia1
 COMPLETED_NEG: I didn't go home | 我没回家 | wo3 mei2 hui2 jia1
 EXPERIENCE: I have gone home before | 我回过家 | wo3 hui2 guo4 jia1
@@ -126,6 +144,8 @@ FUTURE: I will buy things | 我会买东西 | wo3 hui4 mai3 dong1 xi1
 FUTURE_NEG: I won't buy things | 我不会买东西 | wo3 bu2 hui4 mai3 dong1 xi1
 PROGRESSIVE: I am buying things | 我正在买东西 | wo3 zheng4 zai4 mai3 dong1 xi1
 PROGRESSIVE_NEG: I am not buying things | 我没在买东西 | wo3 mei2 zai4 mai3 dong1 xi1
+DURATIVE: I am buying things | 我在买东西 | wo3 zai4 mai3 dong1 xi1
+DURATIVE_NEG: I am not buying things | 我没在买东西 | wo3 mei2 zai4 mai3 dong1 xi1
 COMPLETED: I bought things | 我买了东西 | wo3 mai3 le dong1 xi1
 COMPLETED_NEG: I didn't buy things | 我没买东西 | wo3 mei2 mai3 dong1 xi1
 EXPERIENCE: I have bought things before | 我买过东西 | wo3 mai3 guo4 dong1 xi1
@@ -139,23 +159,12 @@ FUTURE: I will meet friends | 我会见朋友 | wo3 hui4 jian4 peng2 you3
 FUTURE_NEG: I won't meet friends | 我不会见朋友 | wo3 bu2 hui4 jian4 peng2 you3
 PROGRESSIVE: I am meeting friends | 我正在见朋友 | wo3 zheng4 zai4 jian4 peng2 you3
 PROGRESSIVE_NEG: I am not meeting friends | 我没在见朋友 | wo3 mei2 zai4 jian4 peng2 you3
+DURATIVE: I am meeting friends | 我在见朋友 | wo3 zai4 jian4 peng2 you3
+DURATIVE_NEG: I am not meeting friends | 我没在见朋友 | wo3 mei2 zai4 jian4 peng2 you3
 COMPLETED: I met friends | 我见了朋友 | wo3 jian4 le peng2 you3
 COMPLETED_NEG: I didn't meet friends | 我没见朋友 | wo3 mei2 jian4 peng2 you3
 EXPERIENCE: I have met friends before | 我见过朋友 | wo3 jian4 guo4 peng2 you3
 EXPERIENCE_NEG: I have never met friends | 我没见过朋友 | wo3 mei2 jian4 guo4 peng2 you3
-===
-
-BASE: cook food
-SIMPLE_PRESENT: I cook food | 我做饭 | wo3 zuo4 fan4
-SIMPLE_PRESENT_NEG: I don't cook food | 我不做饭 | wo3 bu4 zuo4 fan4
-FUTURE: I will cook food | 我会做饭 | wo3 hui4 zuo4 fan4
-FUTURE_NEG: I won't cook food | 我不会做饭 | wo3 bu2 hui4 zuo4 fan4
-PROGRESSIVE: I am cooking food | 我正在做饭 | wo3 zheng4 zai4 zuo4 fan4
-PROGRESSIVE_NEG: I am not cooking food | 我没在做饭 | wo3 mei2 zai4 zuo4 fan4
-COMPLETED: I cooked food | 我做了饭 | wo3 zuo4 le fan4
-COMPLETED_NEG: I didn't cook food | 我没做饭 | wo3 mei2 zuo4 fan4
-EXPERIENCE: I have cooked food before | 我做过饭 | wo3 zuo4 guo4 fan4
-EXPERIENCE_NEG: I have never cooked food | 我没做过饭 | wo3 mei2 zuo4 guo4 fan4
 ===
 
 BASE: sleep
@@ -165,36 +174,12 @@ FUTURE: I will sleep | 我会睡觉 | wo3 hui4 shui4 jiao4
 FUTURE_NEG: I won't sleep | 我不会睡觉 | wo3 bu2 hui4 shui4 jiao4
 PROGRESSIVE: I am sleeping | 我正在睡觉 | wo3 zheng4 zai4 shui4 jiao4
 PROGRESSIVE_NEG: I am not sleeping | 我没在睡觉 | wo3 mei2 zai4 shui4 jiao4
+DURATIVE: I am sleeping | 我在睡觉 | wo3 zai4 shui4 jiao4
+DURATIVE_NEG: I am not sleeping | 我没在睡觉 | wo3 mei2 zai4 shui4 jiao4
 COMPLETED: I slept | 我睡了觉 | wo3 shui4 le jiao4
 COMPLETED_NEG: I didn't sleep | 我没睡觉 | wo3 mei2 shui4 jiao4
 EXPERIENCE: I have slept before | 我睡过觉 | wo3 shui4 guo4 jiao4
 EXPERIENCE_NEG: I have never slept | 我没睡过觉 | wo3 mei2 shui4 guo4 jiao4
-===
-
-BASE: exercise
-SIMPLE_PRESENT: I exercise | 我运动 | wo3 yun4 dong4
-SIMPLE_PRESENT_NEG: I don't exercise | 我不运动 | wo3 bu4 yun4 dong4
-FUTURE: I will exercise | 我会运动 | wo3 hui4 yun4 dong4
-FUTURE_NEG: I won't exercise | 我不会运动 | wo3 bu2 hui4 yun4 dong4
-PROGRESSIVE: I am exercising | 我正在运动 | wo3 zheng4 zai4 yun4 dong4
-PROGRESSIVE_NEG: I am not exercising | 我没在运动 | wo3 mei2 zai4 yun4 dong4
-COMPLETED: I exercised | 我运动了 | wo3 yun4 dong4 le
-COMPLETED_NEG: I didn't exercise | 我没运动 | wo3 mei2 yun4 dong4
-EXPERIENCE: I have exercised before | 我运动过 | wo3 yun4 dong4 guo4
-EXPERIENCE_NEG: I have never exercised | 我没运动过 | wo3 mei2 yun4 dong4 guo4
-===
-
-BASE: take a taxi
-SIMPLE_PRESENT: I take a taxi | 我打车 | wo3 da3 che1
-SIMPLE_PRESENT_NEG: I don't take a taxi | 我不打车 | wo3 bu4 da3 che1
-FUTURE: I will take a taxi | 我会打车 | wo3 hui4 da3 che1
-FUTURE_NEG: I won't take a taxi | 我不会打车 | wo3 bu2 hui4 da3 che1
-PROGRESSIVE: I am taking a taxi | 我正在打车 | wo3 zheng4 zai4 da3 che1
-PROGRESSIVE_NEG: I am not taking a taxi | 我没在打车 | wo3 mei2 zai4 da3 che1
-COMPLETED: I took a taxi | 我打了车 | wo3 da3 le che1
-COMPLETED_NEG: I didn't take a taxi | 我没打车 | wo3 mei2 da3 che1
-EXPERIENCE: I have taken a taxi before | 我打过车 | wo3 da3 guo4 che1
-EXPERIENCE_NEG: I have never taken a taxi | 我没打过车 | wo3 mei2 da3 guo4 che1
 ===
 
 BASE: listen to music
@@ -204,73 +189,349 @@ FUTURE: I will listen to music | 我会听音乐 | wo3 hui4 ting1 yin1 yue4
 FUTURE_NEG: I won't listen to music | 我不会听音乐 | wo3 bu2 hui4 ting1 yin1 yue4
 PROGRESSIVE: I am listening to music | 我正在听音乐 | wo3 zheng4 zai4 ting1 yin1 yue4
 PROGRESSIVE_NEG: I am not listening to music | 我没在听音乐 | wo3 mei2 zai4 ting1 yin1 yue4
+DURATIVE: I am listening to music | 我在听音乐 | wo3 zai4 ting1 yin1 yue4
+DURATIVE_NEG: I am not listening to music | 我没在听音乐 | wo3 mei2 zai4 ting1 yin1 yue4
 COMPLETED: I listened to music | 我听了音乐 | wo3 ting1 le yin1 yue4
 COMPLETED_NEG: I didn't listen to music | 我没听音乐 | wo3 mei2 ting1 yin1 yue4
 EXPERIENCE: I have listened to music before | 我听过音乐 | wo3 ting1 guo4 yin1 yue4
 EXPERIENCE_NEG: I have never listened to music | 我没听过音乐 | wo3 mei2 ting1 guo4 yin1 yue4
 ===
 
-BASE: play games
-SIMPLE_PRESENT: I play games | 我玩游戏 | wo3 wan2 you2 xi4
-SIMPLE_PRESENT_NEG: I don't play games | 我不玩游戏 | wo3 bu4 wan2 you2 xi4
-FUTURE: I will play games | 我会玩游戏 | wo3 hui4 wan2 you2 xi4
-FUTURE_NEG: I won't play games | 我不会玩游戏 | wo3 bu2 hui4 wan2 you2 xi4
-PROGRESSIVE: I am playing games | 我正在玩游戏 | wo3 zheng4 zai4 wan2 you2 xi4
-PROGRESSIVE_NEG: I am not playing games | 我没在玩游戏 | wo3 mei2 zai4 wan2 you2 xi4
-COMPLETED: I played games | 我玩了游戏 | wo3 wan2 le you2 xi4
-COMPLETED_NEG: I didn't play games | 我没玩游戏 | wo3 mei2 wan2 you2 xi4
-EXPERIENCE: I have played games before | 我玩过游戏 | wo3 wan2 guo4 you2 xi4
-EXPERIENCE_NEG: I have never played games | 我没玩过游戏 | wo3 mei2 wan2 guo4 you2 xi4
+BASE: take a taxi
+SIMPLE_PRESENT: I take a taxi | 我打车 | wo3 da3 che1
+SIMPLE_PRESENT_NEG: I don't take a taxi | 我不打车 | wo3 bu4 da3 che1
+FUTURE: I will take a taxi | 我会打车 | wo3 hui4 da3 che1
+FUTURE_NEG: I won't take a taxi | 我不会打车 | wo3 bu2 hui4 da3 che1
+PROGRESSIVE: I am taking a taxi | 我正在打车 | wo3 zheng4 zai4 da3 che1
+PROGRESSIVE_NEG: I am not taking a taxi | 我没在打车 | wo3 mei2 zai4 da3 che1
+DURATIVE: I am taking a taxi | 我在打车 | wo3 zai4 da3 che1
+DURATIVE_NEG: I am not taking a taxi | 我没在打车 | wo3 mei2 zai4 da3 che1
+COMPLETED: I took a taxi | 我打了车 | wo3 da3 le che1
+COMPLETED_NEG: I didn't take a taxi | 我没打车 | wo3 mei2 da3 che1
+EXPERIENCE: I have taken a taxi before | 我打过车 | wo3 da3 guo4 che1
+EXPERIENCE_NEG: I have never taken a taxi | 我没打过车 | wo3 mei2 da3 guo4 che1
 ===
 
-BASE: take photos
-SIMPLE_PRESENT: I take photos | 我拍照 | wo3 pai1 zhao4
-SIMPLE_PRESENT_NEG: I don't take photos | 我不拍照 | wo3 bu4 pai1 zhao4
-FUTURE: I will take photos | 我会拍照 | wo3 hui4 pai1 zhao4
-FUTURE_NEG: I won't take photos | 我不会拍照 | wo3 bu2 hui4 pai1 zhao4
-PROGRESSIVE: I am taking photos | 我正在拍照 | wo3 zheng4 zai4 pai1 zhao4
-PROGRESSIVE_NEG: I am not taking photos | 我没在拍照 | wo3 mei2 zai4 pai1 zhao4
-COMPLETED: I took photos | 我拍了照 | wo3 pai1 le zhao4
-COMPLETED_NEG: I didn't take photos | 我没拍照 | wo3 mei2 pai1 zhao4
-EXPERIENCE: I have taken photos before | 我拍过照 | wo3 pai1 guo4 zhao4
-EXPERIENCE_NEG: I have never taken photos | 我没拍过照 | wo3 mei2 pai1 guo4 zhao4
+BASE: make a phone call
+SIMPLE_PRESENT: I make a phone call | 我打电话 | wo3 da3 dian4 hua4
+SIMPLE_PRESENT_NEG: I don't make phone calls | 我不打电话 | wo3 bu4 da3 dian4 hua4
+FUTURE: I will make a phone call | 我会打电话 | wo3 hui4 da3 dian4 hua4
+FUTURE_NEG: I won't make a phone call | 我不会打电话 | wo3 bu2 hui4 da3 dian4 hua4
+PROGRESSIVE: I am making a phone call | 我正在打电话 | wo3 zheng4 zai4 da3 dian4 hua4
+PROGRESSIVE_NEG: I am not making a phone call | 我没在打电话 | wo3 mei2 zai4 da3 dian4 hua4
+DURATIVE: I am making a phone call | 我在打电话 | wo3 zai4 da3 dian4 hua4
+DURATIVE_NEG: I am not making a phone call | 我没在打电话 | wo3 mei2 zai4 da3 dian4 hua4
+COMPLETED: I made a phone call | 我打了电话 | wo3 da3 le dian4 hua4
+COMPLETED_NEG: I didn't make a phone call | 我没打电话 | wo3 mei2 da3 dian4 hua4
+EXPERIENCE: I have made phone calls before | 我打过电话 | wo3 da3 guo4 dian4 hua4
+EXPERIENCE_NEG: I have never made phone calls | 我没打过电话 | wo3 mei2 da3 guo4 dian4 hua4
 ===
 
-BASE: learn to drive
-SIMPLE_PRESENT: I learn to drive | 我学开车 | wo3 xue2 kai1 che1
-SIMPLE_PRESENT_NEG: I don't learn to drive | 我不学开车 | wo3 bu4 xue2 kai1 che1
-FUTURE: I will learn to drive | 我会学开车 | wo3 hui4 xue2 kai1 che1
-FUTURE_NEG: I won't learn to drive | 我不会学开车 | wo3 bu2 hui4 xue2 kai1 che1
-PROGRESSIVE: I am learning to drive | 我正在学开车 | wo3 zheng4 zai4 xue2 kai1 che1
-PROGRESSIVE_NEG: I am not learning to drive | 我没在学开车 | wo3 mei2 zai4 xue2 kai1 che1
-COMPLETED: I learned to drive | 我学了开车 | wo3 xue2 le kai1 che1
-COMPLETED_NEG: I didn't learn to drive | 我没学开车 | wo3 mei2 xue2 kai1 che1
-EXPERIENCE: I have learned to drive before | 我学过开车 | wo3 xue2 guo4 kai1 che1
-EXPERIENCE_NEG: I have never learned to drive | 我没学过开车 | wo3 mei2 xue2 guo4 kai1 che1
+BASE: drive a car
+SIMPLE_PRESENT: I drive a car | 我开车 | wo3 kai1 che1
+SIMPLE_PRESENT_NEG: I don't drive | 我不开车 | wo3 bu4 kai1 che1
+FUTURE: I will drive a car | 我会开车 | wo3 hui4 kai1 che1
+FUTURE_NEG: I won't drive a car | 我不会开车 | wo3 bu2 hui4 kai1 che1
+PROGRESSIVE: I am driving | 我正在开车 | wo3 zheng4 zai4 kai1 che1
+PROGRESSIVE_NEG: I am not driving | 我没在开车 | wo3 mei2 zai4 kai1 che1
+DURATIVE: I am driving | 我在开车 | wo3 zai4 kai1 che1
+DURATIVE_NEG: I am not driving | 我没在开车 | wo3 mei2 zai4 kai1 che1
+COMPLETED: I drove a car | 我开了车 | wo3 kai1 le che1
+COMPLETED_NEG: I didn't drive a car | 我没开车 | wo3 mei2 kai1 che1
+EXPERIENCE: I have driven a car before | 我开过车 | wo3 kai1 guo4 che1
+EXPERIENCE_NEG: I have never driven a car | 我没开过车 | wo3 mei2 kai1 guo4 che1
 ===
 
-BASE: travel abroad
-SIMPLE_PRESENT: I travel abroad | 我出国旅游 | wo3 chu1 guo2 lv3 you2
-SIMPLE_PRESENT_NEG: I don't travel abroad | 我不出国旅游 | wo3 bu4 chu1 guo2 lv3 you2
-FUTURE: I will travel abroad | 我会出国旅游 | wo3 hui4 chu1 guo2 lv3 you2
-FUTURE_NEG: I won't travel abroad | 我不会出国旅游 | wo3 bu2 hui4 chu1 guo2 lv3 you2
-PROGRESSIVE: I am traveling abroad | 我正在出国旅游 | wo3 zheng4 zai4 chu1 guo2 lv3 you2
-PROGRESSIVE_NEG: I am not traveling abroad | 我没在出国旅游 | wo3 mei2 zai4 chu1 guo2 lv3 you2
-COMPLETED: I traveled abroad | 我出国旅游了 | wo3 chu1 guo2 lv3 you2 le
-COMPLETED_NEG: I didn't travel abroad | 我没出国旅游 | wo3 mei2 chu1 guo2 lv3 you2
-EXPERIENCE: I have traveled abroad before | 我出国旅游过 | wo3 chu1 guo2 lv3 you2 guo4
-EXPERIENCE_NEG: I have never traveled abroad | 我没出国旅游过 | wo3 mei2 chu1 guo2 lv3 you2 guo4
+BASE: sing songs
+SIMPLE_PRESENT: I sing songs | 我唱歌 | wo3 chang4 ge1
+SIMPLE_PRESENT_NEG: I don't sing songs | 我不唱歌 | wo3 bu4 chang4 ge1
+FUTURE: I will sing songs | 我会唱歌 | wo3 hui4 chang4 ge1
+FUTURE_NEG: I won't sing songs | 我不会唱歌 | wo3 bu2 hui4 chang4 ge1
+PROGRESSIVE: I am singing | 我正在唱歌 | wo3 zheng4 zai4 chang4 ge1
+PROGRESSIVE_NEG: I am not singing | 我没在唱歌 | wo3 mei2 zai4 chang4 ge1
+DURATIVE: I am singing | 我在唱歌 | wo3 zai4 chang4 ge1
+DURATIVE_NEG: I am not singing | 我没在唱歌 | wo3 mei2 zai4 chang4 ge1
+COMPLETED: I sang songs | 我唱了歌 | wo3 chang4 le ge1
+COMPLETED_NEG: I didn't sing songs | 我没唱歌 | wo3 mei2 chang4 ge1
+EXPERIENCE: I have sung songs before | 我唱过歌 | wo3 chang4 guo4 ge1
+EXPERIENCE_NEG: I have never sung songs | 我没唱过歌 | wo3 mei2 chang4 guo4 ge1
 ===
 
-BASE: call mom
-SIMPLE_PRESENT: I call mom | 我给妈妈打电话 | wo3 gei3 ma1 ma1 da3 dian4 hua4
-SIMPLE_PRESENT_NEG: I don't call mom | 我不给妈妈打电话 | wo3 bu4 gei3 ma1 ma1 da3 dian4 hua4
-FUTURE: I will call mom | 我会给妈妈打电话 | wo3 hui4 gei3 ma1 ma1 da3 dian4 hua4
-FUTURE_NEG: I won't call mom | 我不会给妈妈打电话 | wo3 bu2 hui4 gei3 ma1 ma1 da3 dian4 hua4
-PROGRESSIVE: I am calling mom | 我正在给妈妈打电话 | wo3 zheng4 zai4 gei3 ma1 ma1 da3 dian4 hua4
-PROGRESSIVE_NEG: I am not calling mom | 我没在给妈妈打电话 | wo3 mei2 zai4 gei3 ma1 ma1 da3 dian4 hua4
-COMPLETED: I called mom | 我给妈妈打了电话 | wo3 gei3 ma1 ma1 da3 le dian4 hua4
-COMPLETED_NEG: I didn't call mom | 我没给妈妈打电话 | wo3 mei2 gei3 ma1 ma1 da3 dian4 hua4
-EXPERIENCE: I have called mom before | 我给妈妈打过电话 | wo3 gei3 ma1 ma1 da3 guo4 dian4 hua4
-EXPERIENCE_NEG: I have never called mom | 我没给妈妈打过电话 | wo3 mei2 gei3 ma1 ma1 da3 guo4 dian4 hua4
+BASE: go to class
+SIMPLE_PRESENT: I go to class | 我上课 | wo3 shang4 ke4
+SIMPLE_PRESENT_NEG: I don't go to class | 我不上课 | wo3 bu4 shang4 ke4
+FUTURE: I will go to class | 我会上课 | wo3 hui4 shang4 ke4
+FUTURE_NEG: I won't go to class | 我不会上课 | wo3 bu2 hui4 shang4 ke4
+PROGRESSIVE: I am in class | 我正在上课 | wo3 zheng4 zai4 shang4 ke4
+PROGRESSIVE_NEG: I am not in class | 我没在上课 | wo3 mei2 zai4 shang4 ke4
+DURATIVE: I am in class | 我在上课 | wo3 zai4 shang4 ke4
+DURATIVE_NEG: I am not in class | 我没在上课 | wo3 mei2 zai4 shang4 ke4
+COMPLETED: I went to class | 我上了课 | wo3 shang4 le ke4
+COMPLETED_NEG: I didn't go to class | 我没上课 | wo3 mei2 shang4 ke4
+EXPERIENCE: I have been to class before | 我上过课 | wo3 shang4 guo4 ke4
+EXPERIENCE_NEG: I have never been to class | 我没上过课 | wo3 mei2 shang4 guo4 ke4
 ===
+
+BASE: get off work
+SIMPLE_PRESENT: I get off work | 我下班 | wo3 xia4 ban1
+SIMPLE_PRESENT_NEG: I don't get off work | 我不下班 | wo3 bu4 xia4 ban1
+FUTURE: I will get off work | 我会下班 | wo3 hui4 xia4 ban1
+FUTURE_NEG: I won't get off work | 我不会下班 | wo3 bu2 hui4 xia4 ban1
+COMPLETED: I got off work | 我下了班 | wo3 xia4 le ban1
+COMPLETED_NEG: I didn't get off work | 我没下班 | wo3 mei2 xia4 ban1
+EXPERIENCE: I have gotten off work before | 我下过班 | wo3 xia4 guo4 ban1
+EXPERIENCE_NEG: I have never gotten off work | 我没下过班 | wo3 mei2 xia4 guo4 ban1
+===
+
+BASE: play ball
+SIMPLE_PRESENT: I play ball | 我打球 | wo3 da3 qiu2
+SIMPLE_PRESENT_NEG: I don't play ball | 我不打球 | wo3 bu4 da3 qiu2
+FUTURE: I will play ball | 我会打球 | wo3 hui4 da3 qiu2
+FUTURE_NEG: I won't play ball | 我不会打球 | wo3 bu2 hui4 da3 qiu2
+PROGRESSIVE: I am playing ball | 我正在打球 | wo3 zheng4 zai4 da3 qiu2
+PROGRESSIVE_NEG: I am not playing ball | 我没在打球 | wo3 mei2 zai4 da3 qiu2
+DURATIVE: I am playing ball | 我在打球 | wo3 zai4 da3 qiu2
+DURATIVE_NEG: I am not playing ball | 我没在打球 | wo3 mei2 zai4 da3 qiu2
+COMPLETED: I played ball | 我打了球 | wo3 da3 le qiu2
+COMPLETED_NEG: I didn't play ball | 我没打球 | wo3 mei2 da3 qiu2
+EXPERIENCE: I have played ball before | 我打过球 | wo3 da3 guo4 qiu2
+EXPERIENCE_NEG: I have never played ball | 我没打过球 | wo3 mei2 da3 guo4 qiu2
+===
+
+BASE: rest
+SIMPLE_PRESENT: I rest | 我休息 | wo3 xiu1 xi
+SIMPLE_PRESENT_NEG: I don't rest | 我不休息 | wo3 bu4 xiu1 xi
+FUTURE: I will rest | 我会休息 | wo3 hui4 xiu1 xi
+FUTURE_NEG: I won't rest | 我不会休息 | wo3 bu2 hui4 xiu1 xi
+PROGRESSIVE: I am resting | 我正在休息 | wo3 zheng4 zai4 xiu1 xi
+PROGRESSIVE_NEG: I am not resting | 我没在休息 | wo3 mei2 zai4 xiu1 xi
+DURATIVE: I am resting | 我在休息 | wo3 zai4 xiu1 xi
+DURATIVE_NEG: I am not resting | 我没在休息 | wo3 mei2 zai4 xiu1 xi
+COMPLETED: I rested | 我休息了 | wo3 xiu1 xi le
+COMPLETED_NEG: I didn't rest | 我没休息 | wo3 mei2 xiu1 xi
+EXPERIENCE: I have rested before | 我休息过 | wo3 xiu1 xi guo4
+EXPERIENCE_NEG: I have never rested | 我没休息过 | wo3 mei2 xiu1 xi guo4
+===
+
+# Scenarios using 着 (continuous state marker - after verb)
+
+BASE: stand
+CONTINUOUS: I am standing | 我站着 | wo3 zhan4 zhe
+CONTINUOUS_NEG: I am not standing | 我没站着 | wo3 mei2 zhan4 zhe
+===
+
+BASE: sit
+CONTINUOUS: I am sitting | 我坐着 | wo3 zuo4 zhe
+CONTINUOUS_NEG: I am not sitting | 我没坐着 | wo3 mei2 zuo4 zhe
+===
+
+BASE: wear clothes
+SIMPLE_PRESENT: I wear clothes | 我穿衣服 | wo3 chuan1 yi1 fu
+SIMPLE_PRESENT_NEG: I don't wear clothes | 我不穿衣服 | wo3 bu4 chuan1 yi1 fu
+FUTURE: I will wear clothes | 我会穿衣服 | wo3 hui4 chuan1 yi1 fu
+FUTURE_NEG: I won't wear clothes | 我不会穿衣服 | wo3 bu2 hui4 chuan1 yi1 fu
+CONTINUOUS: I am wearing clothes | 我穿着衣服 | wo3 chuan1 zhe yi1 fu
+CONTINUOUS_NEG: I am not wearing clothes | 我没穿着衣服 | wo3 mei2 chuan1 zhe yi1 fu
+COMPLETED: I wore clothes | 我穿了衣服 | wo3 chuan1 le yi1 fu
+COMPLETED_NEG: I didn't wear clothes | 我没穿衣服 | wo3 mei2 chuan1 yi1 fu
+EXPERIENCE: I have worn clothes before | 我穿过衣服 | wo3 chuan1 guo4 yi1 fu
+EXPERIENCE_NEG: I have never worn clothes | 我没穿过衣服 | wo3 mei2 chuan1 guo4 yi1 fu
+===
+
+BASE: hold things
+SIMPLE_PRESENT: I hold things | 我拿东西 | wo3 na2 dong1 xi1
+SIMPLE_PRESENT_NEG: I don't hold things | 我不拿东西 | wo3 bu4 na2 dong1 xi1
+CONTINUOUS: I am holding things | 我拿着东西 | wo3 na2 zhe dong1 xi1
+CONTINUOUS_NEG: I am not holding things | 我没拿着东西 | wo3 mei2 na2 zhe dong1 xi1
+COMPLETED: I held things | 我拿了东西 | wo3 na2 le dong1 xi1
+COMPLETED_NEG: I didn't hold things | 我没拿东西 | wo3 mei2 na2 dong1 xi1
+===
+
+BASE: open the door
+SIMPLE_PRESENT: I open the door | 我开门 | wo3 kai1 men2
+SIMPLE_PRESENT_NEG: I don't open the door | 我不开门 | wo3 bu4 kai1 men2
+CONTINUOUS: The door is open | 门开着 | men2 kai1 zhe
+CONTINUOUS_NEG: The door is not open | 门没开着 | men2 mei2 kai1 zhe
+COMPLETED: I opened the door | 我开了门 | wo3 kai1 le men2
+COMPLETED_NEG: I didn't open the door | 我没开门 | wo3 mei2 kai1 men2
+===
+
+BASE: close the door
+SIMPLE_PRESENT: I close the door | 我关门 | wo3 guan1 men2
+SIMPLE_PRESENT_NEG: I don't close the door | 我不关门 | wo3 bu4 guan1 men2
+CONTINUOUS: The door is closed | 门关着 | men2 guan1 zhe
+CONTINUOUS_NEG: The door is not closed | 门没关着 | men2 mei2 guan1 zhe
+COMPLETED: I closed the door | 我关了门 | wo3 guan1 le men2
+COMPLETED_NEG: I didn't close the door | 我没关门 | wo3 mei2 guan1 men2
+===
+
+BASE: speak
+SIMPLE_PRESENT: I speak | 我说话 | wo3 shuo1 hua4
+SIMPLE_PRESENT_NEG: I don't speak | 我不说话 | wo3 bu4 shuo1 hua4
+FUTURE: I will speak | 我会说话 | wo3 hui4 shuo1 hua4
+FUTURE_NEG: I won't speak | 我不会说话 | wo3 bu2 hui4 shuo1 hua4
+PROGRESSIVE: I am speaking | 我正在说话 | wo3 zheng4 zai4 shuo1 hua4
+PROGRESSIVE_NEG: I am not speaking | 我没在说话 | wo3 mei2 zai4 shuo1 hua4
+DURATIVE: I am speaking | 我在说话 | wo3 zai4 shuo1 hua4
+DURATIVE_NEG: I am not speaking | 我没在说话 | wo3 mei2 zai4 shuo1 hua4
+COMPLETED: I spoke | 我说了话 | wo3 shuo1 le hua4
+COMPLETED_NEG: I didn't speak | 我没说话 | wo3 mei2 shuo1 hua4
+===
+
+BASE: eat rice
+SIMPLE_PRESENT: I eat rice | 我吃米饭 | wo3 chi1 mi3 fan4
+SIMPLE_PRESENT_NEG: I don't eat rice | 我不吃米饭 | wo3 bu4 chi1 mi3 fan4
+FUTURE: I will eat rice | 我会吃米饭 | wo3 hui4 chi1 mi3 fan4
+FUTURE_NEG: I won't eat rice | 我不会吃米饭 | wo3 bu2 hui4 chi1 mi3 fan4
+PROGRESSIVE: I am eating rice | 我正在吃米饭 | wo3 zheng4 zai4 chi1 mi3 fan4
+PROGRESSIVE_NEG: I am not eating rice | 我没在吃米饭 | wo3 mei2 zai4 chi1 mi3 fan4
+DURATIVE: I am eating rice | 我在吃米饭 | wo3 zai4 chi1 mi3 fan4
+DURATIVE_NEG: I am not eating rice | 我没在吃米饭 | wo3 mei2 zai4 chi1 mi3 fan4
+COMPLETED: I ate rice | 我吃了米饭 | wo3 chi1 le mi3 fan4
+COMPLETED_NEG: I didn't eat rice | 我没吃米饭 | wo3 mei2 chi1 mi3 fan4
+EXPERIENCE: I have eaten rice before | 我吃过米饭 | wo3 chi1 guo4 mi3 fan4
+EXPERIENCE_NEG: I have never eaten rice | 我没吃过米饭 | wo3 mei2 chi1 guo4 mi3 fan4
+===
+
+BASE: drink water
+SIMPLE_PRESENT: I drink water | 我喝水 | wo3 he1 shui3
+SIMPLE_PRESENT_NEG: I don't drink water | 我不喝水 | wo3 bu4 he1 shui3
+FUTURE: I will drink water | 我会喝水 | wo3 hui4 he1 shui3
+FUTURE_NEG: I won't drink water | 我不会喝水 | wo3 bu2 hui4 he1 shui3
+PROGRESSIVE: I am drinking water | 我正在喝水 | wo3 zheng4 zai4 he1 shui3
+PROGRESSIVE_NEG: I am not drinking water | 我没在喝水 | wo3 mei2 zai4 he1 shui3
+DURATIVE: I am drinking water | 我在喝水 | wo3 zai4 he1 shui3
+DURATIVE_NEG: I am not drinking water | 我没在喝水 | wo3 mei2 zai4 he1 shui3
+COMPLETED: I drank water | 我喝了水 | wo3 he1 le shui3
+COMPLETED_NEG: I didn't drink water | 我没喝水 | wo3 mei2 he1 shui3
+EXPERIENCE: I have drunk water before | 我喝过水 | wo3 he1 guo4 shui3
+EXPERIENCE_NEG: I have never drunk water | 我没喝过水 | wo3 mei2 he1 guo4 shui3
+===
+
+BASE: run
+SIMPLE_PRESENT: I run | 我跑 | wo3 pao3
+SIMPLE_PRESENT_NEG: I don't run | 我不跑 | wo3 bu4 pao3
+FUTURE: I will run | 我会跑 | wo3 hui4 pao3
+FUTURE_NEG: I won't run | 我不会跑 | wo3 bu2 hui4 pao3
+PROGRESSIVE: I am running | 我正在跑 | wo3 zheng4 zai4 pao3
+PROGRESSIVE_NEG: I am not running | 我没在跑 | wo3 mei2 zai4 pao3
+DURATIVE: I am running | 我在跑 | wo3 zai4 pao3
+DURATIVE_NEG: I am not running | 我没在跑 | wo3 mei2 zai4 pao3
+COMPLETED: I ran | 我跑了 | wo3 pao3 le
+COMPLETED_NEG: I didn't run | 我没跑 | wo3 mei2 pao3
+EXPERIENCE: I have run before | 我跑过 | wo3 pao3 guo4
+EXPERIENCE_NEG: I have never run | 我没跑过 | wo3 mei2 pao3 guo4
+===
+
+BASE: walk
+SIMPLE_PRESENT: I walk | 我走路 | wo3 zou3 lu4
+SIMPLE_PRESENT_NEG: I don't walk | 我不走路 | wo3 bu4 zou3 lu4
+FUTURE: I will walk | 我会走路 | wo3 hui4 zou3 lu4
+FUTURE_NEG: I won't walk | 我不会走路 | wo3 bu2 hui4 zou3 lu4
+PROGRESSIVE: I am walking | 我正在走路 | wo3 zheng4 zai4 zou3 lu4
+PROGRESSIVE_NEG: I am not walking | 我没在走路 | wo3 mei2 zai4 zou3 lu4
+DURATIVE: I am walking | 我在走路 | wo3 zai4 zou3 lu4
+DURATIVE_NEG: I am not walking | 我没在走路 | wo3 mei2 zai4 zou3 lu4
+COMPLETED: I walked | 我走了路 | wo3 zou3 le lu4
+COMPLETED_NEG: I didn't walk | 我没走路 | wo3 mei2 zou3 lu4
+===
+
+BASE: write
+SIMPLE_PRESENT: I write | 我写 | wo3 xie3
+SIMPLE_PRESENT_NEG: I don't write | 我不写 | wo3 bu4 xie3
+FUTURE: I will write | 我会写 | wo3 hui4 xie3
+FUTURE_NEG: I won't write | 我不会写 | wo3 bu2 hui4 xie3
+PROGRESSIVE: I am writing | 我正在写 | wo3 zheng4 zai4 xie3
+PROGRESSIVE_NEG: I am not writing | 我没在写 | wo3 mei2 zai4 xie3
+DURATIVE: I am writing | 我在写 | wo3 zai4 xie3
+DURATIVE_NEG: I am not writing | 我没在写 | wo3 mei2 zai4 xie3
+COMPLETED: I wrote | 我写了 | wo3 xie3 le
+COMPLETED_NEG: I didn't write | 我没写 | wo3 mei2 xie3
+EXPERIENCE: I have written before | 我写过 | wo3 xie3 guo4
+EXPERIENCE_NEG: I have never written | 我没写过 | wo3 mei2 xie3 guo4
+===
+
+BASE: wait
+SIMPLE_PRESENT: I wait | 我等 | wo3 deng3
+SIMPLE_PRESENT_NEG: I don't wait | 我不等 | wo3 bu4 deng3
+FUTURE: I will wait | 我会等 | wo3 hui4 deng3
+FUTURE_NEG: I won't wait | 我不会等 | wo3 bu2 hui4 deng3
+PROGRESSIVE: I am waiting | 我正在等 | wo3 zheng4 zai4 deng3
+PROGRESSIVE_NEG: I am not waiting | 我没在等 | wo3 mei2 zai4 deng3
+DURATIVE: I am waiting | 我在等 | wo3 zai4 deng3
+DURATIVE_NEG: I am not waiting | 我没在等 | wo3 mei2 zai4 deng3
+CONTINUOUS: I am waiting | 我等着 | wo3 deng3 zhe
+CONTINUOUS_NEG: I am not waiting | 我没等着 | wo3 mei2 deng3 zhe
+COMPLETED: I waited | 我等了 | wo3 deng3 le
+COMPLETED_NEG: I didn't wait | 我没等 | wo3 mei2 deng3
+===
+
+BASE: ask questions
+SIMPLE_PRESENT: I ask questions | 我问 | wo3 wen4
+SIMPLE_PRESENT_NEG: I don't ask questions | 我不问 | wo3 bu4 wen4
+FUTURE: I will ask | 我会问 | wo3 hui4 wen4
+FUTURE_NEG: I won't ask | 我不会问 | wo3 bu2 hui4 wen4
+PROGRESSIVE: I am asking | 我正在问 | wo3 zheng4 zai4 wen4
+PROGRESSIVE_NEG: I am not asking | 我没在问 | wo3 mei2 zai4 wen4
+COMPLETED: I asked | 我问了 | wo3 wen4 le
+COMPLETED_NEG: I didn't ask | 我没问 | wo3 mei2 wen4
+EXPERIENCE: I have asked before | 我问过 | wo3 wen4 guo4
+EXPERIENCE_NEG: I have never asked | 我没问过 | wo3 mei2 wen4 guo4
+===
+
+BASE: wash
+SIMPLE_PRESENT: I wash | 我洗 | wo3 xi3
+SIMPLE_PRESENT_NEG: I don't wash | 我不洗 | wo3 bu4 xi3
+FUTURE: I will wash | 我会洗 | wo3 hui4 xi3
+FUTURE_NEG: I won't wash | 我不会洗 | wo3 bu2 hui4 xi3
+PROGRESSIVE: I am washing | 我正在洗 | wo3 zheng4 zai4 xi3
+PROGRESSIVE_NEG: I am not washing | 我没在洗 | wo3 mei2 zai4 xi3
+DURATIVE: I am washing | 我在洗 | wo3 zai4 xi3
+DURATIVE_NEG: I am not washing | 我没在洗 | wo3 mei2 zai4 xi3
+COMPLETED: I washed | 我洗了 | wo3 xi3 le
+COMPLETED_NEG: I didn't wash | 我没洗 | wo3 mei2 xi3
+===
+
+BASE: work
+SIMPLE_PRESENT: I work | 我工作 | wo3 gong1 zuo4
+SIMPLE_PRESENT_NEG: I don't work | 我不工作 | wo3 bu4 gong1 zuo4
+FUTURE: I will work | 我会工作 | wo3 hui4 gong1 zuo4
+FUTURE_NEG: I won't work | 我不会工作 | wo3 bu2 hui4 gong1 zuo4
+PROGRESSIVE: I am working | 我正在工作 | wo3 zheng4 zai4 gong1 zuo4
+PROGRESSIVE_NEG: I am not working | 我没在工作 | wo3 mei2 zai4 gong1 zuo4
+DURATIVE: I am working | 我在工作 | wo3 zai4 gong1 zuo4
+DURATIVE_NEG: I am not working | 我没在工作 | wo3 mei2 zai4 gong1 zuo4
+COMPLETED: I worked | 我工作了 | wo3 gong1 zuo4 le
+COMPLETED_NEG: I didn't work | 我没工作 | wo3 mei2 gong1 zuo4
+EXPERIENCE: I have worked before | 我工作过 | wo3 gong1 zuo4 guo4
+EXPERIENCE_NEG: I have never worked | 我没工作过 | wo3 mei2 gong1 zuo4 guo4
+===
+
+BASE: prepare
+SIMPLE_PRESENT: I prepare | 我准备 | wo3 zhun3 bei4
+SIMPLE_PRESENT_NEG: I don't prepare | 我不准备 | wo3 bu4 zhun3 bei4
+FUTURE: I will prepare | 我会准备 | wo3 hui4 zhun3 bei4
+FUTURE_NEG: I won't prepare | 我不会准备 | wo3 bu2 hui4 zhun3 bei4
+PROGRESSIVE: I am preparing | 我正在准备 | wo3 zheng4 zai4 zhun3 bei4
+PROGRESSIVE_NEG: I am not preparing | 我没在准备 | wo3 mei2 zai4 zhun3 bei4
+DURATIVE: I am preparing | 我在准备 | wo3 zai4 zhun3 bei4
+DURATIVE_NEG: I am not preparing | 我没在准备 | wo3 mei2 zai4 zhun3 bei4
+COMPLETED: I prepared | 我准备了 | wo3 zhun3 bei4 le
+COMPLETED_NEG: I didn't prepare | 我没准备 | wo3 mei2 zhun3 bei4
+===
+
+BASE: ride a bicycle
+SIMPLE_PRESENT: I ride a bicycle | 我骑自行车 | wo3 qi2 zi4 xing2 che1
+SIMPLE_PRESENT_NEG: I don't ride a bicycle | 我不骑自行车 | wo3 bu4 qi2 zi4 xing2 che1
+FUTURE: I will ride a bicycle | 我会骑自行车 | wo3 hui4 qi2 zi4 xing2 che1
+FUTURE_NEG: I won't ride a bicycle | 我不会骑自行车 | wo3 bu2 hui4 qi2 zi4 xing2 che1
+PROGRESSIVE: I am riding a bicycle | 我正在骑自行车 | wo3 zheng4 zai4 qi2 zi4 xing2 che1
+PROGRESSIVE_NEG: I am not riding a bicycle | 我没在骑自行车 | wo3 mei2 zai4 qi2 zi4 xing2 che1
+DURATIVE: I am riding a bicycle | 我在骑自行车 | wo3 zai4 qi2 zi4 xing2 che1
+DURATIVE_NEG: I am not riding a bicycle | 我没在骑自行车 | wo3 mei2 zai4 qi2 zi4 xing2 che1
+COMPLETED: I rode a bicycle | 我骑了自行车 | wo3 qi2 le zi4 xing2 che1
+COMPLETED_NEG: I didn't ride a bicycle | 我没骑自行车 | wo3 mei2 qi2 zi4 xing2 che1
+EXPERIENCE: I have ridden a bicycle before | 我骑过自行车 | wo3 qi2 guo4 zi4 xing2 che1
+EXPERIENCE_NEG: I have never ridden a bicycle | 我没骑过自行车 | wo3 mei2 qi2 guo4 zi4 xing2 che1
+===
+

@@ -1,0 +1,391 @@
+# Structural Particle Practice Corpus (的/地/得)
+#
+# Format:
+# PARTICLE: particle_type
+# INSTRUCTION: instruction_text
+# BASE: base_elements
+# HINT: english_hint
+# ANSWER: chinese_answer | pinyin
+# ===
+#
+# Particle types: DE_ATTR (的), DE_ADV (地), DE_COMP (得)
+#
+# =============================================================================
+
+# ==================== 的 (Attributive - modifier + 的 + noun) ====================
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 漂亮 + 花
+HINT: beautiful flower
+ANSWER: 漂亮的花 | piao4 liang de hua1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 好吃 + 菜
+HINT: delicious food
+ANSWER: 好吃的菜 | hao3 chi1 de cai4
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 高兴 + 孩子
+HINT: happy child
+ANSWER: 高兴的孩子 | gao1 xing4 de hai2 zi
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 好看 + 电影
+HINT: good movie
+ANSWER: 好看的电影 | hao3 kan4 de dian4 ying3
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 好听 + 音乐
+HINT: pleasant music
+ANSWER: 好听的音乐 | hao3 ting1 de yin1 yue4
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 新 + 衣服
+HINT: new clothes
+ANSWER: 新的衣服 | xin1 de yi1 fu
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 大 + 房子
+HINT: big house
+ANSWER: 大的房子 | da4 de fang2 zi
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 小 + 狗
+HINT: small dog
+ANSWER: 小的狗 | xiao3 de gou3
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 热 + 茶
+HINT: hot tea
+ANSWER: 热的茶 | re4 de cha2
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 冷 + 水
+HINT: cold water
+ANSWER: 冷的水 | leng3 de shui3
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 干净 + 房间
+HINT: clean room
+ANSWER: 干净的房间 | gan1 jing4 de fang2 jian1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 重要 + 事情
+HINT: important matter
+ANSWER: 重要的事情 | zhong4 yao4 de shi4 qing2
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 有名 + 老师
+HINT: famous teacher
+ANSWER: 有名的老师 | you3 ming2 de lao3 shi1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 认真 + 学生
+HINT: serious student
+ANSWER: 认真的学生 | ren4 zhen1 de xue2 sheng
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun with the adjective
+BASE: 远 + 地方
+HINT: far place
+ANSWER: 远的地方 | yuan3 de di4 fang1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to show possession
+BASE: 我 + 书
+HINT: my book
+ANSWER: 我的书 | wo3 de shu1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to show possession
+BASE: 他 + 手机
+HINT: his phone
+ANSWER: 他的手机 | ta1 de shou3 ji1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to show possession
+BASE: 她 + 朋友
+HINT: her friend
+ANSWER: 她的朋友 | ta1 de peng2 you3
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to show possession
+BASE: 我们 + 老师
+HINT: our teacher
+ANSWER: 我们的老师 | wo3 men de lao3 shi1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to show possession
+BASE: 妈妈 + 车
+HINT: mom's car
+ANSWER: 妈妈的车 | ma1 ma de che1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun
+BASE: 红色 + 苹果
+HINT: red apple
+ANSWER: 红色的苹果 | hong2 se4 de ping2 guo3
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun
+BASE: 蓝色 + 天
+HINT: blue sky
+ANSWER: 蓝色的天 | lan2 se4 de tian1
+===
+
+PARTICLE: DE_ATTR
+INSTRUCTION: Use 的 to describe the noun
+BASE: 绿色 + 树
+HINT: green tree
+ANSWER: 绿色的树 | lü4 se4 de shu4
+===
+
+# ==================== 地 (Adverbial - adverb + 地 + verb) ====================
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 高兴 + 笑
+HINT: happily laugh
+ANSWER: 高兴地笑 | gao1 xing4 de xiao4
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 快 + 跑
+HINT: quickly run
+ANSWER: 快地跑 | kuai4 de pao3
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 慢 + 走
+HINT: slowly walk
+ANSWER: 慢地走 | man4 de zou3
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 认真 + 学习
+HINT: seriously study
+ANSWER: 认真地学习 | ren4 zhen1 de xue2 xi2
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 高兴 + 唱歌
+HINT: happily sing
+ANSWER: 高兴地唱歌 | gao1 xing4 de chang4 ge1
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 认真 + 工作
+HINT: seriously work
+ANSWER: 认真地工作 | ren4 zhen1 de gong1 zuo4
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 快 + 说
+HINT: quickly speak
+ANSWER: 快地说 | kuai4 de shuo1
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 慢 + 吃
+HINT: slowly eat
+ANSWER: 慢地吃 | man4 de chi1
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 认真 + 听
+HINT: carefully listen
+ANSWER: 认真地听 | ren4 zhen1 de ting1
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 认真 + 看
+HINT: carefully look
+ANSWER: 认真地看 | ren4 zhen1 de kan4
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 高兴 + 说话
+HINT: happily talk
+ANSWER: 高兴地说话 | gao1 xing4 de shuo1 hua4
+===
+
+PARTICLE: DE_ADV
+INSTRUCTION: Use 地 to describe how the action is done
+BASE: 快 + 写
+HINT: quickly write
+ANSWER: 快地写 | kuai4 de xie3
+===
+
+# ==================== 得 (Complement - verb + 得 + complement) ====================
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 跑 + 快
+HINT: run fast
+ANSWER: 跑得快 | pao3 de kuai4
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 走 + 慢
+HINT: walk slowly
+ANSWER: 走得慢 | zou3 de man4
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 说 + 好
+HINT: speak well
+ANSWER: 说得好 | shuo1 de hao3
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 写 + 好
+HINT: write well
+ANSWER: 写得好 | xie3 de hao3
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 唱 + 好听
+HINT: sing beautifully
+ANSWER: 唱得好听 | chang4 de hao3 ting1
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 学习 + 认真
+HINT: study seriously
+ANSWER: 学习得认真 | xue2 xi2 de ren4 zhen1
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 工作 + 累
+HINT: work tiredly (work until tired)
+ANSWER: 工作得累 | gong1 zuo4 de lei4
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 吃 + 多
+HINT: eat a lot
+ANSWER: 吃得多 | chi1 de duo1
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 喝 + 多
+HINT: drink a lot
+ANSWER: 喝得多 | he1 de duo1
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 睡 + 好
+HINT: sleep well
+ANSWER: 睡得好 | shui4 de hao3
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 看 + 明白
+HINT: see clearly / understand by looking
+ANSWER: 看得明白 | kan4 de ming2 bai
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 听 + 明白
+HINT: hear clearly / understand by listening
+ANSWER: 听得明白 | ting1 de ming2 bai
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 玩儿 + 高兴
+HINT: play happily
+ANSWER: 玩儿得高兴 | wan2 r de gao1 xing4
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 跑 + 慢
+HINT: run slowly
+ANSWER: 跑得慢 | pao3 de man4
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 吃 + 快
+HINT: eat quickly
+ANSWER: 吃得快 | chi1 de kuai4
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 做 + 好
+HINT: do well
+ANSWER: 做得好 | zuo4 de hao3
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 休息 + 好
+HINT: rest well
+ANSWER: 休息得好 | xiu1 xi de hao3
+===
+
+PARTICLE: DE_COMP
+INSTRUCTION: Use 得 to describe the result or degree of the action
+BASE: 准备 + 好
+HINT: prepare well
+ANSWER: 准备得好 | zhun3 bei4 de hao3
+===
+
