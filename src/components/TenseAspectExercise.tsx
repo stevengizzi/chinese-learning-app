@@ -42,6 +42,7 @@ export function TenseAspectExercise({
   const [startTime, setStartTime] = useState(Date.now());
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const justShowedFeedbackRef = useRef(false);
 
   const isSpeedMode = session.config.mode === 'speed';
   const showHints = session.config.showHints;
@@ -70,7 +71,8 @@ export function TenseAspectExercise({
     const timeMs = Date.now() - startTime;
     const result = gradeTenseAspectAnswer(userAnswer, item.chineseAnswer, item.aspectType);
 
-    // Show feedback
+    // Show feedback and mark that we just showed it (to prevent immediate Enter from advancing)
+    justShowedFeedbackRef.current = true;
     setFeedbackState({
       shown: true,
       isCorrect: result.isCorrect,
@@ -142,6 +144,11 @@ export function TenseAspectExercise({
 
     const handleDocumentKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
+        // Ignore if we just showed feedback (same Enter keypress that triggered submit)
+        if (justShowedFeedbackRef.current) {
+          justShowedFeedbackRef.current = false;
+          return;
+        }
         handleNext();
       }
     };
