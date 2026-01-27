@@ -136,6 +136,20 @@ export function TenseAspectExercise({
     });
   }, [feedbackState, startTime, item, onSubmitAttempt]);
 
+  // Handle Enter key at document level when feedback is shown (input is disabled)
+  useEffect(() => {
+    if (!feedbackState.shown || isSpeedMode) return;
+
+    const handleDocumentKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        handleNext();
+      }
+    };
+
+    document.addEventListener('keydown', handleDocumentKeyDown);
+    return () => document.removeEventListener('keydown', handleDocumentKeyDown);
+  }, [feedbackState.shown, isSpeedMode, handleNext]);
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       if (!feedbackState.shown) {
