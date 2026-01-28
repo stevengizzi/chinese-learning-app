@@ -87,7 +87,7 @@ notes:
 | 书店 | shu1 dian4 | bookstore |
 | 气 | qi4 | air; steam; qi (vital energy) |
 | 前天 | qian2 tian1 | the day before yesterday |
-| 一块儿 | yi1 kuai4 r | one piece; together; one (dollar or unit of money) |
+| 一块儿 | yi1 kuai4 r | together |
 | 绍 | shao4 | connection (used in compound words) |
 | 星 | xing1 | star; satellite |
 | 开 | kai1 | to open; to turn on; to operate (a vehicle) |
@@ -135,7 +135,7 @@ notes:
 | 现 | xian4 | to appear; present; now; existing; current |
 | 送 | song4 | to deliver; to send; to give (as a present) |
 | 别人 | bie2 ren | other people |
-| 小学生 | xiao3 xue2 sheng1 | (primary school) student |
+| 小学生 | xiao3 xue2 sheng1 | elementary school student |
 | 系 | xi4 | to tie (rope, a tie, etc); to wear (a seatbelt) |
 | 牛奶 | niu2 nai3 | (cow) milk |
 | 六 | liu4 | six |
@@ -153,7 +153,7 @@ notes:
 | 儿子 | er2 zi | son |
 | 打球 | da3 qiu2 | to play ball; to play with a ball |
 | 洗手间 | xi3 shou3 jian1 | washroom; bathroom |
-| 放 | fang4 | to put; to place; to set off (fireworks, etc) |
+| 放 | fang4 | to put; to place; to release |
 | 奶 | nai3 | breast; milk; to breastfeed |
 | 东 | dong1 | east |
 | 明 | ming2 | bright; clear |
@@ -179,7 +179,7 @@ notes:
 | 分 | fen1 | component; minute (time); part; cent (money) |
 | 都 | dou1 | all; both |
 | 得到 | de2 dao4 | to get; to obtain; to receive |
-| 快 | kuai4 | dollar; piece; lump |
+| 块 | kuai4 | dollar; piece; lump |
 | 他们 | ta1 men | they; them |
 | 干净 | gan1 jing4 | clean; neat |
 | 说 | shuo1 | to speak |
@@ -275,7 +275,8 @@ notes:
 | 西 | xi1 | west |
 | 商店 | shang1 dian4 | store; shop |
 | 那些 | na4 xie1 | those |
-| 对不起 | dui4 bu qi3 | I'm sorry; excuse me; to let down |
+| 对不起 | dui4 bu qi3 | excuse me; sorry (formal) |
+| 不好意思 | bu4 hao3 yi4 si | excuse me; sorry (informal) |
 | 觉得 | jue2 de | to think; to feel |
 | 电影 | dian4 ying3 | movie |
 | 姐姐 | jie3 jie | older sister |
@@ -302,7 +303,7 @@ notes:
 | 米饭 | mi3 fan4 | (cooked) rice |
 | 看 | kan4 | to look at; to see |
 | 识 | shi2 | to know; to recognize; knowledge |
-| 快 | kuai4 | fast; quick; (to happen) soon |
+| 快 | kuai4 | fast; quick; soon |
 | 外国 | wai4 guo2 | foreign (country) |
 | 的 | de | of (indicating possession) |
 | 渴 | ke3 | thirsty |
@@ -321,14 +322,15 @@ notes:
 | 汉字 | han4 zi4 | Chinese character |
 | 等 | deng3 | to wait |
 | 电视 | dian4 shi4 | television |
-| 哪些 | na3 xie1 | which ones?; who?; what? |
+| 哪些 | na3 xie1 | which ones? |
+| 哪个 | na3 ge | which one? |
 | 图书馆 | tu2 shu1 guan3 | library |
 | 明年 | ming2 nian2 | next year |
 | 门 | men2 | door; gate |
 | 出去 | chu1 qu4 | to go out |
 | 问 | wen4 | to ask |
 | 里 | li3 | inside; "village" radical |
-| 先生 | xian1 sheng | Mister (Mr.) |
+| 先生 | xian1 sheng | Mr. |
 | 包 | bao1 | to wrap; bag |
 | 鸡 | ji1 | chicken |
 | 打车 | da3 che1 | to take a taxi |
@@ -383,7 +385,7 @@ notes:
 | 打电话 | da3 dian4 hua4 | to make a telephone call |
 | 认识 | ren4 shi | to know (someone); to be familiar with |
 | 少 | shao3 | few |
-| 放学 | fang4 xue2 | to dismiss students at the end of the school day |
+| 放学 | fang4 xue2 | school dismisses |
 | 桌 | zhuo1 | table; desk |
 | 呢 | ne | particle indicating a question |
 | 门票 | men2 piao4 | ticket (for theater, cinema, etc) |
@@ -396,7 +398,7 @@ notes:
 | 中间 | zhong1 jian1 | between |
 | 饭 | fan4 | food; meal; cooked rice |
 | 奶奶 | nai3 nai | grandma (paternal side) |
-| 图 | tu2 | picture; to attempt; to seek |
+| 图 | tu2 | picture; diagram |
 | 书 | shu1 | book |
 | 别 | bie2 | do not; another; other |
 | 水 | shui3 | water |
@@ -461,19 +463,19 @@ notes:
 | 看病 | kan4 bing4 | to visit a doctor |
 | 网 | wang3 | net |
 | 工人 | gong1 ren2 | worker |
-| 有的 | you3 de | there are; some (exist) |
+| 有的 | you3 de | some (of them) |
 | 老人 | lao3 ren2 | old person |
 | 开玩笑 | kai1 wan2 xiao4 | to joke; to make fun of |
 | 中午 | zhong1 wu3 | noon; midday |
 | 知道 | zhi1 dao4 | to know |
-| 下车 | xia4 che1 | to get off or out of (a bus, train, car, etc) |
+| 下车 | xia4 che1 | to get off of (a bus, train, car, etc) |
 | 白天 | bai2 tian1 | daytime; during the day |
 | 非常 | fei1 chang2 | very much; unusual; extraordinary |
 | 方 | fang1 | square |
 | 马路 | ma3 lu4 | street; road |
 | 高 | gao1 | tall; high |
 | 会 | hui4 | will (do something); to be able to; meeting; group; association |
-| 喜欢 | xi3 huan | to like; to be fond of |
+| 喜欢 | xi3 huan | to like |
 | 身上 | shen1 shang | on the body; at hand; among |
 | 手机 | shou3 ji1 | cell phone |
 | 中国 | zhong1 guo2 | China |
@@ -598,7 +600,7 @@ notes:
 | 诉 | su4 | to complain; to sue; to tell |
 | 台湾 | tai2 wan1 | Taiwan |
 | 漂亮 | piao4 liang | pretty; beautiful |
-| 温泉 | wen1 quan2 | hot spring (or well) |
+| 温泉 | wen1 quan2 | hot spring; well |
 | 日本 | ri4 ben3 | Japan |
 | 城市 | cheng2 shi4 | town; city |
 | 市 | shi4 | market; city; municipality |
@@ -632,7 +634,7 @@ notes:
 | 入口 | ru4 kou3 | entrance |
 | 出口 | chu1 kou3 | exit |
 | 不错 | bu4 cuo4 | not bad; pretty good |
-| 服务员 | fu2 wu4 yuan2 | waiter; waitress; attendant |
+| 服务员 | fu2 wu4 yuan2 | waiter; waitress |
 | 大自然 | da4 zi4 ran2 | nature |
 | 环岛 | huan2 dao3 | to travel around an island |
 | 兄弟姐妹 | xiong1 di4 jie3 mei4 | siblings |
@@ -672,10 +674,9 @@ notes:
 | 作曲家 | zuo4 qu3 jia1 | composer; songwriter |
 | 奇幻 | qi2 huan4 | fantasy (fiction) |
 | 科幻 | ke1 huan4 | science fiction |
-| 内用 | nei4 yong4 | to dine in (at a restaurant) (Taiwan) |
-| 堂食 | tang2 shi2 | to dine in (at a restaurant) |
-| 外带 | wai4 dai4 | take-out (food); to take to go (Taiwan) |
-| 打包 | da3 bao1 | take-out (food); to take to go (Taiwan) |
+| 内用 | nei4 yong4 | to dine in (at a restaurant) |
+| 外带 | wai4 dai4 | take-out (food); to take to go |
+| 打包 | da3 bao1 | to wrap up (food); to take to go |
 | 再说一次 | zai4 shuo1 yi1 ci4 | say that again |
 | 可是 | ke3 shi4 | but; yet; however |
 | 更多 | geng1 duo1 | more; much |
@@ -715,7 +716,7 @@ notes:
 | 因为 | yin1 wei4 | because; as; on account of |
 | 所以 | suo3 yi3 | so; therefore; as a result |
 | 你要点什么 | ni3 yao4 dian3 shen2 me | what would you like to order? |
-| 你要吃森么 | ni3 yao4 chi1 shen2 me | what would you like to eat? |
+| 你要吃森么 | ni3 yao4 chi1 shen2 me | what do you want to eat? |
 | 什么好吃 | shen2 me hao3 chi1 | what's good to eat? |
 | 哪个最好吃 | na3 ge zui4 hao3 chi1 | which one tastes the best? |
 | 需要 | xu1 yao4 | to need; to want badly |
@@ -749,3 +750,49 @@ notes:
 | 下去 | xia4 qu4 | to go down |
 | 过来 | guo4 lai2 | to come over |
 | 过去 | guo4 qu4 | to go over |
+| 手冲 | shou3 chong1 | hand drip (coffee) |
+| 公共汽车 | gong1gong4 qi4 che1 | bus |
+| 衣索比亚 | yi1 suo3 bi3 ya4 | Ethiopia |
+| 抱石 | bao4 shi2 | bouldering |
+| 攀岩 | pan1 yan2 | rock climbing; to rock climb |
+| 红包 | hong2 bao1 | red envelope |
+| 以前 | yi3 qian2 | before |
+| 以后 | yi3 hou4 | after |
+| 外送 | wai4 song4 | food delivery |
+| 菜单 | cai4 dan1 | menu |
+| 牛肉 | niu2 rou4 | beef |
+| 猪肉 | zhu1 rou4 | pork |
+| 鱼肉 | yu2 rou4 | fish (meat)
+| 鸡肉 | ji1 rou4 | chicken (meat)
+| 羊肉 | yang2 rou4 | lamb; mutton |
+| 鹅肉 | e2 rou4 | goose (meat) |
+| 鸭肉 | ya1 rou4 | duck (meat) |
+| 试试看 | shi4 shi kan4 | give it a try |
+| 岳父 | yue4 fu4 | father-in-law |
+| 岳母 | yue4 mu3 | mother-in-law |
+| 厉害 | li4 hai | awesome; amazing; impressive |
+| 做饭 | zuo4 fan4 | to cook; to prepare a meal |
+| 吃素 | chi1 su4 | to be a vegetarian |
+| 凉面 | liang2 mian4 | cold noodles |
+| 炒面 | chao3 mian4 | fried noodles |
+| 泡面 | pao4 mian4 | instant noodles |
+| 泡 | pao4 | to steep; to soak |
+| 泡茶 | pao4 cha2 | to make tea |
+| 泡水 | pao4 shui3 | to soak in water |
+| 泡温泉 | pao4 wen1 quan2 | to soak in a spa or hot spring |
+| 冰 | bing1 | ice; icy; to ice |
+| 招牌菜 | zhao1 pai2 cai4 | specialty; signature dish |
+| 食物 | shi2 wu4 | food |
+| 好啊 | hao3 a | "OK" |
+| 碗 | wan3 | bowl |
+| 潘 | pan2 | tray; plate; dish |
+| 员 | yuan2 | suffix: member; personnel |
+| 成员 | cheng2 yuan2 | member (general) |
+| 会员 | hui4 yuan2 | member (of organization/club/association) |
+| 手册 | shou3 ce4 | handbook |
+| 份 | fen4 | portion |
+| 套餐 | tao4 can1 | set meal; combo meal |
+| 啤酒 | pi2 jiu3 | beer |
+| 罐 | guan4 | can; jar |
+| 瓶 | ping2 | bottle; vase; flask |
+| 这个要多少钱 | zhe4 ge yao4 duo1 shao qian2 | how much does this cost? |
