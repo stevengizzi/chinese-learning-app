@@ -9,10 +9,11 @@ import { generateExercise, shuffleArray, normalizeMeaning } from '../lib/exercis
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
-import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
+import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords, generateVocabularyId } from '../lib/responseTracking/storage';
 import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { loadVocabularySelection, saveVocabularySelection } from '../lib/vocabularySelection';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard' | 'tense-aspect' | 'flashcard' | 'interrogative' | 'structural-particle' | 'question-particle';
 
@@ -272,6 +273,31 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
   switch (action.type) {
     case 'SET_VOCABULARY': {
       const vocabulary = action.payload;
+
+      // Update vocabulary selection: new entries get auto-selected, existing entries keep their status
+      const currentSelection = loadVocabularySelection();
+      const oldVocabIds = new Set<string>();
+
+      // Build set of old vocabulary IDs
+      if (state.vocabulary) {
+        for (const entry of state.vocabulary.active) {
+          oldVocabIds.add(generateVocabularyId(entry.word, entry.pinyin, entry.meaning));
+        }
+      }
+
+      // For each new vocabulary entry, add to selection if it's new (not in old vocabulary)
+      const updatedSelection = new Set(currentSelection);
+      for (const entry of vocabulary.active) {
+        const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
+        if (!oldVocabIds.has(vocabId)) {
+          // This is a new entry - auto-select it
+          updatedSelection.add(vocabId);
+        }
+        // Existing entries keep their current selection status (no change needed)
+      }
+
+      // Save updated selection
+      saveVocabularySelection(updatedSelection);
 
       return {
         ...state,
