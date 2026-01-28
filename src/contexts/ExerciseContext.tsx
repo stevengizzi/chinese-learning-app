@@ -278,14 +278,28 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       const currentSelection = loadVocabularySelection();
       const oldVocabIds = new Set<string>();
 
-      // Build set of old vocabulary IDs
-      if (state.vocabulary) {
-        for (const entry of state.vocabulary.active) {
+      // Build set of old vocabulary IDs from state, or from localStorage if state is empty
+      // (handles the case where page was refreshed and state.vocabulary is null)
+      let oldVocabulary = state.vocabulary?.active;
+      if (!oldVocabulary) {
+        try {
+          const savedVocab = localStorage.getItem('vocabulary');
+          if (savedVocab) {
+            const parsed = JSON.parse(savedVocab);
+            oldVocabulary = parsed.active;
+          }
+        } catch {
+          // Ignore parse errors
+        }
+      }
+
+      if (oldVocabulary) {
+        for (const entry of oldVocabulary) {
           oldVocabIds.add(generateVocabularyId(entry.word, entry.pinyin, entry.meaning));
         }
       }
 
-      // For each new vocabulary entry, add to selection if it's new (not in old vocabulary)
+      // For each new vocabulary entry, add to selection if it's truly new (not in old vocabulary)
       const updatedSelection = new Set(currentSelection);
       for (const entry of vocabulary.active) {
         const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);

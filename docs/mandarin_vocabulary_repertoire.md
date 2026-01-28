@@ -287,7 +287,7 @@ notes:
 | 用 | yong4 | to use |
 | 电影院 | dian4 ying3 yuan4 | movie theater; cinema |
 | 弟 | di4 | younger brother |
-| 商场 | shang1 chang3 | shopping mall; department store |
+| 商场 | shang1 chang3 | shopping mall |
 | 男生 | nan2 sheng1 | male student; young adult male |
 | 校 | xiao4 | school |
 | 老师 | lao3 shi1 | teacher |
@@ -796,3 +796,7 @@ notes:
 | 罐 | guan4 | can; jar |
 | 瓶 | ping2 | bottle; vase; flask |
 | 这个要多少钱 | zhe4 ge yao4 duo1 shao qian2 | how much does this cost? |
+| 市场 | shi4 chang3 | market |
+| 操场 | cao1 chang3 | playground; sports field |
+| 球场 | qiu2 chang3 | ball field; court |
+| 停车场 | ting2 che1 chang3 | parking lot |
