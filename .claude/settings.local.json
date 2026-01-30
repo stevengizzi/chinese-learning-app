@@ -3,7 +3,8 @@
     "allow": [
       "Bash(npx tailwindcss:*)",
       "Bash(./node_modules/.bin/tailwindcss:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

@@ -4,7 +4,6 @@ import type { ResponseDatabase, PromptType } from '../types/responseTracking';
 import type { VocabularyFilterConfig, VocabularyFilterType, MasteryLevelsByPromptType } from '../types/vocabularyFilter';
 import { FILTER_LABELS, FILTER_DESCRIPTIONS, DEFAULT_FILTER_CONFIGS, DEFAULT_MASTERY_LEVELS } from '../types/vocabularyFilter';
 import { countFilteredVocabulary, getFilterForExercise, saveFilterForExercise, clearFilterForExercise, getPromptTypesForExercise } from '../lib/vocabularyFilter';
-import { getSelectedCount } from '../lib/vocabularySelection';
 import { PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
 import type { MasteryLevel } from '../types/dashboard';
 import type { CharacterSet } from '../lib/characterConverter';
@@ -80,13 +79,10 @@ export function VocabularyFilter({
     });
   }, [characterSet]);
 
-  // Get selected vocabulary count
-  const selectedCount = getSelectedCount();
-
   // Calculate counts for each filter type
   const filterCounts: Record<VocabularyFilterType, number> = {
     'all': vocabulary.length,
-    'selected-only': selectedCount,
+    'selected-only': countFilteredVocabulary(vocabulary, { ...DEFAULT_FILTER_CONFIGS['selected-only'] }, database),
     'never-attempted': countFilteredVocabulary(vocabulary, { ...DEFAULT_FILTER_CONFIGS['never-attempted'] }, database),
     'recent-failures': countFilteredVocabulary(vocabulary, { ...DEFAULT_FILTER_CONFIGS['recent-failures'] }, database),
     'low-accuracy': countFilteredVocabulary(vocabulary, { ...config, type: 'low-accuracy', accuracyThreshold: config.accuracyThreshold ?? 70 }, database),
