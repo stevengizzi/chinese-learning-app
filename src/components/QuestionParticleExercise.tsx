@@ -7,6 +7,7 @@ import type {
 import { INTERROGATIVE_INFO } from '../types/interrogativeParticle';
 import { gradeQuestionParticleAnswer } from '../lib/questionParticleParser';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface QuestionParticleExerciseProps {
   item: InterrogativeItem;
@@ -35,6 +36,7 @@ export function QuestionParticleExercise({
     userAnswer: '',
   });
   const [startTime, setStartTime] = useState(Date.now());
+  const [characterSet] = useState(loadCharacterSetPreference);
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const justShowedFeedbackRef = useRef(false);
@@ -182,7 +184,7 @@ export function QuestionParticleExercise({
               <span
                 className={`px-4 py-1.5 rounded-full text-sm font-medium border-2 ${particleInfo.color.bg} ${particleInfo.color.text} ${particleInfo.color.border}`}
               >
-                <span className="text-xl mr-2">{item.particle}</span>
+                <span className="text-xl mr-2">{convertCharacters(item.particle, characterSet)}</span>
                 {particleInfo.name}
               </span>
             </div>
@@ -198,7 +200,7 @@ export function QuestionParticleExercise({
           {/* Statement to transform */}
           <div className="text-center mb-2">
             <p className="text-3xl font-medium text-gray-900 dark:text-white">
-              {item.statementChinese}
+              {convertCharacters(item.statementChinese, characterSet)}
             </p>
           </div>
 
@@ -261,7 +263,7 @@ export function QuestionParticleExercise({
               {/* Correct answer */}
               <div className="text-center">
                 <p className="text-2xl text-gray-900 dark:text-white mb-1">
-                  {item.questionChinese}
+                  {convertCharacters(item.questionChinese, characterSet)}
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-400 mb-1">
                   {convertPinyinStringToToneMarks(item.pinyin)}

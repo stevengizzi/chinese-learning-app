@@ -11,6 +11,9 @@ import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { countAvailableItems } from '../lib/similarCharactersLoader';
 import { VocabularyFilter } from './VocabularyFilter';
 import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface SimilarCharactersSetupProps {
   database: SimilarCharactersDatabase;
@@ -40,6 +43,11 @@ export function SimilarCharactersSetup({
   const [selectedCategories, setSelectedCategories] = useState<SimilarityCategory[]>([]);
   const [itemCount, setItemCount] = useState(0);
   const [vocabFilter, setVocabFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   // Get filtered vocabulary based on filter config (including mastery filter)
   const shouldApplyFilter = vocabFilter.type !== 'all' || hasMasteryFilterActive(vocabFilter);
@@ -196,6 +204,11 @@ export function SimilarCharactersSetup({
                 characters available from your vocabulary
               </div>
             </div>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Start Button */}

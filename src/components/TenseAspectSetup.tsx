@@ -9,6 +9,9 @@ import {
   DEFAULT_TENSE_ASPECT_CONFIG,
 } from '../types/tenseAspect';
 import { filterByAspectTypes, getCountsByAspectType } from '../lib/tenseAspectParser';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface TenseAspectSetupProps {
   items: TenseAspectItem[];
@@ -18,6 +21,11 @@ interface TenseAspectSetupProps {
 
 export function TenseAspectSetup({ items, onStart, onBack }: TenseAspectSetupProps) {
   const [config, setConfig] = useState<TenseAspectConfig>(DEFAULT_TENSE_ASPECT_CONFIG);
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   const counts = getCountsByAspectType(items);
   const filteredCount = filterByAspectTypes(items, config.selectedAspects).length;
@@ -231,6 +239,11 @@ export function TenseAspectSetup({ items, onStart, onBack }: TenseAspectSetupPro
             <span className="text-gray-600 dark:text-gray-400 ml-2">
               items to practice
             </span>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Action Buttons */}

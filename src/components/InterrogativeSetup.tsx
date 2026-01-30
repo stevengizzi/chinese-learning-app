@@ -11,6 +11,9 @@ import {
   DEFAULT_INTERROGATIVE_CONFIG,
 } from '../types/interrogative';
 import { filterByQuestionTypes, getCountsByQuestionType } from '../lib/interrogativeParser';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface InterrogativeSetupProps {
   items: InterrogativeItem[];
@@ -20,6 +23,11 @@ interface InterrogativeSetupProps {
 
 export function InterrogativeSetup({ items, onStart, onBack }: InterrogativeSetupProps) {
   const [config, setConfig] = useState<InterrogativeConfig>(DEFAULT_INTERROGATIVE_CONFIG);
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   const counts = getCountsByQuestionType(items);
   const filteredCount = filterByQuestionTypes(items, config.selectedTypes).length;
@@ -267,6 +275,11 @@ export function InterrogativeSetup({ items, onStart, onBack }: InterrogativeSetu
             <span className="text-gray-600 dark:text-gray-400 ml-2">
               items to practice
             </span>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Action Buttons */}

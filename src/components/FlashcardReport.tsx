@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import type { FlashcardAttempt, FlashcardConfig } from '../types/flashcard';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface FlashcardReportProps {
   attempts: FlashcardAttempt[];
@@ -14,6 +16,8 @@ export function FlashcardReport({
   onBackToMenu,
   onNewSession,
 }: FlashcardReportProps) {
+  const [characterSet] = useState(loadCharacterSetPreference);
+
   // Calculate statistics
   const totalAttempts = attempts.length;
   const correctAttempts = attempts.filter((a) => a.correct).length;
@@ -147,7 +151,7 @@ export function FlashcardReport({
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-xl font-bold text-gray-900 dark:text-white">
-                          {lastAttempt.word}
+                          {convertCharacters(lastAttempt.word, characterSet)}
                         </span>
                         <span className="text-blue-600 dark:text-blue-400">
                           {convertPinyinStringToToneMarks(lastAttempt.pinyin)}

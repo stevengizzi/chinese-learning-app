@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import type { StructuralParticleSession, StructuralParticleItem, StructuralParticle } from '../types/structuralParticle';
 import { ALL_STRUCTURAL_PARTICLES, PARTICLE_INFO } from '../types/structuralParticle';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface StructuralParticleReportProps {
   session: StructuralParticleSession;
@@ -21,6 +23,7 @@ export function StructuralParticleReport({
   onBackToMenu,
   onNewSession,
 }: StructuralParticleReportProps) {
+  const [characterSet] = useState(loadCharacterSetPreference);
   const { attempts, startTime, endTime } = session;
 
   // Calculate overall stats
@@ -131,7 +134,7 @@ export function StructuralParticleReport({
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className={`text-2xl font-bold ${info.color.text}`}>
-                        {particle}
+                        {convertCharacters(particle, characterSet)}
                       </span>
                       <span className="text-xs text-gray-500 dark:text-gray-400">
                         {stats.correct}/{stats.total}
@@ -170,11 +173,11 @@ export function StructuralParticleReport({
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1">
                           <div className="text-sm text-gray-600 dark:text-gray-400">
-                            {item.baseElements} → {item.englishHint}
+                            {convertCharacters(item.baseElements, characterSet)} → {item.englishHint}
                           </div>
                           <div className="flex items-center gap-2 mt-1">
                             <span className="text-lg text-gray-900 dark:text-white">
-                              {item.chineseAnswer}
+                              {convertCharacters(item.chineseAnswer, characterSet)}
                             </span>
                             <span className="text-sm text-gray-500 dark:text-gray-400">
                               {convertPinyinStringToToneMarks(item.pinyin)}
@@ -189,7 +192,7 @@ export function StructuralParticleReport({
                         <span
                           className={`text-lg px-2 py-0.5 rounded ${info.color.bg} ${info.color.text} ${info.color.border} border`}
                         >
-                          {attempt.particle}
+                          {convertCharacters(attempt.particle, characterSet)}
                         </span>
                       </div>
                     </div>

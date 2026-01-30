@@ -357,6 +357,13 @@ export function getPromptTypesForExercise(exerciseKey: string): PromptType[] {
     case 'shuffled-to-english':
       // Shuffled English: word→English and pinyin→English
       return ['character-to-english', 'pinyin-to-english'];
+    case 'audio-to-pinyin':
+      return ['audio-to-pinyin'];
+    case 'audio-to-english':
+      return ['audio-to-english'];
+    case 'flashcard':
+      // Flashcards test across all reading prompt types
+      return ['character-to-pinyin', 'character-to-english', 'pinyin-to-english', 'english-to-pinyin'];
     default:
       return [];
   }

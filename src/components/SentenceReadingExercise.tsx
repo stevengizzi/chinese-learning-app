@@ -3,6 +3,7 @@ import type { Sentence, SentenceAttempt, SentenceReadingSession } from '../types
 import { comparePinyinDetailed } from '../lib/pinyinNormalizer';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 import { getTranslationFeedback, getGroqApiKey, setGroqApiKey } from '../lib/groqService';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface SentenceReadingExerciseProps {
   sentence: Sentence;
@@ -24,6 +25,7 @@ export function SentenceReadingExercise({
   const [translationInput, setTranslationInput] = useState('');
   const [startTime] = useState(Date.now());
   const [pinyinResult, setPinyinResult] = useState<ReturnType<typeof comparePinyinDetailed> | null>(null);
+  const [characterSet] = useState(loadCharacterSetPreference);
 
   // AI feedback state
   const [aiFeedback, setAiFeedback] = useState<{ isCorrect: boolean; feedback: string } | null>(null);
@@ -167,7 +169,7 @@ export function SentenceReadingExercise({
           {/* Sentence Display */}
           <div className="text-center mb-8">
             <div className={`${getFontSize(sentence.hanzi)} font-normal text-gray-900 dark:text-white leading-tight`}>
-              {sentence.hanzi}
+              {convertCharacters(sentence.hanzi, characterSet)}
             </div>
           </div>
 

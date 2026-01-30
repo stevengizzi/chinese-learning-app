@@ -1,5 +1,6 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import type { TonePatternItem, TonePatternConfig } from '../types/tonePatternPractice';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface TonePatternExerciseProps {
   items: TonePatternItem[];
@@ -25,6 +26,7 @@ export function TonePatternExercise({
   onNext,
   onEnd,
 }: TonePatternExerciseProps) {
+  const [characterSet] = useState(loadCharacterSetPreference);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
   const currentItem = items[currentIndex];
   const progress = ((currentIndex + 1) / items.length) * 100;
@@ -125,7 +127,7 @@ export function TonePatternExercise({
               {/* Hanzi */}
               {(config.displayMode === 'hanzi' || config.displayMode === 'both') && (
                 <div className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
-                  {currentItem.hanzi}
+                  {convertCharacters(currentItem.hanzi, characterSet)}
                 </div>
               )}
 

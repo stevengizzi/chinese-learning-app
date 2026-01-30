@@ -8,13 +8,13 @@ interface MasteryRadarChartProps {
 }
 
 /**
- * Radar/Spider chart showing mastery across all 4 prompt types
+ * Radar/Spider chart showing mastery across all prompt types
  * Outer bounds = 100% mastery, filled area = actual mastery
  */
-export function MasteryRadarChart({ data, size = 280 }: MasteryRadarChartProps) {
+export function MasteryRadarChart({ data, size = 300 }: MasteryRadarChartProps) {
   const center = size / 2;
-  const maxRadius = (size - 60) / 2; // Leave space for labels
-  const numAxes = 4;
+  const maxRadius = (size - 80) / 2; // Leave space for labels
+  const numAxes = ALL_PROMPT_TYPES.length;
   const angleStep = (2 * Math.PI) / numAxes;
   const startAngle = -Math.PI / 2; // Start from top
 

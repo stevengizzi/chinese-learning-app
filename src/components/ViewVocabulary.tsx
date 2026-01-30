@@ -1,10 +1,10 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useExercise } from '../contexts/ExerciseContext';
 import { loadResponseDatabase, generateVocabularyId } from '../lib/responseTracking/storage';
-import { formatResponseTime } from '../lib/responseTracking/analytics';
+
 import { getVocabularyMasteryInfo } from '../lib/dashboard/mastery';
 import { loadVocabularySelection, saveVocabularySelection } from '../lib/vocabularySelection';
-import type { ResponseDatabase, VocabularySpeedStats } from '../types/responseTracking';
+import type { ResponseDatabase } from '../types/responseTracking';
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { MasteryLevel, VocabularyMasteryInfo } from '../types/dashboard';
 import { ALL_PROMPT_TYPES, PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
@@ -103,7 +103,7 @@ function EditableMeaning({
   );
 }
 
-type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'promptTypes' | 'char-to-pinyin' | 'char-to-english' | 'pinyin-to-english' | 'english-to-pinyin';
+type SortField = 'pinyin' | 'accuracy' | 'attempts' | 'lastPracticed' | 'promptTypes';
 type SortDirection = 'asc' | 'desc';
 
 interface SortState {
@@ -114,12 +114,11 @@ interface SortState {
 interface VocabularyWithStats extends VocabularyEntry {
   originalIndex: number; // Index in the original vocabulary array
   vocabId: string;
-  stats: VocabularySpeedStats | null;
   accuracy: number;
   totalAttempts: number;
   lastPracticed: number | null;
   masteryInfo: VocabularyMasteryInfo;
-  totalMasteryPercent: number; // Sum of all 4 skill mastery percentages (0-400, or 0-100 averaged)
+  totalMasteryPercent: number; // Sum of all skill mastery percentages
 }
 
 /**
@@ -236,7 +235,6 @@ export function ViewVocabulary() {
 
     return state.vocabulary.active.map((entry, index) => {
       const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
-      const stats = responseDatabase?.statistics[vocabId] || null;
 
       // Get full mastery info including per-prompt-type mastery
       const masteryInfo = getVocabularyMasteryInfo(entry, responseDatabase);
@@ -253,7 +251,6 @@ export function ViewVocabulary() {
         ...entry,
         originalIndex: index,
         vocabId,
-        stats,
         accuracy: masteryInfo.accuracy,
         totalAttempts: masteryInfo.totalAttempts,
         lastPracticed: masteryInfo.lastPracticed,
@@ -436,28 +433,6 @@ export function ViewVocabulary() {
           else if (b.lastPracticed === null) comparison = -1;
           else comparison = a.lastPracticed - b.lastPracticed;
           break;
-        case 'char-to-pinyin':
-        case 'char-to-english':
-        case 'pinyin-to-english':
-        case 'english-to-pinyin': {
-          const promptTypeMap: Record<string, string> = {
-            'char-to-pinyin': 'character-to-pinyin',
-            'char-to-english': 'character-to-english',
-            'pinyin-to-english': 'pinyin-to-english',
-            'english-to-pinyin': 'english-to-pinyin'
-          };
-          const promptType = promptTypeMap[sort.field] as keyof VocabularySpeedStats['byPromptType'];
-          const aStats = a.stats?.byPromptType?.[promptType];
-          const bStats = b.stats?.byPromptType?.[promptType];
-          const aHasData = (aStats?.correctAttempts ?? 0) > 0;
-          const bHasData = (bStats?.correctAttempts ?? 0) > 0;
-
-          if (!aHasData && !bHasData) comparison = 0;
-          else if (!aHasData) comparison = 1;
-          else if (!bHasData) comparison = -1;
-          else comparison = (aStats?.averageResponseTimeMs ?? 0) - (bStats?.averageResponseTimeMs ?? 0);
-          break;
-        }
       }
 
       return sort.direction === 'asc' ? comparison : -comparison;
@@ -559,7 +534,7 @@ export function ViewVocabulary() {
                   <th
                     className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
                     onClick={() => handleSort('promptTypes')}
-                    title="Per-skill mastery: 字→拼 | 英→拼 | 字→英 | 拼→英"
+                    title="Per-skill mastery: 字→拼 | EN→拼 | 字→EN | 拼→EN | 🔊→拼 | 🔊→EN"
                   >
                     Mastery
                     <SortIcon active={sort.field === 'promptTypes'} direction={sort.direction} />
@@ -588,44 +563,12 @@ export function ViewVocabulary() {
                     Last
                     <SortIcon active={sort.field === 'lastPracticed'} direction={sort.direction} />
                   </th>
-                  <th
-                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
-                    onClick={() => handleSort('char-to-pinyin')}
-                    title="Character → Pinyin average speed"
-                  >
-                    字→拼
-                    <SortIcon active={sort.field === 'char-to-pinyin'} direction={sort.direction} />
-                  </th>
-                  <th
-                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
-                    onClick={() => handleSort('english-to-pinyin')}
-                    title="English → Pinyin average speed"
-                  >
-                    英→拼
-                    <SortIcon active={sort.field === 'english-to-pinyin'} direction={sort.direction} />
-                  </th>
-                  <th
-                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
-                    onClick={() => handleSort('char-to-english')}
-                    title="Character → English average speed"
-                  >
-                    字→英
-                    <SortIcon active={sort.field === 'char-to-english'} direction={sort.direction} />
-                  </th>
-                  <th
-                    className="text-center p-3 font-semibold text-gray-900 dark:text-white w-16 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
-                    onClick={() => handleSort('pinyin-to-english')}
-                    title="Pinyin → English average speed"
-                  >
-                    拼→英
-                    <SortIcon active={sort.field === 'pinyin-to-english'} direction={sort.direction} />
-                  </th>
                 </tr>
               </thead>
               <tbody>
                 {sortedVocabulary.length > 0 ? (
                   sortedVocabulary.map((entry, index) => {
-                    const { stats, accuracy, totalAttempts, lastPracticed } = entry;
+                    const { accuracy, totalAttempts, lastPracticed } = entry;
 
                     return (
                       <tr
@@ -662,32 +605,12 @@ export function ViewVocabulary() {
                         <td className="p-3 text-center text-gray-500 dark:text-gray-400 text-xs">
                           {formatLastPracticed(lastPracticed)}
                         </td>
-                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {(stats?.byPromptType?.['character-to-pinyin']?.correctAttempts ?? 0) > 0
-                            ? formatResponseTime(stats?.byPromptType?.['character-to-pinyin']?.averageResponseTimeMs ?? 0)
-                            : '—'}
-                        </td>
-                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {(stats?.byPromptType?.['english-to-pinyin']?.correctAttempts ?? 0) > 0
-                            ? formatResponseTime(stats?.byPromptType?.['english-to-pinyin']?.averageResponseTimeMs ?? 0)
-                            : '—'}
-                        </td>
-                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {(stats?.byPromptType?.['character-to-english']?.correctAttempts ?? 0) > 0
-                            ? formatResponseTime(stats?.byPromptType?.['character-to-english']?.averageResponseTimeMs ?? 0)
-                            : '—'}
-                        </td>
-                        <td className="p-3 text-center text-gray-700 dark:text-gray-300">
-                          {(stats?.byPromptType?.['pinyin-to-english']?.correctAttempts ?? 0) > 0
-                            ? formatResponseTime(stats?.byPromptType?.['pinyin-to-english']?.averageResponseTimeMs ?? 0)
-                            : '—'}
-                        </td>
                       </tr>
                     );
                   })
                 ) : (
                   <tr>
-                    <td colSpan={12} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                    <td colSpan={8} className="p-8 text-center text-gray-500 dark:text-gray-400">
                       No matching vocabulary found
                     </td>
                   </tr>

@@ -7,6 +7,7 @@ import type {
 import { QUESTION_DISPLAY_NAMES, QUESTION_COLORS, QUESTION_SHORT_LABELS } from '../types/interrogative';
 import { gradeInterrogativeAnswer } from '../lib/interrogativeGrader';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface InterrogativeExerciseProps {
   item: InterrogativeItem;
@@ -40,6 +41,7 @@ export function InterrogativeExercise({
     wrongMarkers: [],
   });
   const [startTime, setStartTime] = useState(Date.now());
+  const [characterSet] = useState(loadCharacterSetPreference);
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const justShowedFeedbackRef = useRef(false);
@@ -278,7 +280,7 @@ export function InterrogativeExercise({
               {/* Correct answer */}
               <div className="text-center">
                 <p className="text-2xl text-gray-900 dark:text-white mb-1">
-                  {item.chineseAnswer}
+                  {convertCharacters(item.chineseAnswer, characterSet)}
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-400">
                   {convertPinyinStringToToneMarks(item.pinyin)}

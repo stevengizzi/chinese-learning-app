@@ -7,6 +7,9 @@ import type { SpeechRate, ReplayLimit } from '../types/tts';
 import { SPEECH_RATE_LABELS, REPLAY_LIMIT_LABELS, DEFAULT_AUDIO_EXERCISE_CONFIG } from '../types/tts';
 import { VocabularyFilter } from './VocabularyFilter';
 import { countFilteredVocabulary, getFilterForExercise, hasMasteryFilterActive } from '../lib/vocabularyFilter';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 const EXERCISE_LABELS: Record<ExerciseType, string> = {
   'character-to-pinyin': 'Character → Pinyin',
@@ -40,6 +43,12 @@ export function ExerciseConfigScreen() {
     speechRate: DEFAULT_AUDIO_EXERCISE_CONFIG.speechRate,
     replayLimit: DEFAULT_AUDIO_EXERCISE_CONFIG.replayLimit,
   });
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   const pendingConfig = state.pendingExerciseConfig;
   const exerciseType = pendingConfig?.exerciseType || 'character-to-pinyin';
@@ -153,6 +162,11 @@ export function ExerciseConfigScreen() {
                 </div>
               </div>
             )}
+
+            {/* Character Set */}
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+              <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
+            </div>
 
             {/* Filtered Count */}
             <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">

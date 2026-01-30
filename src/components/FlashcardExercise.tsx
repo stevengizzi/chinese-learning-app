@@ -3,6 +3,7 @@ import type { VocabularyEntry } from '../types/vocabulary';
 import type { FlashcardConfig, FlashcardPart } from '../types/flashcard';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
 import { AudioPrompt } from './AudioPrompt';
+import { convertCharacters, loadCharacterSetPreference, type CharacterSet } from '../lib/characterConverter';
 
 /**
  * Editable field component for flashcard back side
@@ -114,13 +115,14 @@ function renderPart(
   vocab: VocabularyEntry,
   isLarge: boolean = false,
   config?: FlashcardConfig,
-  autoPlayAudio: boolean = false
+  autoPlayAudio: boolean = false,
+  characterSet: CharacterSet = 'simplified'
 ): React.ReactNode {
   switch (part) {
     case 'hanzi':
       return (
         <div className={`font-bold text-gray-900 dark:text-white ${isLarge ? 'text-6xl md:text-8xl' : 'text-4xl md:text-5xl'}`}>
-          {vocab.word}
+          {convertCharacters(vocab.word, characterSet)}
         </div>
       );
     case 'pinyin':
@@ -161,6 +163,7 @@ export function FlashcardExercise({
   onEditVocab,
   progress,
 }: FlashcardExerciseProps) {
+  const [characterSet] = useState(loadCharacterSetPreference);
   const { sideConfig } = config;
 
   // Keyboard shortcuts
@@ -247,7 +250,7 @@ export function FlashcardExercise({
             <div className="text-center space-y-4">
               {frontParts.map((part, idx) => (
                 <div key={part}>
-                  {renderPart(part, vocab, idx === 0, config, part === 'audio')}
+                  {renderPart(part, vocab, idx === 0, config, part === 'audio', characterSet)}
                 </div>
               ))}
               <div className="mt-8 text-gray-400 dark:text-gray-500 text-sm">
@@ -261,7 +264,7 @@ export function FlashcardExercise({
               <div className="opacity-60 space-y-1 mb-4">
                 {frontParts.map((part) => (
                   <div key={part} className="text-lg text-gray-600 dark:text-gray-400">
-                    {part === 'hanzi' && vocab.word}
+                    {part === 'hanzi' && convertCharacters(vocab.word, characterSet)}
                     {part === 'pinyin' && convertPinyinStringToToneMarks(vocab.pinyin)}
                     {part === 'english' && vocab.meaning}
                     {part === 'audio' && '(Audio)'}
@@ -280,7 +283,7 @@ export function FlashcardExercise({
                     // Audio part - auto-play when back side is shown
                     return (
                       <div key={part}>
-                        {renderPart(part, vocab, isLarge, config, true)}
+                        {renderPart(part, vocab, isLarge, config, true, characterSet)}
                       </div>
                     );
                   }
@@ -295,7 +298,7 @@ export function FlashcardExercise({
                             textColor="text-gray-900 dark:text-white"
                           />
                         ) : (
-                          renderPart(part, vocab, isLarge, config)
+                          renderPart(part, vocab, isLarge, config, false, characterSet)
                         )}
                       </div>
                     );
@@ -312,7 +315,7 @@ export function FlashcardExercise({
                             textColor="text-blue-600 dark:text-blue-400"
                           />
                         ) : (
-                          renderPart(part, vocab, isLarge, config)
+                          renderPart(part, vocab, isLarge, config, false, characterSet)
                         )}
                       </div>
                     );
@@ -328,7 +331,7 @@ export function FlashcardExercise({
                             textColor="text-gray-700 dark:text-gray-300"
                           />
                         ) : (
-                          renderPart(part, vocab, isLarge, config)
+                          renderPart(part, vocab, isLarge, config, false, characterSet)
                         )}
                       </div>
                     );

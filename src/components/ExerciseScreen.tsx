@@ -4,10 +4,12 @@ import { useExercise } from '../contexts/ExerciseContext';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { isAudioExercise } from '../types/exercise';
 import { AudioPrompt } from './AudioPrompt';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 export function ExerciseScreen() {
   const { state, dispatch } = useExercise();
   const [answer, setAnswer] = useState('');
+  const [characterSet] = useState(loadCharacterSetPreference);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -79,7 +81,8 @@ export function ExerciseScreen() {
     );
   };
 
-  const prompt = state.currentExercise?.prompt;
+  const rawPrompt = state.currentExercise?.prompt;
+  const prompt = rawPrompt ? convertCharacters(rawPrompt, characterSet) : rawPrompt;
   const useLargeFont = isChinesePrompt(prompt);
   const promptHasChineseThenParentheses = hasChineseThenParentheses(prompt);
 

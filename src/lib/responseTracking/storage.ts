@@ -81,6 +81,85 @@ function createEmptyDatabase(): ResponseDatabase {
 }
 
 /**
+ * Migrate existing audio exercise records from character-based prompt types
+ * to dedicated audio prompt types.
+ * Records with exerciseType 'audio-to-pinyin'/'audio-to-english' were previously
+ * stored with promptType 'character-to-pinyin'/'character-to-english'.
+ */
+function migrateAudioPromptTypes(database: ResponseDatabase): ResponseDatabase {
+  let migrated = false;
+
+  // Fix records: remap promptType for audio exercises
+  const updatedRecords = database.records.map(record => {
+    if (record.exerciseType === 'audio-to-pinyin' && record.promptType === 'character-to-pinyin') {
+      migrated = true;
+      return { ...record, promptType: 'audio-to-pinyin' as PromptType };
+    }
+    if (record.exerciseType === 'audio-to-english' && record.promptType === 'character-to-english') {
+      migrated = true;
+      return { ...record, promptType: 'audio-to-english' as PromptType };
+    }
+    return record;
+  });
+
+  if (!migrated) return database;
+
+  // Recompute statistics for affected vocabulary entries
+  const updatedStatistics = { ...database.statistics };
+
+  for (const vocabId of Object.keys(updatedStatistics)) {
+    const stats = { ...updatedStatistics[vocabId] };
+
+    // Ensure audio prompt type slots exist
+    if (!stats.byPromptType['audio-to-pinyin']) {
+      stats.byPromptType = { ...stats.byPromptType, 'audio-to-pinyin': createEmptyPromptTypeStats() };
+    }
+    if (!stats.byPromptType['audio-to-english']) {
+      stats.byPromptType = { ...stats.byPromptType, 'audio-to-english': createEmptyPromptTypeStats() };
+    }
+
+    // Rebuild prompt type stats from records for this vocabulary
+    const vocabRecords = updatedRecords.filter(r => r.vocabularyId === vocabId);
+
+    // Reset audio and character prompt stats, then recompute
+    const affectedTypes: PromptType[] = ['character-to-pinyin', 'character-to-english', 'audio-to-pinyin', 'audio-to-english'];
+    for (const pt of affectedTypes) {
+      stats.byPromptType[pt] = createEmptyPromptTypeStats();
+    }
+
+    for (const record of vocabRecords) {
+      if (!affectedTypes.includes(record.promptType)) continue;
+
+      const promptStats = stats.byPromptType[record.promptType];
+      promptStats.totalAttempts++;
+      promptStats.lastAttemptTimestamp = Math.max(promptStats.lastAttemptTimestamp, record.timestamp);
+
+      if (record.wasCorrect) {
+        promptStats.correctAttempts++;
+        const perWordTimeMs = record.wordCount > 0 ? record.responseTimeMs / record.wordCount : record.responseTimeMs;
+        promptStats.recentResponseTimes = [...promptStats.recentResponseTimes, perWordTimeMs].slice(-10);
+        promptStats.fastestResponseMs = Math.min(promptStats.fastestResponseMs, perWordTimeMs);
+        promptStats.slowestResponseMs = Math.max(promptStats.slowestResponseMs, perWordTimeMs);
+
+        if (promptStats.recentResponseTimes.length > 0) {
+          promptStats.averageResponseTimeMs = promptStats.recentResponseTimes.reduce((a, b) => a + b, 0) / promptStats.recentResponseTimes.length;
+        }
+      }
+    }
+
+    updatedStatistics[vocabId] = stats;
+  }
+
+  return {
+    ...database,
+    version: 2,
+    records: updatedRecords,
+    statistics: updatedStatistics,
+    lastUpdated: Date.now()
+  };
+}
+
+/**
  * Load database from file with localStorage cache fallback
  */
 export async function loadResponseDatabase(): Promise<ResponseDatabase> {
@@ -108,28 +187,31 @@ export async function loadResponseDatabase(): Promise<ResponseDatabase> {
   }
 
   // Use the most recently updated database
+  let result: ResponseDatabase;
   if (fileData && cacheData) {
     // Both exist - use the one with the most recent data
     const useCache = cacheData.lastUpdated > fileData.lastUpdated;
-    const result = useCache ? cacheData : fileData;
+    result = useCache ? cacheData : fileData;
 
     // Update localStorage with the most recent data
     if (!useCache) {
       localStorage.setItem(CACHE_KEY, JSON.stringify(fileData));
     }
-
-    return result;
   } else if (cacheData) {
-    // Only cache exists
-    return cacheData;
+    result = cacheData;
   } else if (fileData) {
-    // Only file exists
     localStorage.setItem(CACHE_KEY, JSON.stringify(fileData));
-    return fileData;
+    result = fileData;
+  } else {
+    return createEmptyDatabase();
   }
 
-  // Neither exists - create new empty database
-  return createEmptyDatabase();
+  // Run migrations
+  const migrated = migrateAudioPromptTypes(result);
+  if (migrated !== result) {
+    saveResponseDatabase(migrated);
+  }
+  return migrated;
 }
 
 /**
@@ -223,7 +305,9 @@ export function addResponseRecords(
           'character-to-pinyin': createEmptyPromptTypeStats(),
           'character-to-english': createEmptyPromptTypeStats(),
           'pinyin-to-english': createEmptyPromptTypeStats(),
-          'english-to-pinyin': createEmptyPromptTypeStats()
+          'english-to-pinyin': createEmptyPromptTypeStats(),
+          'audio-to-pinyin': createEmptyPromptTypeStats(),
+          'audio-to-english': createEmptyPromptTypeStats()
         }
       };
     }
@@ -233,14 +317,23 @@ export function addResponseRecords(
       stats.wordCount = wordCount;
     }
 
-    // Ensure byPromptType exists (for backward compatibility with old data)
+    // Ensure byPromptType exists and has all prompt types (for backward compatibility with old data)
     if (!stats.byPromptType) {
       stats.byPromptType = {
         'character-to-pinyin': createEmptyPromptTypeStats(),
         'character-to-english': createEmptyPromptTypeStats(),
         'pinyin-to-english': createEmptyPromptTypeStats(),
-        'english-to-pinyin': createEmptyPromptTypeStats()
+        'english-to-pinyin': createEmptyPromptTypeStats(),
+        'audio-to-pinyin': createEmptyPromptTypeStats(),
+        'audio-to-english': createEmptyPromptTypeStats()
       };
+    }
+    // Ensure new audio prompt types exist (migration from 4 to 6 types)
+    if (!stats.byPromptType['audio-to-pinyin']) {
+      stats.byPromptType['audio-to-pinyin'] = createEmptyPromptTypeStats();
+    }
+    if (!stats.byPromptType['audio-to-english']) {
+      stats.byPromptType['audio-to-english'] = createEmptyPromptTypeStats();
     }
 
     // Update overall stats

@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import type { InterrogativeSession, InterrogativeItem, QuestionType } from '../types/interrogative';
 import { QUESTION_DISPLAY_NAMES, QUESTION_COLORS, ALL_QUESTION_TYPES } from '../types/interrogative';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface InterrogativeReportProps {
   session: InterrogativeSession;
@@ -21,6 +23,7 @@ export function InterrogativeReport({
   onBackToMenu,
   onNewSession,
 }: InterrogativeReportProps) {
+  const [characterSet] = useState(loadCharacterSetPreference);
   const { attempts, startTime, endTime } = session;
 
   // Calculate overall stats
@@ -174,7 +177,7 @@ export function InterrogativeReport({
                           </div>
                           <div className="flex items-center gap-2 mt-1">
                             <span className="text-lg text-gray-900 dark:text-white">
-                              {item.chineseAnswer}
+                              {convertCharacters(item.chineseAnswer, characterSet)}
                             </span>
                             <span className="text-sm text-gray-500 dark:text-gray-400">
                               {convertPinyinStringToToneMarks(item.pinyin)}

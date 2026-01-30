@@ -72,7 +72,7 @@ notes:
 | 女儿 | nü3 er2 | daughter |
 | 面包 | mian4 bao1 | bread |
 | 最好 | zui4 hao3 | best; "you had better..." |
-| 点 | dian3 | point; dot; to order (sth) |
+| 点 | dian3 | o'clock (time); point; to order (food/drink) |
 | 有些 | you3 xie1 | some; somewhat |
 | 妹 | mei4 | younger sister |
 | 什么 | shen2 me | what? |
@@ -139,7 +139,6 @@ notes:
 | 系 | xi4 | to tie (rope, a tie, etc); to wear (a seatbelt) |
 | 牛奶 | niu2 nai3 | (cow) milk |
 | 六 | liu4 | six |
-| 条 | tiao2 | item; strip; classifier for long thin things |
 | 小孩儿 | xiao3 hai2 r | child |
 | 有名 | you3 ming2 | famous; well-known |
 | 名字 | ming2 zi | name |
@@ -152,7 +151,7 @@ notes:
 | 好吃 | hao3 chi1 | tasty; delicious |
 | 儿子 | er2 zi | son |
 | 打球 | da3 qiu2 | to play ball; to play with a ball |
-| 洗手间 | xi3 shou3 jian1 | washroom; bathroom |
+| 洗手间 | xi3 shou3 jian1 | bathroom |
 | 放 | fang4 | to put; to place; to release |
 | 奶 | nai3 | breast; milk; to breastfeed |
 | 东 | dong1 | east |
@@ -176,7 +175,7 @@ notes:
 | 百 | bai3 | hundred |
 | 八 | ba1 | eight |
 | 有用 | you3 yong4 | useful |
-| 分 | fen1 | component; minute (time); part; cent (money) |
+| 分 | fen1 | minute (time); to divide/separate; points/score |
 | 都 | dou1 | all; both |
 | 得到 | de2 dao4 | to get; to obtain; to receive |
 | 块 | kuai4 | dollar; piece; lump |
@@ -212,7 +211,7 @@ notes:
 | 身体 | shen1 ti3 | the body |
 | 面 | mian4 | face; surface; noodles |
 | 师 | shi1 | master; expert |
-| 教学楼 | jiao4 xue2 lou2 | teaching block; school building |
+| 教学楼 | jiao4 xue2 lou2 | school building |
 | 作 | zuo4 | to make; to do |
 | 打开 | da3 kai1 | to open; to turn on |
 | 觉 | jue2 | to feel |
@@ -247,7 +246,7 @@ notes:
 | 上课 | shang4 ke4 | to go to class; to attend class; to go to teach a class |
 | 哪 | na3 | which |
 | 小时 | xiao3 shi2 | hour |
-| 好看 | hao3 kan4 | good-looking; good (of a movie, book, TV show, etc) |
+| 好看 | hao3 kan4 | good-looking; pleasant to read/watch |
 | 服 | fu2 | to wear; to obey; to take (medicine) |
 | 慢 | man4 | slow |
 | 下班 | xia4 ban1 | to get off work |
@@ -264,7 +263,7 @@ notes:
 | 南 | nan2 | south |
 | 新 | xin1 | new |
 | 国家 | guo2 jia1 | country; nation |
-| 再 | zai4 | again; once more |
+| 再 | zai4 | again |
 | 吗 | ma | question indicator |
 | 牛 | niu2 | cow; ox |
 | 这 | zhe4 | this; these |
@@ -310,11 +309,11 @@ notes:
 | 后天 | hou4 tian1 | the day after tomorrow |
 | 北边 | bei3 bian | north side; northern part |
 | 四 | si4 | four |
-| 不大 | bu4 da4 | not very; not too; not often |
+| 不大 | bu4 da4 | not big; not very; not often |
 | 同学 | tong2 xue2 | classmate |
 | 面条儿 | mian4 tiao2 r | noodles |
 | 日 | ri4 | day; sun |
-| 杯 | bei1 | cup; glass |
+| 杯 | bei1 | cup; glass; MW for cups of |
 | 起来 | qi3 lai | to stand up; to get up |
 | 今天 | jin1 tian1 | today |
 | 大 | da4 | big |
@@ -322,8 +321,8 @@ notes:
 | 汉字 | han4 zi4 | Chinese character |
 | 等 | deng3 | to wait |
 | 电视 | dian4 shi4 | television |
-| 哪些 | na3 xie1 | which ones? |
-| 哪个 | na3 ge | which one? |
+| 哪些 | na3 xie1 | which ones |
+| 哪个 | na3 ge | which one |
 | 图书馆 | tu2 shu1 guan3 | library |
 | 明年 | ming2 nian2 | next year |
 | 门 | men2 | door; gate |
@@ -364,7 +363,7 @@ notes:
 | 进 | jin4 | to enter |
 | 着 | zhe | indicates ongoing state or action |
 | 吧 | ba1 | ...right?; ...ok?; indicates suggestion |
-| 贵 | gui4 | expensive; (honorific) your |
+| 贵 | gui4 | expensive |
 | 上车 | shang4 che1 | to get on or into (a bus, train, car, etc) |
 | 坐 | zuo4 | to sit; to take (a bus, airplane, etc) |
 | 没什么 | mei2 shen2 me | nothing; it doesn't matter |
@@ -420,9 +419,10 @@ notes:
 | 男孩儿 | nan2 hai2 r | boy |
 | 课文 | ke4 wen2 | a text (book, etc) |
 | 常常 | chang2 chang2 | often; frequently |
-| 和 | he2 | and; together with; peace |
+| 和 | he2 | and |
 | 先 | xian1 | first |
-| 几 | ji3 | how many?; several; some |
+| 几 | ji3 | how many? (small numbers); several |
+| 几点 | ji3 dian3 | what time? (o'clock) |
 | 病 | bing4 | disease; illness |
 | 最后 | zui4 hou4 | final; last |
 | 回答 | hui2 da2 | to answer |
@@ -430,7 +430,7 @@ notes:
 | 床 | chuang2 | bed |
 | 爷爷 | ye2 ye | grandpa (paternal side) |
 | 忘 | wang4 | to forget |
-| 地 | di4 | earth; ground; land; place |
+| 地 | di4 | earth; ground |
 | 地 | de | particle linking adjective/adverb to verb |
 | 一点儿 | yi1 dian3 r | a bit; a little |
 | 新年 | xin1 nian2 | New Year |
@@ -445,7 +445,7 @@ notes:
 | 女朋友 | nü3 peng2 you | girlfriend |
 | 字 | zi4 | Chinese character |
 | 院 | yuan4 | institution; courtyard |
-| 时候 | shi2 hou | time; moment |
+| 时候 | shi2 hou | moment/period in time |
 | 哥 | ge1 | elder brother |
 | 名 | ming2 | name |
 | 睡 | shui4 | to sleep |
@@ -474,7 +474,7 @@ notes:
 | 方 | fang1 | square |
 | 马路 | ma3 lu4 | street; road |
 | 高 | gao1 | tall; high |
-| 会 | hui4 | will (do something); to be able to; meeting; group; association |
+| 会 | hui4 | will (do something); to be able to; meeting; association |
 | 喜欢 | xi3 huan | to like |
 | 身上 | shen1 shang | on the body; at hand; among |
 | 手机 | shou3 ji1 | cell phone |
@@ -482,7 +482,9 @@ notes:
 | 你 | ni3 | you |
 | 半 | ban4 | half |
 | 大学生 | da4 xue2 sheng1 | university student; college student |
-| 地上 | di4 shang | on the ground |
+| 地上 | di4 shang | on the ground/floor |
+| 地下 | di4 xia4 | underground |
+| 地铁 | di4 tie3 | subway; metro |
 | 正 | zheng4 | right; proper; straight |
 | 他 | ta1 | he; him |
 | 在 | zai4 | at; in |
@@ -503,21 +505,21 @@ notes:
 | 重要 | zhong4 yao4 | important; significant |
 | 玩 | wan2 | to play; to have fun |
 | 一样 | yi1 yang4 | the same as |
-| 时间 | shi2 jian1 | time |
+| 时间 | shi2 jian1 | time (duration/resource) |
 | 车站 | che1 zhan4 | rail station; bus stop |
 | 女孩儿 | nü3 hai2 r | girl |
 | 天 | tian1 | day; sky; heaven |
-| 很 | hen3 | very; quite |
+| 很 | hen3 | very |
 | 医 | yi1 | medical |
 | 洗 | xi3 | to wash |
 | 午 | wu3 | noon; midday |
 | 爱 | ai4 | love |
 | 请问 | qing3 wen4 | May I ask...? |
-| 好 | hao3 | good; well; very |
+| 好 | hao3 | good; well |
 | 生气 | sheng1 qi4 | angry |
 | 看见 | kan4 jian4 | to see; to catch sight of |
 | 晚 | wan3 | late; evening; night |
-| 机票 | ji1 piao4 | plane ticket; passenger ticket |
+| 机票 | ji1 piao4 | plane ticket |
 | 午饭 | wu3 fan4 | lunch |
 | 班 | ban1 | class (school); shift (work) |
 | 飞机 | fei1 ji1 | airplane |
@@ -552,7 +554,7 @@ notes:
 | 口 | kou3 | mouth |
 | 期 | qi1 | a period of time |
 | 有 | you3 | to have; there is; there are |
-| 地点 | di4 dian3 | place; location |
+| 地点 | di4 dian3 | specific location |
 | 别的 | bie2 de | other |
 | 男 | nan2 | male |
 | 地方 | di4 fang1 | area; place |
@@ -589,13 +591,13 @@ notes:
 | 真的 | zhen1 de | true; really |
 | 后 | hou4 | behind; afterwards; back; after |
 | 这里 | zhe4 li3 | here |
-| 场 | chang3 | field; open space; measure word for events |
+| 场 | chang3 | field; place; venue; MW for events, games, performances |
 | 时 | shi2 | time |
 | 净 | jing4 | clean; net (income, exports, etc) |
 | 听 | ting1 | to listen |
 | 欢 | huan1 | joyous; happy; pleased |
-| 个 | ge4 | classifier for people or objects |
-| 怎么 | zen3 me | how?; what?; why? |
+| 怎么 | zen3 me | how?; why? |
+| 怎么了 | zen3 me le | what's wrong?; what happened? |
 | 话 | hua4 | speech; words; talk |
 | 诉 | su4 | to complain; to sue; to tell |
 | 台湾 | tai2 wan1 | Taiwan |
@@ -621,7 +623,7 @@ notes:
 | 足球 | zu2 qiu2 | soccer |
 | 小猫 | xiao3 mao1 | kitten |
 | 狗 | gou3 | dog |
-| 小狗 | xiao3 gou3 | pup; puppy |
+| 小狗 | xiao3 gou3 | puppy |
 | 蛋糕 | dan4 gao1 | cake |
 | 巧克力 | qiao3 ke4 li4 | chocolate |
 | 音乐 | yin1 yue4 | music |
@@ -629,7 +631,7 @@ notes:
 | 行人 | xing2 ren2 | pedestrian |
 | 小心 | xiao3 xin | take care; be careful; be cautious |
 | 心 | xin1 | heart |
-| 回收 | hui2 shou1 | to recycle; to retrieve; to recover |
+| 回收 | hui2 shou1 | to recycle |
 | 回收利用 | hui2 shou1 li4 yong4 | recycling |
 | 入口 | ru4 kou3 | entrance |
 | 出口 | chu1 kou3 | exit |
@@ -657,8 +659,8 @@ notes:
 | 方便 | fang2 bian4 | convenient; suitable; to make things easy |
 | 共享 | gong4 xiang3 | to enjoy together; to share |
 | 办公 | ban4 gong1 | to work (in an office); to handle official business |
-| 空间 | kong1 jian1 | space; room |
-| 共享办公空间 | gong4 xiang3 ban4 gong1 kong1 jian1 | coworking space; shared office space |
+| 空间 | kong1 jian1 | space (physical/abstract) |
+| 共享办公空间 | gong4 xiang3 ban4 gong1 kong1 jian1 | coworking space |
 | 经营 | jing1 ying2 | to manage; to operate; to run (a business) |
 | 公司 | gong1 si1 | company; corporation; firm |
 | 经营一家公司 | jing1 ying2 yi1 jia1 gong1 si1 | to run a company |
@@ -739,8 +741,9 @@ notes:
 | 印度 | yin4 du4 | India |
 | 事情 | shi4 qing2 | affair; matter; thing (to do) |
 | 可以 | ke3 yi3 | can; may |
-| 的时候 | de shi2 hou | when... |
+| 的时候 | de shi2 hou | when.../while... |
 | 我笑的时候 | wo3 xiao3 de shi2 hou4 | when I was little... |
+| 什么时候 | shen2 me shi2 hou | when? |
 | 南非 | nan2 fei1 | South Africa |
 | 非洲 | fei1 zhou1 | Africa |
 | 推荐 | tui1 jian4 | to recommend; recommendation |
@@ -751,7 +754,7 @@ notes:
 | 过来 | guo4 lai2 | to come over |
 | 过去 | guo4 qu4 | to go over |
 | 手冲 | shou3 chong1 | hand drip (coffee) |
-| 公共汽车 | gong1gong4 qi4 che1 | bus |
+| 公共汽车 | gong1 gong4 qi4 che1 | bus |
 | 衣索比亚 | yi1 suo3 bi3 ya4 | Ethiopia |
 | 抱石 | bao4 shi2 | bouldering |
 | 攀岩 | pan1 yan2 | rock climbing; to rock climb |
@@ -767,7 +770,7 @@ notes:
 | 羊肉 | yang2 rou4 | lamb; mutton |
 | 鹅肉 | e2 rou4 | goose (meat) |
 | 鸭肉 | ya1 rou4 | duck (meat) |
-| 试试看 | shi4 shi kan4 | give it a try |
+| 试试看 | shi4 shi kan4 | try it (and see) |
 | 岳父 | yue4 fu4 | father-in-law |
 | 岳母 | yue4 mu3 | mother-in-law |
 | 厉害 | li4 hai | awesome; amazing; impressive |
@@ -784,19 +787,124 @@ notes:
 | 招牌菜 | zhao1 pai2 cai4 | specialty; signature dish |
 | 食物 | shi2 wu4 | food |
 | 好啊 | hao3 a | "OK" |
-| 碗 | wan3 | bowl |
-| 潘 | pan2 | tray; plate; dish |
+| 碗 | wan3 | bowl; MW for bowls of |
+| 盘 | pan2 | plate/dish; MW for plates of |
 | 员 | yuan2 | suffix: member; personnel |
 | 成员 | cheng2 yuan2 | member (general) |
 | 会员 | hui4 yuan2 | member (of organization/club/association) |
 | 手册 | shou3 ce4 | handbook |
-| 份 | fen4 | portion |
+| 份 | fen4 | portion; MW for portions |
 | 套餐 | tao4 can1 | set meal; combo meal |
 | 啤酒 | pi2 jiu3 | beer |
-| 罐 | guan4 | can; jar |
-| 瓶 | ping2 | bottle; vase; flask |
+| 瓶 | ping2 | bottle; MW for bottles of |
+| 罐 | guan4 | can; jar; MW for cans of |
 | 这个要多少钱 | zhe4 ge yao4 duo1 shao qian2 | how much does this cost? |
 | 市场 | shi4 chang3 | market |
 | 操场 | cao1 chang3 | playground; sports field |
 | 球场 | qiu2 chang3 | ball field; court |
 | 停车场 | ting2 che1 chang3 | parking lot |
+| 开始 | kai1 shi3 | to begin; to start |
+| 大楼 | da4 lou2 | building |
+| 楼 | lou2 | floor/story |
+| 袋子 | dai4 zi | bag (disposable) |
+| 塑料 | su4 liao4 | plastic |
+| 塑料袋 | su4 liao4 dai4 | plastic bag |
+| 加热 | jia1 re4 | to heat up |
+| 微波 | wei1 bo1 | microwave |
+| 付款 | fu4 kuan3 | to pay; payment |
+| 怎么付款 | zen3 me fu4 kuan3 | how will you pay? |
+| 现金 | xian4 jin1 | cash |
+| 刷卡 | shua1 ka3 | to use card; swipe card |
+| 信用卡 | xin4 yong4 ka3 | credit card |
+| 悠游卡 | you1 you2 ka3 | EasyCard |
+| 发票 | fa1 piao4 | receipt; invoice |
+| 餐具 | can1 ju4 | utensils |
+| 筷子 | kuai4 zi | chopsticks |
+| 叉子 | cha1 zi | fork |
+| 勺子 | shao2 zi | spoon |
+| 吸管 | xi1 guan3 | straw |
+| 一共 | yi1 gong4 | in total |
+| 闻 | wen2 | to smell |
+| 尝 | chang2 | to taste |
+| 看起来很好吃 | kan4 qi3 lai2 hen3 hao3 chi1 | looks delicious |
+| 好香 | hao3 xiang1 | smells good |
+| 不错 | bu4 cuo4 | not bad; good |
+| 听起来不错 | ting1 qi3 lai2 bu4 cuo4 | "sounds good!" |
+| 怎么样 | zen3 me yang4 | how about...?; how is/was...?; how are you? |
+| 超级 | chao1 ji2 | super; extremely |
+| 便宜 | pian2 yi | cheap; inexpensive |
+| 一般 | yi1 ban1 | ordinary; average |
+| 一般般 | yi1 ban1 ban1 | so-so; mediocre |
+| 一般来说 | yi1 ban1 lai2 shuo1 | generally speaking; normally; usually |
+| 动物 | dong4 wu4 | animal |
+| 养 | yang3 | to raise; to keep (pets, children) |
+| 宠物 | chong3 wu4 | pet |
+| 秒 | miao3 | second (time) |
+| 笔 | bi3 | pen; brush |
+| 一早 | yi1 zao3 | early in the morning; very early |
+| 可能 | ke3 neng2 | maybe; possibly; might |
+| 有可能 | you3 ke3 neng2 | it's possible; there's a possibility |
+| 一对 | yi1 dui4 | a pair (matching set) |
+| 鞋子 | xie2 zi | shoes |
+| 袜子 | wa4 zi | socks |
+| 一双 | yi1 shuang1 | a pair of (hands, feet, eyes, ears, shoes, socks, chopsticks) |
+| 一切 | yi1 qie4 | everything; all |
+| 你是我的一切 | ni3 shi4 wo3 de yi1 qie4 | you are my everything |
+| 一定 | yi1 ding4 | definitely; certainly; must |
+| 爬 | pa2 | to climb; to crawl |
+| 爬山 | pa2 shan1 | to hike; to climb a mountain |
+| 饺子 | jiao3 zi | dumplings|
+| 不好不坏 | bu4 hao3 bu4 huai4 | neither good nor bad; so-so |
+| 旅行 | lü3 xing2 | to travel; trip |
+| 或是 | huo4 shi4 | or (in statements) |
+| 看看 | kan4 kan | take a look |
+| 爱尔兰 | ai4 er2 lan2 | Ireland |
+| 墨西哥 | mo4 xi1 ge1 | Mexico |
+| 巴厘岛 | ba1 li2 | Bali |
+| 岛 | dao3 | island |
+| 全部 | quan2 bu4 | all; entire; whole |
+| 全部国家 | quan2 bu4 guo2 jia1 | all the countries |
+| 我也是 | wo3 ye3 shi4 | me too; so am I |
+| 越来越 | yue4 lai2 yue4 | more and more; increasingly |
+| 简单 | jian3 dan1 | simple; easy |
+| 花生 | hua1 sheng1 | peanut |
+| 冰淇淋 | bing1 qi2 lin2 | ice cream |
+| 卷 | juan3 | roll; to roll up |
+| 香菜 | xiang1 cai4 | cilantro; coriander |
+| 花生冰淇淋卷 | hua1 sheng1 bing1 qi2 lin2 juan3 | peanut ice cream roll |
+| 春卷 | chun1 juan3 | spring roll |
+| 蛋卷 | dan4 juan3 | egg roll |
+| 卷饼 | juan3 bing3 | burrito; wrap |
+| 寿司 | shou4 si1 | sushi |
+| 寿司卷 | shou4 si1 juan3 | sushi roll |
+| 手卷 | shou3 juan3 | sushi hand roll |
+| 夜市 | ye4 shi4 | night market |
+| 量词 | liang4 ci2 | measure word |
+| 凤梨 | feng4 li2 | pineapple (Taiwan) |
+| 菠萝 | bo1 luo2 | pineapple (Mainland) |
+| 凤梨酥 | feng4 li2 su1 | pineapple cake |
+| 草莓 | cao3 mei2 | strawberry |
+| 蓝莓 | lan2 mei2 | blueberry |
+| 黑莓 | hei1 mei2 | blackberry |
+| 树莓 | shu4 mei2 | raspberry |
+| 盒 | he2 | box; MW for boxes |
+| 芒果 | mang2 guo3 | mango |
+| 柠檬 | ning2 meng2 | lemon |
+| 樱桃 | ying1 tao2 | cherry |
+| 公斤 | gong1 jin1 | kilogram; MW for weight |
+| 斤 | jin1 | catty (600g in Taiwan, 500g Mainland); MW for weight |
+
+| 个 | ge | MW for people, objects, general fruits |
+| 条 | tiao2 | MW for long/thin things |
+| 张 | zhang1 | MW for flat things: paper, tables, beds, tickets, photos |
+| 把 | ba3 | MW for things with handles: chairs, knives, scissors, umbrellas, teapots, handfuls of things (rice, scallions) |
+| 只 | zhi1 | MW for animals |
+| 笔 | bi3 | MW for character strokes |
+| 件 | jian4 | MW for clothes, matters |
+| 一道 | yi1 dao4 | MW for dishes (food), questions |
+| 颗 | ke1 | MW for small round fruits (berries, grapes, cherries) |
+| 根 | gen1 | MW for long stick-like things; bananas |
+| 串 | chuan4 | MW for bunches, clusters (of bananas, grapes) |
+| 片 | pian4 | MW for slices, flat pieces (of watermelon, bread) |
+| 瓣 | ban4 | MW for segments (of oranges, garlic) |
+| 粒 | li4 | MW for small grain-like items (of rice) |

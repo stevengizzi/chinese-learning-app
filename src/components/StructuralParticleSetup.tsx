@@ -6,6 +6,9 @@ import {
   DEFAULT_STRUCTURAL_PARTICLE_CONFIG,
 } from '../types/structuralParticle';
 import { filterByParticles, getCountsByParticle } from '../lib/structuralParticleParser';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface StructuralParticleSetupProps {
   items: StructuralParticleItem[];
@@ -15,6 +18,11 @@ interface StructuralParticleSetupProps {
 
 export function StructuralParticleSetup({ items, onStart, onBack }: StructuralParticleSetupProps) {
   const [config, setConfig] = useState<StructuralParticleConfig>(DEFAULT_STRUCTURAL_PARTICLE_CONFIG);
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   const counts = getCountsByParticle(items);
   const filteredCount = filterByParticles(items, config.selectedParticles).length;
@@ -199,6 +207,11 @@ export function StructuralParticleSetup({ items, onStart, onBack }: StructuralPa
             <span className="text-gray-600 dark:text-gray-400 ml-2">
               items to practice
             </span>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Action Buttons */}

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { MultipleChoiceItem, SimilarCharactersConfig } from '../types/similarCharacters';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface MultipleChoiceExerciseProps {
   items: MultipleChoiceItem[];
@@ -22,6 +23,7 @@ export function MultipleChoiceExercise({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [startTime, setStartTime] = useState(Date.now());
+  const [characterSet] = useState(loadCharacterSetPreference);
 
   const currentItem = items[currentIndex];
   const progress = ((currentIndex + 1) / items.length) * 100;
@@ -163,7 +165,7 @@ export function MultipleChoiceExercise({
                 className={`relative p-6 rounded-xl border-2 transition-all duration-200 ${getButtonStyle(index)}`}
               >
                 <div className="text-6xl font-normal text-center mb-2">
-                  {char}
+                  {convertCharacters(char, characterSet)}
                 </div>
                 <div className="text-sm text-center text-gray-500 dark:text-gray-400">
                   {index + 1}
@@ -198,7 +200,7 @@ export function MultipleChoiceExercise({
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     The correct answer is{' '}
                     <span className="font-bold text-gray-900 dark:text-white text-lg">
-                      {currentItem.targetCharacter}
+                      {convertCharacters(currentItem.targetCharacter, characterSet)}
                     </span>
                   </p>
                 </div>

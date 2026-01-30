@@ -5,11 +5,13 @@ import { updateHighScore, formatTime } from '../lib/highScores';
 import { loadResponseDatabase } from '../lib/responseTracking/storage';
 import { generateSpeedReport, formatResponseTime } from '../lib/responseTracking/analytics';
 import type { SpeedReport } from '../types/responseTracking';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 export function ReportScreen() {
   const { state, dispatch } = useExercise();
   const [isNewHighScore, setIsNewHighScore] = useState(false);
   const [speedReport, setSpeedReport] = useState<SpeedReport | null>(null);
+  const [characterSet] = useState(loadCharacterSetPreference);
 
   // Check and save high score when session is available
   useEffect(() => {
@@ -200,7 +202,7 @@ export function ReportScreen() {
                         <ul className="space-y-1">
                           {speedReport.fastestEntries.slice(0, 3).map((entry, i) => (
                             <li key={i} className="text-sm text-gray-700 dark:text-gray-300">
-                              {entry.character}: {formatResponseTime(entry.timeMs)}
+                              {convertCharacters(entry.character, characterSet)}: {formatResponseTime(entry.timeMs)}
                             </li>
                           ))}
                         </ul>
@@ -210,7 +212,7 @@ export function ReportScreen() {
                         <ul className="space-y-1">
                           {speedReport.slowestEntries.slice(0, 3).map((entry, i) => (
                             <li key={i} className="text-sm text-gray-700 dark:text-gray-300">
-                              {entry.character}: {formatResponseTime(entry.timeMs)}
+                              {convertCharacters(entry.character, characterSet)}: {formatResponseTime(entry.timeMs)}
                             </li>
                           ))}
                         </ul>

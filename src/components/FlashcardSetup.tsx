@@ -9,6 +9,9 @@ import type { SpeechRate, ReplayLimit } from '../types/tts';
 import { SPEECH_RATE_LABELS, REPLAY_LIMIT_LABELS, DEFAULT_AUDIO_EXERCISE_CONFIG } from '../types/tts';
 import { VocabularyFilter } from './VocabularyFilter';
 import { countFilteredVocabulary, filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface FlashcardSetupProps {
   vocabulary: VocabularyEntry[];
@@ -49,6 +52,13 @@ export function FlashcardSetup({
     speechRate: DEFAULT_AUDIO_EXERCISE_CONFIG.speechRate,
     replayLimit: DEFAULT_AUDIO_EXERCISE_CONFIG.replayLimit,
   });
+
+  // Character set
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   const filteredCount = countFilteredVocabulary(vocabulary, vocabFilter, database);
   const exerciseKey = `flashcard-${playMode}`;
@@ -348,6 +358,11 @@ export function FlashcardSetup({
                 onFilterChange={setVocabFilter}
                 showRememberOption={true}
               />
+            </div>
+
+            {/* Character Set */}
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+              <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
             </div>
 
             {/* Filtered Count */}

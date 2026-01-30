@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { SentenceReadingConfig, Sentence } from '../types/sentenceReading';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface SentenceReadingSetupProps {
   sentences: Sentence[];
@@ -30,6 +33,11 @@ export function SentenceReadingSetup({ sentences, onStart, onBack }: SentenceRea
   // Difficulty range
   const [difficultyMin, setDifficultyMin] = useState(savedSettings?.difficultyMin ?? 1);
   const [difficultyMax, setDifficultyMax] = useState(savedSettings?.difficultyMax ?? 5);
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
@@ -167,6 +175,11 @@ export function SentenceReadingSetup({ sentences, onStart, onBack }: SentenceRea
               <li>Check your answer - pinyin is auto-graded, you self-assess the meaning</li>
               <li>See reference translations and mark if you understood correctly</li>
             </ol>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Action Buttons */}

@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import type { TenseAspectSession, TenseAspectItem, AspectType } from '../types/tenseAspect';
 import { ASPECT_DISPLAY_NAMES, ASPECT_COLORS, ALL_ASPECT_TYPES } from '../types/tenseAspect';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface TenseAspectReportProps {
   session: TenseAspectSession;
@@ -21,6 +23,7 @@ export function TenseAspectReport({
   onBackToMenu,
   onNewSession,
 }: TenseAspectReportProps) {
+  const [characterSet] = useState(loadCharacterSetPreference);
   const { attempts, startTime, endTime } = session;
 
   // Calculate overall stats
@@ -174,7 +177,7 @@ export function TenseAspectReport({
                           </div>
                           <div className="flex items-center gap-2 mt-1">
                             <span className="text-lg text-gray-900 dark:text-white">
-                              {item.chineseAnswer}
+                              {convertCharacters(item.chineseAnswer, characterSet)}
                             </span>
                             <span className="text-sm text-gray-500 dark:text-gray-400">
                               {convertPinyinStringToToneMarks(item.pinyin)}

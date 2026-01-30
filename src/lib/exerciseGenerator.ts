@@ -59,12 +59,12 @@ function determinePromptType(
   isPinyinExercise: boolean,
   exerciseType?: ExerciseType
 ): PromptType {
-  // For audio exercises, use specialized prompt types
+  // For audio exercises, use dedicated audio prompt types for separate tracking
   if (exerciseType === 'audio-to-pinyin') {
-    return 'character-to-pinyin';  // Treat audio prompts like character prompts for tracking
+    return 'audio-to-pinyin';
   }
   if (exerciseType === 'audio-to-english') {
-    return 'character-to-english';  // Treat audio prompts like character prompts for tracking
+    return 'audio-to-english';
   }
 
   // Check if the original prompt (before disambiguation) matches character, pinyin, or meaning

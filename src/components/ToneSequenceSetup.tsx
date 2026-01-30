@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import type { ToneNumber, ToneSequenceConfig } from '../types/toneSequence';
 import { DEFAULT_SANDHI_RULES } from '../lib/toneSequence/toneSandhiRules';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface ToneSequenceSetupProps {
   onStart: (config: ToneSequenceConfig) => void;
@@ -64,6 +67,11 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
   // Exercise parameters
   const [sequenceLength, setSequenceLength] = useState(savedSettings?.sequenceLength ?? 4);
   const [bpm, setBPM] = useState(savedSettings?.bpm ?? 120);
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
@@ -281,6 +289,11 @@ export function ToneSequenceSetup({ onStart, onBack }: ToneSequenceSetupProps) {
                 />
               </div>
             </div>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Action Buttons */}

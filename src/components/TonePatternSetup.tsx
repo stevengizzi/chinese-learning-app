@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { TonePatternConfig, TonePatternItem, ToneSlotSelection } from '../types/tonePatternPractice';
 import { loadAllTonePatternItems, countMatchingItems } from '../lib/tonePatternMatcher';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface TonePatternSetupProps {
   onStart: (config: TonePatternConfig, items: TonePatternItem[]) => void;
@@ -60,6 +63,11 @@ export function TonePatternSetup({ onStart, onBack }: TonePatternSetupProps) {
   const [allItems, setAllItems] = useState<TonePatternItem[]>([]);
   const [matchCount, setMatchCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   // Load items on mount
   useEffect(() => {
@@ -325,6 +333,11 @@ export function TonePatternSetup({ onStart, onBack }: TonePatternSetupProps) {
                 Shuffle items
               </span>
             </label>
+          </div>
+
+          {/* Character Set */}
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+            <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
           </div>
 
           {/* Action Buttons */}

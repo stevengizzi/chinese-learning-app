@@ -245,7 +245,7 @@ export function getVocabularyMasteryInfo(
 
   // Determine overall mastery level based on prompt type completion
   // "new" = no prompt types attempted
-  // "mastered" = all 4 prompt types mastered
+  // "mastered" = all prompt types mastered
   // "learning" = at least one mastered or learning, none struggling
   // "struggling" = any prompt type struggling
   const promptTypesAttempted = ALL_PROMPT_TYPES.filter(
@@ -255,7 +255,7 @@ export function getVocabularyMasteryInfo(
   let masteryLevel: MasteryLevel;
   if (promptTypesAttempted === 0) {
     masteryLevel = 'new';
-  } else if (promptTypesMastered === 4) {
+  } else if (promptTypesMastered === ALL_PROMPT_TYPES.length) {
     masteryLevel = 'mastered';
   } else {
     // Check if any are struggling
@@ -479,7 +479,7 @@ export function getAggregateMasteryData(
 
   // Calculate overall mastery percentage (average across all prompt types)
   const overallMasteryPercentage =
-    ALL_PROMPT_TYPES.reduce((sum, pt) => sum + byPromptType[pt].masteryPercentage, 0) / 4;
+    ALL_PROMPT_TYPES.reduce((sum, pt) => sum + byPromptType[pt].masteryPercentage, 0) / ALL_PROMPT_TYPES.length;
 
   return {
     byPromptType,

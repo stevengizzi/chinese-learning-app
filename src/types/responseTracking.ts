@@ -13,7 +13,9 @@ export type PromptType =
   | 'character-to-pinyin'      // Character → Pinyin
   | 'character-to-english'     // Character → English
   | 'pinyin-to-english'        // Pinyin → English
-  | 'english-to-pinyin';       // English → Pinyin
+  | 'english-to-pinyin'        // English → Pinyin
+  | 'audio-to-pinyin'          // Audio → Pinyin
+  | 'audio-to-english';        // Audio → English
 
 /**
  * Individual response record

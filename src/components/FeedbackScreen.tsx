@@ -4,6 +4,7 @@ import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { parseExampleSentences, findMatchingSentences, type ExampleSentence } from '../lib/exampleSentences';
 import { SpeedFeedback } from './SpeedFeedback';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 /**
  * Editable field component for vocabulary card
@@ -92,6 +93,7 @@ function EditableField({
 export function FeedbackScreen() {
   const { state, dispatch } = useExercise();
   const [exampleSentences, setExampleSentences] = useState<ExampleSentence[]>([]);
+  const [characterSet] = useState(loadCharacterSetPreference);
 
   const handleNext = () => {
     dispatch({ type: 'NEXT_EXERCISE' });
@@ -209,6 +211,7 @@ export function FeedbackScreen() {
                   <div className="mb-1">
                     <EditableField
                       value={vocab.word}
+                      displayValue={convertCharacters(vocab.word, characterSet)}
                       onSave={(v) => handleFieldEdit('word', v)}
                       fontSize={`${fontSize} font-normal`}
                       textColor="text-gray-900 dark:text-white"
@@ -274,15 +277,16 @@ export function FeedbackScreen() {
                       const expectedTone = error.expectedPinyin.match(/[1-4]$/)?.[0] || 'neutral';
                       const userTone = error.userPinyin.match(/[1-4]$/)?.[0];
 
+                      const char = convertCharacters(error.character, characterSet);
                       if (userTone) {
-                        message = `${error.character} is ${error.expectedPinyin} (tone ${expectedTone}) - you used tone ${userTone}`;
+                        message = `${char} is ${error.expectedPinyin} (tone ${expectedTone}) - you used tone ${userTone}`;
                       } else {
-                        message = `${error.character} is ${error.expectedPinyin} (tone ${expectedTone}) - tone was missing`;
+                        message = `${char} is ${error.expectedPinyin} (tone ${expectedTone}) - tone was missing`;
                       }
                     } else if (error.errorType === 'syllable') {
-                      message = `${error.character} is ${error.expectedPinyin} - you typed ${error.userPinyin}`;
+                      message = `${convertCharacters(error.character, characterSet)} is ${error.expectedPinyin} - you typed ${error.userPinyin}`;
                     } else if (error.errorType === 'missing') {
-                      message = `${error.character} (${error.expectedPinyin}) was missing`;
+                      message = `${convertCharacters(error.character, characterSet)} (${error.expectedPinyin}) was missing`;
                     } else if (error.errorType === 'extra') {
                       message = `Extra syllable: ${error.userPinyin}`;
                     }
@@ -342,7 +346,7 @@ export function FeedbackScreen() {
                 <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 space-y-4">
                   {exampleSentences.map((sentence, index) => (
                     <div key={index} className="space-y-1 text-center">
-                      <div className="text-xl font-extrabold text-gray-900 dark:text-white">{sentence.hanzi}</div>
+                      <div className="text-xl font-extrabold text-gray-900 dark:text-white">{convertCharacters(sentence.hanzi, characterSet)}</div>
                       <div className="text-base text-gray-600 dark:text-gray-300 font-mono">{sentence.pinyin}</div>
                       <div className="text-base text-gray-700 dark:text-gray-200">{sentence.meaning}</div>
                       <div className="my-2">&nbsp;</div>

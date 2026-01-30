@@ -7,6 +7,7 @@ import type {
 import { PARTICLE_INFO } from '../types/structuralParticle';
 import { gradeStructuralParticleAnswer } from '../lib/structuralParticleParser';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
+import { convertCharacters, loadCharacterSetPreference } from '../lib/characterConverter';
 
 interface StructuralParticleExerciseProps {
   item: StructuralParticleItem;
@@ -35,6 +36,7 @@ export function StructuralParticleExercise({
     userAnswer: '',
   });
   const [startTime, setStartTime] = useState(Date.now());
+  const [characterSet] = useState(loadCharacterSetPreference);
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const justShowedFeedbackRef = useRef(false);
@@ -182,7 +184,7 @@ export function StructuralParticleExercise({
               <span
                 className={`px-4 py-1.5 rounded-full text-sm font-medium border-2 ${particleInfo.color.bg} ${particleInfo.color.text} ${particleInfo.color.border}`}
               >
-                <span className="text-xl mr-2">{item.particle}</span>
+                <span className="text-xl mr-2">{convertCharacters(item.particle, characterSet)}</span>
                 {particleInfo.name}
               </span>
             </div>
@@ -198,7 +200,7 @@ export function StructuralParticleExercise({
           {/* Base elements */}
           <div className="text-center mb-4">
             <p className="text-3xl font-medium text-gray-900 dark:text-white">
-              {item.baseElements}
+              {convertCharacters(item.baseElements, characterSet)}
             </p>
           </div>
 
@@ -261,7 +263,7 @@ export function StructuralParticleExercise({
               {/* Correct answer */}
               <div className="text-center">
                 <p className="text-2xl text-gray-900 dark:text-white mb-1">
-                  {item.chineseAnswer}
+                  {convertCharacters(item.chineseAnswer, characterSet)}
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-400">
                   {convertPinyinStringToToneMarks(item.pinyin)}
