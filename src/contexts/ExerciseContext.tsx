@@ -5,6 +5,7 @@ import type { Exercise, ExerciseAttempt, ExerciseType, PlayMode, AudioExerciseSe
 import type { Session } from '../types/session';
 import type { ResponseDatabase } from '../types/responseTracking';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
+import type { CharacterSet } from '../lib/characterConverter';
 import { generateExercise, shuffleArray, normalizeMeaning } from '../lib/exerciseGenerator';
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
@@ -168,9 +169,9 @@ type ExerciseAction =
   | { type: 'SET_VOCABULARY'; payload: VocabularyData }
   | { type: 'SET_RESPONSE_DATABASE'; payload: ResponseDatabase }
   | { type: 'SHOW_EXERCISE_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode } }
-  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode; vocabularyFilter?: VocabularyFilterConfig; audioSettings?: AudioExerciseSettings } }
+  | { type: 'START_SESSION_WITH_CONFIG'; payload: { exerciseType: ExerciseType; playMode: PlayMode; vocabularyFilter?: VocabularyFilterConfig; audioSettings?: AudioExerciseSettings; characterSet?: CharacterSet } }
   | { type: 'SHOW_SPEED_DRILL_CONFIG'; payload: { exerciseType: ExerciseType } }
-  | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number; vocabularyFilter?: VocabularyFilterConfig } }
+  | { type: 'START_SPEED_DRILL'; payload: { exerciseType: ExerciseType; baseThresholdMs: number; incrementPerWordMs: number; vocabularyFilter?: VocabularyFilterConfig; characterSet?: CharacterSet } }
   | { type: 'SUBMIT_ANSWER'; payload: string }
   | { type: 'NEXT_EXERCISE' }
   | { type: 'REQUEST_REPORT' }
@@ -222,7 +223,8 @@ function generateNewExercise(
   remainingWords: string[],
   focusOnWeaknesses: boolean = false,
   responseDatabase: ResponseDatabase | null = null,
-  fullVocabulary?: VocabularyEntry[]
+  fullVocabulary?: VocabularyEntry[],
+  characterSet?: CharacterSet
 ): Exercise {
   // Build focus mode options if enabled and we have a response database
   const focusMode = focusOnWeaknesses && responseDatabase
@@ -236,7 +238,8 @@ function generateNewExercise(
     recentIds,
     remainingWords,
     focusMode,
-    fullVocabulary
+    fullVocabulary,
+    characterSet
   );
 }
 
@@ -331,7 +334,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'START_SESSION_WITH_CONFIG': {
       if (!state.vocabulary) return state;
 
-      const { exerciseType, playMode, vocabularyFilter, audioSettings } = action.payload;
+      const { exerciseType, playMode, vocabularyFilter, audioSettings, characterSet } = action.payload;
 
       // Apply vocabulary filter if specified (including when mastery filter is active)
       const shouldApplyFilter = vocabularyFilter &&
@@ -374,7 +377,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         remainingWords || [],
         state.focusOnWeaknesses,
         state.responseDatabase,
-        state.vocabulary.active  // Full vocabulary for disambiguation
+        state.vocabulary.active,  // Full vocabulary for disambiguation
+        characterSet
       );
 
       return {
@@ -385,6 +389,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
           vocabularyFilter,  // Store filter config in session
           filteredVocabulary: activeVocabulary,  // Store filtered vocabulary for the session
           audioSettings,  // Store audio settings for audio exercises
+          characterSet,  // Store character set for prompt type determination
         },
         currentExercise: exercise,
         currentAttempt: null,
@@ -591,7 +596,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         state.currentSession.remainingWords || [],
         state.currentSession.focusOnWeaknesses || false,
         state.responseDatabase,
-        state.vocabulary?.active  // Full vocabulary for disambiguation
+        state.vocabulary?.active,  // Full vocabulary for disambiguation
+        state.currentSession.characterSet
       );
 
       // Resume timer
@@ -680,7 +686,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'START_SPEED_DRILL': {
       if (!state.vocabulary) return state;
 
-      const { exerciseType, baseThresholdMs, incrementPerWordMs, vocabularyFilter } = action.payload;
+      const { exerciseType, baseThresholdMs, incrementPerWordMs, vocabularyFilter, characterSet: speedDrillCharSet } = action.payload;
 
       // Apply vocabulary filter if specified (including when mastery filter is active)
       const shouldApplyFilter = vocabularyFilter &&
@@ -720,7 +726,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         remainingWords || [],
         false,  // focusOnWeaknesses
         null,   // responseDatabase
-        state.vocabulary.active  // Full vocabulary for disambiguation
+        state.vocabulary.active,  // Full vocabulary for disambiguation
+        speedDrillCharSet
       );
 
       return {
@@ -728,7 +735,8 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         currentSession: {
           ...session,
           vocabularyFilter,  // Store filter config in session
-          filteredVocabulary: activeVocabulary  // Store filtered vocabulary for the session
+          filteredVocabulary: activeVocabulary,  // Store filtered vocabulary for the session
+          characterSet: speedDrillCharSet  // Store character set for prompt type determination
         },
         currentExercise: exercise,
         currentAttempt: null,

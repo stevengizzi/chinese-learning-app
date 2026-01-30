@@ -90,12 +90,13 @@ function migrateAudioPromptTypes(database: ResponseDatabase): ResponseDatabase {
   let migrated = false;
 
   // Fix records: remap promptType for audio exercises
+  // Note: old records used 'character-to-pinyin'/'character-to-english' which are now legacy values
   const updatedRecords = database.records.map(record => {
-    if (record.exerciseType === 'audio-to-pinyin' && record.promptType === 'character-to-pinyin') {
+    if (record.exerciseType === 'audio-to-pinyin' && (record.promptType as string) === 'character-to-pinyin') {
       migrated = true;
       return { ...record, promptType: 'audio-to-pinyin' as PromptType };
     }
-    if (record.exerciseType === 'audio-to-english' && record.promptType === 'character-to-english') {
+    if (record.exerciseType === 'audio-to-english' && (record.promptType as string) === 'character-to-english') {
       migrated = true;
       return { ...record, promptType: 'audio-to-english' as PromptType };
     }
@@ -121,16 +122,17 @@ function migrateAudioPromptTypes(database: ResponseDatabase): ResponseDatabase {
     // Rebuild prompt type stats from records for this vocabulary
     const vocabRecords = updatedRecords.filter(r => r.vocabularyId === vocabId);
 
-    // Reset audio and character prompt stats, then recompute
-    const affectedTypes: PromptType[] = ['character-to-pinyin', 'character-to-english', 'audio-to-pinyin', 'audio-to-english'];
+    // Reset audio and legacy character prompt stats, then recompute
+    // Note: 'character-to-pinyin'/'character-to-english' are legacy keys from old data
+    const affectedTypes: string[] = ['character-to-pinyin', 'character-to-english', 'audio-to-pinyin', 'audio-to-english'];
     for (const pt of affectedTypes) {
-      stats.byPromptType[pt] = createEmptyPromptTypeStats();
+      (stats.byPromptType as Record<string, PromptTypeStats>)[pt] = createEmptyPromptTypeStats();
     }
 
     for (const record of vocabRecords) {
-      if (!affectedTypes.includes(record.promptType)) continue;
+      if (!affectedTypes.includes(record.promptType as string)) continue;
 
-      const promptStats = stats.byPromptType[record.promptType];
+      const promptStats = (stats.byPromptType as Record<string, PromptTypeStats>)[record.promptType as string];
       promptStats.totalAttempts++;
       promptStats.lastAttemptTimestamp = Math.max(promptStats.lastAttemptTimestamp, record.timestamp);
 
@@ -153,6 +155,69 @@ function migrateAudioPromptTypes(database: ResponseDatabase): ResponseDatabase {
   return {
     ...database,
     version: 2,
+    records: updatedRecords,
+    statistics: updatedStatistics,
+    lastUpdated: Date.now()
+  };
+}
+
+/**
+ * Migrate character-to-pinyin/character-to-english prompt types
+ * to simplified-to-pinyin/simplified-to-english.
+ * All historical data was simplified, so existing records are remapped accordingly.
+ */
+function migrateCharacterSetPromptTypes(database: ResponseDatabase): ResponseDatabase {
+  let migrated = false;
+
+  const updatedRecords = database.records.map(record => {
+    const pt = record.promptType as string;
+    if (pt === 'character-to-pinyin') {
+      migrated = true;
+      return { ...record, promptType: 'simplified-to-pinyin' as PromptType };
+    }
+    if (pt === 'character-to-english') {
+      migrated = true;
+      return { ...record, promptType: 'simplified-to-english' as PromptType };
+    }
+    return record;
+  });
+
+  if (!migrated) return database;
+
+  const updatedStatistics = { ...database.statistics };
+
+  for (const vocabId of Object.keys(updatedStatistics)) {
+    const stats = { ...updatedStatistics[vocabId] };
+    const bp = stats.byPromptType as Record<string, PromptTypeStats>;
+
+    // Move old keys to new keys
+    if (bp['character-to-pinyin']) {
+      bp['simplified-to-pinyin'] = bp['character-to-pinyin'];
+      delete bp['character-to-pinyin'];
+    }
+    if (bp['character-to-english']) {
+      bp['simplified-to-english'] = bp['character-to-english'];
+      delete bp['character-to-english'];
+    }
+
+    // Ensure all 8 keys exist
+    const allKeys: PromptType[] = [
+      'simplified-to-pinyin', 'traditional-to-pinyin',
+      'simplified-to-english', 'traditional-to-english',
+      'pinyin-to-english', 'english-to-pinyin',
+      'audio-to-pinyin', 'audio-to-english'
+    ];
+    for (const pt of allKeys) {
+      if (!bp[pt]) bp[pt] = createEmptyPromptTypeStats();
+    }
+
+    stats.byPromptType = bp as Record<PromptType, PromptTypeStats>;
+    updatedStatistics[vocabId] = stats;
+  }
+
+  return {
+    ...database,
+    version: 3,
     records: updatedRecords,
     statistics: updatedStatistics,
     lastUpdated: Date.now()
@@ -207,7 +272,8 @@ export async function loadResponseDatabase(): Promise<ResponseDatabase> {
   }
 
   // Run migrations
-  const migrated = migrateAudioPromptTypes(result);
+  let migrated = migrateAudioPromptTypes(result);
+  migrated = migrateCharacterSetPromptTypes(migrated);
   if (migrated !== result) {
     saveResponseDatabase(migrated);
   }
@@ -302,8 +368,10 @@ export function addResponseRecords(
         lastAttemptTimestamp: 0,
         recentResponseTimes: [],
         byPromptType: {
-          'character-to-pinyin': createEmptyPromptTypeStats(),
-          'character-to-english': createEmptyPromptTypeStats(),
+          'simplified-to-pinyin': createEmptyPromptTypeStats(),
+          'traditional-to-pinyin': createEmptyPromptTypeStats(),
+          'simplified-to-english': createEmptyPromptTypeStats(),
+          'traditional-to-english': createEmptyPromptTypeStats(),
           'pinyin-to-english': createEmptyPromptTypeStats(),
           'english-to-pinyin': createEmptyPromptTypeStats(),
           'audio-to-pinyin': createEmptyPromptTypeStats(),
@@ -320,20 +388,27 @@ export function addResponseRecords(
     // Ensure byPromptType exists and has all prompt types (for backward compatibility with old data)
     if (!stats.byPromptType) {
       stats.byPromptType = {
-        'character-to-pinyin': createEmptyPromptTypeStats(),
-        'character-to-english': createEmptyPromptTypeStats(),
+        'simplified-to-pinyin': createEmptyPromptTypeStats(),
+        'traditional-to-pinyin': createEmptyPromptTypeStats(),
+        'simplified-to-english': createEmptyPromptTypeStats(),
+        'traditional-to-english': createEmptyPromptTypeStats(),
         'pinyin-to-english': createEmptyPromptTypeStats(),
         'english-to-pinyin': createEmptyPromptTypeStats(),
         'audio-to-pinyin': createEmptyPromptTypeStats(),
         'audio-to-english': createEmptyPromptTypeStats()
       };
     }
-    // Ensure new audio prompt types exist (migration from 4 to 6 types)
-    if (!stats.byPromptType['audio-to-pinyin']) {
-      stats.byPromptType['audio-to-pinyin'] = createEmptyPromptTypeStats();
-    }
-    if (!stats.byPromptType['audio-to-english']) {
-      stats.byPromptType['audio-to-english'] = createEmptyPromptTypeStats();
+    // Ensure all 8 prompt type slots exist (backward compatibility)
+    const allPromptTypes: PromptType[] = [
+      'simplified-to-pinyin', 'traditional-to-pinyin',
+      'simplified-to-english', 'traditional-to-english',
+      'pinyin-to-english', 'english-to-pinyin',
+      'audio-to-pinyin', 'audio-to-english'
+    ];
+    for (const pt of allPromptTypes) {
+      if (!stats.byPromptType[pt]) {
+        stats.byPromptType[pt] = createEmptyPromptTypeStats();
+      }
     }
 
     // Update overall stats

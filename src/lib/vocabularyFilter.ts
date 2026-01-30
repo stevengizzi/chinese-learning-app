@@ -7,6 +7,7 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { ResponseDatabase, PromptType } from '../types/responseTracking';
 import type { VocabularyFilterConfig, VocabularyFilterType, SavedFilterPreferences } from '../types/vocabularyFilter';
+import type { CharacterSet } from './characterConverter';
 import { DEFAULT_MASTERY_LEVELS } from '../types/vocabularyFilter';
 import { generateVocabularyId, calculateSpeedThreshold } from './responseTracking/storage';
 import { getVocabularyMasteryInfo } from './dashboard/mastery';
@@ -332,7 +333,7 @@ export function getAllFilterCounts(
  * Exercise key format: "${exerciseType}-${playMode}" or just "${exerciseType}"
  * Returns array of prompt types relevant to the exercise
  */
-export function getPromptTypesForExercise(exerciseKey: string): PromptType[] {
+export function getPromptTypesForExercise(exerciseKey: string, characterSet?: CharacterSet): PromptType[] {
   // Extract exercise type from key (remove playMode suffix if present)
   // Note: -speed-drill must be checked before -drill to avoid partial match
   const exerciseType = exerciseKey
@@ -342,28 +343,35 @@ export function getPromptTypesForExercise(exerciseKey: string): PromptType[] {
     .replace(/-speed-drill$/, '')
     .replace(/-drill$/, '');
 
+  const isTraditional = characterSet === 'traditional';
+
   switch (exerciseType) {
     case 'character-to-pinyin':
-      return ['character-to-pinyin'];
+      return [isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin'];
     case 'character-to-english':
-      return ['character-to-english'];
+      return [isTraditional ? 'traditional-to-english' : 'simplified-to-english'];
     case 'pinyin-to-english':
       return ['pinyin-to-english'];
     case 'english-to-pinyin':
       return ['english-to-pinyin'];
     case 'shuffled':
       // Shuffled pinyin: word→pinyin and meaning→pinyin
-      return ['character-to-pinyin', 'english-to-pinyin'];
+      return [isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin', 'english-to-pinyin'];
     case 'shuffled-to-english':
       // Shuffled English: word→English and pinyin→English
-      return ['character-to-english', 'pinyin-to-english'];
+      return [isTraditional ? 'traditional-to-english' : 'simplified-to-english', 'pinyin-to-english'];
     case 'audio-to-pinyin':
       return ['audio-to-pinyin'];
     case 'audio-to-english':
       return ['audio-to-english'];
     case 'flashcard':
-      // Flashcards test across all reading prompt types
-      return ['character-to-pinyin', 'character-to-english', 'pinyin-to-english', 'english-to-pinyin'];
+      // Flashcards test across character and non-character prompt types
+      return [
+        isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin',
+        isTraditional ? 'traditional-to-english' : 'simplified-to-english',
+        'pinyin-to-english',
+        'english-to-pinyin'
+      ];
     default:
       return [];
   }
@@ -372,7 +380,7 @@ export function getPromptTypesForExercise(exerciseKey: string): PromptType[] {
 /**
  * Map exercise type to prompt type for filtering (legacy, returns single type or 'any')
  */
-export function getPromptTypeForExercise(exerciseKey: string): PromptType | 'any' {
-  const types = getPromptTypesForExercise(exerciseKey);
+export function getPromptTypeForExercise(exerciseKey: string, characterSet?: CharacterSet): PromptType | 'any' {
+  const types = getPromptTypesForExercise(exerciseKey, characterSet);
   return types.length === 1 ? types[0] : 'any';
 }

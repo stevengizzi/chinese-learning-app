@@ -79,6 +79,7 @@ export function ExerciseConfigScreen() {
         playMode,
         vocabularyFilter: shouldIncludeFilter ? filter : undefined,
         audioSettings: isAudio ? audioSettings : undefined,
+        characterSet,
       }
     });
   };
@@ -112,6 +113,7 @@ export function ExerciseConfigScreen() {
                 database={database}
                 onFilterChange={setFilter}
                 showRememberOption={true}
+                characterSet={characterSet}
               />
             </div>
 
@@ -163,10 +165,12 @@ export function ExerciseConfigScreen() {
               </div>
             )}
 
-            {/* Character Set */}
-            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
-              <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
-            </div>
+            {/* Character Set (hidden for exercises that don't display characters) */}
+            {exerciseType !== 'pinyin-to-english' && exerciseType !== 'english-to-pinyin' && (
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+                <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
+              </div>
+            )}
 
             {/* Filtered Count */}
             <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">

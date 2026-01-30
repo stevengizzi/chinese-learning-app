@@ -2,6 +2,7 @@ import type { ExerciseAttempt, ExerciseType, PlayMode, AudioExerciseSettings } f
 import type { PromptType } from './responseTracking';
 import type { VocabularyFilterConfig } from './vocabularyFilter';
 import type { VocabularyEntry } from './vocabulary';
+import type { CharacterSet } from '../lib/characterConverter';
 
 export interface Session {
   id: string;
@@ -34,6 +35,7 @@ export interface Session {
   vocabularyFilter?: VocabularyFilterConfig;  // Filter used to select vocabulary for this session
   filteredVocabulary?: VocabularyEntry[];  // The filtered vocabulary entries used in this session
   audioSettings?: AudioExerciseSettings;  // Settings for audio exercises (speech rate, replay limit)
+  characterSet?: CharacterSet;  // Which character set was used (simplified or traditional)
 }
 
 export interface SessionStatistics {

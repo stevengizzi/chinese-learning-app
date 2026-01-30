@@ -3,12 +3,21 @@ import { useExercise } from '../contexts/ExerciseContext';
 import type { VocabularyFilterConfig } from '../types/vocabularyFilter';
 import { VocabularyFilter } from './VocabularyFilter';
 import { countFilteredVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
+import { CharacterSetToggle } from './CharacterSetToggle';
+import { loadCharacterSetPreference, saveCharacterSetPreference } from '../lib/characterConverter';
+import type { CharacterSet } from '../lib/characterConverter';
 
 export function SpeedDrillConfig() {
   const { state, dispatch } = useExercise();
   const [baseThreshold, setBaseThreshold] = useState(3.0); // seconds
   const [incrementPerWord, setIncrementPerWord] = useState(1.0); // seconds
   const [vocabFilter, setVocabFilter] = useState<VocabularyFilterConfig>({ type: 'all' });
+  const [characterSet, setCharacterSet] = useState<CharacterSet>(loadCharacterSetPreference);
+
+  const handleCharacterSetChange = (value: CharacterSet) => {
+    setCharacterSet(value);
+    saveCharacterSetPreference(value);
+  };
 
   const vocabulary = state.vocabulary?.active || [];
   const filteredCount = countFilteredVocabulary(vocabulary, vocabFilter, state.responseDatabase);
@@ -26,7 +35,8 @@ export function SpeedDrillConfig() {
           exerciseType: state.pendingSpeedDrillExercise,
           baseThresholdMs: baseThreshold * 1000,
           incrementPerWordMs: incrementPerWord * 1000,
-          vocabularyFilter: shouldIncludeFilter ? vocabFilter : undefined
+          vocabularyFilter: shouldIncludeFilter ? vocabFilter : undefined,
+          characterSet,
         }
       });
     }
@@ -124,6 +134,13 @@ export function SpeedDrillConfig() {
               </div>
             </div>
 
+            {/* Character Set (hidden for exercises that don't display characters) */}
+            {state.pendingSpeedDrillExercise !== 'pinyin-to-english' && state.pendingSpeedDrillExercise !== 'english-to-pinyin' && (
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+                <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
+              </div>
+            )}
+
             {/* Vocabulary Filter */}
             <div className="mb-2">
               <VocabularyFilter
@@ -132,6 +149,7 @@ export function SpeedDrillConfig() {
                 database={state.responseDatabase}
                 onFilterChange={setVocabFilter}
                 showRememberOption={true}
+                characterSet={characterSet}
               />
             </div>
 

@@ -144,7 +144,7 @@ function getPromptTypeDotColor(level: MasteryLevel): string {
  */
 function PromptTypeDots({ masteryInfo }: { masteryInfo: VocabularyMasteryInfo }) {
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="flex items-center gap-1">
       {ALL_PROMPT_TYPES.map((pt) => {
         const info = masteryInfo.byPromptType[pt];
         const config = PROMPT_TYPE_CONFIG[pt];
@@ -153,7 +153,7 @@ function PromptTypeDots({ masteryInfo }: { masteryInfo: VocabularyMasteryInfo })
         return (
           <div
             key={pt}
-            className="w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 cursor-help"
+            className="w-2.5 h-2.5 rounded-full transition-all duration-300 hover:scale-125 cursor-help"
             style={{
               backgroundColor: dotColor,
               boxShadow: info.masteryLevel === 'mastered' ? `0 0 6px ${dotColor}` : 'none'
@@ -534,7 +534,7 @@ export function ViewVocabulary() {
                   <th
                     className="text-center p-3 font-semibold text-gray-900 dark:text-white w-24 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 select-none"
                     onClick={() => handleSort('promptTypes')}
-                    title="Per-skill mastery: 字→拼 | EN→拼 | 字→EN | 拼→EN | 🔊→拼 | 🔊→EN"
+                    title="Per-skill mastery: 简→拼 | 繁→拼 | EN→拼 | 简→EN | 繁→EN | 拼→EN | 🔊→拼 | 🔊→EN"
                   >
                     Mastery
                     <SortIcon active={sort.field === 'promptTypes'} direction={sort.direction} />

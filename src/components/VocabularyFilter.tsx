@@ -7,6 +7,7 @@ import { countFilteredVocabulary, getFilterForExercise, saveFilterForExercise, c
 import { getSelectedCount } from '../lib/vocabularySelection';
 import { PROMPT_TYPE_CONFIG, MASTERY_COLORS } from '../types/dashboard';
 import type { MasteryLevel } from '../types/dashboard';
+import type { CharacterSet } from '../lib/characterConverter';
 
 interface VocabularyFilterProps {
   exerciseKey: string;
@@ -14,6 +15,7 @@ interface VocabularyFilterProps {
   database: ResponseDatabase | null;
   onFilterChange: (config: VocabularyFilterConfig) => void;
   showRememberOption?: boolean;
+  characterSet?: CharacterSet;
 }
 
 export function VocabularyFilter({
@@ -22,9 +24,10 @@ export function VocabularyFilter({
   database,
   onFilterChange,
   showRememberOption = true,
+  characterSet,
 }: VocabularyFilterProps) {
   // Get the prompt types for this exercise (may be 1 or 2)
-  const exercisePromptTypes = getPromptTypesForExercise(exerciseKey);
+  const exercisePromptTypes = getPromptTypesForExercise(exerciseKey, characterSet);
   const hasPromptTypes = exercisePromptTypes.length > 0;
 
   // Build initial mastery levels by prompt type
@@ -44,7 +47,7 @@ export function VocabularyFilter({
   const [rememberFilter, setRememberFilter] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Load saved filter preference on mount
+  // Load saved filter preference on mount or when exerciseKey changes
   useEffect(() => {
     const savedConfig = getFilterForExercise(exerciseKey);
     if (savedConfig) {
@@ -62,6 +65,20 @@ export function VocabularyFilter({
       });
     }
   }, [exerciseKey]);
+
+  // Rebuild mastery filter keys when characterSet changes
+  useEffect(() => {
+    const newMasteryByPT = buildDefaultMasteryByPT();
+    setConfig(prev => ({
+      ...prev,
+      masteryLevelsByPromptType: newMasteryByPT
+    }));
+    // Also notify parent of updated config
+    onFilterChange({
+      ...config,
+      masteryLevelsByPromptType: newMasteryByPT
+    });
+  }, [characterSet]);
 
   // Get selected vocabulary count
   const selectedCount = getSelectedCount();

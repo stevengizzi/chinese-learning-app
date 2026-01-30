@@ -30,9 +30,9 @@ export function TrainingModeToggle({
       return;
     }
 
-    // Use character-to-pinyin as a representative prompt type for the count
+    // Use simplified-to-pinyin as a representative prompt type for the count
     // (the actual filtering happens per-exercise with the correct prompt type)
-    const count = countItemsNeedingWork(vocabulary, database, 'character-to-pinyin');
+    const count = countItemsNeedingWork(vocabulary, database, 'simplified-to-pinyin');
     setItemsNeedingWork(count);
   }, [database, vocabulary]);
 

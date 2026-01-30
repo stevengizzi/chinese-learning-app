@@ -10,8 +10,10 @@ import type { ExerciseType } from './exercise';
  * Prompt type - what was shown to the user
  */
 export type PromptType =
-  | 'character-to-pinyin'      // Character → Pinyin
-  | 'character-to-english'     // Character → English
+  | 'simplified-to-pinyin'     // Simplified character → Pinyin
+  | 'traditional-to-pinyin'    // Traditional character → Pinyin
+  | 'simplified-to-english'    // Simplified character → English
+  | 'traditional-to-english'   // Traditional character → English
   | 'pinyin-to-english'        // Pinyin → English
   | 'english-to-pinyin'        // English → Pinyin
   | 'audio-to-pinyin'          // Audio → Pinyin

@@ -1,6 +1,7 @@
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { Exercise, ExerciseType, PlayMode } from '../types/exercise';
 import type { PromptType, ResponseDatabase } from '../types/responseTracking';
+import type { CharacterSet } from './characterConverter';
 import { convertPinyinStringToToneMarks } from './pinyinToneConverter';
 import { rankVocabularyByPriority, selectWeightedByPriority, type TrainingPriorityScore } from './trainingPriority';
 import { generateVocabularyId } from './responseTracking/storage';
@@ -57,7 +58,8 @@ function determinePromptType(
   prompt: string,
   selectedEntry: VocabularyEntry,
   isPinyinExercise: boolean,
-  exerciseType?: ExerciseType
+  exerciseType?: ExerciseType,
+  characterSet?: CharacterSet
 ): PromptType {
   // For audio exercises, use dedicated audio prompt types for separate tracking
   if (exerciseType === 'audio-to-pinyin') {
@@ -67,15 +69,17 @@ function determinePromptType(
     return 'audio-to-english';
   }
 
+  const isTraditional = characterSet === 'traditional';
+
   // Check if the original prompt (before disambiguation) matches character, pinyin, or meaning
   const promptWithoutDisambiguation = prompt.split(' (')[0]; // Remove disambiguation text
 
   if (promptWithoutDisambiguation === selectedEntry.word || prompt.startsWith(selectedEntry.word + ' (')) {
     // Prompt is a character
     if (isPinyinExercise) {
-      return 'character-to-pinyin';
+      return isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin';
     } else {
-      return 'character-to-english';
+      return isTraditional ? 'traditional-to-english' : 'simplified-to-english';
     }
   } else if (promptWithoutDisambiguation === selectedEntry.meaning || prompt.includes(selectedEntry.meaning)) {
     // Prompt is English meaning
@@ -89,30 +93,27 @@ function determinePromptType(
 /**
  * Get the prompt type for a given exercise type (for priority calculation)
  */
-function getPromptTypeForExercise(exerciseType: ExerciseType): PromptType {
+function getPromptTypeForExercise(exerciseType: ExerciseType, characterSet?: CharacterSet): PromptType {
+  const isTraditional = characterSet === 'traditional';
   switch (exerciseType) {
     case 'character-to-pinyin':
-      return 'character-to-pinyin';
+      return isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin';
     case 'character-to-english':
-      return 'character-to-english';
+      return isTraditional ? 'traditional-to-english' : 'simplified-to-english';
     case 'english-to-pinyin':
       return 'english-to-pinyin';
     case 'pinyin-to-english':
       return 'pinyin-to-english';
     case 'shuffled':
-      // For shuffled pinyin exercises, use character-to-pinyin as representative
-      return 'character-to-pinyin';
+      return isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin';
     case 'shuffled-to-english':
-      // For shuffled English exercises, use character-to-english as representative
-      return 'character-to-english';
+      return isTraditional ? 'traditional-to-english' : 'simplified-to-english';
     case 'audio-to-pinyin':
-      // Audio to pinyin uses audio prompt (similar to character prompt)
-      return 'character-to-pinyin';
+      return 'audio-to-pinyin';
     case 'audio-to-english':
-      // Audio to English uses audio prompt (similar to character prompt)
-      return 'character-to-english';
+      return 'audio-to-english';
     default:
-      return 'character-to-pinyin';
+      return isTraditional ? 'traditional-to-pinyin' : 'simplified-to-pinyin';
   }
 }
 
@@ -154,7 +155,8 @@ export function generateExercise(
   recentExerciseIds: string[] = [],
   remainingWords: string[] = [],
   focusMode?: FocusModeOptions,
-  fullVocabulary?: VocabularyEntry[]  // Full vocabulary for disambiguation (optional)
+  fullVocabulary?: VocabularyEntry[],  // Full vocabulary for disambiguation (optional)
+  characterSet?: CharacterSet
 ): Exercise {
   if (vocabulary.length === 0) {
     throw new Error('No vocabulary available for exercises');
@@ -236,7 +238,7 @@ export function generateExercise(
     prompt = promptToUse;
   } else if (focusMode?.enabled && focusMode.responseDatabase) {
     // Focus on Weaknesses mode: use priority-based selection
-    const promptType = getPromptTypeForExercise(exerciseType);
+    const promptType = getPromptTypeForExercise(exerciseType, characterSet);
 
     // Use pre-computed rankings if available, otherwise compute them
     const rankedItems = focusMode.rankedItems ||
@@ -344,7 +346,7 @@ export function generateExercise(
   const isEnglishExercise = exerciseType.endsWith('-english');
 
   // Determine prompt type based on what was shown
-  const promptType = determinePromptType(prompt, selectedEntry, isPinyinExercise, exerciseType);
+  const promptType = determinePromptType(prompt, selectedEntry, isPinyinExercise, exerciseType, characterSet);
 
   return {
     id: exerciseId,

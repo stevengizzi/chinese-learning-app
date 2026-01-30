@@ -95,7 +95,7 @@ export interface VocabularyMasteryInfo {
   totalAttempts: number;
   lastPracticed: number | null;  // timestamp or null
   byPromptType: Record<PromptType, PromptTypeMasteryInfo>;  // Per-prompt-type mastery
-  promptTypesMastered: number;  // Count of prompt types at 'mastered' level (0-6)
+  promptTypesMastered: number;  // Count of prompt types at 'mastered' level (0-8)
 }
 
 /**
@@ -194,22 +194,26 @@ export const MASTERY_COLORS = {
  * Prompt type display names and colors
  */
 export const PROMPT_TYPE_CONFIG: Record<PromptType, { label: string; shortLabel: string; color: string }> = {
-  'character-to-pinyin': { label: '字 → 拼音', shortLabel: '字→拼', color: '#8B5CF6' },    // Purple
-  'character-to-english': { label: '字 → EN', shortLabel: '字→EN', color: '#EC4899' },    // Pink
-  'pinyin-to-english': { label: '拼音 → EN', shortLabel: '拼→EN', color: '#06B6D4' },     // Cyan
-  'english-to-pinyin': { label: 'EN → 拼音', shortLabel: 'EN→拼', color: '#F97316' },     // Orange
-  'audio-to-pinyin': { label: '🔊 → 拼音', shortLabel: '🔊→拼', color: '#14B8A6' },      // Teal
-  'audio-to-english': { label: '🔊 → EN', shortLabel: '🔊→EN', color: '#A855F7' }        // Violet
+  'simplified-to-pinyin': { label: '简 → 拼音', shortLabel: '简→拼', color: '#8B5CF6' },      // Purple
+  'traditional-to-pinyin': { label: '繁 → 拼音', shortLabel: '繁→拼', color: '#7C3AED' },     // Dark purple
+  'simplified-to-english': { label: '简 → EN', shortLabel: '简→EN', color: '#EC4899' },       // Pink
+  'traditional-to-english': { label: '繁 → EN', shortLabel: '繁→EN', color: '#DB2777' },      // Dark pink
+  'pinyin-to-english': { label: '拼音 → EN', shortLabel: '拼→EN', color: '#06B6D4' },         // Cyan
+  'english-to-pinyin': { label: 'EN → 拼音', shortLabel: 'EN→拼', color: '#F97316' },         // Orange
+  'audio-to-pinyin': { label: '🔊 → 拼音', shortLabel: '🔊→拼', color: '#14B8A6' },          // Teal
+  'audio-to-english': { label: '🔊 → EN', shortLabel: '🔊→EN', color: '#A855F7' }            // Violet
 } as const;
 
 /**
  * All prompt types in display order
- * Order: 字→拼, EN→拼, 字→EN, 拼→EN
+ * Order: 简→拼, 繁→拼, EN→拼, 简→EN, 繁→EN, 拼→EN, 🔊→拼, 🔊→EN
  */
 export const ALL_PROMPT_TYPES: PromptType[] = [
-  'character-to-pinyin',
+  'simplified-to-pinyin',
+  'traditional-to-pinyin',
   'english-to-pinyin',
-  'character-to-english',
+  'simplified-to-english',
+  'traditional-to-english',
   'pinyin-to-english',
   'audio-to-pinyin',
   'audio-to-english'
