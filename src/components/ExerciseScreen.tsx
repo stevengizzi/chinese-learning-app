@@ -9,7 +9,7 @@ import { convertCharacters, loadCharacterSetPreference } from '../lib/characterC
 export function ExerciseScreen() {
   const { state, dispatch } = useExercise();
   const [answer, setAnswer] = useState('');
-  const [characterSet] = useState(loadCharacterSetPreference);
+  const characterSet = state.currentSession?.characterSet ?? loadCharacterSetPreference();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { VocabularyEntry } from '../types/vocabulary';
 import type { ResponseDatabase, PromptType } from '../types/responseTracking';
 import type { VocabularyFilterConfig, VocabularyFilterType, MasteryLevelsByPromptType } from '../types/vocabularyFilter';
@@ -45,6 +45,7 @@ export function VocabularyFilter({
   }));
   const [rememberFilter, setRememberFilter] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const prevCharacterSetRef = useRef(characterSet);
 
   // Load saved filter preference on mount or when exerciseKey changes
   useEffect(() => {
@@ -65,8 +66,10 @@ export function VocabularyFilter({
     }
   }, [exerciseKey]);
 
-  // Rebuild mastery filter keys when characterSet changes
+  // Rebuild mastery filter keys only when characterSet actually changes (not on initial mount)
   useEffect(() => {
+    if (characterSet === prevCharacterSetRef.current) return;
+    prevCharacterSetRef.current = characterSet;
     const newMasteryByPT = buildDefaultMasteryByPT();
     setConfig(prev => ({
       ...prev,

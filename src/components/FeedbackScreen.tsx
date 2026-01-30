@@ -93,7 +93,7 @@ function EditableField({
 export function FeedbackScreen() {
   const { state, dispatch } = useExercise();
   const [exampleSentences, setExampleSentences] = useState<ExampleSentence[]>([]);
-  const [characterSet] = useState(loadCharacterSetPreference);
+  const characterSet = state.currentSession?.characterSet ?? loadCharacterSetPreference();
 
   const handleNext = () => {
     dispatch({ type: 'NEXT_EXERCISE' });

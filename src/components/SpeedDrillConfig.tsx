@@ -134,12 +134,10 @@ export function SpeedDrillConfig() {
               </div>
             </div>
 
-            {/* Character Set (hidden for exercises that don't display characters) */}
-            {state.pendingSpeedDrillExercise !== 'pinyin-to-english' && state.pendingSpeedDrillExercise !== 'english-to-pinyin' && (
-              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
-                <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
-              </div>
-            )}
+            {/* Character Set (affects feedback screen display and mastery tracking) */}
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+              <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
+            </div>
 
             {/* Vocabulary Filter */}
             <div className="mb-2">

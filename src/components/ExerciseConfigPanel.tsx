@@ -165,12 +165,10 @@ export function ExerciseConfigScreen() {
               </div>
             )}
 
-            {/* Character Set (hidden for exercises that don't display characters) */}
-            {exerciseType !== 'pinyin-to-english' && exerciseType !== 'english-to-pinyin' && (
-              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
-                <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
-              </div>
-            )}
+            {/* Character Set (affects feedback screen display and mastery tracking) */}
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 flex justify-center">
+              <CharacterSetToggle value={characterSet} onChange={handleCharacterSetChange} />
+            </div>
 
             {/* Filtered Count */}
             <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">

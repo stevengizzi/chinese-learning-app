@@ -148,10 +148,9 @@ notes:
 | 朋 | peng2 | friend |
 | 菜 | cai4 | dish (of food); vegetable |
 | 学习 | xue2 xi2 | to study |
-| 好吃 | hao3 chi1 | tasty; delicious |
+| 好吃 | hao3 chi1 | tasty; delicious (food) |
 | 儿子 | er2 zi | son |
 | 打球 | da3 qiu2 | to play ball; to play with a ball |
-| 洗手间 | xi3 shou3 jian1 | bathroom |
 | 放 | fang4 | to put; to place; to release |
 | 奶 | nai3 | breast; milk; to breastfeed |
 | 东 | dong1 | east |
@@ -332,7 +331,8 @@ notes:
 | 先生 | xian1 sheng | Mr. |
 | 包 | bao1 | to wrap; bag |
 | 鸡 | ji1 | chicken |
-| 打车 | da3 che1 | to take a taxi |
+| 打车 | da3 che1 | to take a taxi/rideshare |
+| 搭车 | da1 che1 | to get a ride (in a car) |
 | 睡觉 | shui4 jiao4 | to sleep |
 | 习 | xi2 | to practice; to study; habit |
 | 一些 | yi1 xie1 | some; a few |
@@ -393,7 +393,6 @@ notes:
 | 拿 | na2 | to hold; to take |
 | 不用 | bu4 yong4 | need not |
 | 米 | mi3 | rice; meter (unit of length) |
-| 那 | na4 | that; then (in that case) |
 | 中间 | zhong1 jian1 | between |
 | 饭 | fan4 | food; meal; cooked rice |
 | 奶奶 | nai3 nai | grandma (paternal side) |
@@ -419,7 +418,8 @@ notes:
 | 男孩儿 | nan2 hai2 r | boy |
 | 课文 | ke4 wen2 | a text (book, etc) |
 | 常常 | chang2 chang2 | often; frequently |
-| 和 | he2 | and |
+| 和 | he2 | and (China) |
+| 和 | han4 | and (Taiwan) |
 | 先 | xian1 | first |
 | 几 | ji3 | how many? (small numbers); several |
 | 几点 | ji3 dian3 | what time? (o'clock) |
@@ -434,7 +434,6 @@ notes:
 | 地 | de | particle linking adjective/adverb to verb |
 | 一点儿 | yi1 dian3 r | a bit; a little |
 | 新年 | xin1 nian2 | New Year |
-| 真 | zhen1 | really; truly |
 | 早饭 | zao3 fan4 | breakfast |
 | 比 | bi3 | to compare |
 | 星期天 | xing1 qi1 tian1 | Sunday |
@@ -470,7 +469,7 @@ notes:
 | 知道 | zhi1 dao4 | to know |
 | 下车 | xia4 che1 | to get off of (a bus, train, car, etc) |
 | 白天 | bai2 tian1 | daytime; during the day |
-| 非常 | fei1 chang2 | very much; unusual; extraordinary |
+| 非常 | fei1 chang2 | very much; extremely |
 | 方 | fang1 | square |
 | 马路 | ma3 lu4 | street; road |
 | 高 | gao1 | tall; high |
@@ -588,7 +587,6 @@ notes:
 | 车上 | che1 shang4 | in the car; aboard |
 | 请坐 | qing3 zuo4 | please have a seat |
 | 看到 | kan4 dao4 | to see; notice |
-| 真的 | zhen1 de | true; really |
 | 后 | hou4 | behind; afterwards; back; after |
 | 这里 | zhe4 li3 | here |
 | 场 | chang3 | field; place; venue; MW for events, games, performances |
@@ -680,7 +678,6 @@ notes:
 | 外带 | wai4 dai4 | take-out (food); to take to go |
 | 打包 | da3 bao1 | to wrap up (food); to take to go |
 | 再说一次 | zai4 shuo1 yi1 ci4 | say that again |
-| 可是 | ke3 shi4 | but; yet; however |
 | 更多 | geng1 duo1 | more; much |
 | 便利商店 | bian3 li4 shang1 dian4 | convenience store |
 | 便利店 | bian3 li4 dian4 | convenience store |
@@ -695,7 +692,8 @@ notes:
 | 苹果 | ping2 guo3 | apple (tree/fruit) |
 | 红色 | hong2 se4 | red |
 | 橙色 | cheng2 se4 | orange (color) |
-| 橙子 | cheng2 zi | orange (fruit) |
+| 橙子 | cheng2 zi | orange (fruit) (China) |
+| 柳橙 | liu3 cheng2 | orange (fruit) (Taiwan) |
 | 橘子 | ju2 zi | mandarin orange; tangerine |
 | 黄色 | huang2 se4 | yellow |
 | 绿色 | lü4 se4 | green |
@@ -706,7 +704,6 @@ notes:
 | 灰色 | hui1 se4 | grey |
 | 臭豆腐 | chou4 dou4 fu | stinky tofu |
 | 饭馆 | fan4 guan3 | restaurant (casual/traditional) |
-| 餐厅 | can1 ting1 | restaurant; dining room |
 | 珍珠奶茶 | zhen1 zhu1 nai3 cha2 | bubble milk tea; boba tea |
 | 奶茶 | nai3 cha2 | milk tea |
 | 皮蛋 | pi2 dan4 | century egg; preserved egg |
@@ -715,8 +712,6 @@ notes:
 | 意大利 | yi4 da4 li4 | Italy |
 | 比较喜欢 | bi3 jiao4 xi3 huan | to prefer; to like more |
 | 最喜欢 | zui4 xi3 huan | to like the most/best |
-| 因为 | yin1 wei4 | because; as; on account of |
-| 所以 | suo3 yi3 | so; therefore; as a result |
 | 你要点什么 | ni3 yao4 dian3 shen2 me | what would you like to order? |
 | 你要吃森么 | ni3 yao4 chi1 shen2 me | what do you want to eat? |
 | 什么好吃 | shen2 me hao3 chi1 | what's good to eat? |
@@ -811,13 +806,6 @@ notes:
 | 塑料袋 | su4 liao4 dai4 | plastic bag |
 | 加热 | jia1 re4 | to heat up |
 | 微波 | wei1 bo1 | microwave |
-| 付款 | fu4 kuan3 | to pay; payment |
-| 怎么付款 | zen3 me fu4 kuan3 | how will you pay? |
-| 现金 | xian4 jin1 | cash |
-| 刷卡 | shua1 ka3 | to use card; swipe card |
-| 信用卡 | xin4 yong4 ka3 | credit card |
-| 悠游卡 | you1 you2 ka3 | EasyCard |
-| 发票 | fa1 piao4 | receipt; invoice |
 | 餐具 | can1 ju4 | utensils |
 | 筷子 | kuai4 zi | chopsticks |
 | 叉子 | cha1 zi | fork |
@@ -856,7 +844,8 @@ notes:
 | 饺子 | jiao3 zi | dumplings|
 | 不好不坏 | bu4 hao3 bu4 huai4 | neither good nor bad; so-so |
 | 旅行 | lü3 xing2 | to travel; trip |
-| 或是 | huo4 shi4 | or (in statements) |
+| 或是 | huo4 shi4 | or (in statements) (Taiwan) |
+| 或者 | huo4 zhe3 | or (in statements) (China) |
 | 看看 | kan4 kan | take a look |
 | 爱尔兰 | ai4 er2 lan2 | Ireland |
 | 墨西哥 | mo4 xi1 ge1 | Mexico |
@@ -871,7 +860,7 @@ notes:
 | 冰淇淋 | bing1 qi2 lin2 | ice cream |
 | 卷 | juan3 | roll; to roll up |
 | 香菜 | xiang1 cai4 | cilantro; coriander |
-| 花生冰淇淋卷 | hua1 sheng1 bing1 qi2 lin2 juan3 | peanut ice cream roll |
+| 花生卷冰淇淋 | hua1 sheng1 juan3 bing1 qi2 lin2 | peanut ice cream roll |
 | 春卷 | chun1 juan3 | spring roll |
 | 蛋卷 | dan4 juan3 | egg roll |
 | 卷饼 | juan3 bing3 | burrito; wrap |
@@ -881,7 +870,7 @@ notes:
 | 夜市 | ye4 shi4 | night market |
 | 量词 | liang4 ci2 | measure word |
 | 凤梨 | feng4 li2 | pineapple (Taiwan) |
-| 菠萝 | bo1 luo2 | pineapple (Mainland) |
+| 菠萝 | bo1 luo2 | pineapple (China) |
 | 凤梨酥 | feng4 li2 su1 | pineapple cake |
 | 草莓 | cao3 mei2 | strawberry |
 | 蓝莓 | lan2 mei2 | blueberry |
@@ -892,7 +881,95 @@ notes:
 | 柠檬 | ning2 meng2 | lemon |
 | 樱桃 | ying1 tao2 | cherry |
 | 公斤 | gong1 jin1 | kilogram; MW for weight |
-| 斤 | jin1 | catty (600g in Taiwan, 500g Mainland); MW for weight |
+| 斤 | jin1 | catty (600g in Taiwan, 500g China); MW for weight |
+| 房东 | fang2 dong1 | landlord |
+| 房主 | fang2 zhu3 | property owner; house owner |
+| 房子 | fang2 zi | house |
+| 房屋 | fang2 wu1 | buildings; houses (formal) |
+| 买房 | mai3 fang2 | to buy property/house |
+| 租房 | zu1 fang2 | to rent a place |
+| 房价 | fang2 jia4 | housing price |
+| 房租 | fang2 zu1 | rent (noun) |
+| 房地产 | fang2 di4 chan3 | real estate |
+| 厨房 | chu2 fang2 | kitchen |
+| 卧室 | wo4 shi4 | bedroom |
+| 客厅 | ke4 ting1 | living room |
+| 浴室 | yu4 shi4 | bathroom (private/home) |
+| 洗手间 | xi3 shou3 jian1 | restroom (public) |
+| 餐厅 | can1 ting1 | restaurant; dining room |
+| 书房 | shu1 fang2 | study; home office |
+| 洗衣间 | xi3 yi1 jian1 | laundry room |
+| 地下室 | di4 xia4 shi4 | basement |
+| 阳台 | yang2 tai2 | balcony |
+| 车库 | che1 ku4 | garage |
+| 阁楼 | ge2 lou2 | attic |
+| 走廊 | zou3 lang2 | hallway; corridor |
+| 门厅 | men2 ting1 | entrance hall; foyer |
+| 衣柜 | yi1 gui4 | wardrobe; armoire |
+| 储物柜 | chu3 wu4 gui4 | storage cabinet; storage closet |
+| 公园 | gong1 yuan2 | park; public garden |
+| 国家公园 | guo2 jia1 gong1 yuan2 | national park |
+| 如果 | ru2 guo3 | if |
+| 要是 | yao4 shi | if |
+| 要不是 | yao4 bu2 shi4 | if it weren't for; but for (counterfactual) |
+| 那 | na4 | then; in that case |
+| 但是 | dan4 shi4 | but; however |
+| 可是 | ke3 shi4 | but; however |
+| 所以 | suo3 yi3 | so; therefore |
+| 因此 | yin1 ci3 | therefore; thus (formal) |
+| 因为 | yin1 wei4 | because |
+| 虽然 | sui1 ran2 | although |
+| 沙发 | sha1 fa1 | sofa |
+| 句子 | ju4 zi | sentence |
+| 好喝 | hao3 he1 | tasty (drinks); good to drink |
+| 特别 | te4 bie2 | especially; particularly |
+| 真 | zhen1 | really; truly (before adjectives) |
+| 真的 | zhen1 de | really (before verbs); really?/is that true? |
+| 卤肉饭 | lu3 rou4 fan4 | braised pork rice |
+| 主题 | zhu3 ti2 | subject; topic |
+| 块钱 | kuai4 qian2 | unit of money |
+| 差不多 | cha4 bu duo1 | about the same; similar |
+| 千 | qian1 | thousand |
+| 万 | wan4 | ten thousand |
+| 绕口令 | rao4 kou3 ling4 | tongue twister |
+| 山路 | shan1 lu4 | mountain path; mountain road |
+| 司机 | si1 ji1 | driver; chauffeur |
+| 晕车 | yun1 che1 | carsick; car sickness |
+| 晕船 | yun1 chuan2 | seasick; sea sickness |
+| 晕机 | yun1 ji1 | airsick; motion sickness from flying |
+| 运动 | yun4 dong4 | exercise; sports; physical activity; to exercise |
+| 健身房 | jian4 shen1 fang2 | gym; fitness center |
+| 重训 | zhong4 xun4 | weight training; strength training |
+| 训练 | xun4 lian4 | training; to train |
+| 练习 | lian4 xi2 | practice; to practice |
+| 培训 | pei2 xun4 | professional training; job training |
+| 怎么付款 | zen3 me fu4 kuan3 | how will you pay? |
+| 付 | fu4 | to pay |
+| 付钱 | fu4 qian2 | to pay money; make payment |
+| 结账 | jie2 zhang4 | to pay the bill |
+| 现金 | xian4 jin1 | cash |
+| 付现 | fu4 xian4 | to pay with cash; cash payment |
+| 信用卡 | xin4 yong4 ka3 | credit card |
+| 悠游卡 | you1 you2 ka3 | EasyCard |
+| 刷卡 | shua1 ka3 | to use card; swipe card |
+| 发票 | fa1 piao4 | receipt; invoice |
+| 找 | zhao3 | to give change |
+| 感觉 | gan3 jue2 | feeling; to feel |
+| 怀旧 | huai2 jiu4 | nostalgia; to reminisce |
+| 有怀旧的感觉 | you3 huai2 jiu4 de gan3 jue2 | to feel nostalgic |
+| 强壮 | qiang2 zhuang4 | strong (physically); sturdy |
+| 骨头 | gu3 tou | bone; bones |
+| 桃子 | tao2 zi | peach |
+| 梨子 | li2 zi | pear |
+| 椅子 | yi3 zi | chair |
+| 果汁 | guo3 zhi1 | fruit juice |
+| 苹果汁 | ping2 guo3 zhi1 | apple juice |
+| 柳橙汁 | liu3 cheng2 zhi1 | orange juice (Taiwan) |
+| 橘子汁 | ju2 zi zhi1 | tangerine juice; mandarin orange juice |
+| 凤梨汁 | feng4 li2 zhi1 | pineapple juice |
+| 芭乐汁 | ba1 le4 zhi1 | guava juice |
+| 番茄汁 | fan1 qie2 zhi1 | tomato juice |
+| 饮料 | yin3 liao4 | beverage; drink |
 
 | 个 | ge | MW for people, objects, general fruits |
 | 条 | tiao2 | MW for long/thin things |
@@ -908,3 +985,4 @@ notes:
 | 片 | pian4 | MW for slices, flat pieces (of watermelon, bread) |
 | 瓣 | ban4 | MW for segments (of oranges, garlic) |
 | 粒 | li4 | MW for small grain-like items (of rice) |
+| 首 | shou3 | MW for songs and poems |
