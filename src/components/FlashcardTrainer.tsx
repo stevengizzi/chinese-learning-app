@@ -10,7 +10,9 @@ import type {
 import { FlashcardSetup } from './FlashcardSetup';
 import { FlashcardExercise } from './FlashcardExercise';
 import { FlashcardReport } from './FlashcardReport';
-import { generateVocabularyId } from '../lib/responseTracking/storage';
+import { generateVocabularyId, addResponseRecords, saveResponseDatabase, countWords } from '../lib/responseTracking/storage';
+import { getFlashcardPromptType, getFlashcardAnswerPart } from '../lib/flashcardPromptType';
+import { loadCharacterSetPreference } from '../lib/characterConverter';
 
 type FlashcardScreen = 'setup' | 'exercise' | 'report';
 
@@ -79,6 +81,47 @@ export function FlashcardTrainer({ onBack, initialPlayMode }: FlashcardTrainerPr
       timeToFlip: session.flipTimestamp ? session.flipTimestamp - session.showTimestamp : 0,
       timeToAnswer: Date.now() - (session.flipTimestamp || session.showTimestamp),
     };
+
+    // Save to response database immediately (per-card, no data loss on early exit)
+    const promptType = getFlashcardPromptType(
+      session.config.sideConfig.front,
+      session.config.sideConfig.back,
+      loadCharacterSetPreference()
+    );
+
+    if (promptType) {
+      try {
+        const cachedData = localStorage.getItem('response-tracking-cache');
+        let db;
+        if (cachedData) {
+          try { db = JSON.parse(cachedData); }
+          catch { db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() }; }
+        } else {
+          db = { version: 1, records: [], statistics: {}, lastUpdated: Date.now() };
+        }
+
+        const answerPart = getFlashcardAnswerPart(session.config.sideConfig.back);
+        let wordCount = 1;
+        if (answerPart === 'english') wordCount = countWords(currentVocab.meaning);
+        else if (answerPart === 'pinyin') wordCount = countWords(currentVocab.pinyin);
+
+        const updatedDb = addResponseRecords(db, [{
+          vocabularyId: vocabId,
+          character: currentVocab.word,
+          pinyin: currentVocab.pinyin,
+          meaning: currentVocab.meaning,
+          exerciseType: 'flashcard' as const,
+          promptType,
+          responseTimeMs: attempt.timeToFlip,
+          wordCount,
+          wasCorrect: correct,
+          source: 'flashcard' as const,
+        }]);
+        saveResponseDatabase(updatedDb);
+      } catch (error) {
+        console.error('Failed to save flashcard response record:', error);
+      }
+    }
 
     const updatedAttempts = [...session.attempts, attempt];
     let newRemainingItems = [...session.remainingItems];

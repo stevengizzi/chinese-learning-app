@@ -31,6 +31,7 @@ export interface ResponseRecord {
   wordCount: number;            // Number of words in correct answer
   wasCorrect: boolean;          // Whether answer was correct
   timestamp: number;            // When this occurred (Unix timestamp)
+  source?: 'exercise' | 'flashcard';  // Origin of record (defaults to 'exercise' for backward compat)
 }
 
 /**

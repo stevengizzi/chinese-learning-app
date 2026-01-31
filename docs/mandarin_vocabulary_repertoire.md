@@ -849,7 +849,7 @@ notes:
 | 看看 | kan4 kan | take a look |
 | 爱尔兰 | ai4 er2 lan2 | Ireland |
 | 墨西哥 | mo4 xi1 ge1 | Mexico |
-| 巴厘岛 | ba1 li2 | Bali |
+| 巴厘 | ba1 li2 | Bali |
 | 岛 | dao3 | island |
 | 全部 | quan2 bu4 | all; entire; whole |
 | 全部国家 | quan2 bu4 guo2 jia1 | all the countries |
@@ -911,7 +911,7 @@ notes:
 | 国家公园 | guo2 jia1 gong1 yuan2 | national park |
 | 如果 | ru2 guo3 | if |
 | 要是 | yao4 shi | if |
-| 要不是 | yao4 bu2 shi4 | if it weren't for; but for (counterfactual) |
+| 要不是 | yao4 bu4 shi4 | if it weren't for; but for (counterfactual) |
 | 那 | na4 | then; in that case |
 | 但是 | dan4 shi4 | but; however |
 | 可是 | ke3 shi4 | but; however |
@@ -970,6 +970,17 @@ notes:
 | 芭乐汁 | ba1 le4 zhi1 | guava juice |
 | 番茄汁 | fan1 qie2 zhi1 | tomato juice |
 | 饮料 | yin3 liao4 | beverage; drink |
+| 高中 | gao1 zhong1 | high school |
+| 没问题 | mei2 wen4 ti2 | no problem |
+| 炸酱面 | zha2 jiang4 mian4 | noodles served with fried bean sauce |
+| 你准备好了吗 | ni3 zhun3 bei4 hao3 le ma | Are you ready? |
+| 我准备好了 | wo3 zhun3 bei4 hao3 le | I'm ready |
+| 准备好了 | zhun3 bei4 hao3 le | I'm ready |
+| 好了 | hao3 le | I'm ready |
+| 咖啡店 | ka1 fei1 dian3 | cafe |
+| 老板 | lao3 ban3 | boss; owner |
+| 中型 | zhong1 xing2 | medium-size |
+| 方向 | fang1 xiang4 | direction; orientation |
 
 | 个 | ge | MW for people, objects, general fruits |
 | 条 | tiao2 | MW for long/thin things |
@@ -986,3 +997,4 @@ notes:
 | 瓣 | ban4 | MW for segments (of oranges, garlic) |
 | 粒 | li4 | MW for small grain-like items (of rice) |
 | 首 | shou3 | MW for songs and poems |
+| 家 | jia1 | MW for restaurants, shops, companies |

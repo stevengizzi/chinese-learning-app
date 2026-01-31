@@ -368,6 +368,7 @@ export function addResponseRecords(
     responseTimeMs: number;
     wordCount: number;
     wasCorrect: boolean;
+    source?: 'exercise' | 'flashcard';
   }>
 ): ResponseDatabase {
   const now = Date.now();
@@ -381,7 +382,8 @@ export function addResponseRecords(
     responseTimeMs: r.responseTimeMs,
     wordCount: r.wordCount,
     wasCorrect: r.wasCorrect,
-    timestamp: now
+    timestamp: now,
+    source: r.source,
   }));
 
   // Append and trim to MAX_RECORDS
@@ -547,4 +549,19 @@ export function hasUnsavedChanges(database: ResponseDatabase): boolean {
  */
 export function exportDatabaseJSON(database: ResponseDatabase): string {
   return JSON.stringify(database, null, 2);
+}
+
+/**
+ * Filter a database to exclude records from a given source.
+ * Returns a new database with filtered records; statistics are left untouched
+ * (mastery calculations primarily use the rolling window from records).
+ */
+export function filterDatabaseBySource(
+  db: ResponseDatabase,
+  excludeSource: 'exercise' | 'flashcard'
+): ResponseDatabase {
+  return {
+    ...db,
+    records: db.records.filter(r => (r.source || 'exercise') !== excludeSource),
+  };
 }

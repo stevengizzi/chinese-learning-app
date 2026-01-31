@@ -11,7 +11,8 @@ export type ExerciseType =
   | 'character-to-english'
   | 'pinyin-to-english'
   | 'shuffled-to-english'
-  | 'audio-to-english';
+  | 'audio-to-english'
+  | 'flashcard';
 
 /**
  * Check if an exercise type uses audio prompts
