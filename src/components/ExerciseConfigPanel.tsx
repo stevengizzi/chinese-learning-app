@@ -20,6 +20,7 @@ const EXERCISE_LABELS: Record<ExerciseType, string> = {
   'shuffled-to-english': 'Shuffled → English',
   'audio-to-pinyin': 'Audio → Pinyin',
   'audio-to-english': 'Audio → English',
+  'flashcard': 'Flashcard',
 };
 
 const PLAY_MODE_LABELS: Record<PlayMode, string> = {

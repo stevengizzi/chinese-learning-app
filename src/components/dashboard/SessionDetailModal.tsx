@@ -19,6 +19,7 @@ function formatExerciseType(type: ExerciseType): string {
     'shuffled-to-english': 'Shuffled → English',
     'audio-to-pinyin': 'Audio → Pinyin',
     'audio-to-english': 'Audio → English',
+    'flashcard': 'Flashcard',
   };
   return labels[type] || type;
 }
