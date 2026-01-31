@@ -63,6 +63,20 @@ export function getSelectedCount(): number {
 }
 
 /**
+ * Remap a vocabulary ID in the selection set.
+ * Used when a user edits a meaning so the selection stays linked.
+ */
+export function remapSelectionId(oldId: string, newId: string): void {
+  if (oldId === newId) return;
+  const selection = loadVocabularySelection();
+  if (selection.has(oldId)) {
+    selection.delete(oldId);
+    selection.add(newId);
+    saveVocabularySelection(selection);
+  }
+}
+
+/**
  * Clear all selection
  */
 export function clearSelection(): void {

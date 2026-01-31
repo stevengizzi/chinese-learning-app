@@ -303,27 +303,29 @@ export function ViewVocabulary() {
   const handleEditMeaning = useCallback((vocabIndex: number, newMeaning: string) => {
     if (!state.vocabulary) return;
 
-    const updatedActive = state.vocabulary.active.map((entry, idx) => {
-      if (idx === vocabIndex) {
-        return {
-          ...entry,
-          // Store original if this is the first edit
-          originalMeaning: entry.originalMeaning || entry.meaning,
-          meaning: newMeaning,
-          isEdited: true,
-        };
-      }
-      return entry;
-    });
+    // Update the selection ID before dispatching (since SET_VOCABULARY won't remap)
+    const oldEntry = state.vocabulary.active[vocabIndex];
+    const oldId = generateVocabularyId(oldEntry.word, oldEntry.pinyin, oldEntry.meaning);
+    const newId = generateVocabularyId(oldEntry.word, oldEntry.pinyin, newMeaning);
+
+    // Update local selectedIds state to reflect the remapped ID
+    if (oldId !== newId && selectedIds.has(oldId)) {
+      setSelectedIds(prev => {
+        const updated = new Set(prev);
+        updated.delete(oldId);
+        updated.add(newId);
+        return updated;
+      });
+    }
 
     dispatch({
-      type: 'SET_VOCABULARY',
+      type: 'UPDATE_VOCABULARY_ENTRY',
       payload: {
-        ...state.vocabulary,
-        active: updatedActive,
+        index: vocabIndex,
+        updates: { meaning: newMeaning },
       },
     });
-  }, [state.vocabulary, dispatch]);
+  }, [state.vocabulary, dispatch, selectedIds]);
 
   // Filter vocabulary based on search query
   const filteredVocabulary = useMemo(() => {

@@ -19,6 +19,52 @@ export function generateVocabularyId(character: string, pinyin: string, meaning:
 }
 
 /**
+ * Remap a vocabulary ID across the response database.
+ * Used when a user edits a meaning in-app so that practice/mastery data stays linked.
+ * Returns a new database object with the remapped ID, or the same object if no changes needed.
+ */
+export function remapVocabularyId(
+  db: ResponseDatabase,
+  oldId: string,
+  newId: string
+): ResponseDatabase {
+  if (oldId === newId) return db;
+
+  let changed = false;
+
+  // Remap statistics key
+  let updatedStatistics = db.statistics;
+  if (db.statistics[oldId]) {
+    updatedStatistics = { ...db.statistics };
+    updatedStatistics[newId] = {
+      ...updatedStatistics[oldId],
+      vocabularyId: newId,
+      meaning: newId.split(':').slice(2).join(':'),
+    };
+    delete updatedStatistics[oldId];
+    changed = true;
+  }
+
+  // Remap records
+  let updatedRecords = db.records;
+  if (db.records.some(r => r.vocabularyId === oldId)) {
+    updatedRecords = db.records.map(r =>
+      r.vocabularyId === oldId ? { ...r, vocabularyId: newId } : r
+    );
+    changed = true;
+  }
+
+  if (!changed) return db;
+
+  return {
+    ...db,
+    records: updatedRecords,
+    statistics: updatedStatistics,
+    lastUpdated: Date.now()
+  };
+}
+
+/**
  * Count words in a text (handles both English and pinyin)
  * For pinyin: counts space-separated syllables
  * For English: counts space-separated words

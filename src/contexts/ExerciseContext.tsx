@@ -10,11 +10,12 @@ import { generateExercise, shuffleArray, normalizeMeaning } from '../lib/exercis
 import { gradeAnswer } from '../lib/pinyinGrader';
 import { gradeEnglishAnswer } from '../lib/englishGrader';
 import { generateSessionStatistics } from '../lib/reportGenerator';
-import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords, generateVocabularyId } from '../lib/responseTracking/storage';
+import { loadResponseDatabase, addResponseRecords, saveResponseDatabase, countWords, generateVocabularyId, remapVocabularyId } from '../lib/responseTracking/storage';
 import { filterVocabulary, hasMasteryFilterActive } from '../lib/vocabularyFilter';
 import { updateDashboardOnSessionComplete } from '../lib/dashboard/storage';
 import { convertPinyinStringToToneMarks } from '../lib/pinyinToneConverter';
-import { loadVocabularySelection, saveVocabularySelection } from '../lib/vocabularySelection';
+import { loadVocabularySelection, saveVocabularySelection, remapSelectionId } from '../lib/vocabularySelection';
+import { mergeVocabulary } from '../lib/vocabularyMerge';
 
 type Screen = 'menu' | 'exercise' | 'feedback' | 'report' | 'view-vocabulary' | 'tone-sequence' | 'speed-drill-config' | 'sentence-reading' | 'tone-pattern' | 'similar-characters' | 'exercise-config' | 'dashboard' | 'tense-aspect' | 'flashcard' | 'interrogative' | 'structural-particle' | 'question-particle';
 
@@ -277,12 +278,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
     case 'SET_VOCABULARY': {
       const vocabulary = action.payload;
 
-      // Update vocabulary selection: new entries get auto-selected, existing entries keep their status
-      const currentSelection = loadVocabularySelection();
-      const oldVocabIds = new Set<string>();
-
-      // Build set of old vocabulary IDs from state, or from localStorage if state is empty
-      // (handles the case where page was refreshed and state.vocabulary is null)
+      // Load old vocabulary from state or localStorage (handles page refresh)
       let oldVocabulary = state.vocabulary?.active;
       if (!oldVocabulary) {
         try {
@@ -296,15 +292,24 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         }
       }
 
+      // Merge new vocabulary with old, preserving user's in-app meaning edits
+      const mergedActive = oldVocabulary && oldVocabulary.length > 0
+        ? mergeVocabulary(oldVocabulary, vocabulary.active)
+        : vocabulary.active;
+      const mergedVocabulary: VocabularyData = { ...vocabulary, active: mergedActive };
+
+      // Update vocabulary selection: new entries get auto-selected, existing entries keep their status
+      const currentSelection = loadVocabularySelection();
+      const oldVocabIds = new Set<string>();
+
       if (oldVocabulary) {
         for (const entry of oldVocabulary) {
           oldVocabIds.add(generateVocabularyId(entry.word, entry.pinyin, entry.meaning));
         }
       }
 
-      // For each new vocabulary entry, add to selection if it's truly new (not in old vocabulary)
       const updatedSelection = new Set(currentSelection);
-      for (const entry of vocabulary.active) {
+      for (const entry of mergedActive) {
         const vocabId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
         if (!oldVocabIds.has(vocabId)) {
           // This is a new entry - auto-select it
@@ -318,7 +323,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
 
       return {
         ...state,
-        vocabulary,
+        vocabulary: mergedVocabulary,
         isLoading: false,
         screen: 'menu'
       };
@@ -436,7 +441,7 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       const wordCount = countWords(correctAnswer);
 
       const newTiming = {
-        vocabularyId: `${vocabEntry.word}:${vocabEntry.pinyin}:${vocabEntry.meaning}`,
+        vocabularyId: generateVocabularyId(vocabEntry.word, vocabEntry.pinyin, vocabEntry.meaning),
         character: vocabEntry.word,
         pinyin: vocabEntry.pinyin,
         meaning: vocabEntry.meaning,
@@ -936,12 +941,25 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
         };
       }
 
+      // Remap vocabularyId in response database and selection when meaning changes
+      let updatedResponseDb = state.responseDatabase;
+      if (field === 'meaning' && value !== currentVocab.meaning && state.responseDatabase) {
+        const oldId = generateVocabularyId(currentVocab.word, currentVocab.pinyin, currentVocab.meaning);
+        const newId = generateVocabularyId(currentVocab.word, currentVocab.pinyin, value);
+        updatedResponseDb = remapVocabularyId(state.responseDatabase, oldId, newId);
+        remapSelectionId(oldId, newId);
+        if (updatedResponseDb !== state.responseDatabase) {
+          saveResponseDatabase(updatedResponseDb);
+        }
+      }
+
       return {
         ...state,
         vocabulary: updatedVocabulary,
         currentExercise: updatedExercise,
         currentAttempt: reGradedAttempt,
         currentSession: updatedSession,
+        responseDatabase: updatedResponseDb,
       };
     }
 
@@ -967,12 +985,25 @@ function exerciseReducer(state: ExerciseState, action: ExerciseAction): Exercise
       const updatedActive = [...state.vocabulary.active];
       updatedActive[index] = updatedEntry;
 
+      // Remap vocabularyId in response database and selection when meaning changes
+      let updatedResponseDb = state.responseDatabase;
+      if (updates.meaning && updates.meaning !== oldEntry.meaning && state.responseDatabase) {
+        const oldId = generateVocabularyId(oldEntry.word, oldEntry.pinyin, oldEntry.meaning);
+        const newId = generateVocabularyId(oldEntry.word, oldEntry.pinyin, updates.meaning);
+        updatedResponseDb = remapVocabularyId(state.responseDatabase, oldId, newId);
+        remapSelectionId(oldId, newId);
+        if (updatedResponseDb !== state.responseDatabase) {
+          saveResponseDatabase(updatedResponseDb);
+        }
+      }
+
       return {
         ...state,
         vocabulary: {
           ...state.vocabulary,
           active: updatedActive,
         },
+        responseDatabase: updatedResponseDb,
         // Note: we intentionally do NOT change the screen here
       };
     }

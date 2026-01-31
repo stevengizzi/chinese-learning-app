@@ -1,5 +1,6 @@
 import type { VocabularyEntry } from '../../types/vocabulary';
 import type { ResponseDatabase, VocabularySpeedStats, ResponseRecord, PromptType, PromptTypeStats } from '../../types/responseTracking';
+import { generateVocabularyId } from '../responseTracking/storage';
 import type {
   MasteryLevel,
   VocabularyMasteryInfo,
@@ -99,12 +100,6 @@ export function calculateMasteryLevel(
   return 'struggling';
 }
 
-/**
- * Generate vocabulary ID from entry
- */
-function generateVocabularyId(entry: VocabularyEntry): string {
-  return `${entry.word}:${entry.pinyin}:${entry.meaning}`;
-}
 
 /**
  * Get recent attempts for a specific prompt type
@@ -228,7 +223,7 @@ export function getVocabularyMasteryInfo(
   entry: VocabularyEntry,
   database: ResponseDatabase | null
 ): VocabularyMasteryInfo {
-  const vocabularyId = generateVocabularyId(entry);
+  const vocabularyId = generateVocabularyId(entry.word, entry.pinyin, entry.meaning);
   const stats = database?.statistics?.[vocabularyId];
   const records = database?.records || [];
 
